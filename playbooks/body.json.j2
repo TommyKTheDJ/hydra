@@ -1,0 +1,10 @@
+{
+  "username": "{{ item.id }}",
+  "first_name": "{{ item.first_name }}",
+  "last_name": "{{ item.last_name }}",
+  "roles": [
+    "{{ item.aos_role }}"
+  ],
+  "password": "{{ item.pwd }}",
+  "email": "{{ item.first_name|lower }}.{{ item.last_name|lower }}@vodafone.com"
+}
