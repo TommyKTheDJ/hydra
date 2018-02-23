@@ -1,0 +1,25 @@
+---
+- hosts: all
+  tasks:
+  - name:    Install packages to allow aufs storage drivers
+    apt:     name={{item}} update_cache=yes
+    with_items:
+     - linux-image-extra-virtual
+  - name:    Install prerequisites
+    apt:     name={{item}} update_cache=yes
+    with_items:
+     - apt-transport-https
+     - ca-certificates
+     - curl
+     - software-properties-common
+     - python-pip
+  - name:    Install python libraries
+    pip:
+      name: urllib3, pyOpenSSL, ndg-httpsclient, pyasn1
+  - name:    Add Docker GPG key
+    apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+  - name:    Add Docker APT repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+  - name:    Install Docker
+    apt:     name=docker-ce
