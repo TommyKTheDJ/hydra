@@ -21,10 +21,20 @@ cp -r inventory/sample inventory/hydracluster
 declare -a IPS=(10.60.3.25 10.60.3.26 10.60.3.27 10.60.3.28)
 CONFIG_FILE=inventory/hydracluster/hosts.ini python3 contrib/inventory_builder/inventory.py ${IPS[@]}
 ```
-- Enable the netchecker option (for verification)
+- Choose the networking plugin you want (we're using the default, calico)
 ```
-vi /inventory/sample/group_vars/k8s-cluster.yml
-(set deploy_netchecker: true) - line 129
+vi /inventory/sample/group_vars/k8s-cluster.yml (lines 65-67)
+
+# Choose network plugin (cilium, calico, contiv, weave or flannel)
+# Can also be set to 'cloud', which lets the cloud provider setup appropriate routing
+kube_network_plugin: calico
+```
+- Enable the netchecker option in k8s-cluster.yml (for verification) 
+```
+vi /inventory/sample/group_vars/k8s-cluster.yml (line 129)
+
+# Deploy netchecker app to verify DNS resolve as an HTTP service
+deploy_netchecker: true
 ```
 - Run the deployment playbook
 ```
