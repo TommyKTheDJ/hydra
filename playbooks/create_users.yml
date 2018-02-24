@@ -2,7 +2,7 @@
   user: hydra
   become: true
 
-  
+
   tasks:
   - include_vars: users.yml
 
@@ -25,6 +25,7 @@
         password={{ item.pwd|password_hash('sha512') }}
         createhome=yes
         comment='created with ansible'
+        shell=/bin/bash
         groups=hydra
 
     with_items: '{{users}}'
