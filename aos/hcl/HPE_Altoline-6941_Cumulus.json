@@ -1,0 +1,59 @@
+{
+    "hardware_capabilities": {
+        "userland": 64,
+        "ram": 16,
+        "asic": "T2",
+        "form_factor": "1RU",
+        "ecmp_limit": 64,
+        "cpu": "x86"
+    },
+    "display_name": "HPE Altoline 6941",
+    "software_capabilities": {
+        "onie": true,
+        "lxc_support": false
+    },
+    "aos_support_level": "experimental",
+    "layout": [
+        {
+            "card_slot_id": 0,
+            "panel_id": 1,
+            "supported_transformations": [
+                {
+                    "from_speed": {
+                        "value": 40,
+                        "unit": "G"
+                    },
+                    "to_count": 4,
+                    "from_count": 1,
+                    "to_speed": {
+                        "value": 10,
+                        "unit": "G"
+                    }
+                }
+            ],
+            "port_indexing": {
+                "order": "T-B, L-R",
+                "start_index": 1,
+                "schema": "absolute"
+            },
+            "default_speed": {
+                "value": 40,
+                "unit": "G"
+            },
+            "failure_domain_id": 1,
+            "type": "qsfp",
+            "panel_layout": {
+                "row_count": 2,
+                "column_count": 16
+            }
+        }
+    ],
+    "slot_count": 0,
+    "id": "HPE_Altoline-6941_Cumulus",
+    "selector": {
+        "os_version": "(3\\.(1|2|3|4|5)\\.\\d+)",
+        "model": "Altoline 6941",
+        "os": "Cumulus",
+        "manufacturer": "HPE"
+    }
+}

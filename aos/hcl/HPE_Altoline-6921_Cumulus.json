@@ -1,0 +1,94 @@
+{
+    "hardware_capabilities": {
+        "userland": 64,
+        "ram": 16,
+        "asic": "T2",
+        "form_factor": "1RU",
+        "ecmp_limit": 64,
+        "cpu": "x86"
+    },
+    "layout": [
+        {
+            "panel_id": 2,
+            "supported_transformations": [
+                {
+                    "from_speed": {
+                        "value": 40,
+                        "unit": "G"
+                    },
+                    "to_count": 4,
+                    "from_count": 1,
+                    "to_speed": {
+                        "value": 10,
+                        "unit": "G"
+                    }
+                }
+            ],
+            "port_indexing": {
+                "order": "T-B, L-R",
+                "start_index": 49,
+                "schema": "absolute"
+            },
+            "default_speed": {
+                "value": 40,
+                "unit": "G"
+            },
+            "card_slot_id": 0,
+            "failure_domain_id": 2,
+            "type": "qsfp",
+            "panel_layout": {
+                "row_count": 2,
+                "column_count": 3
+            }
+        },
+        {
+            "panel_id": 1,
+            "supported_transformations": [
+                {
+                    "from_speed": {
+                        "value": 10,
+                        "unit": "G"
+                    },
+                    "to_count": 1,
+                    "from_count": 1,
+                    "to_speed": {
+                        "value": 1,
+                        "unit": "G"
+                    }
+                }
+            ],
+            "port_indexing": {
+                "order": "T-B, L-R",
+                "start_index": 1,
+                "schema": "absolute"
+            },
+            "default_speed": {
+                "value": 10,
+                "unit": "G"
+            },
+            "card_slot_id": 0,
+            "failure_domain_id": 1,
+            "type": "sfp",
+            "panel_layout": {
+                "row_count": 2,
+                "column_count": 24
+            }
+        }
+    ],
+
+    "aos_support_level": "experimental",
+
+    "selector": {
+        "os_version": "(3\\.(1|2|3|4|5)\\.\\d+)",
+        "model": "Altoline 6921",
+        "os": "Cumulus",
+        "manufacturer": "HPE"
+    },
+    "software_capabilities": {
+        "onie": true,
+        "lxc_support": false
+    },
+    "display_name": "HPE Altoline 6921",
+    "slot_count": 0,
+    "id": "HPE_Altoline-6921_Cumulus"
+}
