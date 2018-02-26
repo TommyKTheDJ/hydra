@@ -1,6 +1,4 @@
-- include_vars: users.yml
-- include_vars: passwords.yml
-
+---
 - name: Get token
   uri:
     url: https://{{ aos_host }}/api/aaa/login
