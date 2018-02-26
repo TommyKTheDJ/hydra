@@ -1,0 +1,5 @@
+hostname: proteus
+addresses:
+  ipxe: 10.60.2.28
+  mgmt: 10.60.3.28
+  sw_mgmt: 10.60.4.28
