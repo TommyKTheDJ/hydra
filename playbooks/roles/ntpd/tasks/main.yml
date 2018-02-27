@@ -1,0 +1,30 @@
+---
+
+- name: Ensure NTP-related packages are installed.
+  apt:
+    name: ntp
+    state: present
+#
+# - name: Ensure tzdata package is installed (Linux).
+#   package:
+#     name: tzdata
+#     state: present
+#   when: ansible_system == "Linux"
+
+- name: Set timezone
+  timezone:
+    name: "{{ ntp_timezone }}"
+
+- name: Ensure NTP is running and enabled as configured.
+  service:
+    name: ntp
+    enabled: yes
+
+- name: Generate ntp.conf file
+  template:
+    src: ntp.conf.j2
+    dest: /etc/ntp.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart ntp
