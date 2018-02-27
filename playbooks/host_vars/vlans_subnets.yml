@@ -1,0 +1,66 @@
+---
+vlan:
+  - name: HYDRA_EXT_1
+    id: 601
+    subnet: 10.68.1.0
+    prefix: 30
+    gateway: 10.68.1.1
+    internet: YES
+    notes:
+  - name: HYDRA_EXT_2
+    id: 602
+    subnet: 10.68.1.4
+    prefix: 30
+    gateway: 10.68.1.5
+    internet: YES
+    notes:
+  - name: HYDRA_EXT_3
+    id: 603
+    subnet: 10.68.1.8
+    prefix: 30
+    gateway: 10.68.1.9
+    internet: YES
+    notes:
+  - name: HYDRA_EXT_4
+    id: 604
+    subnet: 10.68.1.12
+    prefix: 30
+    gateway: 10.68.1.13
+    internet: YES
+    notes:
+  - name: HYDRA_IPXE
+    id: 700
+    subnet: 10.60.2.0
+    prefix: 24
+    gateway:
+    internet: NO
+    notes:
+  - name: HYDRA_MGMT
+    id: 701
+    subnet: 10.60.3.0
+    prefix: 24
+    gateway: 10.60.3.1
+    internet: YES
+    notes: static IP range: 10.60.3.1-10.60.3.128
+  - name: HYDRA_SW_MGMT
+    id: 702
+    subnet: 10.60.4.0
+    prefix: 24
+    gateway: 10.60.4.1
+    internet: NO
+    notes:
+  - name: HYDRA_TBD_1
+    id: 703
+    subnet: 10.60.5.0
+    prefix: 24
+    gateway: 10.60.5.1
+    internet: YES
+    notes:
+  - name: HYDRA_TBD_2
+    id: 704
+    subnet: 10.60.6.0
+    prefix: 24
+    gateway: 10.60.6.1
+    internet: YES
+    notes:
+...
