@@ -1,0 +1,30 @@
+---
+- name: Install packages
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - isc-dhcp-server
+    - rsyslog
+
+- name: Add line to rsyslog config
+  template:
+    src: 52-hydra-dhcpd.conf.j2
+    dest: /etc/rsyslog.d/52-hydra-dhcpd.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart rsyslogd
+
+- name: Create isc-dhcp-server configuration file
+  template:
+    src: isc-dhcp-server.j2
+    dest: /etc/default/isc-dhcp-server
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Configure DHCP server
+  template:
+    src: dhcpd.conf.j2
+    dest: /etc/dhcp/dhcpd.conf
+  notify: restart dhcpd

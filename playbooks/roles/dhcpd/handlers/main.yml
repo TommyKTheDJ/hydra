@@ -1,0 +1,9 @@
+- name: restart dhcpd
+  service:
+    name: isc-dhcp-server
+    state: restarted
+
+- name: restart rsyslogd
+  service:
+    name: rsyslogd
+    state: restarted

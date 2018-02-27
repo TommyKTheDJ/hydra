@@ -1,0 +1,28 @@
+# ===================================================
+# Configured by Ansible on {{ ansible_date_time.iso8601 }}
+# ===================================================
+option domain-name "castelletto.vodafone.local";
+option domain-name-servers 10.50.30.91;
+default-lease-time 600;
+option ntp-servers 10.50.30.92;
+max-lease-time 7200;
+authoritative;
+
+# Management Subnet
+subnet 10.60.3.0 netmask 255.255.255.0 {
+        option routers 10.60.3.1;
+        range 10.60.3.130 10.60.3.200;
+}
+# IPXE Subnet
+subnet 10.60.2.0 netmask 255.255.255.0 {
+        option routers 10.60.2.1;
+        range 10.60.2.130 10.60.2.200;
+}
+# Switch Management Subnet
+subnet 10.60.4.0 netmask 255.255.255.0 {
+        option routers 10.60.4.1;
+        range 10.60.4.130 10.60.4.200;
+}
+
+
+log-facility local7;
