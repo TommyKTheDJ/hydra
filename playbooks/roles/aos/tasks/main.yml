@@ -19,7 +19,7 @@
       AUTHTOKEN: "{{ login.json.token }}"
     url: https://{{ aos_host }}/api/aaa/users/
     method: POST
-    body: "{{ lookup('template','body.json.j2') }}"
+    body: "{{ lookup('template','aaa.j2') }}"
     # force_basic_auth: yes
     status_code: 201
     body_format: json
