@@ -1,0 +1,25 @@
+!
+hostname {{ device.hostname }}
+!
+{% for iface in device.interfaces %}
+interface {{ device.interface_name }}/{{ iface.name }}
+{% if iface.type == "trunk" %}
+  switchport
+  switchport mode {{ iface.type }}
+  switchport {{ iface.type }} allowed vlan {{ iface.vlan }}
+{% elif iface.type == "access" %}
+  switchport
+  switchport mode {{ iface.type }}
+  switchport {{ iface.type }} vlan {{ iface.vlan }}
+{% else %}
+  no switchport
+{% endif %}
+  description {{ iface.description }}
+{% if iface.active %}
+  no shutdown
+{% else %}
+  shutdown
+{% endif %}
+!
+{% endfor %}
+
