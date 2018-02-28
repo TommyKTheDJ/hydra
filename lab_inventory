@@ -3,6 +3,7 @@ jason   ansible_user=hydra
 castor  ansible_user=hydra
 ares    ansible_user=hydra
 proteus ansible_user=hydra
+charon ansible_user=hydra
 
 [rack_1:children]
 rack_1_console
