@@ -1,5 +1,4 @@
 ---
-
 - name: Ensure NTP-related packages are installed.
   apt:
     name: ntp
