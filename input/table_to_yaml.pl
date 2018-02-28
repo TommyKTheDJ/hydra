@@ -15,7 +15,10 @@ print OUT "---\nnode:\n";
 
 while (my $line = <IN>) {
 	my @words = split(/;/, $line);
-	print OUT "  - hostname: $words[0]\n    type: $words[1]\n    model: $words[2]\n    os: $words[3]\n    vcpu: $words[4]\n    vram $words[5]\n    vdisk: $words[6]\n    ip_address:\n      ipxe: $words[7]\n      mgmt: $words[8]\n      sw_mgmt: $words[9]\n    console:\n      server: $words[10]\n      port: $words[11]\n    mgmt:\n      switch: $words[12]\n      port: $words[13]\n    username: $words[14]\n    url: $words[15]\n    rack: $words[16]";
+        foreach (@words) {
+		 chomp (); 
+	}
+	print OUT "  - hostname: '$words[0]'\n    type: '$words[1]'\n    model: '$words[2]'\n    os: '$words[3]'\n    vcpu: '$words[4]'\n    vram: '$words[5]'\n    vdisk: '$words[6]'\n    ip_address:\n      ipxe: '$words[7]'\n      mgmt: '$words[8]'\n      sw_mgmt: '$words[9]'\n    console:\n      server: '$words[10]'\n      port: '$words[11]'\n    mgmt:\n      switch: '$words[12]'\n      port: '$words[13]'\n    username: '$words[14]'\n    url: '$words[15]'\n\n";
 }
 
 print OUT "...\n";
