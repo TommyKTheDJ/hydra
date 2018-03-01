@@ -1,0 +1,13 @@
+{% for node in nodes %}
+{% if node.console.server and node.console.port and node.console.server == inventory_hostname %}
+set deviceport port {{ node.console.port }} name {{ node.hostname }}
+set deviceport port {{ node.console.port }} sshin Enable
+{% if node.type == 'pdu' or 'altoline' in node.model|lower or '-ON' or '5048' in node.model %}
+{% set baud=115200 %}
+{% else %}
+{% set baud=9600 %}
+{% endif %}
+set deviceport port {{ node.console.port }} baud {{ baud }}
+{% endif %}
+{% endfor %}
+admin config save ansible_{{ ansible_date_time.epoch }} location local

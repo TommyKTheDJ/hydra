@@ -33,22 +33,22 @@ rack_1_console
 rack_2_console
 
 [rack_1_pdus]
-hydra-pdu-1
-hydra-pdu-2
+hydra-pdu-1 ansible_connection=local
+hydra-pdu-2 ansible_connection=local
 
 [rack_1_console]
-hydra-console-1
+hydra-console-1 ansible_connection=local
 
 [nexuses:children]
 rack_1_mgmt_switch
 rack_2_mgmt_switch
 
 [rack_2_console]
-hydra-console-2
+hydra-console-2 ansible_connection=local
 
 [rack_2_pdus]
-hydra-pdu-3
-hydra-pdu-4
+hydra-pdu-3 ansible_connection=local
+hydra-pdu-4 ansible_connection=local
 
 [rack_1_mgmt_switch]
 hydra-mgmt-1

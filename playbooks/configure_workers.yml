@@ -1,9 +1,9 @@
-# - hosts: dhcpd_servers
-#   user: hydra
-#   become: true
-#   roles:
-#     - dhcpd
-#   tags: dhcpd
+- hosts: dhcpd_servers
+  user: hydra
+  become: true
+  roles:
+    - dhcpd
+  tags: dhcpd
 
 - hosts: virtual_workers
   user: hydra
@@ -16,7 +16,7 @@
   become: true
   roles:
     - unix_accounts
-    - ntpd  
+    - ntpd
   tags:
     - accounts
     - ntpd
