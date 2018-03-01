@@ -1,823 +1,823 @@
 ---
 node:
-  - hostname: hostname
-    type: type
-    model: model
-    os: OS
-    vcpu: vCPU
-    vram vRAM (GB)
-    vdisk: vDisk (GB)
+  - hostname: 'hostname'
+    type: 'type'
+    model: 'model'
+    os: 'OS'
+    vcpu: 'vCPU'
+    vram: 'vRAM (GB)'
+    vdisk: 'vDisk (GB)'
     ip_address:
-      ipxe: IPXE IP address
-      mgmt: Mgmt IP address
-      sw_mgmt: SW Mgmt IP address
+      ipxe: 'IPXE IP address'
+      mgmt: 'Mgmt IP address'
+      sw_mgmt: 'SW Mgmt IP address'
     console:
-      server: Console server
-      port: Port
+      server: 'Console server'
+      port: 'Port'
     mgmt:
-      switch: Mgmt Switch
-      port: Port
-    username: 
-    url: URL
-    rack: Rack
-  - hostname: aos-server
-    type: VM
-    model: VM
-    os: Apstra AoS
-    vcpu: 4
-    vram 8
-    vdisk: 30
+      switch: 'Mgmt Switch'
+      port: 'Port'
+    username: ''
+    url: 'URL'
+
+  - hostname: 'aos-server'
+    type: 'VM'
+    model: 'VM'
+    os: 'Apstra AoS'
+    vcpu: '4'
+    vram: '8'
+    vdisk: '30'
     ip_address:
-      ipxe: -
-      mgmt: 10.60.3.20
-      sw_mgmt: -
+      ipxe: ''
+      mgmt: '10.60.3.20'
+      sw_mgmt: ''
     console:
-      server: -
-      port: -
+      server: ''
+      port: ''
     mgmt:
-      switch: -
-      port: -
-    username: admin
-    url: ssh://admin@10.60.3.20
-    rack: 0
-  - hostname: charon
-    type: VM
-    model: VM
-    os: Ubuntu 16.04 LTS
-    vcpu: 4
-    vram 8
-    vdisk: 30
+      switch: ''
+      port: ''
+    username: 'admin'
+    url: 'ssh://admin@10.60.3.20'
+
+  - hostname: 'charon'
+    type: 'VM'
+    model: 'VM'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: '4'
+    vram: '8'
+    vdisk: '30'
     ip_address:
-      ipxe: 10.60.2.24
-      mgmt: 10.60.3.24
-      sw_mgmt: 10.60.4.24
+      ipxe: '10.60.2.24'
+      mgmt: '10.60.3.24'
+      sw_mgmt: '10.60.4.24'
     console:
-      server: -
-      port: -
+      server: ''
+      port: ''
     mgmt:
-      switch: -
-      port: -
-    username: hydra
-    url: ssh://hydra@10.60.3.24
-    rack: 0
-  - hostname: ares
-    type: VM
-    model: VM
-    os: Ubuntu 16.04 LTS
-    vcpu: 4
-    vram 8
-    vdisk: 30
+      switch: ''
+      port: ''
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.3.24'
+
+  - hostname: 'ares'
+    type: 'VM'
+    model: 'VM'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: '4'
+    vram: '8'
+    vdisk: '30'
     ip_address:
-      ipxe: 10.60.2.25
-      mgmt: 10.60.3.25
-      sw_mgmt: 10.60.4.25
+      ipxe: '10.60.2.25'
+      mgmt: '10.60.3.25'
+      sw_mgmt: '10.60.4.25'
     console:
-      server: -
-      port: -
+      server: ''
+      port: ''
     mgmt:
-      switch: -
-      port: -
-    username: hydra
-    url: ssh://hydra@10.60.3.25
-    rack: 0
-  - hostname: castor
-    type: VM
-    model: VM
-    os: Ubuntu 16.04 LTS
-    vcpu: 4
-    vram 8
-    vdisk: 30
+      switch: ''
+      port: ''
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.3.25'
+
+  - hostname: 'castor'
+    type: 'VM'
+    model: 'VM'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: '4'
+    vram: '8'
+    vdisk: '30'
     ip_address:
-      ipxe: 10.60.2.26
-      mgmt: 10.60.3.26
-      sw_mgmt: 10.60.4.26
+      ipxe: '10.60.2.26'
+      mgmt: '10.60.3.26'
+      sw_mgmt: '10.60.4.26'
     console:
-      server: -
-      port: -
+      server: ''
+      port: ''
     mgmt:
-      switch: -
-      port: -
-    username: hydra
-    url: ssh://hydra@10.60.3.26
-    rack: 0
-  - hostname: jason
-    type: VM
-    model: VM
-    os: Ubuntu 16.04 LTS
-    vcpu: 2
-    vram 8
-    vdisk: 30
+      switch: ''
+      port: ''
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.3.26'
+
+  - hostname: 'jason'
+    type: 'VM'
+    model: 'VM'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: '2'
+    vram: '8'
+    vdisk: '30'
     ip_address:
-      ipxe: 10.60.2.27
-      mgmt: 10.60.3.27
-      sw_mgmt: 10.60.4.27
+      ipxe: '10.60.2.27'
+      mgmt: '10.60.3.27'
+      sw_mgmt: '10.60.4.27'
     console:
-      server: -
-      port: -
+      server: ''
+      port: ''
     mgmt:
-      switch: -
-      port: -
-    username: hydra
-    url: ssh://hydra@10.60.3.27
-    rack: 0
-  - hostname: proteus
-    type: VM
-    model: VM
-    os: Ubuntu 16.04 LTS
-    vcpu: 4
-    vram 8
-    vdisk: 30
+      switch: ''
+      port: ''
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.3.27'
+
+  - hostname: 'proteus'
+    type: 'VM'
+    model: 'VM'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: '4'
+    vram: '8'
+    vdisk: '30'
     ip_address:
-      ipxe: 10.60.2.28
-      mgmt: 10.60.3.28
-      sw_mgmt: 10.60.4.28
+      ipxe: '10.60.2.28'
+      mgmt: '10.60.3.28'
+      sw_mgmt: '10.60.4.28'
     console:
-      server: -
-      port: -
+      server: ''
+      port: ''
     mgmt:
-      switch: -
-      port: -
-    username: hydra
-    url: ssh://hydra@10.60.3.28
-    rack: 0
-  - hostname: hydra-mgmt-1
-    type: mgmt-switch
-    model: Cisco Nexus 9348
-    os: NX-OS
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: ''
+      port: ''
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.3.28'
+
+  - hostname: 'hydra-mgmt-1'
+    type: 'mgmt-switch'
+    model: 'Cisco Nexus 9348'
+    os: 'NX-OS'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: 10.60.3.49
-      sw_mgmt: -
+      ipxe: ''
+      mgmt: '10.60.3.49'
+      sw_mgmt: ''
     console:
-      server: hydra-console-1
-      port: 1
+      server: 'hydra-console-1'
+      port: '1'
     mgmt:
-      switch: -
-      port: -
-    username: admin
-    url: ssh://admin@10.60.3.49
-    rack: 1
-  - hostname: hydra-console-1
-    type: console
-    model: Lantronix SLC8K
-    os: -
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: ''
+      port: ''
+    username: 'admin'
+    url: 'ssh://admin@10.60.3.49'
+
+  - hostname: 'hydra-console-1'
+    type: 'console'
+    model: 'Lantronix SLC8K'
+    os: ''
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: 10.60.3.51
-      sw_mgmt: -
+      ipxe: ''
+      mgmt: '10.60.3.51'
+      sw_mgmt: ''
     console:
-      server: -�
-      port: -�
+      server: ''
+      port: ''
     mgmt:
-      switch: hydra-mgmt-1
-      port: 1
-    username: sysadmin
-    url: ssh://sysadmin@10.60.3.51
-    rack: 1
-  - hostname: hydra-pdu-1
-    type: pdu
-    model: Raritan px3-5493v
-    os: -
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '1'
+    username: 'sysadmin'
+    url: 'ssh://sysadmin@10.60.3.51'
+
+  - hostname: 'hydra-pdu-1'
+    type: 'pdu'
+    model: 'Raritan px3-5493v'
+    os: ''
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: 10.60.3.53
-      sw_mgmt: -
+      ipxe: ''
+      mgmt: '10.60.3.53'
+      sw_mgmt: ''
     console:
-      server: hydra-console-1
-      port: 2
+      server: 'hydra-console-1'
+      port: '2'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 2
-    username: admin
-    url: ssh://admin@10.60.3.53
-    rack: 1
-  - hostname: hydra-pdu-2
-    type: pdu
-    model: Raritan px3-5493v
-    os: -
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '2'
+    username: 'admin'
+    url: 'ssh://admin@10.60.3.53'
+
+  - hostname: 'hydra-pdu-2'
+    type: 'pdu'
+    model: 'Raritan px3-5493v'
+    os: ''
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: 10.60.3.54
-      sw_mgmt: -
+      ipxe: ''
+      mgmt: '10.60.3.54'
+      sw_mgmt: ''
     console:
-      server: hydra-console-1
-      port: 3
+      server: 'hydra-console-1'
+      port: '3'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 3
-    username: admin
-    url: ssh://admin@10.60.3.54
-    rack: 1
-  - hostname: hydra-spine-1
-    type: switch
-    model: Altoline 6960�
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '3'
+    username: 'admin'
+    url: 'ssh://admin@10.60.3.54'
+
+  - hostname: 'hydra-spine-1'
+    type: 'switch'
+    model: 'Altoline 6960'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.10
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.10'
     console:
-      server: hydra-console-1
-      port: 10
+      server: 'hydra-console-1'
+      port: '10'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 10
-    username: admin
-    url: ssh://admin@10.60.4.10
-    rack: 1
-  - hostname: hydra-spine-2
-    type: switch
-    model: Altoline 6960�
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '10'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.10'
+
+  - hostname: 'hydra-spine-2'
+    type: 'switch'
+    model: 'Altoline 6960'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.11
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.11'
     console:
-      server: hydra-console-1
-      port: 11
+      server: 'hydra-console-1'
+      port: '11'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 11
-    username: admin
-    url: ssh://admin@10.60.4.11
-    rack: 1
-  - hostname: hydra-tor-1-1
-    type: switch
-    model: Altoline 6921�
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '11'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.11'
+
+  - hostname: 'hydra-tor-1-1'
+    type: 'switch'
+    model: 'Altoline 6921'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.12
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.12'
     console:
-      server: hydra-console-1
-      port: 12
+      server: 'hydra-console-1'
+      port: '12'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 12
-    username: admin
-    url: ssh://admin@10.60.4.12
-    rack: 1
-  - hostname: hydra-tor-1-2
-    type: switch
-    model: Altoline 6921
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '12'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.12'
+
+  - hostname: 'hydra-tor-1-2'
+    type: 'switch'
+    model: 'Altoline 6921'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.13
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.13'
     console:
-      server: hydra-console-1
-      port: 13
+      server: 'hydra-console-1'
+      port: '13'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 13
-    username: admin
-    url: ssh://admin@10.60.4.13
-    rack: 1
-  - hostname: hydra-tor-2-1
-    type: switch
-    model: Altoline 6921�
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '13'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.13'
+
+  - hostname: 'hydra-tor-2-1'
+    type: 'switch'
+    model: 'Altoline 6921'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.14
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.14'
     console:
-      server: hydra-console-1
-      port: 16
+      server: 'hydra-console-1'
+      port: '16'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 16
-    username: admin
-    url: ssh://admin@10.60.4.14
-    rack: 1
-  - hostname: hydra-tor-2-2
-    type: switch
-    model: Altoline 6921
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '16'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.14'
+
+  - hostname: 'hydra-tor-2-2'
+    type: 'switch'
+    model: 'Altoline 6921'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.15
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.15'
     console:
-      server: hydra-console-1
-      port: 17
+      server: 'hydra-console-1'
+      port: '17'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 17
-    username: admin
-    url: ssh://admin@10.60.4.15
-    rack: 1
-  - hostname: hydra-border-1
-    type: switch
-    model: Altoline 6941�
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '17'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.15'
+
+  - hostname: 'hydra-border-1'
+    type: 'switch'
+    model: 'Altoline 6941'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.16
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.16'
     console:
-      server: hydra-console-1
-      port: 14
+      server: 'hydra-console-1'
+      port: '14'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 14
-    username: admin
-    url: ssh://admin@10.60.4.16
-    rack: 1
-  - hostname: hydra-border-2
-    type: switch
-    model: Altoline 6941�
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '14'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.16'
+
+  - hostname: 'hydra-border-2'
+    type: 'switch'
+    model: 'Altoline 6941'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.17
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.17'
     console:
-      server: hydra-console-1
-      port: 15
+      server: 'hydra-console-1'
+      port: '15'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 15
-    username: admin
-    url: ssh://admin@10.60.4.17
-    rack: 1
-  - hostname: helios
-    type: host
-    model: DL360Gen9
-    os: Ubuntu 16.04 LTS
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '15'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.17'
+
+  - hostname: 'helios'
+    type: 'host'
+    model: 'DL360Gen9'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: 10.60.2.10
-      mgmt: -
-      sw_mgmt: -
+      ipxe: '10.60.2.10'
+      mgmt: ''
+      sw_mgmt: ''
     console:
-      server: hydra-console-1
-      port: 25
+      server: 'hydra-console-1'
+      port: '25'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 25
-    username: hydra
-    url: ssh://hydra@10.60.2.10
-    rack: 1
-  - hostname: morpheus
-    type: host
-    model: DL360Gen9
-    os: Ubuntu 16.04 LTS
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '25'
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.2.10'
+
+  - hostname: 'morpheus'
+    type: 'host'
+    model: 'DL360Gen9'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: 10.60.2.11
-      mgmt: -
-      sw_mgmt: -
+      ipxe: '10.60.2.11'
+      mgmt: ''
+      sw_mgmt: ''
     console:
-      server: hydra-console-1
-      port: 26
+      server: 'hydra-console-1'
+      port: '26'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 26
-    username: hydra
-    url: ssh://hydra@10.60.2.11
-    rack: 1
-  - hostname: hermes
-    type: host
-    model: DL360Gen9
-    os: Ubuntu 16.04 LTS
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '26'
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.2.11'
+
+  - hostname: 'hermes'
+    type: 'host'
+    model: 'DL360Gen9'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: 10.60.2.12
-      mgmt: -
-      sw_mgmt: -
+      ipxe: '10.60.2.12'
+      mgmt: ''
+      sw_mgmt: ''
     console:
-      server: hydra-console-1
-      port: 27
+      server: 'hydra-console-1'
+      port: '27'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 27
-    username: hydra
-    url: ssh://hydra@10.60.2.12
-    rack: 1
-  - hostname: hypnos
-    type: host
-    model: DL360Gen9
-    os: Ubuntu 16.04 LTS
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '27'
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.2.12'
+
+  - hostname: 'hypnos'
+    type: 'host'
+    model: 'DL360Gen9'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: 10.60.2.13
-      mgmt: -
-      sw_mgmt: -
+      ipxe: '10.60.2.13'
+      mgmt: ''
+      sw_mgmt: ''
     console:
-      server: hydra-console-1
-      port: 28
+      server: 'hydra-console-1'
+      port: '28'
     mgmt:
-      switch: hydra-mgmt-1
-      port: 28
-    username: hydra
-    url: ssh://hydra@10.60.2.13
-    rack: 1
-  - hostname: hydra-mgmt-2
-    type: mgmt-switch
-    model: Cisco Nexus
-    os: NX-OS
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-1'
+      port: '28'
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.2.13'
+
+  - hostname: 'hydra-mgmt-2'
+    type: 'mgmt-switch'
+    model: 'Cisco Nexus'
+    os: 'NX-OS'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: 10.60.3.50
-      sw_mgmt: -
+      ipxe: ''
+      mgmt: '10.60.3.50'
+      sw_mgmt: ''
     console:
-      server: hydra-console-2
-      port: 1
+      server: 'hydra-console-2'
+      port: '1'
     mgmt:
-      switch: -
-      port: -�
-    username: admin
-    url: ssh://admin@10.60.3.50
-    rack: 2
-  - hostname: hydra-console-2
-    type: console
-    model: Raritan PDU
-    os: -
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: ''
+      port: ''
+    username: 'admin'
+    url: 'ssh://admin@10.60.3.50'
+
+  - hostname: 'hydra-console-2'
+    type: 'console'
+    model: 'Raritan PDU'
+    os: ''
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: 10.60.3.52
-      sw_mgmt: -
+      ipxe: ''
+      mgmt: '10.60.3.52'
+      sw_mgmt: ''
     console:
-      server: -
-      port: -�
+      server: ''
+      port: ''
     mgmt:
-      switch: hydra-mgmt-2
-      port: 1
-    username: sysadmin
-    url: ssh://sysadmin@10.60.3.52
-    rack: 2
-  - hostname: hydra-pdu-3
-    type: pdu
-    model: Raritan PDU
-    os: -
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '1'
+    username: 'sysadmin'
+    url: 'ssh://sysadmin@10.60.3.52'
+
+  - hostname: 'hydra-pdu-3'
+    type: 'pdu'
+    model: 'Raritan PDU'
+    os: ''
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: 10.60.3.55
-      sw_mgmt: -
+      ipxe: ''
+      mgmt: '10.60.3.55'
+      sw_mgmt: ''
     console:
-      server: hydra-console-2
-      port: 2
+      server: 'hydra-console-2'
+      port: '2'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 2
-    username: admin
-    url: ssh://admin@10.60.3.55
-    rack: 2
-  - hostname: hydra-pdu-4
-    type: pdu
-    model: Raritan PDU
-    os: -
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '2'
+    username: 'admin'
+    url: 'ssh://admin@10.60.3.55'
+
+  - hostname: 'hydra-pdu-4'
+    type: 'pdu'
+    model: 'Raritan PDU'
+    os: ''
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: 10.60.3.56
-      sw_mgmt: -
+      ipxe: ''
+      mgmt: '10.60.3.56'
+      sw_mgmt: ''
     console:
-      server: hydra-console-2
-      port: 3
+      server: 'hydra-console-2'
+      port: '3'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 3
-    username: admin
-    url: ssh://admin@10.60.3.56
-    rack: 2
-  - hostname: hydra-superspine-1
-    type: switch
-    model: Z9100-ON
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '3'
+    username: 'admin'
+    url: 'ssh://admin@10.60.3.56'
+
+  - hostname: 'hydra-superspine-1'
+    type: 'switch'
+    model: 'Z9100-ON'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.100
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.100'
     console:
-      server: hydra-console-2
-      port: 8
+      server: 'hydra-console-2'
+      port: '8'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 8
-    username: admin
-    url: ssh://admin@10.60.4.100
-    rack: 2
-  - hostname: hydra-superspine-2
-    type: switch
-    model: Z9100-ON
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '8'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.100'
+
+  - hostname: 'hydra-superspine-2'
+    type: 'switch'
+    model: 'Z9100-ON'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.101
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.101'
     console:
-      server: hydra-console-2
-      port: 9
+      server: 'hydra-console-2'
+      port: '9'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 9
-    username: admin
-    url: ssh://admin@10.60.4.101
-    rack: 2
-  - hostname: hydra-spine-3
-    type: switch
-    model: Altoline 6941�
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '9'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.101'
+
+  - hostname: 'hydra-spine-3'
+    type: 'switch'
+    model: 'Altoline 6941'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.20
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.20'
     console:
-      server: hydra-console-2
-      port: 10
+      server: 'hydra-console-2'
+      port: '10'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 10
-    username: admin
-    url: ssh://admin@10.60.4.20
-    rack: 2
-  - hostname: hydra-spine-4
-    type: switch
-    model: Altoline 6941�
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '10'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.20'
+
+  - hostname: 'hydra-spine-4'
+    type: 'switch'
+    model: 'Altoline 6941'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.21
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.21'
     console:
-      server: hydra-console-2
-      port: 11
+      server: 'hydra-console-2'
+      port: '11'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 11
-    username: admin
-    url: ssh://admin@10.60.4.21
-    rack: 2
-  - hostname: hydra-tor-3-1
-    type: switch
-    model: S4148T-ON
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '11'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.21'
+
+  - hostname: 'hydra-tor-3-1'
+    type: 'switch'
+    model: 'S4148T-ON'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.22
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.22'
     console:
-      server: hydra-console-2
-      port: 12
+      server: 'hydra-console-2'
+      port: '12'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 12
-    username: admin
-    url: ssh://admin@10.60.4.22
-    rack: 2
-  - hostname: hydra-tor-3-2
-    type: switch
-    model: S4148T-ON
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '12'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.22'
+
+  - hostname: 'hydra-tor-3-2'
+    type: 'switch'
+    model: 'S4148T-ON'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.23
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.23'
     console:
-      server: hydra-console-2
-      port: 13
+      server: 'hydra-console-2'
+      port: '13'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 13
-    username: admin
-    url: ssh://admin@10.60.4.23
-    rack: 2
-  - hostname: hydra-tor-4-1
-    type: switch
-    model: S5048F
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '13'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.23'
+
+  - hostname: 'hydra-tor-4-1'
+    type: 'switch'
+    model: 'S5048F'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.24
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.24'
     console:
-      server: hydra-console-2
-      port: 14
+      server: 'hydra-console-2'
+      port: '14'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 14
-    username: admin
-    url: ssh://admin@10.60.4.24
-    rack: 2
-  - hostname: hydra-tor-4-2
-    type: switch
-    model: S5048F
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '14'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.24'
+
+  - hostname: 'hydra-tor-4-2'
+    type: 'switch'
+    model: 'S5048F'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.25
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.25'
     console:
-      server: hydra-console-2
-      port: 15
+      server: 'hydra-console-2'
+      port: '15'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 15
-    username: admin
-    url: ssh://admin@10.60.4.25
-    rack: 2
-  - hostname: hydra-border-3
-    type: switch
-    model: Z9100-ON
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '15'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.25'
+
+  - hostname: 'hydra-border-3'
+    type: 'switch'
+    model: 'Z9100-ON'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.26
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.26'
     console:
-      server: hydra-console-2
-      port: 16
+      server: 'hydra-console-2'
+      port: '16'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 16
-    username: admin
-    url: ssh://admin@10.60.4.26
-    rack: 2
-  - hostname: hydra-border-4
-    type: switch
-    model: Z9100-ON
-    os: Cumulus Linux 3.5
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '16'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.26'
+
+  - hostname: 'hydra-border-4'
+    type: 'switch'
+    model: 'Z9100-ON'
+    os: 'Cumulus Linux 3.5'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: -
-      mgmt: -
-      sw_mgmt: 10.60.4.27
+      ipxe: ''
+      mgmt: ''
+      sw_mgmt: '10.60.4.27'
     console:
-      server: hydra-console-2
-      port: 17
+      server: 'hydra-console-2'
+      port: '17'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 17
-    username: admin
-    url: ssh://admin@10.60.4.27
-    rack: 2
-  - hostname: triton
-    type: host
-    model: DL360Gen9
-    os: Ubuntu 16.04 LTS
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '17'
+    username: 'admin'
+    url: 'ssh://admin@10.60.4.27'
+
+  - hostname: 'triton'
+    type: 'host'
+    model: 'DL360Gen9'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: 10.60.2.20
-      mgmt: -
-      sw_mgmt: -
+      ipxe: '10.60.2.20'
+      mgmt: ''
+      sw_mgmt: ''
     console:
-      server: hydra-console-2
-      port: 25
+      server: 'hydra-console-2'
+      port: '25'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 25
-    username: hydra
-    url: ssh://hydra@10.60.2.20
-    rack: 2
-  - hostname: zephyrus
-    type: host
-    model: DL360Gen9
-    os: Ubuntu 16.04 LTS
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '25'
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.2.20'
+
+  - hostname: 'zephyrus'
+    type: 'host'
+    model: 'DL360Gen9'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: 10.60.2.21
-      mgmt: -
-      sw_mgmt: -
+      ipxe: '10.60.2.21'
+      mgmt: ''
+      sw_mgmt: ''
     console:
-      server: hydra-console-2
-      port: 26
+      server: 'hydra-console-2'
+      port: '26'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 26
-    username: hydra
-    url: ssh://hydra@10.60.2.21
-    rack: 2
-  - hostname: kratus
-    type: host
-    model: DL380Gen8
-    os: Ubuntu 16.04 LTS
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '26'
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.2.21'
+
+  - hostname: 'kratus'
+    type: 'host'
+    model: 'DL380Gen8'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: 10.60.2.22
-      mgmt: -
-      sw_mgmt: -
+      ipxe: '10.60.2.22'
+      mgmt: ''
+      sw_mgmt: ''
     console:
-      server: hydra-console-2
-      port: 27
+      server: 'hydra-console-2'
+      port: '27'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 27
-    username: hydra
-    url: ssh://hydra@10.60.2.22
-    rack: 2
-  - hostname: pollux
-    type: host
-    model: DL380Gen8
-    os: Ubuntu 16.04 LTS
-    vcpu: -
-    vram -
-    vdisk: -
+      switch: 'hydra-mgmt-2'
+      port: '27'
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.2.22'
+
+  - hostname: 'pollux'
+    type: 'host'
+    model: 'DL380Gen8'
+    os: 'Ubuntu 16.04 LTS'
+    vcpu: ''
+    vram: ''
+    vdisk: ''
     ip_address:
-      ipxe: 10.60.2.23
-      mgmt: -
-      sw_mgmt: -
+      ipxe: '10.60.2.23'
+      mgmt: ''
+      sw_mgmt: ''
     console:
-      server: hydra-console-2
-      port: 28
+      server: 'hydra-console-2'
+      port: '28'
     mgmt:
-      switch: hydra-mgmt-2
-      port: 28
-    username: hydra
-    url: ssh://hydra@10.60.2.23
-    rack: 2
+      switch: 'hydra-mgmt-2'
+      port: '28'
+    username: 'hydra'
+    url: 'ssh://hydra@10.60.2.23'
+
 ...
