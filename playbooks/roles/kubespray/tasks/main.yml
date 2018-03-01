@@ -1,0 +1,16 @@
+- name: Install git & pip if not already installed
+  apt:
+    name: {{item}}
+    update_cache: yes
+  with_items:
+   - git
+   - python-pip
+
+- name: Install Jinja2
+  pip:
+    name: jinja2
+
+- name: Clone the kubespray repo
+  git:
+    repo: 'https://github.com/kubernetes-incubator/kubespray.git'
+    dest: /tmp/kubespray

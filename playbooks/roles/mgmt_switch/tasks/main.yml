@@ -1,0 +1,36 @@
+- name: READING VLANS AND SUBNETS INFO
+  include_vars:
+    file: host_vars/vlans_subnets.yml
+
+- name: READING CONNECTIVITY INFO
+  include_vars:
+    file: host_vars/connectivity_matrix.yml
+
+- name: CREATING DIRECTORY FOR ABSTRACTION
+  file:
+    dest: nodes/{{ inventory_hostname }}
+    state: directory
+
+- name: CREATING FILES FOR ABSTRACTION
+  file:
+    dest: nodes/{{ inventory_hostname }}/base.yml
+    state: touch
+
+- name: CREATING PER-NODE DESCRIPTOR
+  template:
+    src: ~/ansible/hydra/templates/step0.j2
+    dest: ~/ansible/hydra/nodes/{{ inventory_hostname }}/base.yml
+
+- name: READING PER-NODE PARAMETERS
+  include_vars:
+    file: nodes/{{ inventory_hostname }}/base.yml
+
+- name: CREATING DIRECTORY FOR CONFIG
+  file:
+    dest: output
+    state: directory
+
+- name: CREATING PER-NODE CONFIGURATION FILE
+  template:
+    src: ~/ansible/hydra/templates/nexus.j2
+    dest: ~/ansible/hydra/output/{{ inventory_hostname }}.conf

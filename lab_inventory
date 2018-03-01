@@ -39,7 +39,7 @@ hydra-pdu-2 ansible_connection=local
 [rack_1_console]
 hydra-console-1 ansible_connection=local
 
-[nexuses:children]
+[mgmt_switches:children]
 rack_1_mgmt_switch
 rack_2_mgmt_switch
 

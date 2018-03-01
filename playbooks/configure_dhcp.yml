@@ -1,6 +1,5 @@
----
-- hosts: all
+- hosts: dhcpd_servers
   user: hydra
   become: true
   roles:
-    - helm
+    - dhcpd
