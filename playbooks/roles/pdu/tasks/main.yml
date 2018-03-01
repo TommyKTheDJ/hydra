@@ -1,0 +1,9 @@
+- name: Generate configuration files for PDU ports
+  template:
+    src: ports.j2
+    dest: "/tmp/{{ inventory_hostname }}_port_config.conf"
+
+- name: Generate general configuration files
+  template:
+    src: config.j2
+    dest: "/tmp/{{ inventory_hostname }}_general_config.conf"

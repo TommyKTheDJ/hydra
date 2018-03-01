@@ -1,0 +1,12 @@
+config
+{% for node in nodes %}
+{% if 'pdus' in node.keys() %}
+{% for pdu in node.pdus %}
+{% if  pdu.hostname == inventory_hostname %}
+outlet {{ pdu.port }} name {{ node.hostname }} stateOnDeviceStartup lastKnownState
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
+
+apply

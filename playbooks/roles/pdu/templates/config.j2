@@ -1,0 +1,18 @@
+config
+pdu name {{ inventory_hostname }}
+network dns firstServer {{ dns_server }}
+network services snmp  v1/v2c enable
+network services snmp readCommunity {{ snmp_read_community }}
+network services snmp writeCommunity {{ snmp_write_community }}
+network services snmp sysContact {{ snmp_contact }}
+network services snmp sysName {{ inventory_hostname }}.{{ domain }}
+time ntp firstServer {{ ntp_server }}
+time method ntp
+time autoDST enable
+{# time zone needs to be set up manually #}
+{# ip/DG to be set up manually #}
+
+user create admin enable Admin
+{{ net_password }}
+
+apply
