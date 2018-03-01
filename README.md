@@ -10,9 +10,10 @@ sudo apt-add-repository ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get install -y ansible
 ```
-- Run the kubespray-prequisites.yml playbook
+- Run the kubespray-install.yml playbook
 ```
-ansible-playbook -i "localhost," -c local kubespray-prerequisites.yml
+export ANSIBLE_VAULT_PASSWORD_FILE=.vault_pass
+ansible-playbook  kubespray-install.yml --
 ```
 - Run the inventory generator with the four IPs of the nodes (check they're correct)
 ```
@@ -29,7 +30,7 @@ vi /inventory/sample/group_vars/k8s-cluster.yml (lines 65-67)
 # Can also be set to 'cloud', which lets the cloud provider setup appropriate routing
 kube_network_plugin: calico
 ```
-- Enable the netchecker option in k8s-cluster.yml (for verification) 
+- Enable the netchecker option in k8s-cluster.yml (for verification)
 ```
 vi /inventory/sample/group_vars/k8s-cluster.yml (line 129)
 

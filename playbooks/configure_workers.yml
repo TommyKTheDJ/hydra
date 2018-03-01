@@ -1,16 +1,3 @@
-- hosts: dhcpd_servers
-  user: hydra
-  become: true
-  roles:
-    - dhcpd
-  tags: dhcpd
-
-- hosts: virtual_workers
-  user: hydra
-  become: true
-  roles:
-    - prometheus-node-exporter
-
 - hosts: virtual_workers
   user: hydra
   become: true
@@ -20,3 +7,9 @@
   tags:
     - accounts
     - ntpd
+
+- hosts: virtual_workers
+  user: hydra
+  become: true
+  roles:
+    - docker

@@ -1,4 +1,5 @@
-This playbooks is in charge to crete configuration files for switches. Currently it creates configuration for management switchtes,
+This playbooks is in charge to create the configuration files for switches.
+Currently it creates configuration for management switchtes,
 which are Cisco Nexus currently, but can be easy extended.
 
 Prerequisits:
