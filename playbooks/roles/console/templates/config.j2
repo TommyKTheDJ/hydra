@@ -1,0 +1,29 @@
+
+set services snmp Enable
+set services rocommunity {{ snmp_read_community }}
+set services rwcommunity {{ snmp_write_community }}
+set services contact {{ snmp_contact }}
+set services v2c Enable
+
+set ntp state Enable
+set ntp publicserver {{ ntp_server }}
+
+
+set network dns 1 ipaddr {{ dns_server }}
+
+
+set network host {{ inventory_hostname }}
+
+set localusers state Enable
+set localusers delete {{ net_username }}
+yes
+set localusers add {{ net_username }} group admin
+set localusers password {{ net_username }}
+{{ net_password }}
+
+set sshkey import copypaste host {{ansible_hostname}} login {{ net_username }}
+{{ lookup('file', '~/.ssh/id_rsa.pub')|replace(lookup('env','USER'),net_username) }}
+.
+
+
+admin config save ansible_{{ ansible_date_time.epoch }} location local
