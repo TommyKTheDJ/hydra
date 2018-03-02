@@ -6,5 +6,5 @@
     "{{ item.aos_role }}"
   ],
   "password": "{{ item.pwd }}",
-  "email": "{{ item.first_name|lower }}.{{ item.last_name|lower }}@vodafone.com"
+  "email": "{{ item.first_name|lower }}.{{ item.last_name|lower }}@{{ company_domain }}"
 }
