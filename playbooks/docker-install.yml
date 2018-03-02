@@ -1,0 +1,6 @@
+---
+- hosts: docker
+  user: hydra
+  become: true
+  roles:
+    - docker
