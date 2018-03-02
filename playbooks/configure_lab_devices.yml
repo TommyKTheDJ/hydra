@@ -1,14 +1,18 @@
+---
 - hosts: consoles
   connection: local
   roles:
     - console
+  tags: console
 
 - hosts: pdus
   connection: local
   roles:
     - pdu
+  tags: pdu
 
 - hosts: mgmt_switches
   connection: local
   roles:
     - mgmt_switch
+  tags: mgmt_switch

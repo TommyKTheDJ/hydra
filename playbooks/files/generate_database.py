@@ -9,13 +9,16 @@ INVENTORY = sys.argv[1]
 OUTFILE = sys.argv[2]
 
 def xls_to_dict(inventory_file=None,sheet_name=None):
-    return pd.read_excel(inventory_file,sheet_name=sheet_name,index_col=0,encoding=sys.getfilesystemencoding()).to_dict(orient='index')
+    df = pd.read_excel(inventory_file,sheet_name=sheet_name,index_col=0,encoding=sys.getfilesystemencoding())
+    df = df.replace(['missing','Missing','MISSING'],'-')
+    df = df.fillna('-')
+    return df.to_dict(orient='index')
 
-def is_empty(cell):
-    return not cell or unicode(cell) in [u'missing', u'-', u'.nan',u'-\xa0', '-', u'nan', '.nan']
+# def is_empty(cell):
+#     return not cell or unicode(cell) in []
 
 def clean_list (record):
-    cleaned_list = [ x for x in record if x and not is_empty(x)]
+    cleaned_list = [ x for x in record if not x == u'-' ]
     if len(cleaned_list)>0:
         return cleaned_list
     else:
@@ -27,8 +30,8 @@ def clean_dict (data):
             data[key] = clean_dict(record)
         elif type(record) is list:
             data[key] = clean_list(record)
-        if is_empty(data[key]):
-            del data[key]
+        if data[key] == u'-':
+            data[key] = None
     return data
 
 master = xls_to_dict(inventory_file=INVENTORY, sheet_name="master")
@@ -79,7 +82,7 @@ for hostname, data in master.iteritems():
         record['interfaces']['management']['neighbor']['port'] = management[hostname]['port']
 
     # CONSOLE INTERFACE DATA
-    if not record['type'] in [ 'vm', 'console']:
+    if not record['type'] in [ 'vm', 'console','host']:
         record['interfaces']['console'] = {}
         record['interfaces']['console']['neighbor'] = {}
         record['interfaces']['console']['neighbor']['hostname'] = console[hostname]['console_server']
@@ -88,17 +91,21 @@ for hostname, data in master.iteritems():
         record['interfaces']['console']['baud'] = console[hostname]['baud']
 
     # POWER SUPPLY DATA
-    if not record['type'] == 'vm':
-        record['psus'] = [None,None]
-        if not is_empty(power[hostname]['pdu_1']):
-            record['psus'][0] = {}
-            record['psus'][0]['pdu_hostname'] = power[hostname]['pdu_1']
-            record['psus'][0]['pdu_port'] = power[hostname]['pdu_port_1']
+    if not record['type'] in ['vm','pdu']:
+        record['psus'] = []
+        if not power[hostname]['pdu_1'] == u'-':
+            psu = {}
+            psu['pdu'] = {}
+            psu['pdu']['hostname'] = power[hostname]['pdu_1']
+            psu['pdu']['port'] = power[hostname]['pdu_port_1']
+            record['psus'].append(psu)
 
-        if not is_empty(power[hostname]['pdu_2']):
-            record['psus'][1] = {}
-            record['psus'][1]['pdu_hostname'] = power[hostname]['pdu_2']
-            record['psus'][1]['pdu_port'] = power[hostname]['pdu_port_2']
+        if not power[hostname]['pdu_2'] == u'-':
+            psu = {}
+            psu['pdu'] = {}
+            psu['pdu']['hostname'] = power[hostname]['pdu_2']
+            psu['pdu']['port'] = power[hostname]['pdu_port_2']
+            record['psus'].append(psu)
 
     database ['hosts'].append(clean_dict(record))
 
