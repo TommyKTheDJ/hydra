@@ -5,9 +5,9 @@ nodes:
     type: [ from 'host', 'vm', 'pdu', 'console', 'network' ]
     os: [ lsb_release -v or show version ]
     resources: //optional
-      vcpu: [ integer ]
-      vram: [ ram in GB ]
-      vdisk: [ storage in GB ]
+      cpu: [ integer ]
+      ram: [ ram in GB ]
+      disk: [ storage in GB ]
     interfaces: //1 to N (at least one mandatory)
       management:
         vlan: 701
@@ -23,7 +23,9 @@ nodes:
         neighbor:
           hostname: [ neighboring device hostname - use anchors if neighbor is a node in the database ]
           port: [ neighbor port ]
-
+    psus:
+      - pdu_hostname: abcd
+      - pdu_port: 1234
     admin_username: &admin_username admin
     access_method: [ from 'ssh' or 'https' ]
     url: [ ssh://*admin_username@*hostname if pdu, console, vm, host, network - can be https://*hostname ]
