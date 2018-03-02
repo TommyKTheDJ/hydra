@@ -4,7 +4,7 @@ hosts:
         management:
             cable_id: FO141
             ip: 10.60.2.20
-            mac_address: 30e1.7169.74e4
+            mac_address: 30:e1:71:69:74:e4
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 25
@@ -55,8 +55,8 @@ hosts:
                 port: 14
         management:
             cable_id: FS753
-            ip: null
-            mac_address: d89e.f3a7.1d20
+            ip: 10.60.4.24
+            mac_address: d8:9e:f3:a7:1d:20
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 14
@@ -78,7 +78,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hydra-border-3
     interfaces:
         console:
@@ -89,8 +89,8 @@ hosts:
                 port: 16
         management:
             cable_id: FS902
-            ip: null
-            mac_address: 3417.eb4c.3f80
+            ip: 10.60.4.26
+            mac_address: 34:17:eb:4c:3f:80
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 16
@@ -112,13 +112,13 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: morpheus
     interfaces:
         management:
             cable_id: FP018
             ip: 10.60.2.11
-            mac_address: 30e1.7169.842c
+            mac_address: 30:e1:71:69:84:2c
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 26
@@ -170,7 +170,7 @@ hosts:
         management:
             cable_id: null
             ip: 10.60.3.49
-            mac_address: 005d.73ec.1cbc
+            mac_address: 0:5d:73:ec:1c:bc
             neighbor:
                 hostname: null
                 port: null
@@ -204,7 +204,7 @@ hosts:
         management:
             cable_id: null
             ip: 10.60.3.50
-            mac_address: b4de.3194.32f0
+            mac_address: b4:de:31:94:32:f0
             neighbor:
                 hostname: null
                 port: null
@@ -237,8 +237,8 @@ hosts:
                 port: 11
         management:
             cable_id: FN709
-            ip: null
-            mac_address: d89e.f3b5.37a0
+            ip: 10.60.4.21
+            mac_address: d8:9e:f3:b5:37:a0
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 11
@@ -260,7 +260,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: castor
     interfaces:
         management:
@@ -289,8 +289,8 @@ hosts:
                 port: 10
         management:
             cable_id: FN738
-            ip: null
-            mac_address: 1c98.ec4e.3569
+            ip: 10.60.4.10
+            mac_address: 1c:98:ec:4e:35:69
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 10
@@ -312,7 +312,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hydra-spine-2
     interfaces:
         console:
@@ -323,8 +323,8 @@ hosts:
                 port: 11
         management:
             cable_id: FN740
-            ip: null
-            mac_address: 1c98.ec4e.657b
+            ip: 10.60.4.11
+            mac_address: 1c:98:ec:4e:65:7b
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 11
@@ -346,7 +346,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hydra-spine-3
     interfaces:
         console:
@@ -357,8 +357,8 @@ hosts:
                 port: 10
         management:
             cable_id: FN754
-            ip: null
-            mac_address: d89e.f3b6.f420
+            ip: 10.60.4.20
+            mac_address: d8:9e:f3:b6:f4:20
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 10
@@ -380,13 +380,13 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hypnos
     interfaces:
         management:
             cable_id: FO140
             ip: 10.60.2.13
-            mac_address: 30e1.7169.5458
+            mac_address: 30:e1:71:69:54:58
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 28
@@ -419,8 +419,8 @@ hosts:
                 port: 17
         management:
             cable_id: FK554
-            ip: null
-            mac_address: e007.1bc9.605c
+            ip: 10.60.4.15
+            mac_address: e0:7:1b:c9:60:5c
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 17
@@ -442,7 +442,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hydra-tor-2-1
     interfaces:
         console:
@@ -453,8 +453,8 @@ hosts:
                 port: 16
         management:
             cable_id: FN732
-            ip: null
-            mac_address: e007.1bc9.40ea
+            ip: 10.60.4.14
+            mac_address: e0:7:1b:c9:40:ea
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 16
@@ -476,7 +476,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hydra-tor-3-2
     interfaces:
         console:
@@ -487,8 +487,8 @@ hosts:
                 port: 13
         management:
             cable_id: FS759
-            ip: null
-            mac_address: e4f0.0432.8d1a
+            ip: 10.60.4.23
+            mac_address: e4:f0:4:32:8d:1a
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 13
@@ -510,7 +510,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hydra-border-4
     interfaces:
         console:
@@ -521,8 +521,8 @@ hosts:
                 port: 17
         management:
             cable_id: FN710
-            ip: null
-            mac_address: d89e.f3a7.2020
+            ip: 10.60.4.27
+            mac_address: d8:9e:f3:a7:20:20
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 17
@@ -544,7 +544,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hydra-tor-3-1
     interfaces:
         console:
@@ -555,8 +555,8 @@ hosts:
                 port: 12
         management:
             cable_id: FN752
-            ip: null
-            mac_address: e4f0.0432.821a
+            ip: 10.60.4.22
+            mac_address: e4:f0:4:32:82:1a
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 12
@@ -578,7 +578,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hydra-border-2
     interfaces:
         console:
@@ -589,8 +589,8 @@ hosts:
                 port: 15
         management:
             cable_id: FN751
-            ip: null
-            mac_address: e007.1bc7.8020
+            ip: 10.60.4.17
+            mac_address: e0:7:1b:c7:80:20
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 15
@@ -612,7 +612,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: ares
     interfaces:
         management:
@@ -641,8 +641,8 @@ hosts:
                 port: 13
         management:
             cable_id: FN731
-            ip: null
-            mac_address: e007.1bc9.6012
+            ip: 10.60.4.13
+            mac_address: e0:7:1b:c9:60:12
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 13
@@ -664,7 +664,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hydra-border-1
     interfaces:
         console:
@@ -675,8 +675,8 @@ hosts:
                 port: 14
         management:
             cable_id: FN746
-            ip: null
-            mac_address: e007.1bc7.4092
+            ip: 10.60.4.16
+            mac_address: e0:7:1b:c7:40:92
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 14
@@ -698,13 +698,13 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: zephyrus
     interfaces:
         management:
             cable_id: FO145
             ip: 10.60.2.21
-            mac_address: 30e1.7169.638e
+            mac_address: 30:e1:71:69:63:8e
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 26
@@ -755,8 +755,8 @@ hosts:
                 port: 12
         management:
             cable_id: FN719
-            ip: null
-            mac_address: e007.1bc9.4056
+            ip: 10.60.4.12
+            mac_address: e0:7:1b:c9:40:56
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 12
@@ -778,13 +778,13 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: helios
     interfaces:
         management:
             cable_id: GK522
             ip: 10.60.2.10
-            mac_address: 30e1.7169.74f8
+            mac_address: 30:e1:71:69:74:f8
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 25
@@ -812,7 +812,7 @@ hosts:
         management:
             cable_id: FO145
             ip: 10.60.2.23
-            mac_address: 9cb6.547a.58e4
+            mac_address: 9c:b6:54:7a:58:e4
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 28
@@ -840,7 +840,7 @@ hosts:
         management:
             cable_id: FN725
             ip: 10.60.3.51
-            mac_address: 0080.a396.83d1
+            mac_address: 0:80:a3:96:83:d1
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 1
@@ -895,8 +895,8 @@ hosts:
                 port: 9
         management:
             cable_id: FN743
-            ip: null
-            mac_address: d89e.f3b6.eca0
+            ip: 10.60.4.101
+            mac_address: d8:9e:f3:b6:ec:a0
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 9
@@ -918,13 +918,13 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: kratus
     interfaces:
         management:
             cable_id: FP004
             ip: 10.60.2.22
-            mac_address: 9cb6.547a.459c
+            mac_address: 9c:b6:54:7a:45:9c
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 27
@@ -957,8 +957,8 @@ hosts:
                 port: 8
         management:
             cable_id: FN711
-            ip: null
-            mac_address: d89e.f3b6.e820
+            ip: 10.60.4.100
+            mac_address: d8:9e:f3:b6:e8:20
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 8
@@ -980,7 +980,7 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hydra-tor-4-2
     interfaces:
         console:
@@ -991,8 +991,8 @@ hosts:
                 port: 15
         management:
             cable_id: FP017
-            ip: null
-            mac_address: 3417.eb4c.4280
+            ip: 10.60.4.25
+            mac_address: 34:17:eb:4c:42:80
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 15
@@ -1014,13 +1014,13 @@ hosts:
         cpu: null
         disk: null
         ram: null
-    type: network
+    type: fabric
 -   hostname: hermes
     interfaces:
         management:
             cable_id: FP029
             ip: 10.60.2.12
-            mac_address: 30e1.7169.5432
+            mac_address: 30:e1:71:69:54:32
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 27
@@ -1072,7 +1072,7 @@ hosts:
         management:
             cable_id: FP019
             ip: 10.60.3.54
-            mac_address: 000d.5d12.ebe2
+            mac_address: 0:d:5d:12:eb:e2
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 3
@@ -1099,7 +1099,7 @@ hosts:
         management:
             cable_id: FN756
             ip: 10.60.3.55
-            mac_address: 000d.5d12.eb8e
+            mac_address: 0:d:5d:12:eb:8e
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 2
@@ -1126,7 +1126,7 @@ hosts:
         management:
             cable_id: FN713
             ip: 10.60.3.53
-            mac_address: 000d.5d12.eb96
+            mac_address: 0:d:5d:12:eb:96
             neighbor:
                 hostname: hydra-mgmt-1
                 port: 2
@@ -1153,7 +1153,7 @@ hosts:
         management:
             cable_id: FO142
             ip: 10.60.3.56
-            mac_address: 000d.5d12.ebfa
+            mac_address: 0:d:5d:12:eb:fa
             neighbor:
                 hostname: hydra-mgmt-2
                 port: 3

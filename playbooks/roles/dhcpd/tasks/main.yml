@@ -23,8 +23,15 @@
     group: root
     mode: 0644
 
+- name: Configure DHCP static entries
+  template:
+    src: dhcpd-hydra-static.conf.j2
+    dest: "/etc/dhcp/dhcpd-hydra-static.conf"
+  tags: dhcpd
+
 - name: Configure DHCP server
   template:
     src: dhcpd.conf.j2
     dest: /etc/dhcp/dhcpd.conf
   notify: restart dhcpd
+  tags: dhcpd

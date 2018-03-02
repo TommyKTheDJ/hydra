@@ -13,7 +13,7 @@ rack_1_border_leafs
 rack_1_spines
 rack_1_leafs
 
-[dhcpd_servers]
+[dhcp_servers]
 ares  ansible_user=hydra
 
 [rack_2:children]
