@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: helm
   user: hydra
   become: true
   roles:
