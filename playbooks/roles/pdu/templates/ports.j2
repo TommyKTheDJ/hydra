@@ -1,9 +1,9 @@
 config
-{% for node in nodes %}
-{% if 'pdus' in node.keys() %}
-{% for pdu in node.pdus %}
-{% if  pdu.hostname == inventory_hostname %}
-outlet {{ pdu.port }} name {{ node.hostname }} stateOnDeviceStartup lastKnownState
+{% for host in hosts %}
+{% if 'psus' in host.keys() %}
+{% for psu in host.psus %}
+{% if  psu.pdu.hostname == inventory_hostname %}
+outlet {{ psu.pdu.port }} name {{ host.hostname }} stateOnDeviceStartup lastKnownState
 {% endif %}
 {% endfor %}
 {% endif %}

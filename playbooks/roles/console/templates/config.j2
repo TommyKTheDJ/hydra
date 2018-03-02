@@ -13,12 +13,14 @@ set network dns 1 ipaddr {{ dns_server }}
 
 
 set network host {{ inventory_hostname }}
+set network port 2 state disable
 
 set localusers state Enable
 set localusers delete {{ net_username }}
 yes
 set localusers add {{ net_username }} group admin
 set localusers password {{ net_username }}
+{{ net_password }}
 {{ net_password }}
 
 set sshkey import copypaste host {{ansible_hostname}} login {{ net_username }}
