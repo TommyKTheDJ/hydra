@@ -26,4 +26,6 @@
     path: /tmp/kubespray/inventory/sample/group_vars/k8s-cluster.yml
     regexp: '^kube_network_plugin'
     line: 'kube_network_plugin: calico'
-    
+
+- name: Run the cluster.yml playbook
+  import_playbook: /tmp/kubespray/cluster.yml
