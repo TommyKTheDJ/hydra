@@ -1,5 +1,0 @@
-hostname: ares
-addresses:
-  ipxe: 10.60.2.25
-  mgmt: 10.60.3.25
-  sw_mgmt: 10.60.4.25
