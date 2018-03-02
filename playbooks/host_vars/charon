@@ -1,5 +1,0 @@
-hostname: charon
-addresses:
-  ipxe: 10.60.2.24
-  mgmt: 10.60.3.24
-  sw_mgmt: 10.60.4.24

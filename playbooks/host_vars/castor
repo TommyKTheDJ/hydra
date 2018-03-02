@@ -1,5 +1,0 @@
-hostname: castor
-addresses:
-  ipxe: 10.60.2.26
-  mgmt: 10.60.3.26
-  sw_mgmt: 10.60.4.26

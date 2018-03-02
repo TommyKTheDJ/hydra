@@ -1,5 +1,0 @@
-hostname: jason
-addresses:
-  ipxe: 10.60.2.27
-  mgmt: 10.60.3.27
-  sw_mgmt: 10.60.4.27
