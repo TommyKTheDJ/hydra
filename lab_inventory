@@ -83,3 +83,6 @@ hydra-tor-3-1
 hydra-tor-3-2
 hydra-tor-4-1
 hydra-tor-4-2
+
+[helm]
+charon ansible_user=hydra
