@@ -1,4 +1,4 @@
-[virtual_workers]
+[minions]
 jason   ansible_user=hydra
 castor  ansible_user=hydra
 ares    ansible_user=hydra

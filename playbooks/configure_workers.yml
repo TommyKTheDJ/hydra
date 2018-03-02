@@ -1,4 +1,4 @@
-- hosts: virtual_workers
+- hosts: minions
   user: hydra
   become: true
   roles:
@@ -8,7 +8,7 @@
     - accounts
     - ntpd
 
-- hosts: virtual_workers
+- hosts: minions
   user: hydra
   become: true
   roles:
