@@ -86,3 +86,6 @@ hydra-tor-4-2
 
 [helm]
 charon ansible_user=hydra
+
+[docker]
+charon ansible_user=hydra
