@@ -92,3 +92,27 @@ charon ansible_user=hydra
 
 [kubespray]
 charon ansible_user=hydra
+
+[kube-master]
+ares    ansible_user=hydra
+jason   ansible_user=hydra
+
+[kube-node]
+ares    ansible_user=hydra
+jason   ansible_user=hydra
+castor  ansible_user=hydra
+proteus ansible_user=hydra
+
+[etcd]
+ares    ansible_user=hydra
+jason   ansible_user=hydra
+castor  ansible_user=hydra
+
+[kube-cluster:children]
+kube-node
+kube-master
+
+[kube-vault]
+ares    ansible_user=hydra
+jason   ansible_user=hydra
+castor  ansible_user=hydra
