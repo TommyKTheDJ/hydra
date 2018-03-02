@@ -1,7 +1,7 @@
 # ===================================================
 # Configured by Ansible on {{ ansible_date_time.iso8601 }}
 # ===================================================
-option domain-name "castelletto.vodafone.local";
+option domain-name "{{ dns_domain }}";
 option domain-name-servers 10.50.30.91;
 default-lease-time 600;
 option ntp-servers 10.50.30.92;
@@ -26,3 +26,5 @@ subnet 10.60.4.0 netmask 255.255.255.0 {
 
 
 log-facility local7;
+
+source /etc/dhcp/dhcpd-hydra-static.conf;

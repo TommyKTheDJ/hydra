@@ -4,6 +4,7 @@ import pandas as pd
 import yaml
 import sys
 import collections
+import netaddr
 
 INVENTORY = sys.argv[1]
 OUTFILE = sys.argv[2]
@@ -62,13 +63,21 @@ for hostname, data in master.iteritems():
     record['interfaces']['management'] = {}
     record['interfaces']['management']['vlan_id'] = subnets['management']['vlan_id']
     record['interfaces']['management']['cable_id'] = management[hostname]['cable_id']
-    record['interfaces']['management']['mac_address'] = management[hostname]['mac_address']
+    try:
+        mac_address = netaddr.EUI(management[hostname]['mac_address'])
+        mac_address.dialect = netaddr.mac_unix
+    except:
+        record['interfaces']['management']['mac_address'] = u'-'
+    else:
+        record['interfaces']['management']['mac_address'] = unicode(mac_address)
+
+
     record['interfaces']['management']['user'] = management[hostname]['user']
 
 
-    if record['type'] == 'switch':
-        record['interfaces']['management']['ip'] = interfaces[hostname]['switch_management']
-        record['interfaces']['management']['netmask'] = subnets['switch_management']['netmask']
+    if record['type'] == 'fabric':
+        record['interfaces']['management']['ip'] = interfaces[hostname]['fabric_management']
+        record['interfaces']['management']['netmask'] = subnets['fabric_management']['netmask']
     elif record['type'] == 'host':
         record['interfaces']['management']['ip'] = interfaces[hostname]['ipxe']
         record['interfaces']['management']['netmask'] = subnets['ipxe']['netmask']
