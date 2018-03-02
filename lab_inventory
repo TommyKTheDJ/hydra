@@ -90,29 +90,36 @@ charon ansible_user=hydra
 [docker]
 charon ansible_user=hydra
 
-[kubespray]
-charon ansible_user=hydra
-
 [kube-master]
+# ## This group is needed for k8s cluster installation by kubespray
+# ## Please don't change the name - kubespray playbooks will fail
 ares    ansible_user=hydra
 jason   ansible_user=hydra
 
 [kube-node]
+# ## This group is needed for k8s cluster installation by kubespray
+# ## Please don't change the name - kubespray playbooks will fail
 ares    ansible_user=hydra
 jason   ansible_user=hydra
 castor  ansible_user=hydra
 proteus ansible_user=hydra
 
 [etcd]
+# ## This group is needed for k8s cluster installation by kubespray
+# ## Please don't change the name - kubespray playbooks will fail
 ares    ansible_user=hydra
 jason   ansible_user=hydra
 castor  ansible_user=hydra
 
-[kube-cluster:children]
+[k8s-cluster:children]
+# ## This group is needed for k8s cluster installation by kubespray
+# ## Please don't change the name - kubespray playbooks will fail
 kube-node
 kube-master
 
-[kube-vault]
+[vault]
+# ## This group is needed for k8s cluster installation by kubespray
+# ## Please don't change the name - kubespray playbooks will fail
 ares    ansible_user=hydra
 jason   ansible_user=hydra
 castor  ansible_user=hydra
