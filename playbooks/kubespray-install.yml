@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: kubespray
   connection: local
   roles:
     - kubespray
