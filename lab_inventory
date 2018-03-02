@@ -89,3 +89,6 @@ charon ansible_user=hydra
 
 [docker]
 charon ansible_user=hydra
+
+[kubespray]
+charon ansible_user=hydra
