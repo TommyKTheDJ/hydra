@@ -2,9 +2,12 @@
 {% if host.interfaces.management.mac_address %}
 host {{ host.hostname }}
 {
-    option host-name "{{ host.hostname }}.{{ dns_domain }}";
+    option host-name "{{ host.hostname }}";
     hardware ethernet {{ host.interfaces.management.mac_address }};
     fixed-address     {{ host.interfaces.management.ip }};
+    {% if 'onie_url' in host.keys() and host.onie_url -%}
+    option default-url "{{ host.onie_url }}";
+    {% endif %}
 }
 {% endif %}
 {% endfor %}
