@@ -65,6 +65,7 @@ hosts:
             vlan_id: 701
     manufacturer: Dell
     model: S5048F
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -99,6 +100,7 @@ hosts:
             vlan_id: 701
     manufacturer: Dell
     model: Z9100-ON
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -247,6 +249,7 @@ hosts:
             vlan_id: 701
     manufacturer: Dell
     model: Altoline 6941 
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -299,6 +302,7 @@ hosts:
             vlan_id: 701
     manufacturer: HPE
     model: Altoline 6960 
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -333,6 +337,7 @@ hosts:
             vlan_id: 701
     manufacturer: HPE
     model: Altoline 6960 
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -367,6 +372,7 @@ hosts:
             vlan_id: 701
     manufacturer: Dell
     model: Altoline 6941 
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -429,6 +435,7 @@ hosts:
             vlan_id: 701
     manufacturer: HPE
     model: Altoline 6921
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -463,6 +470,7 @@ hosts:
             vlan_id: 701
     manufacturer: HPE
     model: Altoline 6921 
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -497,6 +505,7 @@ hosts:
             vlan_id: 701
     manufacturer: Dell
     model: S4148T-ON
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -531,6 +540,7 @@ hosts:
             vlan_id: 701
     manufacturer: Dell
     model: Z9100-ON
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -565,6 +575,7 @@ hosts:
             vlan_id: 701
     manufacturer: Dell
     model: S4148T-ON
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -599,6 +610,7 @@ hosts:
             vlan_id: 701
     manufacturer: HPE
     model: Altoline 6941 
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -651,6 +663,7 @@ hosts:
             vlan_id: 701
     manufacturer: HPE
     model: Altoline 6921
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -685,6 +698,7 @@ hosts:
             vlan_id: 701
     manufacturer: HPE
     model: Altoline 6941 
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -765,6 +779,7 @@ hosts:
             vlan_id: 701
     manufacturer: HPE
     model: Altoline 6921 
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -905,6 +920,7 @@ hosts:
             vlan_id: 701
     manufacturer: Dell
     model: Z9100-ON
+    onie_url: http://archive.openswitch.net/installers/2.2.1/Dell-EMC/PKGS_OPX-2.2.1-installer-x86_64.bin
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -967,6 +983,7 @@ hosts:
             vlan_id: 701
     manufacturer: Dell
     model: Z9100-ON
+    onie_url: http://archive.openswitch.net/installers/2.2.1/Dell-EMC/PKGS_OPX-2.2.1-installer-x86_64.bin
     os: Cumulus Linux 3.5
     psus:
     -   pdu:
@@ -1001,6 +1018,7 @@ hosts:
             vlan_id: 701
     manufacturer: Dell
     model: S5048F
+    onie_url: null
     os: Cumulus Linux 3.5
     psus:
     -   pdu:

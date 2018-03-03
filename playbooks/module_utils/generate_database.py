@@ -60,6 +60,8 @@ def generate_database(inventory_filename = None):
       record['interfaces']['management'] = {}
       record['interfaces']['management']['vlan_id'] = subnets['management']['vlan_id']
       record['interfaces']['management']['cable_id'] = management[hostname]['cable_id']
+      record['interfaces']['management']['user'] = management[hostname]['user']
+
       try:
           mac_address = netaddr.EUI(management[hostname]['mac_address'])
           mac_address.dialect = netaddr.mac_unix
@@ -68,13 +70,11 @@ def generate_database(inventory_filename = None):
       else:
           record['interfaces']['management']['mac_address'] = unicode(mac_address)
 
-
-      record['interfaces']['management']['user'] = management[hostname]['user']
-
-
       if record['type'] == 'fabric':
+          record['onie_url'] = data['onie_url']
           record['interfaces']['management']['ip'] = interfaces[hostname]['fabric_management']
           record['interfaces']['management']['netmask'] = subnets['fabric_management']['netmask']
+
       elif record['type'] == 'host':
           record['interfaces']['management']['ip'] = interfaces[hostname]['ipxe']
           record['interfaces']['management']['netmask'] = subnets['ipxe']['netmask']

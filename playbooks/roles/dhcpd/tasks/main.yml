@@ -14,6 +14,9 @@
     group: root
     mode: 0644
   notify: restart rsyslogd
+  tags:
+    - dhcpd
+    - syslog
 
 - name: Create isc-dhcp-server configuration file
   template:
@@ -22,16 +25,28 @@
     owner: root
     group: root
     mode: 0644
+  tags:
+    - dhcpd
 
 - name: Configure DHCP static entries
   template:
     src: dhcpd-hydra-static.conf.j2
     dest: "/etc/dhcp/dhcpd-hydra-static.conf"
-  tags: dhcpd
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart dhcpd
+  tags:
+    - dhcpd_static
+    - dhcpd
 
 - name: Configure DHCP server
   template:
     src: dhcpd.conf.j2
     dest: /etc/dhcp/dhcpd.conf
+    owner: root
+    group: root
+    mode: 0644
   notify: restart dhcpd
-  tags: dhcpd
+  tags:
+    - dhcpd
