@@ -8,7 +8,7 @@
           state: present
       with_items: "{{ pip_packages }}"
 
-    - name: Generate database file
-      script: generate_database.py "{{ inventory_dir }}/shared/hydra_lab_inventory.xlsx" "{{ playbook_dir }}/group_vars/all/database.yml"
-      # args:
-      #   creates:  "{{ playbook_dir }}/group_vars/all/database.yml"
+    - name: Generate Lab Database
+      hydra_database:
+        src: "{{ inventory_dir }}/shared/hydra_lab_inventory.xlsx"
+        dest: "{{ playbook_dir }}/group_vars/all/database.yml"
