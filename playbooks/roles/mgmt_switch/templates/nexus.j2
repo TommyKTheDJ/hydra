@@ -1,25 +1,30 @@
 !
-hostname {{ device.hostname }}
+hostname {{ inventory_hostname }}
 !
-{% for iface in device.interfaces %}
-interface {{ device.interface_name }}/{{ iface.name }}
-{% if iface.type == "trunk" %}
+{% for device in hosts %}
+{% if device.type != "vm" %}
+{% if device.interfaces.management.neighbor.hostname == inventory_hostname %}
+interface Eth1/{{ device.interfaces.management.neighbor.port }}
   switchport
-  switchport mode {{ iface.type }}
-  switchport {{ iface.type }} allowed vlan {{ iface.vlan }}
-{% elif iface.type == "access" %}
-  switchport
-  switchport mode {{ iface.type }}
-  switchport {{ iface.type }} vlan {{ iface.vlan }}
-{% else %}
-  no switchport
-{% endif %}
-  description {{ iface.description }}
-{% if iface.active %}
+  switchport mode access
+  switchport access vlan {{ device.interfaces.management.vlan_id }}
+  description {{ inventory_hostname ~ " <--> " ~ device.hostname }}
   no shutdown
-{% else %}
-  shutdown
-{% endif %}
 !
+{% endif %}
+{% endif %}
 {% endfor %}
-
+!
+ip domain-lookup
+ip domain-name {{ dns_domain }}
+!
+{% for device in hosts %}
+{% if device.hostname == inventory_hostname %}
+ip dns source-interface mgmt 0 vrf management
+ip name-server {{ dns_server }} use-vrf management
+!
+ntp server {{ ntp_server }} use-vrf management
+ntp source {{ device.interfaces.management.ip }}
+!
+{% endif %}
+{% endfor %}
