@@ -13,5 +13,5 @@
 
 - name: Delete temporary files
   file:
-    path: "{{ output_folder }}{{ inventory_hostname }}.conf"
+    path: "{{ output_folder }}/{{ inventory_hostname }}.conf"
     state: absent
