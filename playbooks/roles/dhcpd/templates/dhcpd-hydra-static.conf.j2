@@ -1,12 +1,12 @@
-{% for host in hosts %}
+{% for hostname, host_data in hosts.iteritems() %}
 {% if host.interfaces.management.mac_address %}
-host {{ host.hostname }}
+host {{ hostname }}
 {
-    option host-name "{{ host.hostname }}";
-    hardware ethernet {{ host.interfaces.management.mac_address }};
-    fixed-address     {{ host.interfaces.management.ip }};
-    {% if 'onie_url' in host.keys() and host.onie_url -%}
-    option default-url "{{ host.onie_url }}";
+    option host-name "{{ hostname }}";
+    hardware ethernet {{ host_data.interfaces.management.mac_address }};
+    fixed-address     {{ host_data.interfaces.management.ip }};
+    {% if 'onie_url' in host_data.keys() and host_data.onie_url -%}
+    option default-url "{{ host_data.onie_url }}";
     {% endif %}
 }
 {% endif %}

@@ -10,7 +10,7 @@
 
     - name: Generate Lab Database
       hydra_database:
-        src: "{{ inventory_dir }}/shared/hydra_lab_inventory.xlsx"
+        src: "{{ playbook_dir }}/shared/hydra_lab_inventory.xlsx"
         hosts_database_dest: "{{ playbook_dir }}/group_vars/all/database.yml"
         vlans_database_dest: "{{ playbook_dir }}/group_vars/all/vlans.yml"
         force: True

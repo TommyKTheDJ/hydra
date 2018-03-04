@@ -1,6 +1,6 @@
-{% for host in hosts %}
+{% for hostname, host in hosts.iteritems() %}
 {% if 'console' in host.interfaces.keys() and host.interfaces.console.neighbor.hostname == inventory_hostname %}
-set deviceport port {{ host.interfaces.console.neighbor.port }} name {{ host.hostname }}
+set deviceport port {{ host.interfaces.console.neighbor.port }} name {{ hostname }}
 set deviceport port {{ host.interfaces.console.neighbor.port }} sshin Enable
 set deviceport port {{ host.interfaces.console.neighbor.port }} baud {{ host.interfaces.console.baud }}
 {% endif %}

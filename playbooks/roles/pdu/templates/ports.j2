@@ -1,9 +1,9 @@
 config
-{% for host in hosts %}
+{% for hostname, host in hosts.iteritems() %}
 {% if 'psus' in host.keys() %}
 {% for psu in host.psus %}
 {% if  psu.pdu.hostname == inventory_hostname %}
-outlet {{ psu.pdu.port }} name {{ host.hostname }} stateOnDeviceStartup lastKnownState
+outlet {{ psu.pdu.port }} name {{ hostname }} stateOnDeviceStartup lastKnownState
 {% endif %}
 {% endfor %}
 {% endif %}
