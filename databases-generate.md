@@ -6,6 +6,4 @@
 
 2. Run the generation playbook
 
-   `export ANSIBLE_VAULT_PASSWORD_FILE=.vault_pass`
-
    `ansible-playbook -i inventory playbooks/databases-generate.yml`
