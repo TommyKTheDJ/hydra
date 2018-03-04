@@ -1,6 +1,37 @@
+!
+hostname {{ inventory_hostname }}
+!
 {% for vlan in vlans %}
 {% if "N9K" in vlan.notes %}
 vlan {{ vlan.id }}
   name {{ vlan.name }}
+{% endif %}
+{% endfor %}
+!
+{% for device in hosts %}
+{% if device.type != "vm" %}
+{% if device.interfaces.management.neighbor.hostname == inventory_hostname %}
+interface Eth1/{{ device.interfaces.management.neighbor.port }}
+  switchport
+  switchport mode access
+  switchport access vlan {{ device.interfaces.management.vlan_id }}
+  description {{ inventory_hostname ~ " <--> " ~ device.hostname }}
+  no shutdown
+!
+{% endif %}
+{% endif %}
+{% endfor %}
+!
+ip domain-lookup
+ip domain-name {{ dns_domain }}
+!
+{% for device in hosts %}
+{% if device.hostname == inventory_hostname %}
+ip dns source-interface mgmt 0 vrf management
+ip name-server {{ dns_server }} use-vrf management
+!
+ntp server {{ ntp_server }} use-vrf management
+ntp source {{ device.interfaces.management.ip }}
+!
 {% endif %}
 {% endfor %}
