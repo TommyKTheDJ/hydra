@@ -2,10 +2,8 @@
 hostname {{ inventory_hostname }}
 !
 {% for vlan in vlans %}
-{% if "N9K" in vlan.notes %}
 vlan {{ vlan.id }}
   name {{ vlan.name }}
-{% endif %}
 {% endfor %}
 !
 {% for device in hosts %}
