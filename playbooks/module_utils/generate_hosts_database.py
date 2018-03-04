@@ -1,8 +1,5 @@
-
 import pandas as pd
-import yaml
 import sys
-import collections
 import netaddr
 
 def xls_to_dict(inventory_filename=None,sheet_name=None):
@@ -31,7 +28,7 @@ def clean_dict (data):
           data[key] = None
   return data
 
-def generate_database(inventory_filename = None):
+def generate_hosts_database(inventory_filename = None):
     master = xls_to_dict(inventory_filename=inventory_filename, sheet_name="master")
     console =  xls_to_dict(inventory_filename=inventory_filename, sheet_name="console")
     management =  xls_to_dict(inventory_filename=inventory_filename, sheet_name="management")
@@ -58,7 +55,7 @@ def generate_database(inventory_filename = None):
       record['interfaces'] = {}
       # MANAGEMENT INTERFACE DATA
       record['interfaces']['management'] = {}
-      record['interfaces']['management']['vlan_id'] = subnets['management']['vlan_id']
+      record['interfaces']['management']['vlan_id'] = subnets[management[hostname]['subnet_name']]['vlan_id']
       record['interfaces']['management']['cable_id'] = management[hostname]['cable_id']
       record['interfaces']['management']['user'] = management[hostname]['user']
 
