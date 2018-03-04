@@ -56,8 +56,10 @@ message:
     description: The output message that the sample module generates
 '''
 import hashlib
+import os
 from ansible.module_utils.basic import AnsibleModule
-from ansible.module_utils.generate_database import *
+from ansible.module_utils.generate_hosts_database import *
+from ansible.module_utils.generate_vlan_database import *
 import sys
 import yaml
 
@@ -66,7 +68,9 @@ def run_module():
     # the module
     module_args = dict(
         src=dict(type='str', required=True),
-        dest=dict(type='str', required=False, default=None)
+        hosts_database_dest=dict(type='str', required=False, default=None),
+        vlans_database_dest=dict(type='str', required=False, default=None),
+        force=dict(type='bool', required=False, default=False),
     )
 
     # seed the result dict in the object
@@ -76,6 +80,7 @@ def run_module():
     # for consumption, for example, in a subsequent task
     result = dict(
         changed=False,
+        error = '',
         message=''
     )
 
@@ -87,17 +92,27 @@ def run_module():
         argument_spec=module_args,
         supports_check_mode=True
     )
-    destination_filename = module.params['dest'] or "/tmp/database.yml"
+    hosts_database_filename = module.params['hosts_database_dest'] or "/tmp/database.yml"
+    vlans_database_filename = module.params['vlans_database_dest'] or "/tmp/vlans.yml"
+
+    # CHECK IF DATABASE DATA CHANGED
     try:
-        with open(destination_filename,'r') as destination_file:
-            old_data = yaml.safe_load(destination_file)
+        with open(hosts_database_filename,'r') as destination_file:
+            old_hosts_data = yaml.safe_load(destination_file)
     except:
-        old_data = None
+        old_hosts_data = None
 
     try:
-        database_data = generate_database(inventory_filename = module.params['src'])
-    except:
+        hosts_database_data = generate_hosts_database(inventory_filename = module.params['src'])
+    except Exception as e:
+        result['error'] = e
         module.fail_json(msg='Database data generation failed', **result)
+
+    try:
+        vlans_database_data = generate_vlan_database(inventory_filename = module.params['src'])
+    except Exception as e:
+        result['error'] = e
+        module.fail_json(msg='VLAN database generation failed', **result)
 
     # new_file_hash = hashlib.md5().update(database_data)
     # yaml.safe_dump(database,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
@@ -107,7 +122,8 @@ def run_module():
     # sys.stderr.write(str(old_file_content))
     # sys.stderr.write(str(database_data))
 
-    if not old_data == database_data:
+    if not old_hosts_data == hosts_database_data or not os.path.isfile(hosts_database_filename) \
+    or not os.path.isfile(vlans_database_filename) or module.params['force']:
         result['changed'] = True
     else:
         result['changed'] = False
@@ -120,13 +136,19 @@ def run_module():
         return result
 
     if result['changed'] and not module.check_mode:
-        sys.stderr.write(str(type(database_data)))
-        with open(destination_filename, 'w') as outfile:
+        # sys.stderr.write(str(type(database_data)))
+        with open(hosts_database_filename, 'w') as hosts_database_file:
             try:
-                yaml.safe_dump(database_data,outfile,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
+                yaml.safe_dump(hosts_database_data,hosts_database_file,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
                 result['message'] = 'Database file correctly generated'
             except:
-                module.fail_json(msg='Writing Database data file failed', **result)
+                module.fail_json(msg='Writing database data file failed', **result)
+        with open(vlans_database_filename,'w') as vlans_database_file:
+            try:
+                yaml.safe_dump(vlans_database_data,vlans_database_file,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
+                result['message'] = 'VLAN database file correctly generated'
+            except:
+                module.fail_json(msg='Writing VLAN data file failed', **result)
     else:
             result['message'] = 'No changes required'
 
