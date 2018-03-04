@@ -1,6 +1,5 @@
----
-- hosts: docker
+- hosts: dhcp-servers
   user: hydra
   become: true
   roles:
-    - docker
+    - dhcpd

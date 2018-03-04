@@ -13,7 +13,7 @@ sudo apt-get install -y ansible
 - Run the kubespray-install.yml playbook
 ```
 export ANSIBLE_VAULT_PASSWORD_FILE=.vault_pass
-ansible-playbook  kubespray-install.yml --
+ansible-playbook -i inventory kubespray-install.yml --
 ```
 - Run the inventory generator with the four IPs of the nodes (check they're correct)
 ```

@@ -1,5 +1,0 @@
-- hosts: dhcp_servers
-  user: hydra
-  become: true
-  roles:
-    - dhcpd

@@ -1,0 +1,43 @@
+
+[kube-master]
+## This group is needed for k8s cluster installation by kubespray
+## Please don't change the name - kubespray playbooks will fail
+ares
+jason
+
+[kube-nodes]
+ares
+jason
+castor
+proteus
+charon
+
+[etcd]
+## This group is needed for k8s cluster installation by kubespray
+## Please don't change the name - kubespray playbooks will fail
+ares
+jason
+castor
+
+[k8s-cluster:children]
+## This group is needed for k8s cluster installation by kubespray
+## Please don't change the name - kubespray playbooks will fail
+kube-nodes
+kube-master
+
+
+[vault]
+## This group is needed for k8s cluster installation by kubespray
+## Please don't change the name - kubespray playbooks will fail
+ares
+jason
+castor
+
+[dhcp-servers]
+ares
+proteus
+
+[docker]
+charon
+
+dummy

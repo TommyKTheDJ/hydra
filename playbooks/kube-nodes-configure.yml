@@ -1,5 +1,4 @@
-- hosts: minions
-  user: hydra
+- hosts: kube-nodes
   become: true
   roles:
     - unix_accounts
@@ -8,8 +7,7 @@
     - accounts
     - ntpd
 
-- hosts: minions
-  user: hydra
+- hosts: kube-nodes
   become: true
   roles:
     - docker
