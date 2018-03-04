@@ -8,15 +8,43 @@ option ntp-servers 10.50.30.92;
 max-lease-time 7200;
 authoritative;
 
+{% if dhcp_failover_master == inventory_hostname %}
+failover peer "failover-partner" {
+    primary;
+    address {{ inventory_hostname }}.{{ dns_domain }};
+    port 519;
+    peer address {{ dhcp_failover_backup }}.{{ dns_domain }};
+    peer port 520;
+    max‐response‐delay 60;
+    max‐unacked‐updates 10;
+    mclt 3600;
+    split 128;
+    load balance max seconds 3;
+}
+{% else %}
+failover peer "failover-partner" {
+       secondary;
+       address {{ inventory_hostname }}.{{ dns_domain }};
+       port 520;
+       peer address {{ dhcp_failover_master }}.{{ dns_domain }};
+       peer port 519;
+       max‐response‐delay 60;
+       max‐unacked‐updates 10;
+       load balance max seconds 3;
+   }
+{% fi %}
+
 # Management Subnet
 subnet 10.60.3.0 netmask 255.255.255.0 {
         option routers 10.60.3.1;
         range 10.60.3.130 10.60.3.200;
+        failover peer "failover-partner";
 }
 # IPXE Subnet
 subnet 10.60.2.0 netmask 255.255.255.0 {
         option routers 10.60.2.1;
         range 10.60.2.130 10.60.2.200;
+        failover peer "failover-partner";
 }
 
 # Switch Management Subnet

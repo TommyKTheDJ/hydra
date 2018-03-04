@@ -1,9 +1,9 @@
 [minions]
-jason   ansible_user=hydra
-castor  ansible_user=hydra
-ares    ansible_user=hydra
-proteus ansible_user=hydra
-charon ansible_user=hydra
+jason
+castor
+ares
+proteus
+charon
 
 [rack_1:children]
 rack_1_console
@@ -14,7 +14,8 @@ rack_1_spines
 rack_1_leafs
 
 [dhcp_servers]
-ares  ansible_user=hydra
+ares
+proteus
 
 [rack_2:children]
 rack_2_console
@@ -33,22 +34,22 @@ rack_1_console
 rack_2_console
 
 [rack_1_pdus]
-hydra-pdu-1 ansible_connection=local
-hydra-pdu-2 ansible_connection=local
+hydra-pdu-1
+hydra-pdu-2
 
 [rack_1_console]
-hydra-console-1 ansible_connection=local
+hydra-console-1
 
 [mgmt_switches:children]
 rack_1_mgmt_switch
 rack_2_mgmt_switch
 
 [rack_2_console]
-hydra-console-2 ansible_connection=local
+hydra-console-2
 
 [rack_2_pdus]
-hydra-pdu-3 ansible_connection=local
-hydra-pdu-4 ansible_connection=local
+hydra-pdu-3
+hydra-pdu-4
 
 [rack_1_mgmt_switch]
 hydra-mgmt-1
@@ -85,9 +86,9 @@ hydra-tor-4-1
 hydra-tor-4-2
 
 [helm]
-charon ansible_user=hydra
+charon
 
 [docker]
-charon ansible_user=hydra
+charon
 
 dummy
