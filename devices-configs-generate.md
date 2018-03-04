@@ -3,4 +3,5 @@
 1. Run the generation playbook
 
    `export ANSIBLE_VAULT_PASSWORD_FILE=.vault_pass`
-   `ansible-playbook -i lab_inventory playbooks/configure_lab_devices.yml`
+
+   `ansible-playbook -i inventory playbooks/devices-configs-generate.yml`

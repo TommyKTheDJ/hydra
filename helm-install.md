@@ -2,7 +2,7 @@
 
 1. Run the installation playbooks
 
-   `ansible-playbook playbooks/helm-install.yml`
+   `ansible-playbook -i inventory playbooks/helm-install.yml`
 
 2. Check kubectl config - ensure you're using the correct context that's pointing at the right cluster
 

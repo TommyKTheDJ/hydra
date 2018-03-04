@@ -2,7 +2,7 @@
 
 1. Run the installation playbooks
 
-   `ansible-playbook /playbooks/docker-install.yml`
+   `ansible-playbook -i inventory playbooks/docker-install.yml`
 
 2. Verify the installation
 

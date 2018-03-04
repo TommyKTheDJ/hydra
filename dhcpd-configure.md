@@ -7,4 +7,5 @@
 3. Run the configuration playbook
 
    `export ANSIBLE_VAULT_PASSWORD_FILE=.vault_pass`
-   `ansible-playbook -i lab_inventory playbooks/configure_dhcp.yml`
+   
+   `ansible-playbook -i lab_inventory playbooks/dhcpd-config.yml`
