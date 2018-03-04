@@ -1,36 +1,17 @@
-- name: READING VLANS AND SUBNETS INFO
-  include_vars:
-    file: host_vars/vlans_subnets.yml
-
-- name: READING CONNECTIVITY INFO
-  include_vars:
-    file: host_vars/connectivity_matrix.yml
-
-- name: CREATING DIRECTORY FOR ABSTRACTION
-  file:
-    dest: nodes/{{ inventory_hostname }}
-    state: directory
-
-- name: CREATING FILES FOR ABSTRACTION
-  file:
-    dest: nodes/{{ inventory_hostname }}/base.yml
-    state: touch
-
-- name: CREATING PER-NODE DESCRIPTOR
+- name: Create temporary device configuration file
   template:
-    src: ~/ansible/hydra/templates/step0.j2
-    dest: ~/ansible/hydra/nodes/{{ inventory_hostname }}/base.yml
+    src: ~/ansible/hydra/playbooks/roles/mgmt_switch/templates/nexus.j2
+    dest: "{{ output_folder }}/{{ inventory_hostname }}.conf"
 
-- name: READING PER-NODE PARAMETERS
-  include_vars:
-    file: nodes/{{ inventory_hostname }}/base.yml
+- name: Configure mgmt_switches
+  nxos_config:
+    transport: cli
+    host: "{{ inventory_hostname }}"
+    username: "{{ net_username }}"
+    password: "{{ net_password }}"
+    src: "{{ output_folder }}/{{ inventory_hostname }}.conf"
 
-- name: CREATING DIRECTORY FOR CONFIG
+- name: Delete temporary files
   file:
-    dest: output
-    state: directory
-
-- name: CREATING PER-NODE CONFIGURATION FILE
-  template:
-    src: ~/ansible/hydra/templates/nexus.j2
-    dest: ~/ansible/hydra/output/{{ inventory_hostname }}.conf
+    path: "{{ output_folder }}{{ inventory_hostname }}.conf"
+    state: absent
