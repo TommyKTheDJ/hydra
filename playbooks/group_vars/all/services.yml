@@ -1,0 +1,2 @@
+snmp_trap_collector: 10.60.50.4
+syslog_server: 10.60.50.5

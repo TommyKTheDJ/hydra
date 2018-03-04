@@ -37,10 +37,9 @@ def generate_hosts_database(inventory_filename = None):
     power =  xls_to_dict(inventory_filename=inventory_filename, sheet_name="power")
 
     database = {}
-    database ['hosts'] = []
+    database ['hosts'] = {}
     for hostname, data in master.iteritems():
       record = {}
-      record['hostname'] = hostname
       record['manufacturer'] = data['manufacturer']
       record['rack'] = data['rack']
       record['model'] = data['model']
@@ -110,6 +109,6 @@ def generate_hosts_database(inventory_filename = None):
               psu['pdu']['port'] = power[hostname]['pdu_port_2']
               record['psus'].append(psu)
 
-      database ['hosts'].append(clean_dict(record))
+      database ['hosts'][hostname] = record
 
     return database
