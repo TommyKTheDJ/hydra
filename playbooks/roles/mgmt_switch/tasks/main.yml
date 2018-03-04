@@ -1,6 +1,6 @@
 - name: Create temporary device configuration file
   template:
-    src: ~/ansible/hydra/playbooks/roles/mgmt_switch/templates/nexus.j2
+    src: nexus.j2
     dest: "{{ output_folder }}/{{ inventory_hostname }}.conf"
 
 - name: Configure mgmt_switches
@@ -10,8 +10,9 @@
     username: "{{ net_username }}"
     password: "{{ net_password }}"
     src: "{{ output_folder }}/{{ inventory_hostname }}.conf"
+    save_when: modified
 
-- name: Delete temporary files
-  file:
-    path: "{{ output_folder }}/{{ inventory_hostname }}.conf"
-    state: absent
+# - name: Delete temporary files
+#   file:
+#     path: "{{ output_folder }}/{{ inventory_hostname }}.conf"
+#     state: absent
