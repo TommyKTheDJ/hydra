@@ -23,5 +23,21 @@ ip name-server {{ dns_server }} use-vrf management
 ntp server {{ ntp_server }} use-vrf management
 ntp source {{ hosts[inventory_hostname].interfaces.management.ip }}
 !
+snmp-server protocol enable
+snmp-server community {{ snmp_read_community }} ro
+snmp-server community {{ snmp_write_community }} rw
+snmp-server host {{ snmp_trap_collector }} traps version 2c {{ snmp_trap_community }} udp-port {{ snmp_trap_port }}
+snmp-server host {{ snmp_trap_collector }} informs version 2c {{ snmp_trap_community }} udp-port {{ snmp_trap_port }}
+snmp-server host {{ snmp_trap_collector }} source-interface mgmt0
+snmp-server host {{ snmp_trap_collector }} use-vrf management
+snmp-server source-interface traps mgmt 0
+snmp-server source-interface informs mgmt 0
+snmp-server enable traps
+!
+logging source-interface mgmt 0
+logging server {{ syslog_server }} 6 facility syslog use-vrf management
+logging event link-status enable
+logging timestamp milliseconds
+!
 ip domain-lookup
 ip domain-name {{ dns_domain }}
