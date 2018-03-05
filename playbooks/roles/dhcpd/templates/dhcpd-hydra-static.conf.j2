@@ -1,11 +1,11 @@
 {% for hostname, host_data in hosts.iteritems() %}
-{% if host_data.interfaces.management.mac_address %}
+{% if host_data.interfaces.management.mac_address and not host_data.interfaces.management.mac_address == '-' %}
 host {{ hostname }}
 {
     option host-name "{{ hostname }}";
     hardware ethernet {{ host_data.interfaces.management.mac_address }};
     fixed-address     {{ host_data.interfaces.management.ip }};
-    {% if 'onie_url' in host_data.keys() and host_data.onie_url -%}
+    {% if 'onie_url' in host_data.keys() and host_data.onie_url and not host_data.onie_url == '-' -%}
     option default-url "{{ host_data.onie_url }}";
     {% endif %}
 }

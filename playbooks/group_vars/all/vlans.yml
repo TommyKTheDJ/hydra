@@ -1,5 +1,6 @@
 vlans:
--   hosts:
+-   dhcp: true
+    hosts:
     - hydra-tor-4-1
     - hydra-border-3
     - hydra-spine-4
@@ -20,10 +21,11 @@ vlans:
     - hydra-tor-4-2
     id: 702
     name: fabric_management
-    netmask: 255.255.255.0
-    network: 10.60.2.0
+    network: 10.60.4.0
     notes: trunked to N9K from Lab L3, 1st address on L3
--   hosts:
+    prefix_length: 24
+-   dhcp: true
+    hosts:
     - jason
     - proteus
     - hydra-mgmt-1
@@ -40,10 +42,11 @@ vlans:
     - hydra-pdu-4
     id: 701
     name: management
-    netmask: 255.255.255.0
-    network: 10.60.4.0
+    network: 10.60.3.0
     notes: trunked to N9K from Lab L3, 1st address on L3
--   hosts:
+    prefix_length: 24
+-   dhcp: true
+    hosts:
     - triton
     - morpheus
     - hypnos
@@ -54,66 +57,76 @@ vlans:
     - hermes
     id: 700
     name: ipxe
-    netmask: 255.255.255.0
     network: 10.60.2.0
     notes: trunked to N9K from Lab L3, 1st address on L3
--   hosts: []
+    prefix_length: 24
+-   dhcp: false
+    hosts: []
     id: 602
     name: external_hpe_2
-    netmask: 255.255.255.252
     network: 10.68.1.4
     notes: trunked to N9K from Lab L3, last on N9K
--   hosts: []
+    prefix_length: 30
+-   dhcp: false
+    hosts: []
     id: 603
     name: external_hpe_3
-    netmask: 255.255.255.252
     network: 10.68.1.8
     notes: trunked to N9K from Lab L3, last on N9K
--   hosts: []
+    prefix_length: 30
+-   dhcp: false
+    hosts: []
     id: 601
     name: external_hpe_1
-    netmask: 255.255.255.252
     network: 10.68.1.0
     notes: trunked to N9K from Lab L3, last on N9K
--   hosts: []
+    prefix_length: 30
+-   dhcp: false
+    hosts: []
     id: 607
     name: external_dell_3
-    netmask: 255.255.255.252
     network: 10.68.1.24
     notes: trunked to N9K from Lab L3, last on N9K
--   hosts: []
+    prefix_length: 30
+-   dhcp: false
+    hosts: []
     id: 606
     name: external_dell_2
-    netmask: 255.255.255.252
     network: 10.68.1.20
     notes: trunked to N9K from Lab L3, last on N9K
--   hosts: []
+    prefix_length: 30
+-   dhcp: false
+    hosts: []
     id: 703
     name: services
-    netmask: 255.255.255.0
     network: 10.60.5.0
     notes: trunked to N9K from Lab L3, 1st address on L3
--   hosts: []
+    prefix_length: 24
+-   dhcp: false
+    hosts: []
     id: 704
     name: external_services
-    netmask: 255.255.255.0
     network: 10.60.100.0
     notes: trunked to N9K from Lab L3, 1st address on L3
--   hosts: []
+    prefix_length: 24
+-   dhcp: false
+    hosts: []
     id: 605
     name: external_dell_1
-    netmask: 255.255.255.252
     network: 10.68.1.16
     notes: trunked to N9K from Lab L3, last on N9K
--   hosts: []
+    prefix_length: 30
+-   dhcp: false
+    hosts: []
     id: 604
     name: external_hpe_4
-    netmask: 255.255.255.252
     network: 10.68.1.12
     notes: trunked to N9K from Lab L3, last on N9K
--   hosts: []
+    prefix_length: 30
+-   dhcp: false
+    hosts: []
     id: 608
     name: external_dell_4
-    netmask: 255.255.255.252
     network: 10.68.1.28
     notes: trunked to N9K from Lab L3, last on N9K
+    prefix_length: 30

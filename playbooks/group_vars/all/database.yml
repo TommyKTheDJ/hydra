@@ -2,16 +2,16 @@ hosts:
     aos-server:
         interfaces:
             management:
-                cable_id: '-'
+                cable_id: null
                 ip: 10.60.3.20
-                mac_address: '-'
-                netmask: 255.255.255.0
+                mac_address: null
+                prefix_length: 24
                 user: admin
                 vlan_id: 701
         manufacturer: Apstra
         model: AoS
         os: AoS 2.1
-        rack: '-'
+        rack: null
         resources:
             cpu: 4
             disk: 30
@@ -20,16 +20,16 @@ hosts:
     ares:
         interfaces:
             management:
-                cable_id: '-'
+                cable_id: null
                 ip: 10.60.3.25
-                mac_address: '-'
-                netmask: 255.255.255.0
+                mac_address: null
+                prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: '-'
+        rack: null
         resources:
             cpu: 4
             disk: 30
@@ -38,16 +38,16 @@ hosts:
     castor:
         interfaces:
             management:
-                cable_id: '-'
+                cable_id: null
                 ip: 10.60.3.26
-                mac_address: '-'
-                netmask: 255.255.255.0
+                mac_address: null
+                prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: '-'
+        rack: null
         resources:
             cpu: 4
             disk: 30
@@ -56,16 +56,16 @@ hosts:
     charon:
         interfaces:
             management:
-                cable_id: '-'
+                cable_id: null
                 ip: 10.60.3.24
-                mac_address: '-'
-                netmask: 255.255.255.0
+                mac_address: null
+                prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: '-'
+        rack: null
         resources:
             cpu: 4
             disk: 30
@@ -80,7 +80,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 25
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: hydra
                 vlan_id: 700
         manufacturer: HPE
@@ -95,9 +95,9 @@ hosts:
                 port: 14
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: host
     hermes:
         interfaces:
@@ -108,7 +108,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 27
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: hydra
                 vlan_id: 700
         manufacturer: HPE
@@ -123,9 +123,9 @@ hosts:
                 port: 11
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: host
     hydra-border-1:
         interfaces:
@@ -142,12 +142,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 14
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6941 
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -158,9 +158,9 @@ hosts:
                 port: 21
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-border-2:
         interfaces:
@@ -177,12 +177,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 15
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6941 
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -193,9 +193,9 @@ hosts:
                 port: 20
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-border-3:
         interfaces:
@@ -212,12 +212,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 16
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: Z9100-ON
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -228,9 +228,9 @@ hosts:
                 port: 21
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-border-4:
         interfaces:
@@ -247,12 +247,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 17
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: Z9100-ON
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -263,9 +263,9 @@ hosts:
                 port: 20
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-console-1:
         interfaces:
@@ -276,7 +276,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 1
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: sysadmin
                 vlan_id: 701
         manufacturer: Lantronix
@@ -288,20 +288,20 @@ hosts:
                 port: 23
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: console
     hydra-console-2:
         interfaces:
             management:
                 cable_id: FN715
                 ip: 10.60.3.52
-                mac_address: '-'
+                mac_address: null
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 1
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: sysadmin
                 vlan_id: 701
         manufacturer: Lantronix
@@ -313,9 +313,9 @@ hosts:
                 port: 23
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: console
     hydra-mgmt-1:
         interfaces:
@@ -326,13 +326,13 @@ hosts:
                     hostname: hydra-console-1
                     port: 1
             management:
-                cable_id: '-'
+                cable_id: null
                 ip: 10.60.3.49
                 mac_address: 0:5d:73:ec:1c:bc
                 neighbor:
-                    hostname: '-'
-                    port: '-'
-                netmask: 255.255.255.0
+                    hostname: null
+                    port: null
+                prefix_length: 24
                 user: admin
                 vlan_id: 701
         manufacturer: Cisco
@@ -347,9 +347,9 @@ hosts:
                 port: 22
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: network
     hydra-mgmt-2:
         interfaces:
@@ -360,13 +360,13 @@ hosts:
                     hostname: hydra-console-2
                     port: 1
             management:
-                cable_id: '-'
+                cable_id: null
                 ip: 10.60.3.50
                 mac_address: b4:de:31:94:32:f0
                 neighbor:
-                    hostname: '-'
-                    port: '-'
-                netmask: 255.255.255.0
+                    hostname: null
+                    port: null
+                prefix_length: 24
                 user: admin
                 vlan_id: 701
         manufacturer: Cisco
@@ -381,9 +381,9 @@ hosts:
                 port: 22
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: network
     hydra-pdu-1:
         interfaces:
@@ -400,7 +400,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 2
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 701
         manufacturer: Raritan
@@ -408,9 +408,9 @@ hosts:
         os: 3.3.10.5-43736
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: pdu
     hydra-pdu-2:
         interfaces:
@@ -427,7 +427,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 3
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 701
         manufacturer: Raritan
@@ -435,9 +435,9 @@ hosts:
         os: 3.3.10.5-43736
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: pdu
     hydra-pdu-3:
         interfaces:
@@ -454,7 +454,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 2
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 701
         manufacturer: Raritan
@@ -462,9 +462,9 @@ hosts:
         os: 3.3.10.5-43736
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: pdu
     hydra-pdu-4:
         interfaces:
@@ -481,7 +481,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 3
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 701
         manufacturer: Raritan
@@ -489,9 +489,9 @@ hosts:
         os: 3.3.10.5-43736
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: pdu
     hydra-spine-1:
         interfaces:
@@ -508,12 +508,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 10
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6960 
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -524,9 +524,9 @@ hosts:
                 port: 19
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-spine-2:
         interfaces:
@@ -543,12 +543,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 11
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6960 
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -559,9 +559,9 @@ hosts:
                 port: 17
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-spine-3:
         interfaces:
@@ -578,12 +578,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 10
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: Altoline 6941 
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -594,9 +594,9 @@ hosts:
                 port: 16
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-spine-4:
         interfaces:
@@ -613,12 +613,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 11
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: Altoline 6941 
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -629,9 +629,9 @@ hosts:
                 port: 15
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-superspine-1:
         interfaces:
@@ -648,7 +648,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 8
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: Dell
@@ -664,9 +664,9 @@ hosts:
                 port: 19
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-superspine-2:
         interfaces:
@@ -683,7 +683,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 9
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: Dell
@@ -699,9 +699,9 @@ hosts:
                 port: 17
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-tor-1-1:
         interfaces:
@@ -718,12 +718,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 12
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921 
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -734,9 +734,9 @@ hosts:
                 port: 16
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-tor-1-2:
         interfaces:
@@ -753,12 +753,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 13
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -769,9 +769,9 @@ hosts:
                 port: 15
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-tor-2-1:
         interfaces:
@@ -788,12 +788,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 16
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921 
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -804,9 +804,9 @@ hosts:
                 port: 9
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-tor-2-2:
         interfaces:
@@ -823,12 +823,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 17
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -839,9 +839,9 @@ hosts:
                 port: 8
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-tor-3-1:
         interfaces:
@@ -858,12 +858,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 12
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: S4148T-ON
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -874,9 +874,9 @@ hosts:
                 port: 14
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-tor-3-2:
         interfaces:
@@ -893,12 +893,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 13
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: S4148T-ON
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -909,9 +909,9 @@ hosts:
                 port: 13
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-tor-4-1:
         interfaces:
@@ -928,12 +928,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 14
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -944,9 +944,9 @@ hosts:
                 port: 9
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hydra-tor-4-2:
         interfaces:
@@ -963,12 +963,12 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 15
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
-        onie_url: '-'
+        onie_url: null
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -979,9 +979,9 @@ hosts:
                 port: 8
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: fabric
     hypnos:
         interfaces:
@@ -992,7 +992,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 28
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: hydra
                 vlan_id: 700
         manufacturer: HPE
@@ -1007,23 +1007,23 @@ hosts:
                 port: 10
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: host
     jason:
         interfaces:
             management:
-                cable_id: '-'
+                cable_id: null
                 ip: 10.60.3.27
-                mac_address: '-'
-                netmask: 255.255.255.0
+                mac_address: null
+                prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: '-'
+        rack: null
         resources:
             cpu: 2
             disk: 30
@@ -1038,7 +1038,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 27
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: hydra
                 vlan_id: 700
         manufacturer: HPE
@@ -1053,9 +1053,9 @@ hosts:
                 port: 7
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: host
     morpheus:
         interfaces:
@@ -1066,7 +1066,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 26
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: hydra
                 vlan_id: 700
         manufacturer: HPE
@@ -1081,9 +1081,9 @@ hosts:
                 port: 13
         rack: 1
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: host
     pollux:
         interfaces:
@@ -1094,7 +1094,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 28
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: hydra
                 vlan_id: 700
         manufacturer: HPE
@@ -1109,23 +1109,23 @@ hosts:
                 port: 5
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: host
     proteus:
         interfaces:
             management:
-                cable_id: '-'
+                cable_id: null
                 ip: 10.60.3.28
-                mac_address: '-'
-                netmask: 255.255.255.0
+                mac_address: null
+                prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: '-'
+        rack: null
         resources:
             cpu: 4
             disk: 30
@@ -1140,7 +1140,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 25
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: hydra
                 vlan_id: 700
         manufacturer: HPE
@@ -1155,9 +1155,9 @@ hosts:
                 port: 11
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: host
     zephyrus:
         interfaces:
@@ -1168,7 +1168,7 @@ hosts:
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 26
-                netmask: 255.255.255.0
+                prefix_length: 24
                 user: hydra
                 vlan_id: 700
         manufacturer: HPE
@@ -1183,7 +1183,7 @@ hosts:
                 port: 10
         rack: 2
         resources:
-            cpu: '-'
-            disk: '-'
-            ram: '-'
+            cpu: null
+            disk: null
+            ram: null
         type: host

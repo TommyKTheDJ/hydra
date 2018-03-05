@@ -7,17 +7,18 @@ default-lease-time 600;
 option ntp-servers 10.50.30.92;
 max-lease-time 7200;
 authoritative;
+ddns-update-style none;
 
 {% if dhcp_failover_master == inventory_hostname %}
 failover peer "failover-partner" {
     primary;
     address {{ hosts[dhcp_failover_master].interfaces.management.ip }};
-    port 519;
+    port 647;
     peer address {{ hosts[dhcp_failover_backup].interfaces.management.ip }};
-    peer port 520;
-    max‐response‐delay 60;
-    max‐unacked‐updates 10;
-    mclt 3600;
+    peer port 647;
+    max-response-delay 30;
+    max-unacked-updates 10;
+    mclt 1800;
     split 128;
     load balance max seconds 3;
 }
@@ -25,11 +26,11 @@ failover peer "failover-partner" {
 failover peer "failover-partner" {
        secondary;
        address {{ hosts[dhcp_failover_backup].interfaces.management.ip }};
-       port 520;
+       port 647;
        peer address {{ hosts[dhcp_failover_master].interfaces.management.ip }};
-       peer port 519;
-       max‐response‐delay 60;
-       max‐unacked‐updates 10;
+       peer port 647;
+       max-response-delay 30;
+       max-unacked-updates 10;
        load balance max seconds 3;
    }
 {% endif %}
@@ -39,31 +40,23 @@ omapi-key omapi_key;
 
 key omapi_key {
      algorithm hmac-md5;
-     secret {{ omapi_key }};
+     secret "{{ omapi_key }}";
 }
 
-
-# Management Subnet
-subnet 10.60.3.0 netmask 255.255.255.0 {
-        option routers 10.60.3.1;
-        range 10.60.3.130 10.60.3.200;
-        failover peer "failover-partner";
-}
-# IPXE Subnet
-subnet 10.60.2.0 netmask 255.255.255.0 {
-        option routers 10.60.2.1;
-        range 10.60.2.130 10.60.2.200;
-        failover peer "failover-partner";
+{% for subnet in vlans %}
+{% if subnet.dhcp == True %}
+# {{ subnet.name }} subnet
+{% set network = subnet.network|string + '/' + subnet.prefix_length|string %}
+subnet {{ network|ipaddr('network')|ipaddr('address') }} netmask {{ network|ipaddr('netmask') }} {
+        option routers {{ network|ipaddr('1')|ipaddr('address') }};
+        pool {
+          range {{ network|ipaddr('40')|ipaddr('address') }} {{ network|ipaddr('200')|ipaddr('address') }};
+          failover peer "failover-partner";
+          }
 }
 
-# Switch Management Subnet
-subnet 10.60.4.0 netmask 255.255.255.0 {
-        option routers 10.60.4.1;
-        range 10.60.4.130 10.60.4.200;
-        failover peer "failover-partner";
-}
-
-
+{% endif %}
+{% endfor %}
 log-facility local7;
 
 include "/etc/dhcp/dhcpd-hydra-static.conf";
