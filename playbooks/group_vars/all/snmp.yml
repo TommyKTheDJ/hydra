@@ -1,4 +1,5 @@
 snmp_read_community: 1626vtxi3j-read
 snmp_write_community: 1626vtxi3j-write
 snmp_trap_community: 1626vtxi3j-trap
-snmp_contact: hydra@vodafone.com
+snmp_trap_port: 514
+snmp_contact: hydra

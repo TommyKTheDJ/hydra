@@ -2,7 +2,7 @@
 set services snmp Enable
 set services rocommunity {{ snmp_read_community }}
 set services rwcommunity {{ snmp_write_community }}
-set services contact {{ snmp_contact }}
+set services contact {{ snmp_contact }}@{{ company_domain }}
 set services v2c Enable
 
 set ntp state Enable
