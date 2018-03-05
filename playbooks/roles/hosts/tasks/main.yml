@@ -1,0 +1,6 @@
+- name: Generate hosts file
+  blockinfile:
+    backup: yes
+    path: /etc/hosts
+    block: |
+      {{ lookup('template', 'hosts.j2') }}

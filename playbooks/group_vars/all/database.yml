@@ -53,6 +53,24 @@ hosts:
             disk: 30
             ram: 8
         type: vm
+    ceph-master:
+        interfaces:
+            management:
+                cable_id: null
+                ip: 10.60.3.29
+                mac_address: null
+                prefix_length: 24
+                user: hydra
+                vlan_id: 701
+        manufacturer: Ubuntu
+        model: VM
+        os: Ubuntu 16.04 LTS
+        rack: null
+        resources:
+            cpu: 4
+            disk: 30
+            ram: 8
+        type: vm
     charon:
         interfaces:
             management:
