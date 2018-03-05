@@ -3,7 +3,6 @@ vlans:
     hosts:
     - hydra-tor-4-1
     - hydra-border-3
-    - hydra-spine-4
     - hydra-spine-1
     - hydra-spine-2
     - hydra-spine-3
@@ -16,6 +15,7 @@ vlans:
     - hydra-tor-1-2
     - hydra-border-1
     - hydra-tor-1-1
+    - hydra-spine-4
     - hydra-superspine-2
     - hydra-superspine-1
     - hydra-tor-4-2
@@ -30,6 +30,7 @@ vlans:
     - proteus
     - hydra-mgmt-1
     - hydra-mgmt-2
+    - ceph-master
     - castor
     - ares
     - aos-server

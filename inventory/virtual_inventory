@@ -37,7 +37,27 @@ castor
 ares
 proteus
 
-[docker]
+[ceph-nodes]
+ares
+jason
+castor
+proteus
 charon
 
-dummy
+[ceph-osd]
+
+[ceph-mds]
+
+[ceph-mon]
+
+[vms]
+ares
+jason
+castor
+proteus
+charon
+ceph-master
+
+
+[dummy]
+127.0.0.1

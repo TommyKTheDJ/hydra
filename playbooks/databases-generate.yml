@@ -6,7 +6,10 @@
       pip:
           name: "{{ item }}"
           state: present
-      with_items: "{{ pip_packages }}"
+      with_items: 
+          - pandas
+          - xlrd
+          - netaddr
 
     - name: Generate Lab Database
       hydra_database:
