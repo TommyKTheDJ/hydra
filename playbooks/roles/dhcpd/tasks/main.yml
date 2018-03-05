@@ -50,3 +50,4 @@
   notify: restart dhcpd
   tags:
     - dhcpd
+    - dhcpd_general
