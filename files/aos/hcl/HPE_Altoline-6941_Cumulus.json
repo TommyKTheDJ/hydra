@@ -1,4 +1,19 @@
 {
+    "id": "HPE_Altoline-6941_Cumulus",
+    "aos_support_level": "experimental",
+    "selector": {
+        "os_version": "(3\\.(1|2|3|4|5)\\.\\d+)",
+        "model": "HPE Altoline 6941 .*",
+        "os": "Cumulus",
+        "manufacturer": "Hewlett Packard Enterprise"
+    },
+    "display_name": "HPE Altoline 6941",
+    "software_capabilities": {
+        "onie": true,
+        "lxc_support": false
+    },
+    "slot_count": 0,
+    "aos_support_level": "experimental",
     "hardware_capabilities": {
         "userland": 64,
         "ram": 16,
@@ -7,12 +22,6 @@
         "ecmp_limit": 64,
         "cpu": "x86"
     },
-    "display_name": "HPE Altoline 6941",
-    "software_capabilities": {
-        "onie": true,
-        "lxc_support": false
-    },
-    "aos_support_level": "experimental",
     "layout": [
         {
             "card_slot_id": 0,
@@ -47,13 +56,5 @@
                 "column_count": 16
             }
         }
-    ],
-    "slot_count": 0,
-    "id": "HPE_Altoline-6941_Cumulus",
-    "selector": {
-        "os_version": "(3\\.(1|2|3|4|5)\\.\\d+)",
-        "model": "Altoline 6941",
-        "os": "Cumulus",
-        "manufacturer": "HPE"
-    }
+    ]
 }
