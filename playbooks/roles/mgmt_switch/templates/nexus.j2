@@ -1,19 +1,33 @@
 !
 hostname {{ inventory_hostname }}
 !
+feature scp-server
+feature interface-vlan
+feature dhcp
+feature lldp
+!
 {% for vlan in vlans %}
 vlan {{ vlan.id }}
   name {{ vlan.name }}
 {% endfor %}
 !
 {% for hostname, device in hosts.iteritems() %}
-{% if not device.type == 'vm' and device.interfaces.management.neighbor.hostname == inventory_hostname %}
+{% if not device.type == 'vm' %}
+{% if device.interfaces.management.neighbor.hostname == inventory_hostname %}
 interface Eth1/{{ device.interfaces.management.neighbor.port }}
   switchport
   switchport mode access
   switchport access vlan {{ device.interfaces.management.vlan_id }}
   description [{{ hostname }}:mgmt]
   no shutdown
+{% elif hostname == inventory_hostname %}
+interface Eth1/48
+  switchport
+  switchport mode trunk
+  ip dhcp snooping trust
+  description [uplink]
+  no shutdown
+{% endif }
 !
 {% endif %}
 {% endfor %}
@@ -22,6 +36,9 @@ ip name-server {{ dns_server }} use-vrf management
 !
 ntp server {{ ntp_server }} use-vrf management
 ntp source {{ hosts[inventory_hostname].interfaces.management.ip }}
+!
+ip dhcp snooping
+ip dhcp snooping vlan 1-900
 !
 snmp-server protocol enable
 snmp-server community {{ snmp_read_community }} ro
