@@ -1,12 +1,26 @@
 {
-    "hardware_capabilities": {
-        "userland": 64,
-        "ram": 16,
-        "asic": "T2",
-        "form_factor": "1RU",
-        "ecmp_limit": 64,
-        "cpu": "x86"
+    "id": "HPE_Altoline-6921_Cumulus",
+    "aos_support_level": "experimental",
+    "display_name": "HPE Altoline 6921",
+    "selector": {
+        "os_version": "(3\\.(1|2|3|4|5)\\.\\d+)",
+        "model": "HPE Altoline 6921 48XGT .*",
+        "os": "Cumulus",
+        "manufacturer": "Hewlett Packard Enterprise"
     },
+    "software_capabilities": {
+        "onie": true,
+        "lxc_support": false
+    },
+    "slot_count": 0,
+    "hardware_capabilities": {
+          "userland": 64,
+          "ram": 16,
+          "asic": "T2",
+          "form_factor": "1RU",
+          "ecmp_limit": 64,
+          "cpu": "x86"
+      },
     "layout": [
         {
             "panel_id": 2,
@@ -44,18 +58,6 @@
         {
             "panel_id": 1,
             "supported_transformations": [
-                {
-                    "from_speed": {
-                        "value": 10,
-                        "unit": "G"
-                    },
-                    "to_count": 1,
-                    "from_count": 1,
-                    "to_speed": {
-                        "value": 1,
-                        "unit": "G"
-                    }
-                }
             ],
             "port_indexing": {
                 "order": "T-B, L-R",
@@ -74,21 +76,5 @@
                 "column_count": 24
             }
         }
-    ],
-
-    "aos_support_level": "experimental",
-
-    "selector": {
-        "os_version": "(3\\.(1|2|3|4|5)\\.\\d+)",
-        "model": "Altoline 6921",
-        "os": "Cumulus",
-        "manufacturer": "HPE"
-    },
-    "software_capabilities": {
-        "onie": true,
-        "lxc_support": false
-    },
-    "display_name": "HPE Altoline 6921",
-    "slot_count": 0,
-    "id": "HPE_Altoline-6921_Cumulus"
+    ]
 }

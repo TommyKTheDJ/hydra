@@ -40,6 +40,12 @@ hydra-console-2
 hydra-mgmt-1
 hydra-mgmt-2
 
+[cumulus:children]
+border_leafs
+spines
+leafs
+superspines
+
 [border_leafs]
 hydra-border-1
 hydra-border-2

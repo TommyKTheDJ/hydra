@@ -1,13 +1,13 @@
 {
-    "id": "HPE_Altoline-6960_Cumulus",
+    "id": "Dell_Z9100-ON_Cumulus",
     "aos_support_level": "experimental",
     "selector": {
         "os_version": "(3\\.(1|2|3|4|5)\\.\\d+)",
-        "model": "HPE Altoline 6960 .*",
+        "model": "Z9100-ON",
         "os": "Cumulus",
-        "manufacturer": "Hewlett Packard Enterprise"
+        "manufacturer": "Dell"
     },
-    "display_name": "HPE Altoline 6960",
+    "display_name": "Dell Z9100-ON",
     "software_capabilities": {
         "onie": true,
         "lxc_support": false
