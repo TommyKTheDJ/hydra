@@ -1,0 +1,5 @@
+---
+- hosts: cumulus
+  become: true
+  roles:
+    - cumulus-firstinstall
