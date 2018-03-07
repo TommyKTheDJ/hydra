@@ -1,10 +1,18 @@
-- name: Configure mgmt interface
-  blockinfile:
+[TODO: change hostname?]
+
+- name: Modify /etc/network/interfaces for interfaces.d
+  lineinfile:
+    line: source /etc/network/interfaces.d/*.intf
     path: /etc/network/interfaces
-    block: "{{ lookup('file','mgmt.conf') }}"
+    state: present
+
+- name: Configure mgmt interface
+  copy:
+    dest: /etc/network/interfaces.d/mgmt.intf
+    src: mgmt.conf
 
 - name: Configure vrf mgmt on eth0 interface
-  blockinfile:
+  copy:
     path: /etc/network/interfaces
     block: "{{ lookup('file','eth0.conf') }}"
   notify: reload networking
