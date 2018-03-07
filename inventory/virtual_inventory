@@ -61,3 +61,12 @@ ceph-master
 
 [dummy]
 127.0.0.1
+
+[kubespray]
+charon
+
+[docker]
+charon
+
+[helm]
+charon
