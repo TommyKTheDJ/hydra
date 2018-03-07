@@ -1,3 +1,4 @@
 output_folder: /tmp
 dhcp_failover_master: ares
 dhcp_failover_backup: proteus
+aos_server_hostname: aos-server

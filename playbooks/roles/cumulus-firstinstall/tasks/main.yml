@@ -1,0 +1,34 @@
+- name: Configure mgmt interface
+  blockinfile:
+    path: /etc/network/interfaces
+    block: "{{ lookup('file','mgmt.conf') }}"
+
+- name: Configure vrf mgmt on eth0 interface
+  blockinfile:
+    path: /etc/network/interfaces
+    block: "{{ lookup('file','eth0.conf') }}"
+  notify: reload networking
+
+- name: Copy License file
+  lineinfile:
+    path: /tmp/license
+    line: "{{ cumulus_license }}"
+    create: yes
+
+- name: Install License
+  shell: "cl-license -i /tmp/license"
+  notify: restart switchd
+
+- name: Get installation script
+  get_url:
+    url: https://{{ aos_server_hostname }}/device_agent_images/aos_device_agent.run
+    dest: /tmp/aos_device_agent.run
+    validate_certs: no
+    mode: 0740
+  tags:
+    - aos_agent
+
+- name: Execute installation script
+  shell: /tmp/aos_device_agent.run
+  tags:
+    - aos_agent
