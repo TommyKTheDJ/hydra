@@ -2,7 +2,10 @@
 
 1. Run the installation playbooks
 
-   `ansible-playbook -i inventory playbooks/helm-install.yml`
+   ```
+   export ANSIBLE_VAULT_PASSWORD_FILE=.vault_pass
+   ansible-playbook -i inventory/virtual_inventory playbooks/helm-install.yml
+   ```
 
 2. Check kubectl config - ensure you're using the correct context that's pointing at the right cluster
 
