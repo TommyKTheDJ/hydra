@@ -1,0 +1,14 @@
+- name: "Add {{ net_username }} user"
+  user:
+      name: "{{ net_username }}"
+      password: "{{ net_password|password_hash('sha512') }}"
+      createhome: yes
+      comment: "created with ansible"
+      shell: /bin/bash
+      groups: hydra
+
+- name: "Copy localhost public ssh key for passwordless authentication of user {{ net_username }}"
+  authorized_key:
+    user: "{{ net_username }}"
+    state: present
+    key: "{{ lookup('file', 'hydra_key.pub') }}"

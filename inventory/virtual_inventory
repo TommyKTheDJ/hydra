@@ -50,7 +50,7 @@ charon
 
 [ceph-mon]
 
-[vms]
+[virtual-machines]
 ares
 jason
 castor

@@ -11,8 +11,3 @@
     password: "{{ net_password }}"
     src: "{{ output_folder }}/{{ inventory_hostname }}.conf"
     save_when: modified
-
-# - name: Delete temporary files
-#   file:
-#     path: "{{ output_folder }}/{{ inventory_hostname }}.conf"
-#     state: absent

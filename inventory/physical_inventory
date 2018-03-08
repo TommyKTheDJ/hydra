@@ -36,7 +36,7 @@ hydra-pdu-4
 hydra-console-1
 hydra-console-2
 
-[mgmt_switches]
+[mgmt-switches]
 hydra-mgmt-1
 hydra-mgmt-2
 
