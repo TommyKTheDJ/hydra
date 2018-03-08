@@ -70,3 +70,6 @@ charon
 
 [helm]
 charon
+
+[ingress-nginx]
+charon
