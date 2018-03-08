@@ -1,0 +1,12 @@
+- include_vars: cumulus_vars.yml
+  when: (ansible_distribution is defined and ansible_distribution and ansible_distribution == "Cumulus Linux")
+
+- include_vars: cisco_vars.yml
+  when: (ansible_os is defined and ansible_os and ansible_os == "nx_os")
+
+- include_tasks: admin_keys_linux.yml
+  when: (ansible_distribution is defined and ansible_distribution and ansible_distribution == "Ubuntu") or
+        (ansible_distribution is defined and ansible_distribution and ansible_distribution == "Cumulus Linux")
+
+- include_tasks: admin_keys_cisco.yml
+  when: (ansible_os is defined and ansible_os and ansible_os == "nx_os")

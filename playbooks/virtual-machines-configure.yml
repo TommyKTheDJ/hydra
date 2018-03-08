@@ -1,0 +1,15 @@
+- hosts: virtual-machines
+  strategy: free
+  become: true
+  roles:
+    - linux_accounts
+    - ntpd
+  tags:
+    - accounts
+    - ntpd
+
+- hosts: virtual-machines
+  strategy: free
+  become: true
+  roles:
+    - docker

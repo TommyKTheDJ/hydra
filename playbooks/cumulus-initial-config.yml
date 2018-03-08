@@ -1,4 +1,3 @@
----
 - hosts: cumulus
   become: true
   strategy: free

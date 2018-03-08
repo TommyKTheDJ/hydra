@@ -1,0 +1,2 @@
+ansible_user: hydra
+ansible_ssh_pass: hydra123!
