@@ -21,96 +21,212 @@
           "ecmp_limit": 64,
           "cpu": "x86"
       },
-    "layout": [
-        {
-            "panel_id": 2,
-            "supported_transformations": [
-                {
-                    "from_speed": {
-                        "unit": "G",
-                        "value": 100
-                    },
-                    "to_count": 4,
-                    "from_count": 1,
-                    "to_speed": {
-                        "unit": "G",
-                        "value": 25
-                    }
-                },
-                {
-                    "from_speed": {
-                        "unit": "G",
-                        "value": 100
-                    },
-                    "to_count": 1,
-                    "from_count": 1,
-                    "to_speed": {
-                        "unit": "G",
-                        "value": 40
-                    }
-                },
-                {
-                    "from_speed": {
-                        "unit": "G",
-                        "value": 100
-                    },
-                    "to_count": 2,
-                    "from_count": 1,
-                    "to_speed": {
-                        "unit": "G",
-                        "value": 50
-                    }
-                },
-                {
-                    "from_speed": {
-                        "unit": "G",
-                        "value": 100
-                    },
-                    "to_count": 4,
-                    "from_count": 1,
-                    "to_speed": {
-                        "unit": "G",
-                        "value": 10
-                    }
-                }
-            ],
-            "port_indexing": {
-                "order": "T-B, L-R",
-                "start_index": 49,
-                "schema": "absolute"
-            },
-            "default_speed": {
-                "value": 100,
-                "unit": "G"
-            },
-            "card_slot_id": 0,
-            "failure_domain_id": 2,
-            "type": "qsfp28",
-            "panel_layout": {
-                "row_count": 2,
-                "column_count": 2
-            }
-        },
-        {
-            "panel_id": 1,
-            "supported_transformations": [
-            ],
-            "port_indexing": {
-                "order": "T-B, L-R",
-                "start_index": 1,
-                "schema": "absolute"
-            },
-            "default_speed": {
-                "value": 10,
-                "unit": "G"
-            },
-            "card_slot_id": 0,
-            "failure_domain_id": 1,
-            "type": "sfp",
-            "panel_layout": {
-                "row_count": 2,
-                "column_count": 24
-            }
-        }
-    ]
+      "layout": [
+          {
+              "panel_id": 1,
+              "supported_transformations": [],
+              "port_indexing": {
+                  "order": "T-B, L-R",
+                  "start_index": 1,
+                  "schema": "absolute"
+              },
+              "default_speed": {
+                  "unit": "G",
+                  "value": 10
+              },
+              "failure_domain_id": 1,
+              "type": "sfp",
+              "panel_layout": {
+                  "row_count": 2,
+                  "column_count": 12
+              }
+          },
+          {
+              "panel_id": 2,
+              "supported_transformations": [
+                  {
+                      "from_speed": {
+                          "value": 100,
+                          "unit": "G"
+                      },
+                      "to_count": 1,
+                      "from_count": 1,
+                      "to_speed": {
+                          "value": 40,
+                          "unit": "G"
+                      }
+                  },
+                  {
+                      "from_speed": {
+                          "value": 100,
+                          "unit": "G"
+                      },
+                      "to_count": 2,
+                      "from_count": 1,
+                      "to_speed": {
+                          "value": 50,
+                          "unit": "G"
+                      }
+                  },
+                  {
+                      "from_speed": {
+                          "value": 100,
+                          "unit": "G"
+                      },
+                      "to_count": 4,
+                      "from_count": 1,
+                      "to_speed": {
+                          "value": 25,
+                          "unit": "G"
+                      }
+                  },
+                  {
+                      "from_speed": {
+                          "value": 100,
+                          "unit": "G"
+                      },
+                      "to_count": 4,
+                      "from_count": 1,
+                      "to_speed": {
+                          "value": 10,
+                          "unit": "G"
+                      }
+                  }
+              ],
+              "port_indexing": {
+                  "order": "T-B, L-R",
+                  "start_index": 25,
+                  "schema": "absolute"
+              },
+              "default_speed": {
+                  "unit": "G",
+                  "value": 100
+              },
+              "failure_domain_id": 1,
+              "type": "qsfp28",
+              "panel_layout": {
+                  "row_count": 2,
+                  "column_count": 1
+              }
+          },
+          {
+              "panel_id": 3,
+              "supported_transformations": [
+                  {
+                      "from_speed": {
+                          "value": 40,
+                          "unit": "G"
+                      },
+                      "to_count": 4,
+                      "from_count": 1,
+                      "to_speed": {
+                          "value": 10,
+                          "unit": "G"
+                      }
+                  }
+              ],
+              "port_indexing": {
+                  "order": "T-B, L-R",
+                  "start_index": 27,
+                  "schema": "absolute"
+              },
+              "default_speed": {
+                  "unit": "G",
+                  "value": 40
+              },
+              "failure_domain_id": 1,
+              "type": "qsfp",
+              "panel_layout": {
+                  "row_count": 2,
+                  "column_count": 1
+              }
+          },
+          {
+              "panel_id": 4,
+              "supported_transformations": [
+                  {
+                      "from_speed": {
+                          "value": 100,
+                          "unit": "G"
+                      },
+                      "to_count": 1,
+                      "from_count": 1,
+                      "to_speed": {
+                          "value": 40,
+                          "unit": "G"
+                      }
+                  },
+                  {
+                      "from_speed": {
+                          "value": 100,
+                          "unit": "G"
+                      },
+                      "to_count": 2,
+                      "from_count": 1,
+                      "to_speed": {
+                          "value": 50,
+                          "unit": "G"
+                      }
+                  },
+                  {
+                      "from_speed": {
+                          "value": 100,
+                          "unit": "G"
+                      },
+                      "to_count": 4,
+                      "from_count": 1,
+                      "to_speed": {
+                          "value": 25,
+                          "unit": "G"
+                      }
+                  },
+                  {
+                      "from_speed": {
+                          "value": 100,
+                          "unit": "G"
+                      },
+                      "to_count": 4,
+                      "from_count": 1,
+                      "to_speed": {
+                          "value": 10,
+                          "unit": "G"
+                      }
+                  }
+              ],
+              "port_indexing": {
+                  "order": "T-B, L-R",
+                  "start_index": 29,
+                  "schema": "absolute"
+              },
+              "default_speed": {
+                  "unit": "G",
+                  "value": 100
+              },
+              "failure_domain_id": 1,
+              "type": "qsfp28",
+              "panel_layout": {
+                  "row_count": 2,
+                  "column_count": 1
+              }
+          },
+          {
+              "panel_id": 5,
+              "supported_transformations": [],
+              "port_indexing": {
+                  "order": "T-B, L-R",
+                  "start_index": 31,
+                  "schema": "absolute"
+              },
+              "default_speed": {
+                  "unit": "G",
+                  "value": 10
+              },
+              "failure_domain_id": 1,
+              "type": "sfp",
+              "panel_layout": {
+                  "row_count": 2,
+                  "column_count": 12
+              }
+          }
+      ]
 }

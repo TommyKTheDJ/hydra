@@ -1,4 +1,5 @@
 - hosts: dhcp-servers
+  strategy: free
   user: hydra
   become: true
   roles:

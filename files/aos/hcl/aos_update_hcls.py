@@ -7,7 +7,7 @@ requests.packages.urllib3.disable_warnings()
 
 DEBUG = True
 AOS_HOST = 'aos-server'
-HCL_ENTRIES_FOLDER = 'files/aos/hcl'
+HCL_ENTRIES_FOLDER = '.'
 
 API_AUTH_ENDPOINT = '/api/aaa/login'
 API_HCL_ENDPOINT = '/api/hcl'
