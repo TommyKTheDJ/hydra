@@ -1,0 +1,14 @@
+- name: Download the ingress-nginx templates
+  get-url:
+    url: {{item}}
+    dest: /tmp/ingress-nginx/
+    mode: 0700
+    with_items:
+      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/namespace.yaml
+      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/default-backend.yaml
+      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/configmap.yaml
+      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/tcp-services-configmap.yaml
+      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/udp-services-configmap.yaml
+      - https://raw.githubusercontent.com/TommyKTheDJ/hydra/master/files/ingress-nginx/rbac.yaml
+      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/with-rbac.yaml
+      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/baremetal/service-nodeport.yaml
