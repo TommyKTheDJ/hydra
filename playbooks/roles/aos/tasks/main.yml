@@ -21,7 +21,7 @@
     method: POST
     body: "{{ lookup('template','aaa.j2') }}"
     # force_basic_auth: yes
-    status_code: 201
+    status_code: 201, 409
     body_format: json
     validate_certs: no
   with_items:
