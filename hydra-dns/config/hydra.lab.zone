@@ -1,0 +1,72 @@
+@  900  IN  SOA hydra-dns-1.hydra.lab.  (
+                              hydra-dns-1.hydra.lab. ;
+			      201803101 ; serial
+			      10800 ; refresh
+			      15 ; retry
+			      10800 ; expire
+			      900 ; nxdomain ttl
+			     )
+       IN  NS     hydra-dns-1.hydra.lab.
+       IN  NS     hydra-dns-2.hydra.lab.
+       IN   A	  10.60.3.29
+
+$ORIGIN hydra.lab.
+
+aos			IN	A	10.60.3.20
+charon			IN	A	10.60.3.24
+ares			IN	A	10.60.3.25
+castor			IN	A	10.60.3.26
+jason			IN	A	10.60.3.27
+proteus			IN	A	10.60.3.28
+hydra-dns-1		IN	A	10.60.3.29
+hydra-dns-2		IN	A	10.60.3.30
+hydra-mgmt-1		IN	A	10.60.3.49
+hydra-console-1		IN	A	10.60.3.51
+hydra-pdu-1		IN	A	10.60.3.53
+hydra-pdu-2		IN	A	10.60.3.54
+hydra-mgmt-2		IN	A	10.60.3.50
+hydra-console-2		IN	A	10.60.3.52
+hydra-pdu-3		IN	A	10.60.3.55
+hydra-pdu-4		IN	A	10.60.3.56
+
+$ORIGIN ipxe.hydra.lab.
+
+charon		IN	A	10.60.2.24
+ares		IN	A	10.60.2.25
+castor		IN	A	10.60.2.26
+jason		IN	A	10.60.2.27
+proteus		IN	A	10.60.2.28
+helios		IN	A	10.60.2.10
+morpheus	IN	A	10.60.2.11
+hermes		IN	A	10.60.2.12
+hypnos		IN	A	10.60.2.13
+triton		IN	A	10.60.2.20
+zephyrus	IN	A	10.60.2.21
+kratus		IN	A	10.60.2.22
+pollux		IN	A	10.60.2.23
+
+$ORIGIN fabric.hydra.lab.
+
+charon			IN	A	10.60.4.24
+ares			IN	A	10.60.4.25
+castor			IN	A	10.60.4.26
+jason			IN	A	10.60.4.27
+proteus			IN	A	10.60.4.28
+hydra-spine-1		IN	A	10.60.4.10
+hydra-spine-2		IN	A	10.60.4.11
+hydra-tor-1-1		IN	A	10.60.4.12
+hydra-tor-1-2		IN	A	10.60.4.13
+hydra-tor-2-1		IN	A	10.60.4.14
+hydra-tor-2-2		IN	A	10.60.4.15
+hydra-border-1		IN	A	10.60.4.16
+hydra-border-2		IN	A	10.60.4.17
+hydra-superspine-1	IN	A	10.60.4.100
+hydra-superspine-2	IN	A	10.60.4.101
+hydra-spine-3		IN	A	10.60.4.20
+hydra-spine-4		IN	A	10.60.4.21
+hydra-tor-3-1		IN	A	10.60.4.22
+hydra-tor-3-2		IN	A	10.60.4.23
+hydra-tor-4-1		IN	A	10.60.4.24
+hydra-tor-4-2		IN	A	10.60.4.25
+hydra-border-3		IN	A	10.60.4.26
+hydra-border-4		IN	A	10.60.4.27

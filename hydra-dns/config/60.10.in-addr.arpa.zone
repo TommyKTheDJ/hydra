@@ -1,0 +1,70 @@
+$ORIGIN 60.10.in-addr.arpa.
+
+@  900  IN  SOA hydra-dns-1.hydra.lab.  (
+                              hydra-dns-1.hydra.lab. ;
+			      201803101 ; serial
+			      10800 ; refresh
+			      15 ; retry
+			      10800 ; expire
+			      900 ; nxdomain ttl
+			     )
+
+    IN  NS     hydra-dns-1.hydra.lab.
+    IN  NS     hydra-dns-2.hydra.lab.
+
+
+20.3	IN	PTR	aos.hydra.lab.
+24.3	IN	PTR	charon.hydra.lab.
+25.3	IN	PTR	ares.hydra.lab.
+26.3	IN	PTR	castor.hydra.lab.
+27.3	IN	PTR	jason.hydra.lab.
+28.3	IN	PTR	proteus.hydra.lab.
+29.3	IN	PTR	hydra-dns-1.hydra.lab.
+30.3	IN	PTR	hydra-dns-2.hydra.lab.
+49.3	IN	PTR	hydra-mgmt-1.hydra.lab.
+51.3	IN	PTR	hydra-console-1.hydra.lab.
+53.3	IN	PTR	hydra-pdu-1.hydra.lab.
+54.3	IN	PTR	hydra-pdu-2.hydra.lab.
+50.3	IN	PTR	hydra-mgmt-2.hydra.lab.
+52.3	IN	PTR	hydra-console-2.hydra.lab.
+55.3	IN	PTR	hydra-pdu-3.hydra.lab.
+56.3	IN	PTR	hydra-pdu-4.hydra.lab.
+
+
+24.2	IN	PTR	charon.ipxe.hydra.lab.
+25.2	IN	PTR	ares.ipxe.hydra.lab.
+26.2	IN	PTR	castor.ipxe.hydra.lab.
+27.2	IN	PTR	jason.ipxe.hydra.lab.
+28.2	IN	PTR	proteus.ipxe.hydra.lab.
+10.2	IN	PTR	helios.ipxe.hydra.lab.
+11.2	IN	PTR	morpheus.ipxe.hydra.lab.
+12.2	IN	PTR	hermes.ipxe.hydra.lab.
+13.2	IN	PTR	hypnos.ipxe.hydra.lab.
+20.2	IN	PTR	triton.ipxe.hydra.lab.
+21.2	IN	PTR	zephyrus.ipxe.hydra.lab.
+22.2	IN	PTR	kratus.ipxe.hydra.lab.
+23.2	IN	PTR	pollux.ipxe.hydra.lab.
+
+24.4 	IN	PTR	charon.fabric.hydra.lab.
+25.4 	IN	PTR	ares.fabric.hydra.lab.
+26.4 	IN	PTR	castor.fabric.hydra.lab.
+27.4 	IN	PTR	jason.fabric.hydra.lab.
+28.4 	IN	PTR	proteus.fabric.hydra.lab.
+10.4 	IN	PTR	hydra-spine-1.fabric.hydra.lab.
+11.4 	IN	PTR	hydra-spine-2.fabric.hydra.lab.
+12.4 	IN	PTR	hydra-tor-1-1.fabric.hydra.lab.
+13.4 	IN	PTR	hydra-tor-1-2.fabric.hydra.lab.
+14.4 	IN	PTR	hydra-tor-2-1.fabric.hydra.lab.
+15.4 	IN	PTR	hydra-tor-2-2.fabric.hydra.lab.
+16.4 	IN	PTR	hydra-border-1.fabric.hydra.lab.
+17.4 	IN	PTR	hydra-border-2.fabric.hydra.lab.
+100.4	IN	PTR	hydra-superspine-1.fabric.hydra.lab.
+101.4	IN	PTR	hydra-superspine-2.fabric.hydra.lab.
+20.4 	IN	PTR	hydra-spine-3.fabric.hydra.lab.
+21.4 	IN	PTR	hydra-spine-4.fabric.hydra.lab.
+22.4 	IN	PTR	hydra-tor-3-1.fabric.hydra.lab.
+23.4 	IN	PTR	hydra-tor-3-2.fabric.hydra.lab.
+24.4 	IN	PTR	hydra-tor-4-1.fabric.hydra.lab.
+25.4 	IN	PTR	hydra-tor-4-2.fabric.hydra.lab.
+26.4 	IN	PTR	hydra-border-3.fabric.hydra.lab.
+27.4 	IN	PTR	hydra-border-4.fabric.hydra.lab.
