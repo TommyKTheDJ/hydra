@@ -1,0 +1,57 @@
+- name: Add Gluster APT repository
+  apt_repository:
+    update_cache: yes
+    repo: 'ppa:gluster/glusterfs-4.0'
+
+- name: Install xfs glusterfs-server and dependencies
+  apt:  name={{item}}
+  with_items:
+   - glusterfs*
+   - xfsprogs
+
+- name: Configure GlusterFS peers
+  shell: |
+    {{ lookup('template', 'gluster-peers.j2') }}
+  run_once: true
+
+- name: Make sure partition exists on the HDD
+  parted:
+    device: {{ gluster_drive }}
+    number: {{ gluster_partition_id }}
+    state: present
+  register: disk_info
+
+- name: Create XFS filesystem on gluster drive
+  filesystem:
+    fstype: xfs
+    dev: /dev/{{ gluster_drive }}/{{ gluster_partition_id }}
+    opts: -i size=512
+
+- name: Create gluster_mountpoint
+  file:
+    path: {{ gluster_mountpath }}/{{ gluster_brick_name }}
+      state: directory
+      mode: 0755
+
+- name: Create /etf/fstab entry for XFS drive and mount
+  mount: {{ gluster_mountpath }}/{{ gluster_brick_name }}
+  fstype: xfs
+  src: /dev/{{ gluster_drive }}/{{ gluster_partition_id }}
+  path: {{ gluster_mountpoint }}
+  state: mounted
+
+- name: Create gluster volume folder
+  file:
+    path: {{ gluster_mountpath }}/{{ gluster_brick_name }}/{{ gluster_volume }}
+      state: directory
+      mode: 0755
+
+- name: Create gluster volume
+  gluster_volume:
+    state: present
+    name: "{{ gluster_volume }}"
+    bricks: {{ gluster_mountpath }}/{{ gluster_brick_name }}/{{ gluster_volume }}
+    rebalance: yes
+    cluster: {{ groups.gluster | join(",") }}"
+    start_on_create: yes
+  run_once: true
