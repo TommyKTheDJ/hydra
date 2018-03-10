@@ -37,18 +37,12 @@ castor
 ares
 proteus
 
-[ceph-nodes]
+[gluster-nodes]
 ares
 jason
 castor
 proteus
 charon
-
-[ceph-osd]
-
-[ceph-mds]
-
-[ceph-mon]
 
 [virtual-machines]
 ares
@@ -56,8 +50,12 @@ jason
 castor
 proteus
 charon
-ceph-master
+hydra-dns-1
+hydra-dns-2
 
+[dns]
+hydra-dns-1
+hydra-dns-2
 
 [dummy]
 127.0.0.1
