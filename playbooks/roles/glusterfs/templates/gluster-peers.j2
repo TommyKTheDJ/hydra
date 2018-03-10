@@ -1,0 +1,4 @@
+{% for hostname in groups['gluster'] %}
+gluster peer {{ hostname }}
+sleep 1
+{% endfor %}
