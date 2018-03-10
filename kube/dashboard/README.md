@@ -1,17 +1,16 @@
-# Nginx-cluster with persistent volumes
+# Deploy the kubernetes dashboard service
 
-This folder provides the files necessary to deploy an nginx cluster using a glusterfs persistent volume.
-
-This requires having a functional kubectl working environment.
-
-Execute the following commands in order
+To deploy the dashboard execute this play
 
 ```
-kubectl apply -f onie-namespace.yml
-kubectl apply -f glusterfs-service.yml
-kubectl apply -f glusterfs-endpoints.yml
-kubectl apply -f gluster-persistentvolume.yml
-kubectl apply -f gluster-persistentvolumeclaim.yml
-kubectl apply -f nginx-service.yml
-kubectl apply -f nginx-deployment.yml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
 ```
+
+Then, on the host where the dashboard UI wants to be executed run
+```
+kubectl proxy&
+```
+
+This will launch the web GUI that is then accessible at:
+
+[http://localhost:8001/ui](http://localhost:8001/ui)
