@@ -37,18 +37,12 @@ castor
 ares
 proteus
 
-[ceph-nodes]
+[gluster-nodes]
 ares
 jason
 castor
 proteus
 charon
-
-[ceph-osd]
-
-[ceph-mds]
-
-[ceph-mon]
 
 [virtual-machines]
 ares
