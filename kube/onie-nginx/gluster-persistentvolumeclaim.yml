@@ -8,8 +8,4 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 30Gi
-  selector:
-    matchLabels:
-      storage-tier: gold
-      aws-availability-zone: us-east-1
+      storage: 100Gi
