@@ -16,9 +16,9 @@ vlans:
     - hydra-tor-1-2
     - hydra-border-1
     - hydra-tor-1-1
-    - hydra-superspine-2
     - hydra-superspine-1
     - hydra-tor-4-2
+    - hydra-superspine-2
     id: 702
     name: fabric_management
     network: 10.60.4.0
@@ -34,9 +34,9 @@ vlans:
     - hydra-dns-2
     - hydra-dns-1
     - ares
-    - aos-server
     - hydra-console-1
     - hydra-console-2
+    - aos
     - charon
     - hydra-pdu-2
     - hydra-pdu-3

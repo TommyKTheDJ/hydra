@@ -1,5 +1,5 @@
 hosts:
-    aos-server:
+    aos:
         interfaces:
             management:
                 ip: 10.60.3.20
@@ -60,7 +60,7 @@ hosts:
             ram: 8
         type: vm
     helios:
-        ilo_default_pwd: Z9RYCDA5
+        ilo_password: Z9RYCDA5
         interfaces:
             management:
                 cable_id: GK522
@@ -86,7 +86,7 @@ hosts:
         resources: {}
         type: host
     hermes:
-        ilo_default_pwd: VH4CMDTZ
+        ilo_password: VH4CMDTZ
         interfaces:
             management:
                 cable_id: FP029
@@ -913,7 +913,7 @@ hosts:
         resources: {}
         type: fabric
     hypnos:
-        ilo_default_pwd: VAW2BJ9N
+        ilo_password: VAW2BJ9N
         interfaces:
             management:
                 cable_id: FO140
@@ -954,7 +954,7 @@ hosts:
             ram: 8
         type: vm
     kratus:
-        ilo_default_pwd: BPGRQ9M0
+        ilo_password: BPGRQ9M0
         interfaces:
             management:
                 cable_id: FP004
@@ -980,7 +980,7 @@ hosts:
         resources: {}
         type: host
     morpheus:
-        ilo_default_pwd: U6S8BMEN
+        ilo_password: U6S8BMEN
         interfaces:
             management:
                 cable_id: FP018
@@ -1006,7 +1006,7 @@ hosts:
         resources: {}
         type: host
     pollux:
-        ilo_default_pwd: 7KP3EFQB
+        ilo_password: 7KP3EFQB
         interfaces:
             management:
                 cable_id: FO145
@@ -1047,7 +1047,7 @@ hosts:
             ram: 8
         type: vm
     triton:
-        ilo_default_pwd: NUYNX7CK
+        ilo_password: NUYNX7CK
         interfaces:
             management:
                 cable_id: FO141
@@ -1070,10 +1070,12 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 11
         rack: 2
-        resources: {}
+        resources:
+            cpu: 2 Xeon E5-2640 @ 2.4GHz
+            ram: 512
         type: host
     zephyrus:
-        ilo_default_pwd: WXDTKN6D
+        ilo_password: WXDTKN6D
         interfaces:
             management:
                 cable_id: FO145
@@ -1096,5 +1098,6 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 10
         rack: 2
-        resources: {}
+        resources:
+            cpu: 2 Xeon E5-2640 @ 2.4GHz
         type: host
