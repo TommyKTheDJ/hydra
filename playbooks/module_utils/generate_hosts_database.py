@@ -18,6 +18,7 @@ def generate_hosts_database(inventory_filename = None):
       record['model'] = data['model']
       record['type'] = data['type']
       record['os'] = data['os']
+      record['ilo_default_pwd'] = data['ilo_default_pwd']
       record['resources'] = {}
       record['resources']['cpu'] = data['cpu']
       record['resources']['ram'] = data['ram']

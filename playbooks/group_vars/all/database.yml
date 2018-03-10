@@ -2,16 +2,13 @@ hosts:
     aos-server:
         interfaces:
             management:
-                cable_id: null
                 ip: 10.60.3.20
-                mac_address: null
                 prefix_length: 24
                 user: admin
                 vlan_id: 701
         manufacturer: Apstra
         model: AoS
         os: AoS 2.1
-        rack: null
         resources:
             cpu: 4
             disk: 30
@@ -20,16 +17,13 @@ hosts:
     ares:
         interfaces:
             management:
-                cable_id: null
                 ip: 10.60.3.25
-                mac_address: null
                 prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: null
         resources:
             cpu: 4
             disk: 30
@@ -38,16 +32,13 @@ hosts:
     castor:
         interfaces:
             management:
-                cable_id: null
                 ip: 10.60.3.26
-                mac_address: null
                 prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: null
         resources:
             cpu: 4
             disk: 30
@@ -56,22 +47,20 @@ hosts:
     charon:
         interfaces:
             management:
-                cable_id: null
                 ip: 10.60.3.24
-                mac_address: null
                 prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: null
         resources:
             cpu: 4
             disk: 30
             ram: 8
         type: vm
     helios:
+        ilo_default_pwd: Z9RYCDA5
         interfaces:
             management:
                 cable_id: GK522
@@ -94,12 +83,10 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 14
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: host
     hermes:
+        ilo_default_pwd: VH4CMDTZ
         interfaces:
             management:
                 cable_id: FP029
@@ -122,10 +109,7 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 11
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: host
     hydra-border-1:
         interfaces:
@@ -157,10 +141,7 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 21
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-border-2:
         interfaces:
@@ -192,10 +173,7 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 20
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-border-3:
         interfaces:
@@ -227,10 +205,7 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 21
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-border-4:
         interfaces:
@@ -262,10 +237,7 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 20
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-console-1:
         interfaces:
@@ -287,17 +259,13 @@ hosts:
                 hostname: hydra-pdu-1
                 port: 23
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: console
     hydra-console-2:
         interfaces:
             management:
                 cable_id: FN715
                 ip: 10.60.3.52
-                mac_address: null
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 1
@@ -312,24 +280,18 @@ hosts:
                 hostname: hydra-pdu-3
                 port: 23
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: console
     hydra-dns-1:
         interfaces:
             management:
-                cable_id: null
                 ip: 10.60.3.29
-                mac_address: null
                 prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: null
         resources:
             cpu: 2
             disk: 30
@@ -338,16 +300,13 @@ hosts:
     hydra-dns-2:
         interfaces:
             management:
-                cable_id: null
                 ip: 10.60.3.30
-                mac_address: null
                 prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: null
         resources:
             cpu: 2
             disk: 30
@@ -362,12 +321,9 @@ hosts:
                     hostname: hydra-console-1
                     port: 1
             management:
-                cable_id: null
                 ip: 10.60.3.49
                 mac_address: 0:5d:73:ec:1c:bc
-                neighbor:
-                    hostname: null
-                    port: null
+                neighbor: {}
                 prefix_length: 24
                 user: admin
                 vlan_id: 701
@@ -382,10 +338,7 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 22
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: network
     hydra-mgmt-2:
         interfaces:
@@ -396,12 +349,9 @@ hosts:
                     hostname: hydra-console-2
                     port: 1
             management:
-                cable_id: null
                 ip: 10.60.3.50
                 mac_address: b4:de:31:94:32:f0
-                neighbor:
-                    hostname: null
-                    port: null
+                neighbor: {}
                 prefix_length: 24
                 user: admin
                 vlan_id: 701
@@ -416,10 +366,7 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 22
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: network
     hydra-pdu-1:
         interfaces:
@@ -443,10 +390,7 @@ hosts:
         model: PX3-5493V
         os: 3.3.10.5-43736
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: pdu
     hydra-pdu-2:
         interfaces:
@@ -470,10 +414,7 @@ hosts:
         model: PX3-5493V
         os: 3.3.10.5-43736
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: pdu
     hydra-pdu-3:
         interfaces:
@@ -497,10 +438,7 @@ hosts:
         model: PX3-5493V
         os: 3.3.10.5-43736
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: pdu
     hydra-pdu-4:
         interfaces:
@@ -524,10 +462,7 @@ hosts:
         model: PX3-5493V
         os: 3.3.10.5-43736
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: pdu
     hydra-spine-1:
         interfaces:
@@ -559,10 +494,7 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 19
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-spine-2:
         interfaces:
@@ -594,10 +526,7 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 17
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-spine-3:
         interfaces:
@@ -629,10 +558,7 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 16
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-spine-4:
         interfaces:
@@ -664,10 +590,7 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 15
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-superspine-1:
         interfaces:
@@ -699,10 +622,7 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 19
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-superspine-2:
         interfaces:
@@ -734,10 +654,7 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 17
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-tor-1-1:
         interfaces:
@@ -769,10 +686,7 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 16
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-tor-1-2:
         interfaces:
@@ -804,10 +718,7 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 15
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-tor-2-1:
         interfaces:
@@ -839,10 +750,7 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 9
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-tor-2-2:
         interfaces:
@@ -874,10 +782,7 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 8
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-tor-3-1:
         interfaces:
@@ -909,10 +814,7 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 14
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-tor-3-2:
         interfaces:
@@ -944,10 +846,7 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 13
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-tor-4-1:
         interfaces:
@@ -979,10 +878,7 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 9
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hydra-tor-4-2:
         interfaces:
@@ -1014,12 +910,10 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 8
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: fabric
     hypnos:
+        ilo_default_pwd: VAW2BJ9N
         interfaces:
             management:
                 cable_id: FO140
@@ -1042,30 +936,25 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 10
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: host
     jason:
         interfaces:
             management:
-                cable_id: null
                 ip: 10.60.3.27
-                mac_address: null
                 prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: null
         resources:
             cpu: 2
             disk: 30
             ram: 8
         type: vm
     kratus:
+        ilo_default_pwd: BPGRQ9M0
         interfaces:
             management:
                 cable_id: FP004
@@ -1088,12 +977,10 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 7
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: host
     morpheus:
+        ilo_default_pwd: U6S8BMEN
         interfaces:
             management:
                 cable_id: FP018
@@ -1116,12 +1003,10 @@ hosts:
                 hostname: hydra-pdu-2
                 port: 13
         rack: 1
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: host
     pollux:
+        ilo_default_pwd: 7KP3EFQB
         interfaces:
             management:
                 cable_id: FO145
@@ -1144,30 +1029,25 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 5
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: host
     proteus:
         interfaces:
             management:
-                cable_id: null
                 ip: 10.60.3.28
-                mac_address: null
                 prefix_length: 24
                 user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
-        rack: null
         resources:
             cpu: 4
             disk: 30
             ram: 8
         type: vm
     triton:
+        ilo_default_pwd: NUYNX7CK
         interfaces:
             management:
                 cable_id: FO141
@@ -1190,12 +1070,10 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 11
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: host
     zephyrus:
+        ilo_default_pwd: WXDTKN6D
         interfaces:
             management:
                 cable_id: FO145
@@ -1218,8 +1096,5 @@ hosts:
                 hostname: hydra-pdu-4
                 port: 10
         rack: 2
-        resources:
-            cpu: null
-            disk: null
-            ram: null
+        resources: {}
         type: host
