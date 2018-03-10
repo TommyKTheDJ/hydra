@@ -50,8 +50,12 @@ jason
 castor
 proteus
 charon
-ceph-master
+hydra-dns-1
+hydra-dns-2
 
+[dns]
+hydra-dns-1
+hydra-dns-2
 
 [dummy]
 127.0.0.1
