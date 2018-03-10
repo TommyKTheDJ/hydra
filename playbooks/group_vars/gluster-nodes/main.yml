@@ -1,0 +1,5 @@
+gluster_drive: /dev/sdb
+gluster_partition_id: 1
+gluster_mountpath: /var/lib/
+gluster_brick_name: gluster_brick
+gluster_volume: gv0
