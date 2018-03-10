@@ -4,8 +4,11 @@
   roles:
     - linux_accounts
     - ntpd
+    - hosts
+    - ssh_keys
   tags:
     - accounts
+    - keys
     - ntpd
 
 - hosts: virtual-machines
