@@ -1,7 +1,7 @@
 ---
 - name: Get token
   uri:
-    url: https://{{ aos_host }}/api/aaa/login
+    url: https://{{ aos_server_hostname }}/api/aaa/login
     method: POST
     body:
         username: "{{ aos_username }}"

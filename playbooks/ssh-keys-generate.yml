@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Generate SSH keys
+      shell: ssh-keygen -b 2048 -t rsa -f "{{ playbook_dir }}"/../.ssh/id_rsa_"{{ item.id }}" -q -N ''
+      args:
+        creates: "{{ playbook_dir }}/../.ssh/id_rsa_{{ item.id }}"
+      with_items: "{{ users }}"
+      tags:
+        - keygen
