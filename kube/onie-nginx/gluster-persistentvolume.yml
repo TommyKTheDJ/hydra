@@ -4,7 +4,7 @@ metadata:
   name: gv000-onie
 spec:
   capacity:
-    storage: 300Gi
+    storage: 20Gi
   persistentVolumeReclaimPolicy: Retain
   accessModes:
     - ReadWriteMany
