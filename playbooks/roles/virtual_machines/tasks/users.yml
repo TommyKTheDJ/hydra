@@ -1,4 +1,3 @@
----
 - name: Make sure we have a 'hydra' group
   group:
     name: hydra
@@ -14,11 +13,10 @@
 
 - name: Add users | create users, shell, home dirs
   user:
-      name={{ item.id }}
-      password={{ item.pwd|password_hash('sha512') }}
-      createhome=yes
-      comment='created with ansible'
-      shell=/bin/bash
-      groups=hydra
-
-  with_items: '{{ users }}'
+      name: "{{ item.id }}"
+      password: "{{ item.pwd|password_hash('sha512') }}"
+      createhome: yes
+      comment: created with ansible
+      shell: /bin/bash
+      groups: hydra
+  with_items: "{{ users }}"

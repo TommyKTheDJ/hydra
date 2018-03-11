@@ -1,2 +1,11 @@
 snmp_trap_collector: 10.60.50.4
 syslog_server: 10.60.50.5
+dns_server_1: 10.60.3.29
+dns_server_2: 10.60.3.30
+dns_root_domain: hydra.lab
+
+ntp_server: 10.50.30.92
+ntp_timezone: Europe/London
+
+dhcp_failover_master: ares.hydra.lab
+dhcp_failover_backup: proteus.hydra.lab

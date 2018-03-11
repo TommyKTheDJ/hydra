@@ -1,4 +1,1 @@
-ansible_user: hydra
-ansible_ssh_pass: hydra123!
-ansible_sudo_pass: hydra123!
 ansible_python_interpreter: /usr/bin/python3

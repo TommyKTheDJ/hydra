@@ -1,3 +1,8 @@
+- hosts: localhost
+  connection: local
+  roles:
+    - {role: ssh_keys, tags: keygen}
+
 - hosts: cumulus
   strategy: free
   become: true

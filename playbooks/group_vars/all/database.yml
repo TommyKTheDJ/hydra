@@ -1,5 +1,5 @@
 hosts:
-    aos:
+    aos.hydra.lab:
         interfaces:
             management:
                 ip: 10.60.3.20
@@ -14,7 +14,7 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    ares:
+    ares.hydra.lab:
         interfaces:
             management:
                 ip: 10.60.3.25
@@ -29,7 +29,7 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    castor:
+    castor.hydra.lab:
         interfaces:
             management:
                 ip: 10.60.3.26
@@ -44,7 +44,7 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    charon:
+    charon.hydra.lab:
         interfaces:
             management:
                 ip: 10.60.3.24
@@ -59,7 +59,7 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    helios:
+    helios.ipxe.hydra.lab:
         ilo_password: Z9RYCDA5
         interfaces:
             management:
@@ -85,7 +85,7 @@ hosts:
         rack: 1
         resources: {}
         type: host
-    hermes:
+    hermes.ipxe.hydra.lab:
         ilo_password: VH4CMDTZ
         interfaces:
             management:
@@ -111,7 +111,7 @@ hosts:
         rack: 1
         resources: {}
         type: host
-    hydra-border-1:
+    hydra-border-1.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -143,7 +143,7 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-border-2:
+    hydra-border-2.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -175,7 +175,7 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-border-3:
+    hydra-border-3.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -207,7 +207,7 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-border-4:
+    hydra-border-4.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -239,7 +239,7 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-console-1:
+    hydra-console-1.hydra.lab:
         interfaces:
             management:
                 cable_id: FN725
@@ -261,7 +261,7 @@ hosts:
         rack: 1
         resources: {}
         type: console
-    hydra-console-2:
+    hydra-console-2.hydra.lab:
         interfaces:
             management:
                 cable_id: FN715
@@ -282,7 +282,7 @@ hosts:
         rack: 2
         resources: {}
         type: console
-    hydra-dns-1:
+    hydra-dns-1.hydra.lab:
         interfaces:
             management:
                 ip: 10.60.3.29
@@ -297,7 +297,7 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    hydra-dns-2:
+    hydra-dns-2.hydra.lab:
         interfaces:
             management:
                 ip: 10.60.3.30
@@ -312,7 +312,7 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    hydra-mgmt-1:
+    hydra-mgmt-1.hydra.lab:
         interfaces:
             console:
                 baud: 9600
@@ -340,7 +340,7 @@ hosts:
         rack: 1
         resources: {}
         type: network
-    hydra-mgmt-2:
+    hydra-mgmt-2.hydra.lab:
         interfaces:
             console:
                 baud: 9600
@@ -368,7 +368,7 @@ hosts:
         rack: 2
         resources: {}
         type: network
-    hydra-pdu-1:
+    hydra-pdu-1.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -392,7 +392,7 @@ hosts:
         rack: 1
         resources: {}
         type: pdu
-    hydra-pdu-2:
+    hydra-pdu-2.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -416,7 +416,7 @@ hosts:
         rack: 1
         resources: {}
         type: pdu
-    hydra-pdu-3:
+    hydra-pdu-3.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -440,7 +440,7 @@ hosts:
         rack: 2
         resources: {}
         type: pdu
-    hydra-pdu-4:
+    hydra-pdu-4.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -464,7 +464,7 @@ hosts:
         rack: 2
         resources: {}
         type: pdu
-    hydra-spine-1:
+    hydra-spine-1.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -496,7 +496,7 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-spine-2:
+    hydra-spine-2.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -528,7 +528,7 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-spine-3:
+    hydra-spine-3.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -560,7 +560,7 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-spine-4:
+    hydra-spine-4.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -592,7 +592,7 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-superspine-1:
+    hydra-superspine-1.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -624,7 +624,7 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-superspine-2:
+    hydra-superspine-2.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -656,7 +656,7 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-tor-1-1:
+    hydra-tor-1-1.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -688,7 +688,7 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-tor-1-2:
+    hydra-tor-1-2.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -720,7 +720,7 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-tor-2-1:
+    hydra-tor-2-1.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -752,7 +752,7 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-tor-2-2:
+    hydra-tor-2-2.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -784,7 +784,7 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-tor-3-1:
+    hydra-tor-3-1.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -816,7 +816,7 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-tor-3-2:
+    hydra-tor-3-2.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -848,7 +848,7 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-tor-4-1:
+    hydra-tor-4-1.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -880,7 +880,7 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-tor-4-2:
+    hydra-tor-4-2.fabric.hydra.lab:
         interfaces:
             console:
                 baud: 115200
@@ -912,7 +912,7 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hypnos:
+    hypnos.ipxe.hydra.lab:
         ilo_password: VAW2BJ9N
         interfaces:
             management:
@@ -938,7 +938,7 @@ hosts:
         rack: 1
         resources: {}
         type: host
-    jason:
+    jason.hydra.lab:
         interfaces:
             management:
                 ip: 10.60.3.27
@@ -953,7 +953,7 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    kratus:
+    kratus.ipxe.hydra.lab:
         ilo_password: BPGRQ9M0
         interfaces:
             management:
@@ -979,7 +979,7 @@ hosts:
         rack: 2
         resources: {}
         type: host
-    morpheus:
+    morpheus.ipxe.hydra.lab:
         ilo_password: U6S8BMEN
         interfaces:
             management:
@@ -1005,7 +1005,7 @@ hosts:
         rack: 1
         resources: {}
         type: host
-    pollux:
+    pollux.ipxe.hydra.lab:
         ilo_password: 7KP3EFQB
         interfaces:
             management:
@@ -1031,7 +1031,7 @@ hosts:
         rack: 2
         resources: {}
         type: host
-    proteus:
+    proteus.hydra.lab:
         interfaces:
             management:
                 ip: 10.60.3.28
@@ -1046,7 +1046,7 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    triton:
+    triton.ipxe.hydra.lab:
         ilo_password: NUYNX7CK
         interfaces:
             management:
@@ -1074,7 +1074,7 @@ hosts:
             cpu: 2 Xeon E5-2640 @ 2.4GHz
             ram: 512
         type: host
-    zephyrus:
+    zephyrus.ipxe.hydra.lab:
         ilo_password: WXDTKN6D
         interfaces:
             management:

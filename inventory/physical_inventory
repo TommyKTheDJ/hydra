@@ -1,44 +1,44 @@
 [rack_1]
-hydra-console-1
-hydra-pdu-1
-hydra-pdu-2
-hydra-mgmt-1
-hydra-border-1
-hydra-border-2
-hydra-spine-1
-hydra-spine-2
-hydra-border-1
-hydra-border-2
+hydra-console-1.hydra.lab
+hydra-pdu-1.hydra.lab
+hydra-pdu-2.hydra.lab
+hydra-mgmt-1.hydra.lab
+hydra-border-1.fabric.hydra.lab
+hydra-border-2.fabric.hydra.lab
+hydra-spine-1.fabric.hydra.lab
+hydra-spine-2.fabric.hydra.lab
+hydra-border-1.fabric.hydra.lab
+hydra-border-2.fabric.hydra.lab
 
 [rack_2]
-hydra-console-2
-hydra-pdu-3
-hydra-pdu-4
-hydra-mgmt-2
-hydra-border-3
-hydra-border-4
-hydra-spine-3
-hydra-spine-4
-hydra-tor-3-1
-hydra-tor-3-2
-hydra-tor-4-1
-hydra-tor-4-2
-hydra-superspine-1
-hydra-superspine-2
+hydra-console-2.hydra.lab
+hydra-pdu-3.hydra.lab
+hydra-pdu-4.hydra.lab
+hydra-mgmt-2.hydra.lab
+hydra-border-3.fabric.hydra.lab
+hydra-border-4.fabric.hydra.lab
+hydra-spine-3.fabric.hydra.lab
+hydra-spine-4.fabric.hydra.lab
+hydra-tor-3-1.fabric.hydra.lab
+hydra-tor-3-2.fabric.hydra.lab
+hydra-tor-4-1.fabric.hydra.lab
+hydra-tor-4-2.fabric.hydra.lab
+hydra-superspine-1.fabric.hydra.lab
+hydra-superspine-2.fabric.hydra.lab
 
 [pdus]
-hydra-pdu-1
-hydra-pdu-2
-hydra-pdu-3
-hydra-pdu-4
+hydra-pdu-1.hydra.lab
+hydra-pdu-2.hydra.lab
+hydra-pdu-3.hydra.lab
+hydra-pdu-4.hydra.lab
 
 [consoles]
-hydra-console-1
-hydra-console-2
+hydra-console-1.hydra.lab
+hydra-console-2.hydra.lab
 
 [mgmt-switches]
-hydra-mgmt-1
-hydra-mgmt-2
+hydra-mgmt-1.hydra.lab
+hydra-mgmt-2.hydra.lab
 
 [cumulus:children]
 border_leafs
@@ -47,61 +47,61 @@ leafs
 superspines
 
 [border_leafs]
-hydra-border-1
-hydra-border-2
-hydra-border-3
-hydra-border-4
+hydra-border-1.fabric.hydra.lab
+hydra-border-2.fabric.hydra.lab
+hydra-border-3.fabric.hydra.lab
+hydra-border-4.fabric.hydra.lab
 
 [spines]
-hydra-spine-1
-hydra-spine-2
-hydra-spine-3
-hydra-spine-4
+hydra-spine-1.fabric.hydra.lab
+hydra-spine-2.fabric.hydra.lab
+hydra-spine-3.fabric.hydra.lab
+hydra-spine-4.fabric.hydra.lab
 
 [leafs]
-hydra-tor-1-1
-hydra-tor-1-2
-hydra-tor-2-1
-hydra-tor-2-2
-hydra-tor-3-1
-hydra-tor-3-2
-hydra-tor-4-1
-hydra-tor-4-2
+hydra-tor-1-1.fabric.hydra.lab
+hydra-tor-1-2.fabric.hydra.lab
+hydra-tor-2-1.fabric.hydra.lab
+hydra-tor-2-2.fabric.hydra.lab
+hydra-tor-3-1.fabric.hydra.lab
+hydra-tor-3-2.fabric.hydra.lab
+hydra-tor-4-1.fabric.hydra.lab
+hydra-tor-4-2.fabric.hydra.lab
 
 [superspines]
-hydra-superspine-1
-hydra-superspine-2
+hydra-superspine-1.fabric.hydra.lab
+hydra-superspine-2.fabric.hydra.lab
 
 [6921]
-hydra-tor-1-1
-hydra-tor-1-2
-hydra-tor-2-1
-hydra-tor-2-2
+hydra-tor-1-1.fabric.hydra.lab
+hydra-tor-1-2.fabric.hydra.lab
+hydra-tor-2-1.fabric.hydra.lab
+hydra-tor-2-2.fabric.hydra.lab
 
 [6941]
-hydra-border-1
-hydra-border-2
+hydra-border-1.fabric.hydra.lab
+hydra-border-2.fabric.hydra.lab
 
 [6960]
-hydra-spine-1
-hydra-spine-2
+hydra-spine-1.fabric.hydra.lab
+hydra-spine-2.fabric.hydra.lab
 
 [S5048]
-hydra-border-3
-hydra-border-4
-hydra-tor-4-1
-hydra-tor-4-2
+hydra-border-3.fabric.hydra.lab
+hydra-border-4.fabric.hydra.lab
+hydra-tor-4-1.fabric.hydra.lab
+hydra-tor-4-2.fabric.hydra.lab
 
 [S4148T]
-hydra-tor-3-1
-hydra-tor-3-2
+hydra-tor-3-1.fabric.hydra.lab
+hydra-tor-3-2.fabric.hydra.lab
 
 [Z9100]
-hydra-superspine-1
-hydra-superspine-2
-hydra-spine-3
-hydra-spine-4
+hydra-superspine-1.fabric.hydra.lab
+hydra-superspine-2.fabric.hydra.lab
+hydra-spine-3.fabric.hydra.lab
+hydra-spine-4.fabric.hydra.lab
 
 [6960]
-hydra-spine-1
-hydra-spine-2
+hydra-spine-1.fabric.hydra.lab
+hydra-spine-2.fabric.hydra.lab
