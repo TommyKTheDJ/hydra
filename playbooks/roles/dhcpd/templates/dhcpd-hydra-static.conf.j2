@@ -2,7 +2,7 @@
 # Configured by Ansible on {{ ansible_date_time.iso8601 }}
 # ===================================================
 {% for hostname, host_data in hosts.iteritems() %}
-{% if host_data.interfaces.management.mac_address and not host_data.interfaces.management.mac_address == '-' %}
+{% if 'mac_address' in host_data.interfaces.management.keys() and host_data.interfaces.management.mac_address and not host_data.interfaces.management.mac_address == '-' %}
 host {{ hostname }}
 {
     option host-name "{{ hostname }}";

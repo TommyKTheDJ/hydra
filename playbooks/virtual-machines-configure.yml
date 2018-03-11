@@ -1,18 +1,4 @@
 - hosts: virtual-machines
-  strategy: free
   become: true
   roles:
-    - linux_accounts
-    - ntpd
-    - hosts
-    - ssh_keys
-  tags:
-    - accounts
-    - keys
-    - ntpd
-
-- hosts: virtual-machines
-  strategy: free
-  become: true
-  roles:
-    - docker
+    - virtual_machines

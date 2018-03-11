@@ -13,6 +13,7 @@ def generate_hosts_database(inventory_filename = None):
     database ['hosts'] = {}
     for hostname, data in master.iteritems():
       record = {}
+
       record['manufacturer'] = data['manufacturer']
       record['rack'] = data['rack']
       record['model'] = data['model']
@@ -23,7 +24,6 @@ def generate_hosts_database(inventory_filename = None):
       record['resources']['cpu'] = data['cpu']
       record['resources']['ram'] = data['ram']
       record['resources']['disk'] = data['disk']
-
 
       record['interfaces'] = {}
       # MANAGEMENT INTERFACE DATA
@@ -41,14 +41,17 @@ def generate_hosts_database(inventory_filename = None):
           record['interfaces']['management']['mac_address'] = unicode(mac_address)
 
       if record['type'] == 'fabric':
+          fqdn = ".".join([hostname,'fabric','hydra','lab'])
           record['onie_url'] = data['onie_url']
-          record['interfaces']['management']['ip'] = interfaces[hostname]['fabric_management']
-          record['interfaces']['management']['prefix_length'] = subnets['fabric_management']['prefix_length']
+          record['interfaces']['management']['ip'] = interfaces[hostname]['fabric']
+          record['interfaces']['management']['prefix_length'] = subnets['fabric']['prefix_length']
 
       elif record['type'] == 'host':
+          fqdn = ".".join([hostname,'ipxe','hydra','lab'])
           record['interfaces']['management']['ip'] = interfaces[hostname]['ipxe']
           record['interfaces']['management']['prefix_length'] = subnets['ipxe']['prefix_length']
       else:
+          fqdn = ".".join([hostname,'hydra','lab'])
           record['interfaces']['management']['ip'] = interfaces[hostname]['management']
           record['interfaces']['management']['prefix_length'] = subnets['management']['prefix_length']
 
@@ -83,6 +86,6 @@ def generate_hosts_database(inventory_filename = None):
               psu['pdu']['port'] = power[hostname]['pdu_port_2']
               record['psus'].append(psu)
 
-      database ['hosts'][hostname] = record
+      database ['hosts'][fqdn] = record
 
     return clean_dict(database)

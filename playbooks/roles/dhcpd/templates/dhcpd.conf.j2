@@ -1,10 +1,9 @@
 # ===================================================
 # Configured by Ansible on {{ ansible_date_time.iso8601 }}
 # ===================================================
-option domain-name "{{ dns_domain }}";
-option domain-name-servers 10.50.30.91;
+option domain-name-servers {{ dns_server_1 }},{{ dns_server_2 }};
 default-lease-time 600;
-option ntp-servers 10.50.30.92;
+option ntp-servers {{ ntp_server }};
 max-lease-time 7200;
 authoritative;
 ddns-update-style none;
@@ -46,13 +45,20 @@ key omapi_key {
 {% for subnet in vlans %}
 {% if subnet.dhcp == True %}
 # {{ subnet.name }} subnet
+{% if subnet.name == 'management' %}
+{% set domain_name = dns_root_domain %}
+{% else %}
+{% set domain_name = [subnet.name,dns_root_domain]|join('.') %}
+{% endif %}
 {% set network = subnet.network|string + '/' + subnet.prefix_length|string %}
 subnet {{ network|ipaddr('network')|ipaddr('address') }} netmask {{ network|ipaddr('netmask') }} {
         option routers {{ network|ipaddr('1')|ipaddr('address') }};
+        option domain-name "{{ domain_name }}";
         pool {
           range {{ network|ipaddr('40')|ipaddr('address') }} {{ network|ipaddr('200')|ipaddr('address') }};
           failover peer "failover-partner";
           }
+
 }
 
 {% endif %}

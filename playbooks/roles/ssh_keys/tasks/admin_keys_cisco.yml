@@ -1,9 +1,0 @@
-- name: "Add {{ net_username }} user with key"
-  nxos_user:
-    transport: cli
-    username: "{{ net_username }}"
-    password: "{{ net_password }}"
-    name: admin
-    sshkey: "{{ lookup('file','hydra_key.pub') }}"
-    role: network-admin
-    state: present

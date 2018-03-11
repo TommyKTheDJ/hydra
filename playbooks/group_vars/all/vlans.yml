@@ -1,31 +1,6 @@
 vlans:
 -   dhcp: true
     hosts:
-    - hydra-tor-4-1
-    - hydra-border-3
-    - hydra-spine-4
-    - hydra-spine-1
-    - hydra-spine-2
-    - hydra-spine-3
-    - hydra-tor-2-2
-    - hydra-tor-2-1
-    - hydra-tor-3-2
-    - hydra-border-4
-    - hydra-tor-3-1
-    - hydra-border-2
-    - hydra-tor-1-2
-    - hydra-border-1
-    - hydra-tor-1-1
-    - hydra-superspine-1
-    - hydra-tor-4-2
-    - hydra-superspine-2
-    id: 702
-    name: fabric_management
-    network: 10.60.4.0
-    notes: trunked to N9K from Lab L3, 1st address on L3
-    prefix_length: 24
--   dhcp: true
-    hosts:
     - jason
     - proteus
     - hydra-mgmt-1
@@ -45,6 +20,31 @@ vlans:
     id: 701
     name: management
     network: 10.60.3.0
+    notes: trunked to N9K from Lab L3, 1st address on L3
+    prefix_length: 24
+-   dhcp: true
+    hosts:
+    - hydra-tor-4-1
+    - hydra-border-3
+    - hydra-spine-4
+    - hydra-spine-1
+    - hydra-spine-2
+    - hydra-spine-3
+    - hydra-tor-2-2
+    - hydra-tor-2-1
+    - hydra-tor-3-2
+    - hydra-border-4
+    - hydra-tor-3-1
+    - hydra-border-2
+    - hydra-tor-1-2
+    - hydra-border-1
+    - hydra-tor-1-1
+    - hydra-superspine-1
+    - hydra-tor-4-2
+    - hydra-superspine-2
+    id: 702
+    name: fabric
+    network: 10.60.4.0
     notes: trunked to N9K from Lab L3, 1st address on L3
     prefix_length: 24
 -   dhcp: true

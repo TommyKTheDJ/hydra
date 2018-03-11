@@ -1,0 +1,25 @@
+---
+- name: Configure users
+  include_tasks: users.yml
+  tags:
+    - users
+
+- name: Distribute keys
+  include_tasks: keys.yml
+  tags:
+    - keys
+
+- name: Configure NTP
+  include_tasks: ntp.yml
+  tags:
+    - ntp
+
+# - name: Configure Interfaces
+#   include_tasks: interfaces.yml
+#   tags:
+#     - dns
+
+- name: Install docker
+  include_tasks: docker.yml
+  tags:
+    - docker
