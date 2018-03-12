@@ -1,14 +1,14 @@
 # ===================================================
 # Configured by Ansible on {{ ansible_date_time.iso8601 }}
 # ===================================================
-option domain-name-servers {{ dns_server_1 }},{{ dns_server_2 }};
+option domain-name-servers {{ dns_server_1 }}, {{ dns_server_2 }};
 default-lease-time 600;
 option ntp-servers {{ ntp_server }};
 max-lease-time 7200;
 authoritative;
 ddns-update-style none;
 
-{% if dhcp_failover_master == inventory_hostname %}
+{% if dhcp_failover_master in inventory_hostname %}
 failover peer "failover-partner" {
     primary;
     address {{ hosts[dhcp_failover_master].interfaces.management.ip }};
@@ -45,20 +45,15 @@ key omapi_key {
 {% for subnet in vlans %}
 {% if subnet.dhcp == True %}
 # {{ subnet.name }} subnet
-{% if subnet.name == 'management' %}
-{% set domain_name = dns_root_domain %}
-{% else %}
-{% set domain_name = [subnet.name,dns_root_domain]|join('.') %}
-{% endif %}
 {% set network = subnet.network|string + '/' + subnet.prefix_length|string %}
 subnet {{ network|ipaddr('network')|ipaddr('address') }} netmask {{ network|ipaddr('netmask') }} {
         option routers {{ network|ipaddr('1')|ipaddr('address') }};
-        option domain-name "{{ domain_name }}";
+        option domain-name "{{ subnet.domain }}";
+        option domain-search "{{ subnet.domain }}";
         pool {
           range {{ network|ipaddr('40')|ipaddr('address') }} {{ network|ipaddr('200')|ipaddr('address') }};
           failover peer "failover-partner";
           }
-
 }
 
 {% endif %}

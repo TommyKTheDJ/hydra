@@ -1,12 +1,12 @@
 from ansible.module_utils.common_functions import *
 
 def generate_vlan_database(inventory_filename = None):
-    management =  xls_to_dict(inventory_filename=inventory_filename, sheet_name="management")
+    interfaces =  xls_to_dict(inventory_filename=inventory_filename, sheet_name="interfaces")
     subnets =  xls_to_dict(inventory_filename=inventory_filename, sheet_name="subnets")
 
 
     data = {}
-    data ['vlans'] = []
+    data['vlans'] = []
     for name, values in subnets.iteritems():
         vlan = {}
         vlan['id'] = values['vlan_id']
@@ -15,7 +15,17 @@ def generate_vlan_database(inventory_filename = None):
         vlan['network'] = values['network']
         vlan['prefix_length'] = values['prefix_length']
         vlan['dhcp'] = bool(values['requires_dhcp'])
-        vlan['hosts'] = [x for x,host_data in management.iteritems() if host_data['subnet_name'] == name ]
-        data ['vlans'].append(vlan)
+        if not is_empty_datum(values['domain']):
+            vlan['domain'] = values['domain']
+            if not is_empty_datum(values['zone'])  :
+                vlan['domain'] = ".".join([values['zone'],values['domain']])
+        vlan['hosts'] = []
+        for hostname,interface_data in interfaces.iteritems():
+            if interface_data['subnet'] == name:
+                host = {}
+                host['hostname'] = hostname
+                if not is_empty_datum(interface_data['mac_address']): host['mac_address'] = format_mac_address(interface_data['mac_address'])
+                vlan['hosts'].append(host)
 
+        data['vlans'].append(vlan)
     return data
