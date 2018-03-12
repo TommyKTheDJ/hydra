@@ -1,10 +1,10 @@
 hosts:
-    aos.hydra.lab:
+    aos:
         interfaces:
             management:
-                ip: 10.60.3.20
+                ip: 10.60.3.5
+                mac_address: 0:c:29:cd:95:8a
                 prefix_length: 24
-                user: admin
                 vlan_id: 701
         manufacturer: Apstra
         model: AoS
@@ -14,13 +14,25 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    ares.hydra.lab:
+        user: admin
+    ares:
         interfaces:
+            fabric:
+                ip: 10.60.4.25
+                prefix_length: 24
+                vlan_id: 702
             management:
                 ip: 10.60.3.25
                 prefix_length: 24
-                user: hydra
                 vlan_id: 701
+            oob:
+                ip: 10.60.2.25
+                prefix_length: 24
+                vlan_id: 700
+            pxe:
+                ip: 10.60.6.25
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
@@ -29,13 +41,25 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    castor.hydra.lab:
+        user: hydra
+    castor:
         interfaces:
+            fabric:
+                ip: 10.60.4.26
+                prefix_length: 24
+                vlan_id: 702
             management:
                 ip: 10.60.3.26
                 prefix_length: 24
-                user: hydra
                 vlan_id: 701
+            oob:
+                ip: 10.60.2.26
+                prefix_length: 24
+                vlan_id: 700
+            pxe:
+                ip: 10.60.6.26
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
@@ -44,13 +68,25 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    charon.hydra.lab:
+        user: hydra
+    charon:
         interfaces:
+            fabric:
+                ip: 10.60.4.24
+                prefix_length: 24
+                vlan_id: 702
             management:
                 ip: 10.60.3.24
                 prefix_length: 24
-                user: hydra
                 vlan_id: 701
+            oob:
+                ip: 10.60.2.24
+                prefix_length: 24
+                vlan_id: 700
+            pxe:
+                ip: 10.60.6.24
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
@@ -59,10 +95,15 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    helios.ipxe.hydra.lab:
+        user: hydra
+    helios:
         ilo_password: Z9RYCDA5
         interfaces:
             management:
+                ip: 10.60.3.10
+                prefix_length: 24
+                vlan_id: 701
+            oob:
                 cable_id: GK522
                 ip: 10.60.2.10
                 mac_address: 30:e1:71:69:74:f8
@@ -70,8 +111,11 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 25
                 prefix_length: 24
-                user: hydra
                 vlan_id: 700
+            pxe:
+                ip: 10.60.6.10
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
         os: Ubuntu 16.04 LTS
@@ -85,10 +129,15 @@ hosts:
         rack: 1
         resources: {}
         type: host
-    hermes.ipxe.hydra.lab:
+        user: hydra
+    hermes:
         ilo_password: VH4CMDTZ
         interfaces:
             management:
+                ip: 10.60.3.12
+                prefix_length: 24
+                vlan_id: 701
+            oob:
                 cable_id: FP029
                 ip: 10.60.2.12
                 mac_address: 30:e1:71:69:54:32
@@ -96,8 +145,11 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 27
                 prefix_length: 24
-                user: hydra
                 vlan_id: 700
+            pxe:
+                ip: 10.60.6.12
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
         os: Ubuntu 16.04 LTS
@@ -111,7 +163,8 @@ hosts:
         rack: 1
         resources: {}
         type: host
-    hydra-border-1.fabric.hydra.lab:
+        user: hydra
+    hydra-border-1:
         interfaces:
             console:
                 baud: 115200
@@ -119,7 +172,25 @@ hosts:
                 neighbor:
                     hostname: hydra-console-1
                     port: 14
-            management:
+            external_hpe_1:
+                ip: 10.68.1.2
+                neighbor:
+                    hostname: hydra-mgmt-1
+                prefix_length: 30
+                vlan_id: 601
+            external_hpe_2:
+                ip: 10.68.1.6
+                neighbor:
+                    hostname: hydra-mgmt-1
+                prefix_length: 30
+                vlan_id: 602
+            external_hpe_4:
+                ip: 10.68.1.14
+                neighbor:
+                    hostname: hydra-mgmt-1
+                prefix_length: 30
+                vlan_id: 604
+            fabric:
                 cable_id: FN746
                 ip: 10.60.4.16
                 mac_address: e0:7:1b:c7:40:92
@@ -127,7 +198,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 14
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6941 
@@ -143,7 +213,8 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-border-2.fabric.hydra.lab:
+        user: admin
+    hydra-border-2:
         interfaces:
             console:
                 baud: 115200
@@ -151,7 +222,13 @@ hosts:
                 neighbor:
                     hostname: hydra-console-1
                     port: 15
-            management:
+            external_hpe_3:
+                ip: 10.68.1.10
+                neighbor:
+                    hostname: hydra-mgmt-1
+                prefix_length: 30
+                vlan_id: 603
+            fabric:
                 cable_id: FN751
                 ip: 10.60.4.17
                 mac_address: e0:7:1b:c7:80:20
@@ -159,7 +236,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 15
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6941 
@@ -175,7 +251,8 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-border-3.fabric.hydra.lab:
+        user: admin
+    hydra-border-3:
         interfaces:
             console:
                 baud: 115200
@@ -183,7 +260,19 @@ hosts:
                 neighbor:
                     hostname: hydra-console-2
                     port: 16
-            management:
+            external_dell_1:
+                ip: 10.68.1.18
+                neighbor:
+                    hostname: hydra-mgmt-2
+                prefix_length: 30
+                vlan_id: 605
+            external_dell_2:
+                ip: 10.68.1.22
+                neighbor:
+                    hostname: hydra-mgmt-2
+                prefix_length: 30
+                vlan_id: 606
+            fabric:
                 cable_id: FS902
                 ip: 10.60.4.26
                 mac_address: 34:17:eb:4c:3f:80
@@ -191,7 +280,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 16
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
@@ -207,7 +295,8 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-border-4.fabric.hydra.lab:
+        user: admin
+    hydra-border-4:
         interfaces:
             console:
                 baud: 115200
@@ -215,7 +304,19 @@ hosts:
                 neighbor:
                     hostname: hydra-console-2
                     port: 17
-            management:
+            external_dell_3:
+                ip: 10.68.1.26
+                neighbor:
+                    hostname: hydra-mgmt-2
+                prefix_length: 30
+                vlan_id: 607
+            external_dell_4:
+                ip: 10.68.1.30
+                neighbor:
+                    hostname: hydra-mgmt-2
+                prefix_length: 30
+                vlan_id: 608
+            fabric:
                 cable_id: FN710
                 ip: 10.60.4.27
                 mac_address: d8:9e:f3:a7:20:20
@@ -223,7 +324,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 17
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
@@ -239,7 +339,8 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-console-1.hydra.lab:
+        user: admin
+    hydra-console-1:
         interfaces:
             management:
                 cable_id: FN725
@@ -249,7 +350,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 1
                 prefix_length: 24
-                user: sysadmin
                 vlan_id: 701
         manufacturer: Lantronix
         model: SLC8032
@@ -261,7 +361,8 @@ hosts:
         rack: 1
         resources: {}
         type: console
-    hydra-console-2.hydra.lab:
+        user: sysadmin
+    hydra-console-2:
         interfaces:
             management:
                 cable_id: FN715
@@ -270,7 +371,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 1
                 prefix_length: 24
-                user: sysadmin
                 vlan_id: 701
         manufacturer: Lantronix
         model: PX3-5493V
@@ -282,12 +382,12 @@ hosts:
         rack: 2
         resources: {}
         type: console
-    hydra-dns-1.hydra.lab:
+        user: sysadmin
+    hydra-dns-1:
         interfaces:
             management:
                 ip: 10.60.3.29
                 prefix_length: 24
-                user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
@@ -297,12 +397,12 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    hydra-dns-2.hydra.lab:
+        user: hydra
+    hydra-dns-2:
         interfaces:
             management:
                 ip: 10.60.3.30
                 prefix_length: 24
-                user: hydra
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
@@ -312,7 +412,8 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    hydra-mgmt-1.hydra.lab:
+        user: hydra
+    hydra-mgmt-1:
         interfaces:
             console:
                 baud: 9600
@@ -323,9 +424,7 @@ hosts:
             management:
                 ip: 10.60.3.49
                 mac_address: 0:5d:73:ec:1c:bc
-                neighbor: {}
                 prefix_length: 24
-                user: admin
                 vlan_id: 701
         manufacturer: Cisco
         model: C9348GC-FXP
@@ -340,7 +439,8 @@ hosts:
         rack: 1
         resources: {}
         type: network
-    hydra-mgmt-2.hydra.lab:
+        user: admin
+    hydra-mgmt-2:
         interfaces:
             console:
                 baud: 9600
@@ -351,9 +451,7 @@ hosts:
             management:
                 ip: 10.60.3.50
                 mac_address: b4:de:31:94:32:f0
-                neighbor: {}
                 prefix_length: 24
-                user: admin
                 vlan_id: 701
         manufacturer: Cisco
         model: Cisco Nexus
@@ -368,7 +466,8 @@ hosts:
         rack: 2
         resources: {}
         type: network
-    hydra-pdu-1.hydra.lab:
+        user: admin
+    hydra-pdu-1:
         interfaces:
             console:
                 baud: 115200
@@ -384,7 +483,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 2
                 prefix_length: 24
-                user: admin
                 vlan_id: 701
         manufacturer: Raritan
         model: PX3-5493V
@@ -392,7 +490,8 @@ hosts:
         rack: 1
         resources: {}
         type: pdu
-    hydra-pdu-2.hydra.lab:
+        user: admin
+    hydra-pdu-2:
         interfaces:
             console:
                 baud: 115200
@@ -408,7 +507,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 3
                 prefix_length: 24
-                user: admin
                 vlan_id: 701
         manufacturer: Raritan
         model: PX3-5493V
@@ -416,7 +514,8 @@ hosts:
         rack: 1
         resources: {}
         type: pdu
-    hydra-pdu-3.hydra.lab:
+        user: admin
+    hydra-pdu-3:
         interfaces:
             console:
                 baud: 115200
@@ -432,7 +531,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 2
                 prefix_length: 24
-                user: admin
                 vlan_id: 701
         manufacturer: Raritan
         model: PX3-5493V
@@ -440,7 +538,8 @@ hosts:
         rack: 2
         resources: {}
         type: pdu
-    hydra-pdu-4.hydra.lab:
+        user: admin
+    hydra-pdu-4:
         interfaces:
             console:
                 baud: 115200
@@ -456,7 +555,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 3
                 prefix_length: 24
-                user: admin
                 vlan_id: 701
         manufacturer: Raritan
         model: PX3-5493V
@@ -464,7 +562,8 @@ hosts:
         rack: 2
         resources: {}
         type: pdu
-    hydra-spine-1.fabric.hydra.lab:
+        user: admin
+    hydra-spine-1:
         interfaces:
             console:
                 baud: 115200
@@ -472,7 +571,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-1
                     port: 10
-            management:
+            fabric:
                 cable_id: FN738
                 ip: 10.60.4.10
                 mac_address: 1c:98:ec:4e:35:69
@@ -480,7 +579,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 10
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6960 
@@ -496,7 +594,8 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-spine-2.fabric.hydra.lab:
+        user: admin
+    hydra-spine-2:
         interfaces:
             console:
                 baud: 115200
@@ -504,7 +603,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-1
                     port: 11
-            management:
+            fabric:
                 cable_id: FN740
                 ip: 10.60.4.11
                 mac_address: 1c:98:ec:4e:65:7b
@@ -512,7 +611,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 11
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6960 
@@ -528,7 +626,8 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-spine-3.fabric.hydra.lab:
+        user: admin
+    hydra-spine-3:
         interfaces:
             console:
                 baud: 115200
@@ -536,7 +635,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-2
                     port: 10
-            management:
+            fabric:
                 cable_id: FN754
                 ip: 10.60.4.20
                 mac_address: d8:9e:f3:b6:f4:20
@@ -544,7 +643,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 10
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: Altoline 6941 
@@ -560,7 +658,8 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-spine-4.fabric.hydra.lab:
+        user: admin
+    hydra-spine-4:
         interfaces:
             console:
                 baud: 115200
@@ -568,7 +667,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-2
                     port: 11
-            management:
+            fabric:
                 cable_id: FN709
                 ip: 10.60.4.21
                 mac_address: d8:9e:f3:b5:37:a0
@@ -576,7 +675,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 11
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: Altoline 6941 
@@ -592,7 +690,8 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-superspine-1.fabric.hydra.lab:
+        user: admin
+    hydra-superspine-1:
         interfaces:
             console:
                 baud: 115200
@@ -600,7 +699,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-2
                     port: 8
-            management:
+            fabric:
                 cable_id: FN711
                 ip: 10.60.4.100
                 mac_address: d8:9e:f3:b6:e8:20
@@ -608,7 +707,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 8
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: Z9100-ON
@@ -624,7 +722,8 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-superspine-2.fabric.hydra.lab:
+        user: admin
+    hydra-superspine-2:
         interfaces:
             console:
                 baud: 115200
@@ -632,7 +731,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-2
                     port: 9
-            management:
+            fabric:
                 cable_id: FN743
                 ip: 10.60.4.101
                 mac_address: d8:9e:f3:b6:ec:a0
@@ -640,7 +739,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 9
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: Z9100-ON
@@ -656,7 +754,8 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-tor-1-1.fabric.hydra.lab:
+        user: admin
+    hydra-tor-1-1:
         interfaces:
             console:
                 baud: 115200
@@ -664,7 +763,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-1
                     port: 12
-            management:
+            fabric:
                 cable_id: FN719
                 ip: 10.60.4.12
                 mac_address: e0:7:1b:c9:40:56
@@ -672,7 +771,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 12
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921 
@@ -688,7 +786,8 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-tor-1-2.fabric.hydra.lab:
+        user: admin
+    hydra-tor-1-2:
         interfaces:
             console:
                 baud: 115200
@@ -696,7 +795,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-1
                     port: 13
-            management:
+            fabric:
                 cable_id: FN731
                 ip: 10.60.4.13
                 mac_address: e0:7:1b:c9:60:12
@@ -704,7 +803,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 13
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921
@@ -720,7 +818,8 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-tor-2-1.fabric.hydra.lab:
+        user: admin
+    hydra-tor-2-1:
         interfaces:
             console:
                 baud: 115200
@@ -728,7 +827,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-1
                     port: 16
-            management:
+            fabric:
                 cable_id: FN732
                 ip: 10.60.4.14
                 mac_address: e0:7:1b:c9:40:ea
@@ -736,7 +835,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 16
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921 
@@ -752,7 +850,8 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-tor-2-2.fabric.hydra.lab:
+        user: admin
+    hydra-tor-2-2:
         interfaces:
             console:
                 baud: 115200
@@ -760,7 +859,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-1
                     port: 17
-            management:
+            fabric:
                 cable_id: FK554
                 ip: 10.60.4.15
                 mac_address: e0:7:1b:c9:60:5c
@@ -768,7 +867,6 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 17
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921
@@ -784,7 +882,8 @@ hosts:
         rack: 1
         resources: {}
         type: fabric
-    hydra-tor-3-1.fabric.hydra.lab:
+        user: admin
+    hydra-tor-3-1:
         interfaces:
             console:
                 baud: 115200
@@ -792,7 +891,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-2
                     port: 12
-            management:
+            fabric:
                 cable_id: FN752
                 ip: 10.60.4.22
                 mac_address: e4:f0:4:32:82:1a
@@ -800,7 +899,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 12
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: S4148T-ON
@@ -816,7 +914,8 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-tor-3-2.fabric.hydra.lab:
+        user: admin
+    hydra-tor-3-2:
         interfaces:
             console:
                 baud: 115200
@@ -824,7 +923,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-2
                     port: 13
-            management:
+            fabric:
                 cable_id: FS759
                 ip: 10.60.4.23
                 mac_address: e4:f0:4:32:8d:1a
@@ -832,7 +931,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 13
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: S4148T-ON
@@ -848,7 +946,8 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-tor-4-1.fabric.hydra.lab:
+        user: admin
+    hydra-tor-4-1:
         interfaces:
             console:
                 baud: 115200
@@ -856,7 +955,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-2
                     port: 14
-            management:
+            fabric:
                 cable_id: FS753
                 ip: 10.60.4.24
                 mac_address: d8:9e:f3:a7:1d:20
@@ -864,7 +963,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 14
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
@@ -880,7 +978,8 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hydra-tor-4-2.fabric.hydra.lab:
+        user: admin
+    hydra-tor-4-2:
         interfaces:
             console:
                 baud: 115200
@@ -888,7 +987,7 @@ hosts:
                 neighbor:
                     hostname: hydra-console-2
                     port: 15
-            management:
+            fabric:
                 cable_id: FP017
                 ip: 10.60.4.25
                 mac_address: 34:17:eb:4c:42:80
@@ -896,7 +995,6 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 15
                 prefix_length: 24
-                user: admin
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
@@ -912,10 +1010,15 @@ hosts:
         rack: 2
         resources: {}
         type: fabric
-    hypnos.ipxe.hydra.lab:
+        user: admin
+    hypnos:
         ilo_password: VAW2BJ9N
         interfaces:
             management:
+                ip: 10.60.3.13
+                prefix_length: 24
+                vlan_id: 701
+            oob:
                 cable_id: FO140
                 ip: 10.60.2.13
                 mac_address: 30:e1:71:69:54:58
@@ -923,8 +1026,11 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 28
                 prefix_length: 24
-                user: hydra
                 vlan_id: 700
+            pxe:
+                ip: 10.60.6.13
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
         os: Ubuntu 16.04 LTS
@@ -938,13 +1044,25 @@ hosts:
         rack: 1
         resources: {}
         type: host
-    jason.hydra.lab:
+        user: hydra
+    jason:
         interfaces:
+            fabric:
+                ip: 10.60.4.27
+                prefix_length: 24
+                vlan_id: 702
             management:
                 ip: 10.60.3.27
                 prefix_length: 24
-                user: hydra
                 vlan_id: 701
+            oob:
+                ip: 10.60.2.27
+                prefix_length: 24
+                vlan_id: 700
+            pxe:
+                ip: 10.60.6.27
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
@@ -953,10 +1071,15 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    kratus.ipxe.hydra.lab:
+        user: hydra
+    kratus:
         ilo_password: BPGRQ9M0
         interfaces:
             management:
+                ip: 10.60.3.22
+                prefix_length: 24
+                vlan_id: 701
+            oob:
                 cable_id: FP004
                 ip: 10.60.2.22
                 mac_address: 9c:b6:54:7a:45:9c
@@ -964,8 +1087,11 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 27
                 prefix_length: 24
-                user: hydra
                 vlan_id: 700
+            pxe:
+                ip: 10.60.6.22
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: HPE
         model: DL380Gen8
         os: Ubuntu 16.04 LTS
@@ -979,10 +1105,15 @@ hosts:
         rack: 2
         resources: {}
         type: host
-    morpheus.ipxe.hydra.lab:
+        user: hydra
+    morpheus:
         ilo_password: U6S8BMEN
         interfaces:
             management:
+                ip: 10.60.3.11
+                prefix_length: 24
+                vlan_id: 701
+            oob:
                 cable_id: FP018
                 ip: 10.60.2.11
                 mac_address: 30:e1:71:69:84:2c
@@ -990,8 +1121,11 @@ hosts:
                     hostname: hydra-mgmt-1
                     port: 26
                 prefix_length: 24
-                user: hydra
                 vlan_id: 700
+            pxe:
+                ip: 10.60.6.11
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
         os: Ubuntu 16.04 LTS
@@ -1005,10 +1139,15 @@ hosts:
         rack: 1
         resources: {}
         type: host
-    pollux.ipxe.hydra.lab:
+        user: hydra
+    pollux:
         ilo_password: 7KP3EFQB
         interfaces:
             management:
+                ip: 10.60.3.23
+                prefix_length: 24
+                vlan_id: 701
+            oob:
                 cable_id: FO145
                 ip: 10.60.2.23
                 mac_address: 9c:b6:54:7a:58:e4
@@ -1016,8 +1155,11 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 28
                 prefix_length: 24
-                user: hydra
                 vlan_id: 700
+            pxe:
+                ip: 10.60.6.23
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: HPE
         model: DL380Gen8
         os: Ubuntu 16.04 LTS
@@ -1031,13 +1173,25 @@ hosts:
         rack: 2
         resources: {}
         type: host
-    proteus.hydra.lab:
+        user: hydra
+    proteus:
         interfaces:
+            fabric:
+                ip: 10.60.4.28
+                prefix_length: 24
+                vlan_id: 702
             management:
                 ip: 10.60.3.28
                 prefix_length: 24
-                user: hydra
                 vlan_id: 701
+            oob:
+                ip: 10.60.2.28
+                prefix_length: 24
+                vlan_id: 700
+            pxe:
+                ip: 10.60.6.28
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
@@ -1046,10 +1200,15 @@ hosts:
             disk: 30
             ram: 8
         type: vm
-    triton.ipxe.hydra.lab:
+        user: hydra
+    triton:
         ilo_password: NUYNX7CK
         interfaces:
             management:
+                ip: 10.60.3.20
+                prefix_length: 24
+                vlan_id: 701
+            oob:
                 cable_id: FO141
                 ip: 10.60.2.20
                 mac_address: 30:e1:71:69:74:e4
@@ -1057,8 +1216,11 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 25
                 prefix_length: 24
-                user: hydra
                 vlan_id: 700
+            pxe:
+                ip: 10.60.6.20
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
         os: Ubuntu 16.04 LTS
@@ -1074,10 +1236,15 @@ hosts:
             cpu: 2 Xeon E5-2640 @ 2.4GHz
             ram: 512
         type: host
-    zephyrus.ipxe.hydra.lab:
+        user: hydra
+    zephyrus:
         ilo_password: WXDTKN6D
         interfaces:
             management:
+                ip: 10.60.3.21
+                prefix_length: 24
+                vlan_id: 701
+            oob:
                 cable_id: FO145
                 ip: 10.60.2.21
                 mac_address: 30:e1:71:69:63:8e
@@ -1085,8 +1252,11 @@ hosts:
                     hostname: hydra-mgmt-2
                     port: 26
                 prefix_length: 24
-                user: hydra
                 vlan_id: 700
+            pxe:
+                ip: 10.60.6.21
+                prefix_length: 24
+                vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
         os: Ubuntu 16.04 LTS
@@ -1101,3 +1271,4 @@ hosts:
         resources:
             cpu: 2 Xeon E5-2640 @ 2.4GHz
         type: host
+        user: hydra
