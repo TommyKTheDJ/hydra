@@ -13,7 +13,6 @@
         "lxc_support": false
     },
     "slot_count": 0,
-    "aos_support_level": "experimental",
     "hardware_capabilities": {
         "userland": 64,
         "ram": 16,
@@ -33,6 +32,18 @@
                         "unit": "G"
                     },
                     "to_count": 4,
+                    "from_count": 1,
+                    "to_speed": {
+                        "value": 10,
+                        "unit": "G"
+                    }
+                },
+                {
+                    "from_speed": {
+                        "value": 40,
+                        "unit": "G"
+                    },
+                    "to_count": 1,
                     "from_count": 1,
                     "to_speed": {
                         "value": 10,
