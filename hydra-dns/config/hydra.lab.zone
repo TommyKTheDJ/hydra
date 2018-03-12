@@ -11,7 +11,7 @@
        IN   A	  10.60.3.29
 
 $ORIGIN hydra.lab.
-aos			IN	A	10.60.3.10
+aos			IN	A	10.60.3.5
 charon			IN	A	10.60.3.24
 ares			IN	A	10.60.3.25
 castor			IN	A	10.60.3.26

@@ -13,7 +13,7 @@ $ORIGIN 60.10.in-addr.arpa.
     IN  NS     hydra-dns-2.hydra.lab.
 
 
-20.3	IN	PTR	aos.hydra.lab.
+5.3	IN	PTR	aos.hydra.lab.
 24.3	IN	PTR	charon.hydra.lab.
 25.3	IN	PTR	ares.hydra.lab.
 26.3	IN	PTR	castor.hydra.lab.
@@ -31,19 +31,29 @@ $ORIGIN 60.10.in-addr.arpa.
 56.3	IN	PTR	hydra-pdu-4.hydra.lab.
 
 
-24.2	IN	PTR	charon.ipxe.hydra.lab.
-25.2	IN	PTR	ares.ipxe.hydra.lab.
-26.2	IN	PTR	castor.ipxe.hydra.lab.
-27.2	IN	PTR	jason.ipxe.hydra.lab.
-28.2	IN	PTR	proteus.ipxe.hydra.lab.
-10.2	IN	PTR	helios.ipxe.hydra.lab.
-11.2	IN	PTR	morpheus.ipxe.hydra.lab.
-12.2	IN	PTR	hermes.ipxe.hydra.lab.
-13.2	IN	PTR	hypnos.ipxe.hydra.lab.
-20.2	IN	PTR	triton.ipxe.hydra.lab.
-21.2	IN	PTR	zephyrus.ipxe.hydra.lab.
-22.2	IN	PTR	kratus.ipxe.hydra.lab.
-23.2	IN	PTR	pollux.ipxe.hydra.lab.
+24.6	IN	PTR	charon.pxe.hydra.lab.
+25.6	IN	PTR	ares.pxe.hydra.lab.
+26.6	IN	PTR	castor.pxe.hydra.lab.
+27.6	IN	PTR	jason.pxe.hydra.lab.
+28.6	IN	PTR	proteus.pxe.hydra.lab.
+10.6	IN	PTR	helios.pxe.hydra.lab.
+11.6	IN	PTR	morpheus.pxe.hydra.lab.
+12.6	IN	PTR	hermes.pxe.hydra.lab.
+13.6	IN	PTR	hypnos.pxe.hydra.lab.
+20.6	IN	PTR	triton.pxe.hydra.lab.
+21.6	IN	PTR	zephyrus.pxe.hydra.lab.
+22.6	IN	PTR	kratus.pxe.hydra.lab.
+23.6	IN	PTR	pollux.pxe.hydra.lab.
+
+
+10.2	IN	PTR	helios.oob.hydra.lab.
+11.2	IN	PTR	morpheus.oob.hydra.lab.
+12.2	IN	PTR	hermes.oob.hydra.lab.
+13.2	IN	PTR	hypnos.oob.hydra.lab.
+20.2	IN	PTR	triton.oob.hydra.lab.
+21.2	IN	PTR	zephyrus.oob.hydra.lab.
+22.2	IN	PTR	kratus.oob.hydra.lab.
+23.2	IN	PTR	pollux.oob.hydra.lab.
 
 24.4 	IN	PTR	charon.fabric.hydra.lab.
 25.4 	IN	PTR	ares.fabric.hydra.lab.
