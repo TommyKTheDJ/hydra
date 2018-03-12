@@ -6,21 +6,23 @@ import getpass
 requests.packages.urllib3.disable_warnings()
 
 DEBUG = True
-AOS_HOST = 'aos-server'
-HCL_ENTRIES_FOLDER = '.'
+AOS_HOST = 'aos.hydra.lab'
+HCL_ENTRIES_FOLDER = 'hcl/'
 
 API_AUTH_ENDPOINT = '/api/aaa/login'
 API_HCL_ENDPOINT = '/api/hcl'
 
 
 def add_hcl_aos(u_token,u_id,hcl):
+    url = 'https://{0}{1}'.format(AOS_HOST,API_HCL_ENDPOINT)
     headers = {'AUTHTOKEN': u_token, 'id': u_id, 'Content-type': 'application/json', 'Accept': 'application/json'}
-    r = requests.post('https://{0}{1}'.format(AOS_HOST,API_HCL_ENDPOINT), headers=headers, json=hcl, verify=False)
+    r = requests.post(url, headers=headers, json=hcl, verify=False)
     return r
 
 def update_hcl_aos(u_token,u_id,hcl):
+    url = 'https://{0}{1}/{2}'.format(AOS_HOST,API_HCL_ENDPOINT,hcl[u'id'])
     headers = {'AUTHTOKEN': u_token, 'id': u_id, 'Content-type': 'application/json', 'Accept': 'application/json'}
-    r = requests.put('https://{0}{1}/{2}'.format(AOS_HOST,API_HCL_ENDPOINT,hcl[u'id']), headers=headers, json=hcl, verify=False)
+    r = requests.put(url, headers=headers, json=hcl, verify=False)
     return r
 
 try:
@@ -36,7 +38,9 @@ else:
     print "Authentication successful"
 
 headers = {'AUTHTOKEN': token, 'id': id}
-r = requests.get('https://{0}{1}'.format(AOS_HOST,API_HCL_ENDPOINT), headers=headers, verify=False)
+url = 'https://{0}{1}'.format(AOS_HOST,API_HCL_ENDPOINT)
+print url
+r = requests.get(url, headers=headers, verify=False)
 json_data = json.loads(r.text)
 aos_hcls_dict = {}
 for item in json_data['items']:
@@ -50,7 +54,9 @@ local_hcl_json_data = []
 added_counter = 0
 updated_counter = 0
 for fn in os.listdir(HCL_ENTRIES_FOLDER):
-    f=open(os.path.join(HCL_ENTRIES_FOLDER,fn),'r')
+    filename = os.path.join(HCL_ENTRIES_FOLDER,fn)
+    print "Reading file: {}".format(filename)
+    f=open(filename,'r')
     json_data=f.read()
     hcl = json.loads(json_data)
     local_hcl_json_data.append(hcl)
