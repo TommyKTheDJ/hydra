@@ -1,10 +1,7 @@
-- name: Download the ingress-nginx setup templates
-  get-url:
-    url: {{item}}
-    dest: /tmp/ingress-nginx/
-    mode: 0700
-    with_items:
-      - https://raw.githubusercontent.com/TommyKTheDJ/hydra/ingress-controller-v2/files/ingress-nginx/values.yaml
+- name: Install pyhelm
+  pip:
+    name: pyhelm
+    state: latest
 
 - name: Install nginx ingress controller using custom values files
   helm:
@@ -15,7 +12,14 @@
       source:
         type: repo
         location: https://kubernetes-charts.storage.googleapis.com
-    state: installed
+    state: present
     name: ingress-controller
     namespace: ingress-nginx
-    values: /tmp/ingress-nginx/values.yaml
+    values: "{{item}}"
+  with_items:
+    - controller.replicaCount=2
+    - controller.service.externalTrafficPolicy=Local
+    - controller.service.type=nodePort
+    - defaultBackend.replicaCount=2
+    - rbac.create=true
+    - rbac.serviceAccountName=nginx-ingress-serviceaccount
