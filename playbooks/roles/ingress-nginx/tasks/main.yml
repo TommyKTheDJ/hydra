@@ -4,7 +4,7 @@
     dest: /tmp/ingress-nginx/
     mode: 0700
     with_items:
-      - https://raw.githubusercontent.com/TommyKTheDJ/hydra/master/files/ingress-nginx/values.yaml
+      - https://raw.githubusercontent.com/TommyKTheDJ/hydra/ingress-controller-v2/files/ingress-nginx/values.yaml
 
 - name: Install nginx ingress controller using custom values files
   helm:
