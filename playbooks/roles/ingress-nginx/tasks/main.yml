@@ -1,14 +1,21 @@
-- name: Download the ingress-nginx templates
+- name: Download the ingress-nginx setup templates
   get-url:
     url: {{item}}
     dest: /tmp/ingress-nginx/
     mode: 0700
     with_items:
-      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/namespace.yaml
-      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/default-backend.yaml
-      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/configmap.yaml
-      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/tcp-services-configmap.yaml
-      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/udp-services-configmap.yaml
-      - https://raw.githubusercontent.com/TommyKTheDJ/hydra/master/files/ingress-nginx/rbac.yaml
-      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/with-rbac.yaml
-      - https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/baremetal/service-nodeport.yaml
+      - https://raw.githubusercontent.com/TommyKTheDJ/hydra/master/files/ingress-nginx/values.yaml
+
+- name: Install nginx ingress controller using custom values files
+  helm:
+    host: localhost
+    chart:
+      name: nginx-ingress
+      version: 0.11.1
+      source:
+        type: repo
+        location: https://kubernetes-charts.storage.googleapis.com
+    state: installed
+    name: ingress-controller
+    namespace: ingress-nginx
+    values: /tmp/ingress-nginx/values.yaml
