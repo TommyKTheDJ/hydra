@@ -19,6 +19,8 @@ $ORIGIN 60.10.in-addr.arpa.
 26.3	IN	PTR	castor.hydra.lab.
 27.3	IN	PTR	jason.hydra.lab.
 28.3	IN	PTR	proteus.hydra.lab.
+35.3	IN	PTR	iris.hydra.lab.
+36.3	IN	PTR	hera.hydra.lab.
 29.3	IN	PTR	hydra-dns-1.hydra.lab.
 30.3	IN	PTR	hydra-dns-2.hydra.lab.
 49.3	IN	PTR	hydra-mgmt-1.hydra.lab.
@@ -31,6 +33,8 @@ $ORIGIN 60.10.in-addr.arpa.
 56.3	IN	PTR	hydra-pdu-4.hydra.lab.
 
 
+35.6	IN	PTR	iris.hydra.lab.
+36.6	IN	PTR	hera.hydra.lab.
 24.6	IN	PTR	charon.pxe.hydra.lab.
 25.6	IN	PTR	ares.pxe.hydra.lab.
 26.6	IN	PTR	castor.pxe.hydra.lab.
@@ -46,6 +50,8 @@ $ORIGIN 60.10.in-addr.arpa.
 23.6	IN	PTR	pollux.pxe.hydra.lab.
 
 
+35.2	IN	PTR	iris.hydra.lab.
+36.2	IN	PTR	hera.hydra.lab.
 10.2	IN	PTR	helios.oob.hydra.lab.
 11.2	IN	PTR	morpheus.oob.hydra.lab.
 12.2	IN	PTR	hermes.oob.hydra.lab.
@@ -55,6 +61,8 @@ $ORIGIN 60.10.in-addr.arpa.
 22.2	IN	PTR	kratus.oob.hydra.lab.
 23.2	IN	PTR	pollux.oob.hydra.lab.
 
+35.4	IN	PTR	iris.hydra.lab.
+36.4	IN	PTR	hera.hydra.lab.
 24.4 	IN	PTR	charon.fabric.hydra.lab.
 25.4 	IN	PTR	ares.fabric.hydra.lab.
 26.4 	IN	PTR	castor.fabric.hydra.lab.

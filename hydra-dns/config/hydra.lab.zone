@@ -17,6 +17,8 @@ ares			IN	A	10.60.3.25
 castor			IN	A	10.60.3.26
 jason			IN	A	10.60.3.27
 proteus			IN	A	10.60.3.28
+iris			IN	A	10.60.3.35
+hera			IN	A	10.60.3.36
 hydra-dns-1		IN	A	10.60.3.29
 hydra-dns-2		IN	A	10.60.3.30
 hydra-mgmt-1		IN	A	10.60.3.49
@@ -30,29 +32,33 @@ hydra-pdu-4		IN	A	10.60.3.56
 
 
 $ORIGIN pxe.hydra.lab.
-charon		IN	A	10.60.6.24
-ares		IN	A	10.60.6.25
-castor		IN	A	10.60.6.26
-jason		IN	A	10.60.6.27
-proteus		IN	A	10.60.6.28
-helios		IN	A	10.60.6.10
-morpheus	IN	A	10.60.6.11
-hermes		IN	A	10.60.6.12
-hypnos		IN	A	10.60.6.13
-triton		IN	A	10.60.6.20
-zephyrus	IN	A	10.60.6.21
-kratus		IN	A	10.60.6.22
-pollux		IN	A	10.60.6.23
+charon			IN	A	10.60.6.24
+ares			IN	A	10.60.6.25
+castor			IN	A	10.60.6.26
+jason			IN	A	10.60.6.27
+proteus			IN	A	10.60.6.28
+iris			IN	A	10.60.6.35
+hera			IN	A	10.60.6.36
+helios			IN	A	10.60.6.10
+morpheus		IN	A	10.60.6.11
+hermes			IN	A	10.60.6.12
+hypnos			IN	A	10.60.6.13
+triton			IN	A	10.60.6.20
+zephyrus		IN	A	10.60.6.21
+kratus			IN	A	10.60.6.22
+pollux			IN	A	10.60.6.23
 
 $ORIGIN oob.hydra.lab.
-helios		IN	A	10.60.2.10
-morpheus	IN	A	10.60.2.11
-hermes		IN	A	10.60.2.12
-hypnos		IN	A	10.60.2.13
-triton		IN	A	10.60.2.20
-zephyrus	IN	A	10.60.2.21
-kratus		IN	A	10.60.2.22
-pollux		IN	A	10.60.2.23
+iris			IN	A	10.60.2.35
+hera			IN	A	10.60.2.36
+helios			IN	A	10.60.2.10
+morpheus		IN	A	10.60.2.11
+hermes			IN	A	10.60.2.12
+hypnos			IN	A	10.60.2.13
+triton			IN	A	10.60.2.20
+zephyrus		IN	A	10.60.2.21
+kratus			IN	A	10.60.2.22
+pollux			IN	A	10.60.2.23
 
 $ORIGIN fabric.hydra.lab.
 charon			IN	A	10.60.4.24
@@ -60,6 +66,8 @@ ares			IN	A	10.60.4.25
 castor			IN	A	10.60.4.26
 jason			IN	A	10.60.4.27
 proteus			IN	A	10.60.4.28
+iris			IN	A	10.60.4.35
+hera			IN	A	10.60.4.36
 hydra-spine-1		IN	A	10.60.4.10
 hydra-spine-2		IN	A	10.60.4.11
 hydra-tor-1-1		IN	A	10.60.4.12
