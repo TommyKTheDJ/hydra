@@ -1,8 +1,0 @@
-- name: Download the helm install script
-  get-url:
-    url: https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get
-    dest: /tmp/get_helm.sh
-    mode: 0700
-
-- name:   Run get_helm.sh install script
-  script: /tmp/get_helm.sh

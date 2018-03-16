@@ -35,14 +35,6 @@ logstash-collector:
         udp {
           port => 5000
           codec => "json"
-        },
-        udp {
-          port => 5001
-          type => syslog
-        },
-        tcp {
-          port => 5001
-          type => syslog
         }
       outputs: |
         redis {

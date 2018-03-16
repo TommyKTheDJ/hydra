@@ -40,8 +40,6 @@ logstash-collector:
   - redis:redis
   ports:
   - "5000/udp"
-  - "5001/tcp"
-  - "5001/udp"
   volumes_from:
   - logstash-collector-config
   command:
