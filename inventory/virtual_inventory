@@ -1,48 +1,6 @@
-
-[kube-master]
-## This group is needed for k8s cluster installation by kubespray
-## Please don't change the name - kubespray playbooks will fail
-ares.hydra.lab
-jason.hydra.lab
-
-[kube-nodes]
-ares.hydra.lab
-jason.hydra.lab
-castor.hydra.lab
-proteus.hydra.lab
-charon.hydra.lab
-
-[etcd]
-## This group is needed for k8s cluster installation by kubespray
-## Please don't change the name - kubespray playbooks will fail
-ares.hydra.lab
-jason.hydra.lab
-castor.hydra.lab
-
-[k8s-cluster:children]
-## This group is needed for k8s cluster installation by kubespray
-## Please don't change the name - kubespray playbooks will fail
-kube-nodes
-kube-master
-
-
-[vault]
-## This group is needed for k8s cluster installation by kubespray
-## Please don't change the name - kubespray playbooks will fail
-ares.hydra.lab
-jason.hydra.lab
-castor.hydra.lab
-
 [dhcp-servers]
 ares.hydra.lab
 proteus.hydra.lab
-
-[gluster-nodes]
-ares.hydra.lab
-jason.hydra.lab
-castor.hydra.lab
-proteus.hydra.lab
-charon.hydra.lab
 
 [virtual-machines]
 ares.hydra.lab
@@ -50,8 +8,30 @@ jason.hydra.lab
 castor.hydra.lab
 proteus.hydra.lab
 charon.hydra.lab
+iris.hydra.lab
+hera.hydra.lab
 hydra-dns-1.hydra.lab
 hydra-dns-2.hydra.lab
+
+[rancher-master]
+ares.hydra.lab
+
+[kubernetes-etcd]
+castor.hydra.lab
+jason.hydra.lab
+hera.hydra.lab
+
+[kubernetes-worker]
+jason.hydra.lab
+castor.hydra.lab
+proteus.hydra.lab
+charon.hydra.lab
+iris.hydra.lab
+
+[kubernetes-control]
+proteus.hydra.lab
+charon.hydra.lab
+hera.hydra.lab
 
 [dns]
 hydra-dns-1.hydra.lab
@@ -59,12 +39,3 @@ hydra-dns-2.hydra.lab
 
 [dummy]
 127.0.0.1
-
-[kubespray]
-charon.hydra.lab
-
-[docker]
-charon.hydra.lab
-
-[helm]
-charon.hydra.lab

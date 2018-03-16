@@ -63,10 +63,12 @@ vlans:
         mac_address: e0:7:1b:c9:60:12
     -   hostname: hydra-tor-1-1
         mac_address: e0:7:1b:c9:40:56
+    -   hostname: hera
     -   hostname: hydra-superspine-1
         mac_address: d8:9e:f3:b6:e8:20
     -   hostname: hydra-tor-4-2
         mac_address: 34:17:eb:4c:42:80
+    -   hostname: iris
     -   hostname: charon
     -   hostname: hydra-superspine-2
         mac_address: d8:9e:f3:b6:ec:a0
