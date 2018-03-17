@@ -1,15 +1,30 @@
-- name: Make sure we have a 'hydra' group
+- name: Make sure we have a 'hydra admins' group
   group:
-    name: hydra
+    name: hydra-admins
     state: present
 
-- name: Allow 'hydra' group to have passwordless sudo
+- name: Make sure we have a 'hydra-users' group
+  group:
+    name: hydra-users
+    state: present
+
+- name: Allow 'hydra-admins' group to have passwordless sudo
   lineinfile:
     dest: /etc/sudoers
     state: present
     regexp: '^%hydra'
-    line: '%hydra ALL=(ALL) NOPASSWD: ALL'
+    line: '%hydra-admins ALL=(ALL) NOPASSWD: ALL'
     validate: 'visudo -cf %s'
+
+- name: Add admin users | create users, shell, home dirs
+  user:
+      name: "{{ item.id }}"
+      password: "{{ item.pwd|password_hash('sha512') }}"
+      createhome: yes
+      comment: created with ansible
+      shell: /bin/bash
+      groups: hydra-admins
+  with_items: "{{ users.admins }}"
 
 - name: Add users | create users, shell, home dirs
   user:
@@ -18,5 +33,5 @@
       createhome: yes
       comment: created with ansible
       shell: /bin/bash
-      groups: hydra
-  with_items: "{{ users }}"
+      groups: hydra-users
+  with_items: "{{ users.users }}"

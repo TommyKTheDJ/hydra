@@ -14,12 +14,18 @@
   tags:
     - ntp
 
-# - name: Configure Interfaces
-#   include_tasks: interfaces.yml
-#   tags:
-#     - dns
+- name: Configure Interfaces
+  include_tasks: interfaces.yml
+  tags:
+    - interfaces
+    - dns
 
-- name: Install docker
+- name: Configure hostname
+  include_tasks: hostname.yml
+  tags:
+    - hostname
+
+- name: Install using rancher script
   include_tasks: docker.yml
   tags:
     - docker

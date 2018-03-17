@@ -4,4 +4,4 @@
     state: present
     manage_dir: yes
     key: "{{ lookup('file', '%s/../.ssh/id_rsa_%s.pub'|format(playbook_dir,item.id)) }}"
-  with_items: "{{ users }}"
+  with_items: "{{ users.admins + users.users}} "
