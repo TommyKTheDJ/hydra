@@ -1,8 +1,8 @@
-[dhcp-servers]
-hydra-dns-1.hydra.lab
-hydra-dns-2.hydra.lab
+[virtual-machines:children]
+kubernetes
+dns
 
-[virtual-machines]
+[kubernetes]
 ares.hydra.lab
 hera.hydra.lab
 iris.hydra.lab
@@ -10,10 +10,12 @@ jason.hydra.lab
 castor.hydra.lab
 proteus.hydra.lab
 charon.hydra.lab
+
+[dns]
 hydra-dns-1.hydra.lab
 hydra-dns-2.hydra.lab
 
-[dns]
+[dhcp]
 hydra-dns-1.hydra.lab
 hydra-dns-2.hydra.lab
 

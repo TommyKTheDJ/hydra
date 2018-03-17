@@ -1,4 +1,4 @@
-- hosts: dhcp-servers
+- hosts: dhcp
   strategy: free
   become: true
   roles:

@@ -29,3 +29,9 @@
   include_tasks: docker.yml
   tags:
     - docker
+
+- name: Turn off swap
+  include_tasks: swapoff.yml
+  tags:
+    - docker
+  when: inventory_hostname in groups['kubernetes']
