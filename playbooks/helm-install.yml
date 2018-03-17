@@ -1,6 +1,0 @@
----
-- hosts: helm
-  user: hydra
-  become: true
-  roles:
-    - helm

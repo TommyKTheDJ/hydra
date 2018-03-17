@@ -1,4 +1,9 @@
 - hosts: virtual-machines
+  gather_facts: no
+  pre_tasks:
+    - name: Import initial user/pwd for first configuration
+      include_vars: initial.yml
+      when: initial is defined
   become: true
   roles:
     - virtual_machines

@@ -1,8 +1,11 @@
 ---
 - name: Ensure NTP-related packages are installed.
   apt:
-    name: ntp
+    name: "{{ item }}"
     state: present
+  with_items:
+    - ntp
+    - ntpdate
 
 - name: Set timezone
   timezone:

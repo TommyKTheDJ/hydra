@@ -1,2 +1,3 @@
 output_folder: /tmp
 aos_server_hostname: aos.hydra.lab
+docker_install_script: https://releases.rancher.com/install-docker/1.13.sh

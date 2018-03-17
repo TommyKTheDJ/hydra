@@ -1,4 +1,0 @@
-- hosts: localhost:virtual-machines
-  become: yes
-  roles:
-    - hosts
