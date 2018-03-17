@@ -27,3 +27,11 @@ aos.hydra.lab
 
 [dummy]
 127.0.0.1
+
+[gluster-nodes]
+ares.hydra.lab
+jason.hydra.lab
+castor.hydra.lab
+proteus.hydra.lab
+charon.hydra.lab
+
