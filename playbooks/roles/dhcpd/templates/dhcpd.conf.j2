@@ -1,6 +1,7 @@
 # ===================================================
-# Configured by Ansible on {{ ansible_date_time.iso8601 }}
+# Configured by Ansible on {{ lookup('pipe','date') }}
 # ===================================================
+
 option domain-name-servers {{ dns_server_1 }}, {{ dns_server_2 }};
 default-lease-time 600;
 option ntp-servers {{ ntp_server }};

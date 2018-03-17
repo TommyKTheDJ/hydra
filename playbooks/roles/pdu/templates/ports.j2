@@ -1,3 +1,7 @@
+# ===================================================
+# Configured by Ansible on {{ lookup('pipe','date') }}
+# ===================================================
+
 config
 {% for hostname, host in hosts.iteritems() %}
 {% if 'psus' in host.keys() %}

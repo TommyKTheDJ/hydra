@@ -1,0 +1,12 @@
+- name: Configure hostname
+  hostname:
+    name: {{ inventory_hostname.split('.')|first }}
+
+- name: Fix /etc/hosts file
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^127\.0\.1\.1 .*'
+    line: "127.0.1.1  {{ inventory_hostname.split('.')|first }}"
+    owner: root
+    group: root
+    mode: 0644

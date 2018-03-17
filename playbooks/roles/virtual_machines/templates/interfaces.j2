@@ -1,0 +1,27 @@
+# ===================================================
+# Configured by Ansible on {{ lookup('pipe','date') }}
+# ===================================================
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+{% for subnet_name, interface in hosts[inventory_hostname.split('.')|first].interfaces.iteritems() %}
+{% if 'nic' in vlans[subnet_name].keys() %}
+# Interface {{ subnet_name }}
+auto {{ vlans[subnet_name].nic }}
+iface {{ vlans[subnet_name].nic }} inet static
+    address {{ interface.ip | ipaddr('address') }}
+    netmask {{ interface.ip | ipaddr('netmask') }}
+    {% if subnet_name == 'management' -%}
+    gateway {{ interface.ip | ipaddr('1') | ipaddr('address') }}
+    {% endif%}
+
+{% endif %}
+{% endfor %}
+
+dns-search hydra.lab
+
+dns-nameservers {{ dns_server_1 }} {{ dns_server_2 }}

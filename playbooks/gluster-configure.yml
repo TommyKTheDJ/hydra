@@ -1,4 +1,0 @@
-- hosts: gluster-nodes
-  become: true
-  roles:
-    - glusterfs
