@@ -19,5 +19,11 @@ hydra-dns-2.hydra.lab
 hydra-dns-1.hydra.lab
 hydra-dns-2.hydra.lab
 
+[rancher]
+ares.hydra.lab
+
+[aos]
+aos.hydra.lab
+
 [dummy]
 127.0.0.1
