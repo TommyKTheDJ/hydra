@@ -75,9 +75,7 @@ def add_host_interfaces(host):
             interface['vlan_id'] = subnets[subnet_name]['vlan_id']
             if not is_empty_datum(data['cable_id']): interface['cable_id'] = data['cable_id']
             if not is_empty_datum(data['mac_address']): interface['mac_address'] = format_mac_address(data['mac_address'])
-            if not is_empty_datum(data['ip']): interface['ip'] = data['ip']
-            interface['prefix_length'] = subnets[subnet_name]['prefix_length']
-
+            if not is_empty_datum(data['ip']): interface['ip'] = "/".join(map(str,[data['ip'],subnets[subnet_name]['prefix_length']]))
             if not is_empty_datum(data['neighbor']):
                 interface['neighbor'] = {}
                 interface['neighbor']['hostname'] = data['neighbor']

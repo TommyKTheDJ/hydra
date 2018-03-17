@@ -1,15 +1,15 @@
 # ===================================================
 # Configured by Ansible on {{ ansible_date_time.iso8601 }}
 # ===================================================
-{% for subnet in vlans %}
-{% if subnet.dhcp == True %}
+{% for subnet_name, subnet in vlans.items() %}
+{% if 'nic' in subnet.keys() %}
 {% for hostname, host_data in hosts.iteritems() %}
-{% if subnet['name'] in host_data.interfaces.keys() and 'mac_address' in host_data.interfaces[subnet['name']].keys() and host_data.interfaces[subnet['name']].mac_address %}
+{% if subnet_name in host_data.interfaces.keys() and 'mac_address' in host_data.interfaces[subnet_name].keys() and host_data.interfaces[subnet_name].mac_address %}
 host {{ hostname }}.{{ subnet.domain }}
 {
     option host-name "{{ hostname }}";
-    hardware ethernet {{ host_data.interfaces[subnet['name']].mac_address }};
-    fixed-address     {{ host_data.interfaces[subnet['name']].ip }};
+    hardware ethernet {{ host_data.interfaces[subnet_name].mac_address }};
+    fixed-address     {{ host_data.interfaces[subnet_name].ip | ipaddr('address')}};
     {% if 'onie_url' in host_data.keys() and host_data.onie_url -%}
     option default-url "{{ host_data.onie_url }}";
     {% endif %}

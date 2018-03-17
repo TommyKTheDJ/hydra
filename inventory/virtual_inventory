@@ -34,8 +34,8 @@ jason.hydra.lab
 castor.hydra.lab
 
 [dhcp-servers]
-ares.hydra.lab
-proteus.hydra.lab
+hydra-dns-1.hydra.lab
+hydra-dns-2.hydra.lab
 
 [gluster-nodes]
 ares.hydra.lab

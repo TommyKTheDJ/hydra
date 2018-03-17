@@ -11,10 +11,10 @@ ddns-update-style none;
 {% if dhcp_failover_master in inventory_hostname %}
 failover peer "failover-partner" {
     primary;
-    address {{ hosts[dhcp_failover_master].interfaces.management.ip }};
-    port 647;
-    peer address {{ hosts[dhcp_failover_backup].interfaces.management.ip }};
-    peer port 647;
+    address {{ hosts[dhcp_failover_master].interfaces.management.ip | ipaddr('address')  }};
+    port 7912;
+    peer address {{ hosts[dhcp_failover_backup].interfaces.management.ip | ipaddr('address') }};
+    peer port 7912;
     max-response-delay 30;
     max-unacked-updates 10;
     mclt 1800;
@@ -24,9 +24,9 @@ failover peer "failover-partner" {
 {% else %}
 failover peer "failover-partner" {
        secondary;
-       address {{ hosts[dhcp_failover_backup].interfaces.management.ip }};
+       address {{ hosts[dhcp_failover_backup].interfaces.management.ip | ipaddr('address') }};
        port 7912;
-       peer address {{ hosts[dhcp_failover_master].interfaces.management.ip }};
+       peer address {{ hosts[dhcp_failover_master].interfaces.management.ip | ipaddr('address') }};
        peer port 7912;
        max-response-delay 30;
        max-unacked-updates 10;
@@ -42,18 +42,18 @@ key omapi_key {
      secret "{{ omapi_key }}";
 }
 
-{% for subnet in vlans %}
-{% if subnet.dhcp == True %}
-# {{ subnet.name }} subnet
+{% for subnet_name, subnet in vlans.iteritems() %}
+{% if 'nic' in subnet.keys() %}
+# {{ subnet_name }} subnet
 {% set network = subnet.network|string + '/' + subnet.prefix_length|string %}
 subnet {{ network|ipaddr('network')|ipaddr('address') }} netmask {{ network|ipaddr('netmask') }} {
         option routers {{ network|ipaddr('1')|ipaddr('address') }};
         option domain-name "{{ subnet.domain }}";
         option domain-search "{{ subnet.domain }}";
         pool {
-          range {{ network|ipaddr('40')|ipaddr('address') }} {{ network|ipaddr('200')|ipaddr('address') }};
+          range {{ network|ipaddr('150')|ipaddr('address') }} {{ network|ipaddr('200')|ipaddr('address') }};
           failover peer "failover-partner";
-          }
+        }
 }
 
 {% endif %}

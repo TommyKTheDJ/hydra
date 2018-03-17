@@ -1,176 +1,196 @@
 vlans:
--   dhcp: true
-    domain: hydra.lab
-    hosts:
-    -   hostname: triton
-    -   hostname: hydra-dns-1
-    -   hostname: morpheus
-    -   hostname: hydra-mgmt-1
-        mac_address: 0:5d:73:ec:1c:bc
-    -   hostname: hydra-mgmt-2
-        mac_address: b4:de:31:94:32:f0
-    -   hostname: hydra-dns-2
-    -   hostname: hypnos
-    -   hostname: zephyrus
-    -   hostname: helios
-    -   hostname: pollux
-    -   hostname: hydra-console-1
-        mac_address: 0:80:a3:96:83:d1
-    -   hostname: hydra-console-2
-    -   hostname: aos
-        mac_address: 0:c:29:cd:95:8a
-    -   hostname: kratus
-    -   hostname: hermes
-    -   hostname: hydra-pdu-2
-        mac_address: 0:d:5d:12:eb:e2
-    -   hostname: hydra-pdu-3
-        mac_address: 0:d:5d:12:eb:8e
-    -   hostname: hydra-pdu-1
-        mac_address: 0:d:5d:12:eb:96
-    -   hostname: hydra-pdu-4
-        mac_address: 0:d:5d:12:eb:fa
-    id: 701
-    name: management
-    network: 10.60.3.0
-    notes: trunked to N9K from Lab L3, 1st address on L3
-    prefix_length: 24
--   dhcp: true
-    domain: fabric.hydra.lab
-    hosts:
-    -   hostname: jason
-    -   hostname: hydra-tor-4-1
-        mac_address: d8:9e:f3:a7:1d:20
-    -   hostname: proteus
-    -   hostname: hydra-spine-4
-        mac_address: d8:9e:f3:b5:37:a0
-    -   hostname: castor
-    -   hostname: hydra-spine-1
-        mac_address: 1c:98:ec:4e:35:69
-    -   hostname: hydra-spine-2
-        mac_address: 1c:98:ec:4e:65:7b
-    -   hostname: hydra-spine-3
-        mac_address: d8:9e:f3:b6:f4:20
-    -   hostname: hydra-tor-2-2
-        mac_address: e0:7:1b:c9:60:5c
-    -   hostname: hydra-tor-2-1
-        mac_address: e0:7:1b:c9:40:ea
-    -   hostname: hydra-tor-3-2
-        mac_address: e4:f0:4:32:8d:1a
-    -   hostname: hydra-tor-3-1
-        mac_address: e4:f0:4:32:82:1a
-    -   hostname: ares
-    -   hostname: hydra-tor-1-2
-        mac_address: e0:7:1b:c9:60:12
-    -   hostname: hydra-tor-1-1
-        mac_address: e0:7:1b:c9:40:56
-    -   hostname: hydra-superspine-1
-        mac_address: d8:9e:f3:b6:e8:20
-    -   hostname: hydra-tor-4-2
-        mac_address: 34:17:eb:4c:42:80
-    -   hostname: charon
-    -   hostname: hydra-superspine-2
-        mac_address: d8:9e:f3:b6:ec:a0
-    id: 702
-    name: fabric
-    network: 10.60.4.0
-    notes: trunked to N9K from Lab L3, 1st address on L3
-    prefix_length: 24
--   dhcp: true
-    domain: oob.hydra.lab
-    hosts: []
-    id: 700
-    name: oob
-    network: 10.60.2.0
-    notes: trunked to N9K from Lab L3, 1st address on L3
-    prefix_length: 24
--   dhcp: false
-    hosts:
-    -   hostname: hydra-border-1
-    id: 604
-    name: external_hpe_4
-    network: 10.68.1.12
-    notes: trunked to N9K from Lab L3, last on N9K
-    prefix_length: 30
--   dhcp: false
-    hosts: []
-    id: 602
-    name: external_hpe_2
-    network: 10.68.1.4
-    notes: trunked to N9K from Lab L3, last on N9K
-    prefix_length: 30
--   dhcp: false
-    hosts:
-    -   hostname: hydra-border-2
-    id: 603
-    name: external_hpe_3
-    network: 10.68.1.8
-    notes: trunked to N9K from Lab L3, last on N9K
-    prefix_length: 30
--   dhcp: false
-    hosts: []
-    id: 708
-    name: free
-    network: 10.60.8.0
-    notes: trunked to N9K from Lab L3, last on N9K
-    prefix_length: 24
--   dhcp: false
-    hosts: []
-    id: 601
-    name: external_hpe_1
-    network: 10.68.1.0
-    notes: trunked to N9K from Lab L3, last on N9K
-    prefix_length: 30
--   dhcp: false
-    hosts: []
-    id: 607
-    name: external_dell_3
-    network: 10.68.1.24
-    notes: trunked to N9K from Lab L3, last on N9K
-    prefix_length: 30
--   dhcp: false
-    hosts:
-    -   hostname: hydra-border-3
-    id: 606
-    name: external_dell_2
-    network: 10.68.1.20
-    notes: trunked to N9K from Lab L3, last on N9K
-    prefix_length: 30
--   dhcp: false
-    domain: services.hydra.lab
-    hosts: []
-    id: 705
-    name: services
-    network: 10.60.5.0
-    notes: trunked to N9K from Lab L3, 1st address on L3
-    prefix_length: 24
--   dhcp: false
-    domain: ext.hydra.lab
-    hosts: []
-    id: 704
-    name: external_services
-    network: 10.60.100.0
-    notes: trunked to N9K from Lab L3, 1st address on L3
-    prefix_length: 24
--   dhcp: false
-    hosts: []
-    id: 605
-    name: external_dell_1
-    network: 10.68.1.16
-    notes: trunked to N9K from Lab L3, last on N9K
-    prefix_length: 30
--   dhcp: true
-    domain: pxe.hydra.lab
-    hosts: []
-    id: 706
-    name: pxe
-    network: 10.60.6.0
-    notes: trunked to N9K from Lab L3, last on N9K
-    prefix_length: 24
--   dhcp: false
-    hosts:
-    -   hostname: hydra-border-4
-    id: 608
-    name: external_dell_4
-    network: 10.68.1.28
-    notes: trunked to N9K from Lab L3, last on N9K
-    prefix_length: 30
+    external_dell_1:
+        dhcp: false
+        hosts: []
+        id: 605
+        name: external_dell_1
+        network: 10.68.1.16
+        notes: trunked to N9K from Lab L3, last on N9K
+        prefix_length: 30
+    external_dell_2:
+        dhcp: false
+        hosts:
+        -   hostname: hydra-border-3
+        id: 606
+        name: external_dell_2
+        network: 10.68.1.20
+        notes: trunked to N9K from Lab L3, last on N9K
+        prefix_length: 30
+    external_dell_3:
+        dhcp: false
+        hosts: []
+        id: 607
+        name: external_dell_3
+        network: 10.68.1.24
+        notes: trunked to N9K from Lab L3, last on N9K
+        prefix_length: 30
+    external_dell_4:
+        dhcp: false
+        hosts:
+        -   hostname: hydra-border-4
+        id: 608
+        name: external_dell_4
+        network: 10.68.1.28
+        notes: trunked to N9K from Lab L3, last on N9K
+        prefix_length: 30
+    external_hpe_1:
+        dhcp: false
+        hosts: []
+        id: 601
+        name: external_hpe_1
+        network: 10.68.1.0
+        notes: trunked to N9K from Lab L3, last on N9K
+        prefix_length: 30
+    external_hpe_2:
+        dhcp: false
+        hosts: []
+        id: 602
+        name: external_hpe_2
+        network: 10.68.1.4
+        notes: trunked to N9K from Lab L3, last on N9K
+        prefix_length: 30
+    external_hpe_3:
+        dhcp: false
+        hosts:
+        -   hostname: hydra-border-2
+        id: 603
+        name: external_hpe_3
+        network: 10.68.1.8
+        notes: trunked to N9K from Lab L3, last on N9K
+        prefix_length: 30
+    external_hpe_4:
+        dhcp: false
+        hosts:
+        -   hostname: hydra-border-1
+        id: 604
+        name: external_hpe_4
+        network: 10.68.1.12
+        notes: trunked to N9K from Lab L3, last on N9K
+        prefix_length: 30
+    external_services:
+        dhcp: false
+        domain: ext.hydra.lab
+        hosts: []
+        id: 704
+        name: external_services
+        network: 10.60.100.0
+        notes: trunked to N9K from Lab L3, 1st address on L3
+        prefix_length: 24
+    fabric:
+        dhcp: true
+        domain: fabric.hydra.lab
+        hosts:
+        -   hostname: hydra-dns-1
+        -   hostname: hydra-tor-4-1
+            mac_address: d8:9e:f3:a7:1d:20
+        -   hostname: hydra-spine-4
+            mac_address: d8:9e:f3:b5:37:a0
+        -   hostname: hydra-spine-1
+            mac_address: 1c:98:ec:4e:35:69
+        -   hostname: hydra-spine-2
+            mac_address: 1c:98:ec:4e:65:7b
+        -   hostname: hydra-spine-3
+            mac_address: d8:9e:f3:b6:f4:20
+        -   hostname: hydra-dns-2
+        -   hostname: hydra-tor-2-2
+            mac_address: e0:7:1b:c9:60:5c
+        -   hostname: hydra-tor-2-1
+            mac_address: e0:7:1b:c9:40:ea
+        -   hostname: hydra-tor-3-2
+            mac_address: e4:f0:4:32:8d:1a
+        -   hostname: hydra-tor-3-1
+            mac_address: e4:f0:4:32:82:1a
+        -   hostname: hydra-tor-1-2
+            mac_address: e0:7:1b:c9:60:12
+        -   hostname: hydra-tor-1-1
+            mac_address: e0:7:1b:c9:40:56
+        -   hostname: hydra-superspine-1
+            mac_address: d8:9e:f3:b6:e8:20
+        -   hostname: hydra-tor-4-2
+            mac_address: 34:17:eb:4c:42:80
+        -   hostname: hydra-superspine-2
+            mac_address: d8:9e:f3:b6:ec:a0
+        id: 702
+        name: fabric
+        network: 10.60.4.0
+        nic: ens224
+        notes: trunked to N9K from Lab L3, 1st address on L3
+        prefix_length: 24
+    free:
+        dhcp: false
+        hosts: []
+        id: 708
+        name: free
+        network: 10.60.8.0
+        notes: trunked to N9K from Lab L3, last on N9K
+        prefix_length: 24
+    management:
+        dhcp: true
+        domain: hydra.lab
+        hosts:
+        -   hostname: triton
+        -   hostname: jason
+        -   hostname: morpheus
+        -   hostname: proteus
+        -   hostname: hydra-mgmt-1
+            mac_address: 0:5d:73:ec:1c:bc
+        -   hostname: hydra-mgmt-2
+            mac_address: b4:de:31:94:32:f0
+        -   hostname: castor
+        -   hostname: hypnos
+        -   hostname: ares
+        -   hostname: zephyrus
+        -   hostname: helios
+        -   hostname: pollux
+        -   hostname: hera
+        -   hostname: hydra-console-1
+            mac_address: 0:80:a3:96:83:d1
+        -   hostname: hydra-console-2
+        -   hostname: aos
+            mac_address: 0:c:29:cd:95:8a
+        -   hostname: kratus
+        -   hostname: hermes
+        -   hostname: iris
+        -   hostname: charon
+        -   hostname: hydra-pdu-2
+            mac_address: 0:d:5d:12:eb:e2
+        -   hostname: hydra-pdu-3
+            mac_address: 0:d:5d:12:eb:8e
+        -   hostname: hydra-pdu-1
+            mac_address: 0:d:5d:12:eb:96
+        -   hostname: hydra-pdu-4
+            mac_address: 0:d:5d:12:eb:fa
+        id: 701
+        name: management
+        network: 10.60.3.0
+        nic: ens160
+        notes: trunked to N9K from Lab L3, 1st address on L3
+        prefix_length: 24
+    oob:
+        dhcp: true
+        domain: oob.hydra.lab
+        hosts: []
+        id: 700
+        name: oob
+        network: 10.60.2.0
+        nic: ens192
+        notes: trunked to N9K from Lab L3, 1st address on L3
+        prefix_length: 24
+    pxe:
+        dhcp: false
+        domain: pxe.hydra.lab
+        hosts: []
+        id: 706
+        name: pxe
+        network: 10.60.6.0
+        notes: trunked to N9K from Lab L3, last on N9K
+        prefix_length: 24
+    services:
+        dhcp: false
+        domain: services.hydra.lab
+        hosts: []
+        id: 705
+        name: services
+        network: 10.60.5.0
+        notes: trunked to N9K from Lab L3, 1st address on L3
+        prefix_length: 24

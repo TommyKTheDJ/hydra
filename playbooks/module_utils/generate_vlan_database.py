@@ -6,15 +6,19 @@ def generate_vlan_database(inventory_filename = None):
 
 
     data = {}
-    data['vlans'] = []
+    data['vlans'] = {}
     for name, values in subnets.iteritems():
+
         vlan = {}
         vlan['id'] = values['vlan_id']
         vlan['name'] = name
         vlan['notes'] = values['notes']
         vlan['network'] = values['network']
         vlan['prefix_length'] = values['prefix_length']
-        vlan['dhcp'] = bool(values['requires_dhcp'])
+        vlan['dhcp'] = False
+        if not is_empty_datum(values['nic']):
+            vlan['nic'] = values['nic']
+            vlan['dhcp'] = True
         if not is_empty_datum(values['domain']):
             vlan['domain'] = values['domain']
             if not is_empty_datum(values['zone'])  :
@@ -27,5 +31,5 @@ def generate_vlan_database(inventory_filename = None):
                 if not is_empty_datum(interface_data['mac_address']): host['mac_address'] = format_mac_address(interface_data['mac_address'])
                 vlan['hosts'].append(host)
 
-        data['vlans'].append(vlan)
+        data['vlans'][name] = vlan
     return data

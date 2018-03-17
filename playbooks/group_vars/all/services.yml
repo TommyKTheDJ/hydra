@@ -7,5 +7,5 @@ dns_root_domain: hydra.lab
 ntp_server: 10.50.30.92
 ntp_timezone: Europe/London
 
-dhcp_failover_master: ares
-dhcp_failover_backup: proteus
+dhcp_failover_master: hydra-dns-1
+dhcp_failover_backup: hydra-dns-2
