@@ -1,0 +1,8 @@
+outputfile.txt
+ping.py
+pingscan.txt
+scanner
+secrets.yml
+users.yml
+.kube/
+.ssh/
