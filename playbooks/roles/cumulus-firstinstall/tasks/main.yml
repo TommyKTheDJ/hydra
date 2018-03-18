@@ -80,7 +80,20 @@
     line: '\1{{ aos_server_hostname}}\3'
     backrefs: yes
 
+- name: Enable enable_configuration_service = 1 in aos.conf
+  lineinfile:
+    path:   /etc/aos/aos.conf
+    regexp: '^enable_configuration_service .*$'
+    line: 'enable_configuration_service = 1'
+
 - name: Restart AoS service
   service:
     name: aos
     state: restarted
+
+- name: Enable resilient hashing
+  lineinfile:
+    path:   /etc/cumulus/datapath/traffic.conf
+    regexp: '.*resilient_hash_enable .*$'
+    line: 'resilient_hash_enable = TRUE'
+  notify: restart switchd
