@@ -1,7 +1,7 @@
 # ===================================================
 # Configured by Ansible on {{ lookup('pipe','date') }}
 # ===================================================
-{% for subnet_name, subnet in vlans.items() %}
+{% for subnet_name, subnet in subnets.items() %}
 {% if 'nic' in subnet.keys() %}
 {% for hostname, host_data in hosts.iteritems() %}
 {% if subnet_name in host_data.interfaces.keys() and 'mac_address' in host_data.interfaces[subnet_name].keys() and host_data.interfaces[subnet_name].mac_address %}
@@ -10,8 +10,8 @@ host {{ hostname }}.{{ subnet.domain }}
     option host-name "{{ hostname }}";
     hardware ethernet {{ host_data.interfaces[subnet_name].mac_address }};
     fixed-address     {{ host_data.interfaces[subnet_name].ip | ipaddr('address')}};
-    {% if 'onie_url' in host_data.keys() and host_data.onie_url -%}
-    option default-url "{{ host_data.onie_url }}";
+    {% if 'onie_image' in host_data.keys() and host_data.onie_image -%}
+    option default-url "http://{{ onie_fqdn}}:{{ onie_port }}/{{ onie_path }}/{{ host_data.onie_image }}";
     {% endif %}
 }
 {% endif %}

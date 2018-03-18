@@ -9,10 +9,10 @@ auto lo
 iface lo inet loopback
 
 {% for subnet_name, interface in hosts[inventory_hostname.split('.')|first].interfaces.iteritems() %}
-{% if 'nic' in vlans[subnet_name].keys() %}
+{% if 'nic' in subnets[subnet_name].keys() %}
 # Interface {{ subnet_name }}
-auto {{ vlans[subnet_name].nic }}
-iface {{ vlans[subnet_name].nic }} inet static
+auto {{ subnets[subnet_name].nic }}
+iface {{ subnets[subnet_name].nic }} inet static
     address {{ interface.ip | ipaddr('address') }}
     netmask {{ interface.ip | ipaddr('netmask') }}
     {% if subnet_name == 'management' -%}

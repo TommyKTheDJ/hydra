@@ -31,7 +31,7 @@ def generate_hosts_database(inventory_filename = None):
         record['resources']['ram'] = data['ram']
         record['resources']['disk'] = data['disk']
         record['user'] = data['user']
-        if not is_empty_datum(data['onie_url']): record['onie_url'] = data['onie_url']
+        if not is_empty_datum(data['onie_image']): record['onie_image'] = data['onie_image']
         if hostname in ilo.keys(): record['ilo_password'] = ilo[hostname]['password']
         record['interfaces'] = {}
         record['interfaces'].update(add_host_interfaces(hostname))
@@ -72,7 +72,7 @@ def add_host_interfaces(host):
     for (hostname, subnet_name), data in interfaces.items():
         if hostname == host:
             interface = {}
-            interface['vlan_id'] = subnets[subnet_name]['vlan_id']
+            if 'vlan_id' in subnets[subnet_name].keys(): interface['vlan_id'] = subnets[subnet_name]['vlan_id']
             if not is_empty_datum(data['cable_id']): interface['cable_id'] = data['cable_id']
             if not is_empty_datum(data['mac_address']): interface['mac_address'] = format_mac_address(data['mac_address'])
             if not is_empty_datum(data['ip']): interface['ip'] = "/".join(map(str,[data['ip'],subnets[subnet_name]['prefix_length']]))

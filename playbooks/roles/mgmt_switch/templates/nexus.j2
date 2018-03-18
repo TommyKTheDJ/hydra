@@ -9,9 +9,11 @@ feature interface-vlan
 feature dhcp
 feature lldp
 !
-{% for vlan in vlans %}
+{% for subnet in subnets %}
+{% if 'id' in subnet.keys() %}
 vlan {{ vlan.id }}
   name {{ vlan.name }}
+{% endif %}
 {% endfor %}
 !
 {% for hostname, device in hosts.iteritems() %}

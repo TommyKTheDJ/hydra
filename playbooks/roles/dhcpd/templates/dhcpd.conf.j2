@@ -43,7 +43,7 @@ key omapi_key {
      secret "{{ omapi_key }}";
 }
 
-{% for subnet_name, subnet in vlans.iteritems() %}
+{% for subnet_name, subnet in subnets.iteritems() %}
 {% if 'nic' in subnet.keys() %}
 # {{ subnet_name }} subnet
 {% set network = subnet.network|string + '/' + subnet.prefix_length|string %}

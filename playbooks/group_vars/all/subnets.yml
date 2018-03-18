@@ -1,81 +1,81 @@
-vlans:
+subnets:
     external_dell_1:
         dhcp: false
         hosts: []
-        id: 605
         name: external_dell_1
         network: 10.68.1.16
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
+        vlan_id: 605
     external_dell_2:
         dhcp: false
         hosts:
         -   hostname: hydra-border-3
-        id: 606
         name: external_dell_2
         network: 10.68.1.20
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
+        vlan_id: 606
     external_dell_3:
         dhcp: false
         hosts: []
-        id: 607
         name: external_dell_3
         network: 10.68.1.24
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
+        vlan_id: 607
     external_dell_4:
         dhcp: false
         hosts:
         -   hostname: hydra-border-4
-        id: 608
         name: external_dell_4
         network: 10.68.1.28
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
+        vlan_id: 608
     external_hpe_1:
         dhcp: false
         hosts: []
-        id: 601
         name: external_hpe_1
         network: 10.68.1.0
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
+        vlan_id: 601
     external_hpe_2:
         dhcp: false
         hosts: []
-        id: 602
         name: external_hpe_2
         network: 10.68.1.4
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
+        vlan_id: 602
     external_hpe_3:
         dhcp: false
         hosts:
         -   hostname: hydra-border-2
-        id: 603
         name: external_hpe_3
         network: 10.68.1.8
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
+        vlan_id: 603
     external_hpe_4:
         dhcp: false
         hosts:
         -   hostname: hydra-border-1
-        id: 604
         name: external_hpe_4
         network: 10.68.1.12
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
+        vlan_id: 604
     external_services:
         dhcp: false
         domain: ext.hydra.lab
         hosts: []
-        id: 704
         name: external_services
         network: 10.60.100.0
         notes: trunked to N9K from Lab L3, 1st address on L3
         prefix_length: 24
+        vlan_id: 704
     fabric:
         dhcp: true
         domain: fabric.hydra.lab
@@ -110,20 +110,20 @@ vlans:
             mac_address: 34:17:eb:4c:42:80
         -   hostname: hydra-superspine-2
             mac_address: d8:9e:f3:b6:ec:a0
-        id: 702
         name: fabric
         network: 10.60.4.0
         nic: ens224
         notes: trunked to N9K from Lab L3, 1st address on L3
         prefix_length: 24
+        vlan_id: 702
     free:
         dhcp: false
         hosts: []
-        id: 708
         name: free
         network: 10.60.8.0
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 24
+        vlan_id: 708
     management:
         dhcp: true
         domain: hydra.lab
@@ -160,37 +160,51 @@ vlans:
             mac_address: 0:d:5d:12:eb:96
         -   hostname: hydra-pdu-4
             mac_address: 0:d:5d:12:eb:fa
-        id: 701
         name: management
         network: 10.60.3.0
         nic: ens160
         notes: trunked to N9K from Lab L3, 1st address on L3
         prefix_length: 24
+        vlan_id: 701
     oob:
         dhcp: true
         domain: oob.hydra.lab
         hosts: []
-        id: 700
         name: oob
         network: 10.60.2.0
         nic: ens192
         notes: trunked to N9K from Lab L3, 1st address on L3
         prefix_length: 24
+        vlan_id: 700
     pxe:
         dhcp: false
         domain: pxe.hydra.lab
         hosts: []
-        id: 706
         name: pxe
         network: 10.60.6.0
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 24
+        vlan_id: 706
     services:
         dhcp: false
         domain: services.hydra.lab
         hosts: []
-        id: 705
         name: services
         network: 10.60.5.0
         notes: trunked to N9K from Lab L3, 1st address on L3
+        prefix_length: 24
+        vlan_id: 705
+    tenant_services_alpha:
+        dhcp: false
+        hosts: []
+        name: tenant_services_alpha
+        network: 10.60.80.0
+        notes: routed on the N9K
+        prefix_length: 24
+    tenant_services_beta:
+        dhcp: false
+        hosts: []
+        name: tenant_services_beta
+        network: 10.60.90.0
+        notes: routed on the N9K
         prefix_length: 24

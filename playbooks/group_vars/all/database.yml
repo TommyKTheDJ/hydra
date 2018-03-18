@@ -165,7 +165,7 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6941 
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -201,7 +201,7 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6941 
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -242,7 +242,7 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -283,7 +283,7 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -545,7 +545,7 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6960 
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -576,7 +576,7 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6960 
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -607,7 +607,7 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: Altoline 6941 
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -638,7 +638,7 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: Altoline 6941 
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -669,7 +669,7 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: Z9100-ON
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -700,7 +700,7 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: Z9100-ON
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -731,7 +731,7 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921 
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -762,7 +762,7 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -793,7 +793,7 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921 
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -824,7 +824,7 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -855,7 +855,7 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S4148T-ON
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -886,7 +886,7 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S4148T-ON
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -917,7 +917,7 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -948,7 +948,7 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
-        onie_url: http://10.60.4.28:31653/cumulus-linux-3.4.3-bcm-amd64.bin
+        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:

@@ -59,7 +59,7 @@ import hashlib
 import os
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.generate_hosts_database import *
-from ansible.module_utils.generate_vlan_database import *
+from ansible.module_utils.generate_subnet_database import *
 import sys
 import yaml
 
@@ -69,7 +69,7 @@ def run_module():
     module_args = dict(
         src=dict(type='str', required=True),
         hosts_database_dest=dict(type='str', required=False, default=None),
-        vlans_database_dest=dict(type='str', required=False, default=None),
+        subnets_database_dest=dict(type='str', required=False, default=None),
         force=dict(type='bool', required=False, default=False),
     )
 
@@ -93,7 +93,7 @@ def run_module():
         supports_check_mode=True
     )
     hosts_database_filename = module.params['hosts_database_dest'] or "/tmp/database.yml"
-    vlans_database_filename = module.params['vlans_database_dest'] or "/tmp/vlans.yml"
+    subnets_database_filename = module.params['subnets_database_dest'] or "/tmp/subnets.yml"
 
     # CHECK IF DATABASE DATA CHANGED
     try:
@@ -109,10 +109,10 @@ def run_module():
         module.fail_json(msg='Database data generation failed', **result)
 
     try:
-        vlans_database_data = generate_vlan_database(inventory_filename = module.params['src'])
+        subnets_database_data = generate_subnet_database(inventory_filename = module.params['src'])
     except Exception as e:
         result['error'] = e
-        module.fail_json(msg='VLAN database generation failed', **result)
+        module.fail_json(msg='subnet database generation failed', **result)
 
     # new_file_hash = hashlib.md5().update(database_data)
     # yaml.safe_dump(database,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
@@ -123,7 +123,7 @@ def run_module():
     # sys.stderr.write(str(database_data))
 
     if not old_hosts_data == hosts_database_data or not os.path.isfile(hosts_database_filename) \
-    or not os.path.isfile(vlans_database_filename) or module.params['force']:
+    or not os.path.isfile(subnets_database_filename) or module.params['force']:
         result['changed'] = True
     else:
         result['changed'] = False
@@ -143,12 +143,12 @@ def run_module():
                 result['message'] = 'Database file correctly generated'
             except:
                 module.fail_json(msg='Writing database data file failed', **result)
-        with open(vlans_database_filename,'w') as vlans_database_file:
+        with open(subnets_database_filename,'w') as subnets_database_file:
             try:
-                yaml.safe_dump(vlans_database_data,vlans_database_file,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
-                result['message'] = 'VLAN database file correctly generated'
+                yaml.safe_dump(subnets_database_data,subnets_database_file,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
+                result['message'] = 'Subnet database file correctly generated'
             except:
-                module.fail_json(msg='Writing VLAN data file failed', **result)
+                module.fail_json(msg='Writing subnet data file failed', **result)
     else:
             result['message'] = 'No changes required'
 

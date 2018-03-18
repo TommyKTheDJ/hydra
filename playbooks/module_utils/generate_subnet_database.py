@@ -1,35 +1,35 @@
 from ansible.module_utils.common_functions import *
 
-def generate_vlan_database(inventory_filename = None):
+def generate_subnet_database(inventory_filename = None):
     interfaces =  xls_to_dict(inventory_filename=inventory_filename, sheet_name="interfaces")
     subnets =  xls_to_dict(inventory_filename=inventory_filename, sheet_name="subnets")
 
 
     data = {}
-    data['vlans'] = {}
+    data['subnets'] = {}
     for name, values in subnets.iteritems():
 
-        vlan = {}
-        vlan['id'] = values['vlan_id']
-        vlan['name'] = name
-        vlan['notes'] = values['notes']
-        vlan['network'] = values['network']
-        vlan['prefix_length'] = values['prefix_length']
-        vlan['dhcp'] = False
+        subnet = {}
+        if not is_empty_datum(values['vlan_id']): subnet['vlan_id'] = values['vlan_id']
+        subnet['name'] = name
+        subnet['notes'] = values['notes']
+        subnet['network'] = values['network']
+        subnet['prefix_length'] = values['prefix_length']
+        subnet['dhcp'] = False
         if not is_empty_datum(values['nic']):
-            vlan['nic'] = values['nic']
-            vlan['dhcp'] = True
+            subnet['nic'] = values['nic']
+            subnet['dhcp'] = True
         if not is_empty_datum(values['domain']):
-            vlan['domain'] = values['domain']
+            subnet['domain'] = values['domain']
             if not is_empty_datum(values['zone'])  :
-                vlan['domain'] = ".".join([values['zone'],values['domain']])
-        vlan['hosts'] = []
+                subnet['domain'] = ".".join([values['zone'],values['domain']])
+        subnet['hosts'] = []
         for hostname,interface_data in interfaces.iteritems():
             if interface_data['subnet'] == name:
                 host = {}
                 host['hostname'] = hostname
                 if not is_empty_datum(interface_data['mac_address']): host['mac_address'] = format_mac_address(interface_data['mac_address'])
-                vlan['hosts'].append(host)
+                subnet['hosts'].append(host)
 
-        data['vlans'][name] = vlan
+        data['subnets'][name] = subnet
     return data
