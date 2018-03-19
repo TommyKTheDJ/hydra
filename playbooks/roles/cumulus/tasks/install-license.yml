@@ -1,0 +1,9 @@
+- name: Copy License file
+  lineinfile:
+    path: /tmp/license
+    line: "{{ cumulus_license }}"
+    create: yes
+
+- name: Install License
+  shell: "cl-license -i /tmp/license"
+  notify: restart switchd

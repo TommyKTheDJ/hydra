@@ -1,22 +1,10 @@
 ---
-- name: Get token
-  uri:
-    url: https://{{ aos_server_hostname }}/api/aaa/login
-    method: POST
-    body:
-        username: "{{ aos_username }}"
-        password: "{{ aos_password}}"
-    body_format: json
-    validate_certs: no
-    status_code: 201
-  register: login
-
 - name: Create admin users
   uri:
     headers:
-      aos_user_id: "{{ login.json.id }}"
+      aos_user_id: "{{ aos_token_id }}"
       accept: application/json
-      AUTHTOKEN: "{{ login.json.token }}"
+      AUTHTOKEN: "{{ aos_token }}"
     url: https://{{ aos_server_hostname }}/api/aaa/users/
     method: POST
     body: "{{ lookup('template','aaa_admins.j2') }}"
@@ -30,9 +18,9 @@
 - name: Create users
   uri:
     headers:
-      aos_user_id: "{{ login.json.id }}"
+      aos_user_id: "{{ aos_token_id }}"
       accept: application/json
-      AUTHTOKEN: "{{ login.json.token }}"
+      AUTHTOKEN: "{{ aos_token }}"
     url: https://{{ aos_server_hostname }}/api/aaa/users/
     method: POST
     body: "{{ lookup('template','aaa_users.j2') }}"

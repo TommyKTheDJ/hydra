@@ -1,0 +1,44 @@
+- name: Stop AoS service
+  service:
+    name: aos
+    state: stopped
+
+- name: Remove AoS folder
+  file:
+    path: /etc/aos
+    state: absent
+  tags:
+    - aos_agent
+
+- name: Get installation script
+  get_url:
+    url: https://{{ aos_server_hostname }}/device_agent_images/aos_device_agent.run
+    dest: /tmp/aos_device_agent.run
+    validate_certs: no
+    force: yes
+    mode: 0740
+  tags:
+    - aos_agent
+
+- name: Execute installation script
+  shell: /tmp/aos_device_agent.run
+  tags:
+    - aos_agent
+
+- name: Correct host in aos.conf
+  lineinfile:
+    path:   /etc/aos/aos.conf
+    regexp: '^(metadb = tbt:\/\/)(aos-server)(:29731)$'
+    line: '\1{{ aos_server_hostname}}\3'
+    backrefs: yes
+
+- name: Enable enable_configuration_service = 1 in aos.conf
+  lineinfile:
+    path:   /etc/aos/aos.conf
+    regexp: '^enable_configuration_service .*$'
+    line: 'enable_configuration_service = 1'
+
+- name: Restart AoS service
+  service:
+    name: aos
+    state: restarted

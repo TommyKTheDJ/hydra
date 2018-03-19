@@ -1,0 +1,17 @@
+- hosts: cumulus
+  become: true
+  gather_facts: no
+  tasks:
+
+      - name: remove admin/cumulus users
+        user:
+          name: "{{ item }}"
+          state: absent
+          force: yes
+        with_items:
+          - cumulus
+          - admin
+      - name: remove hydra group
+        group:
+          name: hydra
+          state: absent

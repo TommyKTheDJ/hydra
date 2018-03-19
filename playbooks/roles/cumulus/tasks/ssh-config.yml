@@ -1,0 +1,13 @@
+- name: Tune SSH for faster connections
+  lineinfile:
+    path:   /etc/ssh/sshd_config
+    regexp: 'UsePAM *'
+    line: 'UsePAM no'
+  notify: restart sshd
+
+- name: Tune SSH for faster connections
+  lineinfile:
+    path:   /etc/ssh/sshd_config
+    regexp: 'UseDNS *'
+    line: 'UseDNS no'
+  notify: restart sshd

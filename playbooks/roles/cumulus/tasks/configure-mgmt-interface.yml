@@ -1,0 +1,37 @@
+- name: Modify /etc/network/interfaces for interfaces.d
+  lineinfile:
+    line: source /etc/network/interfaces.d/*.intf
+    path: /etc/network/interfaces
+    state: present
+  tags:
+    - management
+
+- name: Modify /etc/network/interfaces for interfaces.d
+  lineinfile:
+    regexp: .* [BLOCK|eth0|The primary network interface|vrf mgmt]
+    path: /etc/network/interfaces
+    state: absent
+  tags:
+    - management
+    - enable_interfaces
+
+- name: Configure mgmt interface
+  copy:
+    dest: /etc/network/interfaces.d/mgmt.intf
+    src: mgmt.conf
+  tags:
+    - management
+
+- name: Configure vrf mgmt on eth0 interface
+  copy:
+    dest: /etc/network/interfaces.d/eth0.intf
+    src: eth0.conf
+  tags:
+    - management
+
+- name: Reload networking
+  service:
+    name: networking
+    state: reloaded
+  tags:
+    - management

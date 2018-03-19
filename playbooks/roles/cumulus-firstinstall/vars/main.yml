@@ -1,3 +1,0 @@
-ansible_ssh_user: cumulus
-ansible_ssh_pass: CumulusLinux!
-ansible_become_pass: CumulusLinux!

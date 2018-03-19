@@ -1,0 +1,6 @@
+- name: Enable resilient hashing
+  lineinfile:
+    path:   /etc/cumulus/datapath/traffic.conf
+    regexp: '.*resilient_hash_enable .*$'
+    line: 'resilient_hash_enable = TRUE'
+  notify: restart switchd
