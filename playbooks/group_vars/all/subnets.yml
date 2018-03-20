@@ -7,6 +7,14 @@ subnets:
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
         vlan_id: 605
+    external_dell_1_to_N9k:
+        dhcp: false
+        hosts: []
+        name: external_dell_1_to_N9k
+        network: 10.68.1.48
+        notes: N9K to border for BGP, last on N9K
+        prefix_length: 30
+        vlan_id: 615
     external_dell_2:
         dhcp: false
         hosts:
@@ -16,6 +24,14 @@ subnets:
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
         vlan_id: 606
+    external_dell_2_to_N9k:
+        dhcp: false
+        hosts: []
+        name: external_dell_2_to_N9k
+        network: 10.68.1.52
+        notes: N9K to border for BGP, last on N9K
+        prefix_length: 30
+        vlan_id: 616
     external_dell_3:
         dhcp: false
         hosts: []
@@ -24,6 +40,14 @@ subnets:
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
         vlan_id: 607
+    external_dell_3_to_N9k:
+        dhcp: false
+        hosts: []
+        name: external_dell_3_to_N9k
+        network: 10.68.1.56
+        notes: N9K to border for BGP, last on N9K
+        prefix_length: 30
+        vlan_id: 617
     external_dell_4:
         dhcp: false
         hosts:
@@ -33,6 +57,14 @@ subnets:
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
         vlan_id: 608
+    external_dell_4_to_N9k:
+        dhcp: false
+        hosts: []
+        name: external_dell_4_to_N9k
+        network: 10.68.1.60
+        notes: N9K to border for BGP, last on N9K
+        prefix_length: 30
+        vlan_id: 678
     external_hpe_1:
         dhcp: false
         hosts: []
@@ -41,6 +73,14 @@ subnets:
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
         vlan_id: 601
+    external_hpe_1_to_N9k:
+        dhcp: false
+        hosts: []
+        name: external_hpe_1_to_N9k
+        network: 10.68.1.32
+        notes: N9K to border for BGP, last on N9K
+        prefix_length: 30
+        vlan_id: 611
     external_hpe_2:
         dhcp: false
         hosts: []
@@ -49,6 +89,14 @@ subnets:
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
         vlan_id: 602
+    external_hpe_2_to_N9k:
+        dhcp: false
+        hosts: []
+        name: external_hpe_2_to_N9k
+        network: 10.68.1.36
+        notes: N9K to border for BGP, last on N9K
+        prefix_length: 30
+        vlan_id: 612
     external_hpe_3:
         dhcp: false
         hosts:
@@ -58,6 +106,14 @@ subnets:
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
         vlan_id: 603
+    external_hpe_3_to_N9k:
+        dhcp: false
+        hosts: []
+        name: external_hpe_3_to_N9k
+        network: 10.68.1.40
+        notes: N9K to border for BGP, last on N9K
+        prefix_length: 30
+        vlan_id: 613
     external_hpe_4:
         dhcp: false
         hosts:
@@ -67,6 +123,14 @@ subnets:
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 30
         vlan_id: 604
+    external_hpe_4_to_N9k:
+        dhcp: false
+        hosts: []
+        name: external_hpe_4_to_N9k
+        network: 10.68.1.44
+        notes: N9K to border for BGP, last on N9K
+        prefix_length: 30
+        vlan_id: 614
     external_services:
         dhcp: false
         domain: ext.hydra.lab

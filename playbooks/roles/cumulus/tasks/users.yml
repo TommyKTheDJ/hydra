@@ -23,7 +23,10 @@
       createhome: yes
       comment: created with ansible
       shell: /bin/bash
-      groups: hydra-admins
+      groups:
+        - hydra-admins
+        - netshow
+        - netedit
   with_items: "{{ users.admins }}"
 
 - name: Add users | create users, shell, home dirs
@@ -33,5 +36,7 @@
       createhome: yes
       comment: created with ansible
       shell: /bin/bash
-      groups: hydra-users
+      groups:
+        - hydra-users
+        - netshow
   with_items: "{{ users.users }}"

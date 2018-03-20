@@ -15,3 +15,14 @@
         group:
           name: hydra
           state: absent
+      - name: remove cumulus from netd.conf
+        replace:
+          path: /etc/netd.conf
+          regexp: ',\s*cumulus'
+        register: result
+
+      - name: Restart netd
+        service:
+          name: netd
+          state: restarted
+        when: result.changed

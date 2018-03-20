@@ -2,4 +2,4 @@
   become: true
   strategy: free
   roles:
-    - cumulus-firstinstall
+    - cumulus

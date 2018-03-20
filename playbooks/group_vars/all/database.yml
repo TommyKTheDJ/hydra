@@ -71,7 +71,11 @@ hosts:
                     port: 25
                 vlan_id: 700
             pxe:
+                cable_id: FO138
                 ip: 10.60.6.10/24
+                neighbor:
+                    hostname: hydra-mgmt-1
+                    port: 37
                 vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
@@ -116,7 +120,11 @@ hosts:
                     port: 27
                 vlan_id: 700
             pxe:
+                cable_id: FO423
                 ip: 10.60.6.12/24
+                neighbor:
+                    hostname: hydra-mgmt-1
+                    port: 39
                 vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
@@ -976,7 +984,11 @@ hosts:
                     port: 28
                 vlan_id: 700
             pxe:
+                cable_id: FO429
                 ip: 10.60.6.13/24
+                neighbor:
+                    hostname: hydra-mgmt-1
+                    port: 40
                 vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
@@ -1035,7 +1047,11 @@ hosts:
                     port: 27
                 vlan_id: 700
             pxe:
+                cable_id: FP012
                 ip: 10.60.6.22/24
+                neighbor:
+                    hostname: hydra-mgmt-2
+                    port: 39
                 vlan_id: 706
         manufacturer: HPE
         model: DL380Gen8
@@ -1066,7 +1082,11 @@ hosts:
                     port: 26
                 vlan_id: 700
             pxe:
+                cable_id: FO421
                 ip: 10.60.6.11/24
+                neighbor:
+                    hostname: hydra-mgmt-1
+                    port: 38
                 vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
@@ -1097,7 +1117,11 @@ hosts:
                     port: 28
                 vlan_id: 700
             pxe:
+                cable_id: FP013
                 ip: 10.60.6.23/24
+                neighbor:
+                    hostname: hydra-mgmt-2
+                    port: 40
                 vlan_id: 706
         manufacturer: HPE
         model: DL380Gen8
@@ -1142,7 +1166,11 @@ hosts:
                     port: 25
                 vlan_id: 700
             pxe:
+                cable_id: FP003
                 ip: 10.60.6.20/24
+                neighbor:
+                    hostname: hydra-mgmt-2
+                    port: 37
                 vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
@@ -1175,7 +1203,11 @@ hosts:
                     port: 26
                 vlan_id: 700
             pxe:
+                cable_id: FP007
                 ip: 10.60.6.21/24
+                neighbor:
+                    hostname: hydra-mgmt-2
+                    port: 38
                 vlan_id: 706
         manufacturer: HPE
         model: DL360Gen9
