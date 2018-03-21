@@ -1,6 +1,6 @@
-# ===================================================
+#===================================================
 # Configured by Ansible on {{ lookup('pipe','date') }}
-# ===================================================
+#===================================================
 !
 hostname {{ inventory_hostname }}
 !
@@ -8,36 +8,67 @@ feature scp-server
 feature interface-vlan
 feature dhcp
 feature lldp
+feature bgp
+feature sla sender
 !
-{% for subnet in subnets %}
-{% if 'id' in subnet.keys() %}
-vlan {{ vlan.id }}
+{% for subnetname, vlan in subnets.iteritems() %}
+{% if 'vlan_id' in vlan.keys() %}
+vlan {{ vlan.vlan_id }}
   name {{ vlan.name }}
 {% endif %}
 {% endfor %}
 !
 {% for hostname, device in hosts.iteritems() %}
 {% if not device.type == 'vm' %}
-{% if device.interfaces.management.neighbor.hostname == inventory_hostname %}
+{% if 'management' in device.interfaces.keys() and 'neighbor' in device.interfaces.management.keys() and device.interfaces.management.neighbor.hostname == inventory_hostname %}
 interface Eth1/{{ device.interfaces.management.neighbor.port }}
   switchport
   switchport mode access
   switchport access vlan {{ device.interfaces.management.vlan_id }}
   description [{{ hostname }}:mgmt]
   no shutdown
-{% elif hostname == inventory_hostname %}
+!
+{% endif %}
+{% if 'oob' in device.interfaces.keys() and 'neighbor' in device.interfaces.oob.keys() and device.interfaces.oob.neighbor.hostname == inventory_hostname %}
+interface Eth1/{{ device.interfaces.oob.neighbor.port }}
+  switchport
+  switchport mode access
+  switchport access vlan {{ device.interfaces.oob.vlan_id }}
+  description [{{ hostname }}:oob]
+  no shutdown
+!
+{% endif %}
+{% if 'pxe' in device.interfaces.keys() and 'neighbor' in device.interfaces.pxe.keys() and device.interfaces.pxe.neighbor.hostname == inventory_hostname %}
+interface Eth1/{{ device.interfaces.pxe.neighbor.port }}
+  switchport
+  switchport mode access
+  switchport access vlan {{ device.interfaces.pxe.vlan_id }}
+  description [{{ hostname }}:pxe]
+  no shutdown
+!
+{% endif %}
+{% if 'fabric' in device.interfaces.keys() and 'neighbor' in device.interfaces.fabric.keys() and device.interfaces.fabric.neighbor.hostname == inventory_hostname %}
+interface Eth1/{{ device.interfaces.fabric.neighbor.port }}
+  switchport
+  switchport mode access
+  switchport access vlan {{ device.interfaces.fabric.vlan_id }}
+  description [{{ hostname }}:fabric]
+  no shutdown
+!
+{% endif %}
+
+{% endif %}
+{% endfor %}
+!
 interface Eth1/48
   switchport
   switchport mode trunk
   ip dhcp snooping trust
   description [uplink]
   no shutdown
-{% endif %}
 !
-{% endif %}
-{% endfor %}
 ip dns source-interface mgmt 0 vrf management
-ip name-server {{ dns_server }} use-vrf management
+ip name-server {{ dns_server_1 }} use-vrf management
 !
 ntp server {{ ntp_server }} use-vrf management
 ntp source {{ hosts[inventory_hostname].interfaces.management.ip }}
@@ -62,4 +93,4 @@ logging event link-status enable
 logging timestamp milliseconds
 !
 ip domain-lookup
-ip domain-name {{ dns_domain }}
+ip domain-name {{ dns_root_domain }}
