@@ -12,6 +12,15 @@ HCL_ENTRIES_FOLDER = 'hcl/'
 API_AUTH_ENDPOINT = '/api/aaa/login'
 API_HCL_ENDPOINT = '/api/hcl'
 
+try:
+    TOKEN = os.environ.get('AOS_TOKEN')
+except:
+    print ('AOS_TOKEN environment variable not found')
+
+try:
+    TOKEN_ID = os.environ.get('AOS_TOKEN_ID')
+except:
+    print ('AOS_TOKEN_ID environment variable not found')
 
 def add_hcl_aos(u_token,u_id,hcl):
     url = 'https://{0}{1}'.format(AOS_HOST,API_HCL_ENDPOINT)
@@ -25,21 +34,8 @@ def update_hcl_aos(u_token,u_id,hcl):
     r = requests.put(url, headers=headers, json=hcl, verify=False)
     return r
 
-try:
-    data = { 'username' : 'admin', 'password' : getpass.getpass("AoS admin password: ") }
-    r = requests.post('https://{0}{1}'.format(AOS_HOST,API_AUTH_ENDPOINT), data=json.dumps(data), verify=False)
-    token = json.loads(r.text)['token']
-    id = json.loads(r.text)['id']
-except:
-    print "Authentication failed"
-    json.dumps(data,'body.json')
-    sys.exit(1)
-else:
-    print "Authentication successful"
-
-headers = {'AUTHTOKEN': token, 'id': id}
+headers = {'AUTHTOKEN': TOKEN, 'id': TOKEN_ID}
 url = 'https://{0}{1}'.format(AOS_HOST,API_HCL_ENDPOINT)
-print url
 r = requests.get(url, headers=headers, verify=False)
 json_data = json.loads(r.text)
 aos_hcls_dict = {}
@@ -62,7 +58,7 @@ for fn in os.listdir(HCL_ENTRIES_FOLDER):
     local_hcl_json_data.append(hcl)
     if hcl['id'] not in aos_hcls_dict.keys():
         print 'HCL {} needs to be added'.format(hcl['id'])
-        r = add_hcl_aos(token,id,hcl)
+        r = add_hcl_aos(TOKEN,TOKEN_ID,hcl)
         if not r.status_code == requests.codes.ok:
             with open('body_{}.json'.format(hcl['id']), 'w') as dumpfile:
                 json.dump(hcl, dumpfile, indent = 4, encoding = 'utf-8')
@@ -71,7 +67,7 @@ for fn in os.listdir(HCL_ENTRIES_FOLDER):
             added_counter +=1
     elif not hcl == aos_hcls_dict[hcl['id']]:
         print 'HCL {} needs to be updated'.format(hcl['id'])
-        r = update_hcl_aos(token,id,hcl)
+        r = update_hcl_aos(TOKEN,TOKEN_ID,hcl)
         if not r.status_code == requests.codes.ok:
             with open('body_{}.json'.format(hcl['id']), 'w') as dumpfile:
                 json.dump(hcl, dumpfile, indent = 4, encoding = 'utf-8')
