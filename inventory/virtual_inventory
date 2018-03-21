@@ -1,6 +1,7 @@
 [virtual-machines:children]
 kubernetes
 dns
+bmp
 
 [kubernetes]
 ares.hydra.lab
@@ -35,3 +36,6 @@ castor.hydra.lab
 proteus.hydra.lab
 charon.hydra.lab
 
+[bmp]
+hydra-bmp-1.hydra.lab
+hydra-bmp-2.hydra.lab

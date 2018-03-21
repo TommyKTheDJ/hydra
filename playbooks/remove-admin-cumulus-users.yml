@@ -1,28 +1,9 @@
-- hosts: cumulus
+- hosts: bmp
   become: true
   gather_facts: no
   tasks:
-
       - name: remove admin/cumulus users
         user:
-          name: "{{ item }}"
+          name: "hydra"
           state: absent
           force: yes
-        with_items:
-          - cumulus
-          - admin
-      - name: remove hydra group
-        group:
-          name: hydra
-          state: absent
-      - name: remove cumulus from netd.conf
-        replace:
-          path: /etc/netd.conf
-          regexp: ',\s*cumulus'
-        register: result
-
-      - name: Restart netd
-        service:
-          name: netd
-          state: restarted
-        when: result.changed

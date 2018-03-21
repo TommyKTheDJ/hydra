@@ -12,3 +12,8 @@
   service:
     name: ssh
     state: reloaded
+
+- name: restart ntp
+  service:
+    name: ntp
+    state: restarted

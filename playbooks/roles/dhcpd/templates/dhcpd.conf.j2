@@ -44,7 +44,7 @@ key omapi_key {
 }
 
 {% for subnet_name, subnet in subnets.iteritems() %}
-{% if 'nic' in subnet.keys() %}
+{% if 'dhcp' in subnet.keys() and subnet['dhcp'] %}
 # {{ subnet_name }} subnet
 {% set network = subnet.network|string + '/' + subnet.prefix_length|string %}
 subnet {{ network|ipaddr('network')|ipaddr('address') }} netmask {{ network|ipaddr('netmask') }} {

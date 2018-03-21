@@ -15,3 +15,6 @@
 
 - name: Tune ssh for faster connections
   include_tasks: ssh-config.yml
+
+- name: Configure ntp
+  include_tasks: ntp.yml

@@ -2,8 +2,8 @@
   gather_facts: no
   pre_tasks:
     - name: Import initial user/pwd for first configuration
-      include_vars: initial.yml
+      include_vars: includes/initial-virtual-machines.yml
       when: initial is defined
   become: true
   roles:
-    - virtual_machines
+    - virtual-machines

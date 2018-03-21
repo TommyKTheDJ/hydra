@@ -16,9 +16,9 @@ def generate_subnet_database(inventory_filename = None):
         subnet['network'] = values['network']
         subnet['prefix_length'] = values['prefix_length']
         subnet['dhcp'] = False
-        if not is_empty_datum(values['nic']):
-            subnet['nic'] = values['nic']
-            subnet['dhcp'] = True
+        if not is_empty_datum(values['nic']): subnet['nic'] = values['nic']
+        if not is_empty_datum(values['dhcp']):
+            subnet['dhcp'] = True if values['dhcp'] == u'x' else False
         if not is_empty_datum(values['domain']):
             subnet['domain'] = values['domain']
             if not is_empty_datum(values['zone'])  :
