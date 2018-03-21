@@ -1,0 +1,104 @@
+{
+  "clusters": [
+    {
+      "nodes": [
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "castor"
+              ],
+              "storage": [
+                "10.60.3.26"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        },
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "charon"
+              ],
+              "storage": [
+                "10.60.3.24"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        },
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "hera"
+              ],
+              "storage": [
+                "10.60.3.36"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        },
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "iris"
+              ],
+              "storage": [
+                "10.60.3.35"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        },
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "jason"
+              ],
+              "storage": [
+                "10.60.3.27"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        },
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "proteus"
+              ],
+              "storage": [
+                "10.60.3.28"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        }
+      ]
+    }
+  ]
+}
