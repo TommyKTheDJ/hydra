@@ -1,5 +1,5 @@
 - hosts: virtual-machines
-  gather_facts: no
+  gather_facts: yes
   pre_tasks:
     - name: Import initial user/pwd for first configuration
       include_vars: includes/initial-virtual-machines.yml

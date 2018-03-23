@@ -19,7 +19,7 @@
 - name: Add admin users | create users, shell, home dirs
   user:
       name: "{{ item.id }}"
-      password: "{{ item.pwd|password_hash('sha512') }}"
+      password: "{{ item.pwd_hash }}"
       createhome: yes
       comment: created with ansible
       shell: /bin/bash
@@ -29,9 +29,10 @@
 - name: Add users | create users, shell, home dirs
   user:
       name: "{{ item.id }}"
-      password: "{{ item.pwd|password_hash('sha512') }}"
+      password: "{{ item.pwd_hash }}"
       createhome: yes
       comment: created with ansible
       shell: /bin/bash
       groups: hydra-users
+      update_password: always
   with_items: "{{ users.users }}"

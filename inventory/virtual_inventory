@@ -1,7 +1,6 @@
 [virtual-machines:children]
-kubernetes
+kube-node
 dns
-bmp
 
 [kubernetes]
 ares.hydra.lab
@@ -20,9 +19,6 @@ hydra-dns-2.hydra.lab
 hydra-dns-1.hydra.lab
 hydra-dns-2.hydra.lab
 
-[rancher]
-ares.hydra.lab
-
 [aos]
 aos.hydra.lab
 
@@ -36,6 +32,32 @@ castor.hydra.lab
 proteus.hydra.lab
 charon.hydra.lab
 
-[bmp]
-hydra-bmp-1.hydra.lab
-hydra-bmp-2.hydra.lab
+[kube-master]
+ares.hydra.lab
+jason.hydra.lab
+castor.hydra.lab
+
+[kube-node]
+ares.hydra.lab
+jason.hydra.lab
+castor.hydra.lab
+proteus.hydra.lab
+charon.hydra.lab
+hera.hydra.lab
+iris.hydra.lab
+
+[etcd]
+ares.hydra.lab
+jason.hydra.lab
+castor.hydra.lab
+
+
+[k8s-cluster:children]
+kube-node
+kube-master
+
+
+[vault]
+ares.hydra.lab
+jason.hydra.lab
+castor.hydra.lab
