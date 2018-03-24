@@ -27,6 +27,7 @@ hosts:
             disk: 30
             ram: 16
         type: vm
+        user: hydra
     castor:
         interfaces:
             management:
@@ -40,6 +41,7 @@ hosts:
             disk: 30
             ram: 16
         type: vm
+        user: hydra
     charon:
         interfaces:
             management:
@@ -53,6 +55,7 @@ hosts:
             disk: 30
             ram: 16
         type: vm
+        user: hydra
     helios:
         ilo_password: Z9RYCDA5
         interfaces:
@@ -101,6 +104,7 @@ hosts:
             disk: 30
             ram: 16
         type: vm
+        user: hydra
     hermes:
         ilo_password: VH4CMDTZ
         interfaces:
@@ -136,38 +140,6 @@ hosts:
         resources: {}
         type: host
         user: hydra
-    hydra-bmp-1:
-        interfaces:
-            management:
-                ip: 10.60.3.37/24
-                vlan_id: 701
-            pxe:
-                ip: 10.60.6.37/24
-                vlan_id: 706
-        manufacturer: Ubuntu
-        model: VM
-        os: Ubuntu 16.04 LTS
-        resources:
-            cpu: 4
-            disk: 120
-            ram: 16
-        type: vm
-    hydra-bmp-2:
-        interfaces:
-            management:
-                ip: 10.60.3.38/24
-                vlan_id: 701
-            pxe:
-                ip: 10.60.6.38/24
-                vlan_id: 706
-        manufacturer: Ubuntu
-        model: VM
-        os: Ubuntu 16.04 LTS
-        resources:
-            cpu: 4
-            disk: 120
-            ram: 16
-        type: vm
     hydra-border-1:
         interfaces:
             console:
@@ -395,6 +367,7 @@ hosts:
             disk: 30
             ram: 8
         type: vm
+        user: hydra
     hydra-dns-2:
         interfaces:
             fabric:
@@ -417,6 +390,7 @@ hosts:
             disk: 30
             ram: 8
         type: vm
+        user: hydra
     hydra-mgmt-1:
         interfaces:
             console:
@@ -1043,6 +1017,7 @@ hosts:
             disk: 30
             ram: 16
         type: vm
+        user: hydra
     jason:
         interfaces:
             management:
@@ -1056,6 +1031,7 @@ hosts:
             disk: 30
             ram: 16
         type: vm
+        user: hydra
     kratus:
         ilo_password: BPGRQ9M0
         interfaces:
@@ -1108,6 +1084,7 @@ hosts:
             pxe:
                 cable_id: FO421
                 ip: 10.60.6.11/24
+                mac_address: 30:e1:71:6d:d0:54
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 38
@@ -1174,6 +1151,7 @@ hosts:
             disk: 30
             ram: 16
         type: vm
+        user: hydra
     triton:
         ilo_password: NUYNX7CK
         interfaces:

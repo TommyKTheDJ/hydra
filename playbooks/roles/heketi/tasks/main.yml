@@ -22,14 +22,3 @@
   modprobe:
     name: dm_thin_pool
     state: present
-
-- name: Add Gluster APT repository
-  apt_repository:
-    update_cache: yes
-    repo: 'ppa:gluster/glusterfs-4.0'
-
-- name: Install xfs glusterfs-server and dependencies
-  apt:  name={{item}}
-  with_items:
-   - glusterfs*
-   - xfsprogs
