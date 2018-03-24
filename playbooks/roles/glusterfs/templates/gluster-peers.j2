@@ -1,4 +1,0 @@
-{% for hostname in groups['gluster-nodes'] %}
-gluster peer {{ hostname }}
-sleep 1
-{% endfor %}

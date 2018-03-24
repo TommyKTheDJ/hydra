@@ -6,10 +6,10 @@
           "node": {
             "hostnames": {
               "manage": [
-                "castor"
+                "ares.hydra.lab"
               ],
               "storage": [
-                "10.60.3.26"
+                "10.60.3.25"
               ]
             },
             "zone": 1
@@ -17,60 +17,11 @@
           "devices": [
             "/dev/sdb"
           ]
-        },
-        {
+        },        {
           "node": {
             "hostnames": {
               "manage": [
-                "charon"
-              ],
-              "storage": [
-                "10.60.3.24"
-              ]
-            },
-            "zone": 1
-          },
-          "devices": [
-            "/dev/sdb"
-          ]
-        },
-        {
-          "node": {
-            "hostnames": {
-              "manage": [
-                "hera"
-              ],
-              "storage": [
-                "10.60.3.36"
-              ]
-            },
-            "zone": 1
-          },
-          "devices": [
-            "/dev/sdb"
-          ]
-        },
-        {
-          "node": {
-            "hostnames": {
-              "manage": [
-                "iris"
-              ],
-              "storage": [
-                "10.60.3.35"
-              ]
-            },
-            "zone": 1
-          },
-          "devices": [
-            "/dev/sdb"
-          ]
-        },
-        {
-          "node": {
-            "hostnames": {
-              "manage": [
-                "jason"
+                "jason.hydra.lab"
               ],
               "storage": [
                 "10.60.3.27"
@@ -81,12 +32,26 @@
           "devices": [
             "/dev/sdb"
           ]
-        },
-        {
+        },        {
           "node": {
             "hostnames": {
               "manage": [
-                "proteus"
+                "castor.hydra.lab"
+              ],
+              "storage": [
+                "10.60.3.26"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        },        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "proteus.hydra.lab"
               ],
               "storage": [
                 "10.60.3.28"
@@ -97,8 +62,22 @@
           "devices": [
             "/dev/sdb"
           ]
-        }
-      ]
+        },        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "charon.hydra.lab"
+              ],
+              "storage": [
+                "10.60.3.24"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        }      ]
     }
   ]
 }

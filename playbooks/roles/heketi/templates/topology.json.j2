@@ -1,0 +1,26 @@
+{
+  "clusters": [
+    {
+      "nodes": [
+{% for node in groups['gluster-nodes'] %}
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "{{ node }}"
+              ],
+              "storage": [
+                "{{ hosts[node.split('.')[0]].interfaces.management.ip | ipaddr('address') }}"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "{{ gluster_hdd_device }}"
+          ]
+        }{% if not loop.last %},{%endif%}
+{% endfor %}
+      ]
+    }
+  ]
+}

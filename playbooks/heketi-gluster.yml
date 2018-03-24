@@ -1,0 +1,62 @@
+- hosts: gluster-nodes
+  become: true
+  roles:
+    - heketi
+
+- hosts: gluster-nodes
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Label nodes for gluster
+      shell: kubectl label node "{{ inventory_hostname }}" storagenode=glusterfs
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Create glusterfs daemonset
+      shell: kubectl create -f {{ playbook_dir }}/roles/heketi/files/glusterfs-daemonset.yml
+    - name: Create serviceaccount
+      shell: kubectl create -f {{ playbook_dir }}/roles/heketi/files/heketi-service-account.yml
+    - name: Create clusterrolebinding
+      shell: kubectl create clusterrolebinding heketi-gluster-admin --clusterrole=edit \
+            --serviceaccount=kube-system:heketi-service-account
+    - name: Create secret
+      shell: kubectl create secret generic heketi-config-secret --from-file={{ playbook_dir }}/roles/heketi/files/heketi.json
+    - name: Create bootstrap
+      shell: kubectl create -f {{ playbook_dir }}/roles/heketi/files/heketi-bootstrap.json
+    - name: Create topology file
+      template:
+        src: "{{ playbook_dir }}/roles/heketi/templates/topology.json.j2"
+        dest: "{{ playbook_dir }}/roles/heketi/files/gluster_topology.json"
+    - name: Get pods
+      shell: kubectl get pods
+      register: pods
+
+    - debug:
+        msg: "{{ pods.stdout_lines }}"
+
+- hosts: localhost
+  connection: local
+  vars_prompt:
+    name: "confirmation"
+    prompt: |
+            Now it's time to use the heketi-cli to load the topology and create the heketi DB.
+            Please follow the instructions at: https://github.com/heketi/heketi/blob/master/docs/admin/install-kubernetes.md.
+            You don't need to follow all the steps, but just the ones starting with the port forwarding on the heketi-deploy pod.
+            Once you created the volume used by the heketi database, get back to this shell.
+            Type 'yes' to continue or 'no' to abort.
+    default: "no"
+    private: no
+
+  pre_tasks:
+    - name: check confirmation
+      fail:
+        msg: "Aborting"
+      when: confirmation != "yes"
+  tasks:
+    - name: removing deploy-heketi artefacts
+      shell: kubectl delete all,service,jobs,deployment,secret --selector="deploy-heketi"
+    - name: Create permanent heketi deployment class
+      shell: kubectl create -f {{ playbook_dir }}/roles/heketi/files/heketi-deployment.json
+    - name: Create storage class
+      shell: kubectl create -f {{ playbook_dir }}/roles/heketi/files/storageclass.yml
