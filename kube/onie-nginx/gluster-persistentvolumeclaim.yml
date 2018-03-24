@@ -3,6 +3,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
  name: onie-nginx-volume-claim
+ namespace: onie
  annotations:
    volume.beta.kubernetes.io/storage-class: gluster-heketi
 spec:
