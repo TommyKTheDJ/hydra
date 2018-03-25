@@ -1,0 +1,99 @@
+---
+kind: DaemonSet
+apiVersion: extensions/v1beta1
+metadata:
+  name: ingress-nginx-controller
+  namespace: ingress-nginx
+
+  labels:
+    k8s-app: ingress-nginx
+    version: v0.11.0
+spec:
+  selector:
+    matchLabels:
+      k8s-app: ingress-nginx
+      version: v0.11.0
+  template:
+    metadata:
+      labels:
+        k8s-app: ingress-nginx
+        version: v0.11.0
+    spec:
+      containers:
+      - name: ingress-nginx-controller
+        image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.11.0
+        args:
+        - "/nginx-ingress-controller"
+        - "--default-backend-service=$(POD_NAMESPACE)/ingress-nginx-default-backend"
+        - "--configmap=$(POD_NAMESPACE)/ingress-nginx"
+        - "--tcp-services-configmap=$(POD_NAMESPACE)/ingress-nginx-tcp-services"
+        - "--udp-services-configmap=$(POD_NAMESPACE)/ingress-nginx-udp-services"
+        - "--annotations-prefix=nginx.ingress.kubernetes.io"
+        ports:
+        - name: http
+          hostPort: 80
+          containerPort: 80
+          protocol: TCP
+        - name: https
+          hostPort: 443
+          containerPort: 443
+          protocol: TCP
+        - name: redis
+          hostPort: 6379
+          containerPort: 6379
+          protocol: TCP
+        env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        resources: {}
+        livenessProbe:
+          httpGet:
+            path: "/healthz"
+            port: 10254
+            scheme: HTTP
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: "/healthz"
+            port: 10254
+            scheme: HTTP
+          timeoutSeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+        terminationMessagePath: "/dev/termination-log"
+        terminationMessagePolicy: File
+        imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: ingress-nginx
+      serviceAccount: ingress-nginx
+      securityContext: {}
+      schedulerName: default-scheduler
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+  templateGeneration: 1
+  revisionHistoryLimit: 10
+status:
+  currentNumberScheduled: 7
+  numberMisscheduled: 0
+  desiredNumberScheduled: 7
+  numberReady: 7
+  observedGeneration: 1
+  updatedNumberScheduled: 7
+  numberAvailable: 7
