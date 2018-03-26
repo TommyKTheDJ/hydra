@@ -1,20 +1,23 @@
 # ===================================================
 # Configured by Ansible on {{ lookup('pipe','date') }}
 # ===================================================
-{% for subnet_name, subnet in subnets.items() %}
-{% if 'dhcp' in subnet.keys() and subnet['dhcp'] %}
-{% for hostname, host_data in hosts.iteritems() %}
-{% if subnet_name in host_data.interfaces.keys() and 'mac_address' in host_data.interfaces[subnet_name].keys() and host_data.interfaces[subnet_name].mac_address %}
-host {{ hostname }}.{{ subnet.domain }}
+{% for hostname, host_data in hosts.iteritems() -%}
+{% for interface_name, interface_data in host_data.interfaces.iteritems() -%}
+{% if interface_name in subnets.keys() and 'dhcp' in subnets[interface_name].keys() and subnets[interface_name].dhcp and 'mac_address' in interface_data.keys() and interface_data.mac_address %}
+
+host {{ hostname }}.{{ subnets[interface_name].domain }}
 {
     option host-name "{{ hostname }}";
-    hardware ethernet {{ host_data.interfaces[subnet_name].mac_address }};
-    fixed-address     {{ host_data.interfaces[subnet_name].ip | ipaddr('address')}};
-    {% if 'onie_image' in host_data.keys() and host_data.onie_image -%}
-    option default-url "http://{{ onie_fqdn}}:{{ onie_port }}/{{ onie_path }}/{{ host_data.onie_image }}";
-    {% endif %}
+    hardware ethernet {{ interface_data.mac_address }};
+    fixed-address     {{ interface_data.ip | ipaddr('address')}};
+{% if 'install_image' in host_data.keys() and host_data.install_image %}
+{% if interface_name == 'pxe' %}
+    filename "http://{{ ztp_fqdn }}:{{ ztp_port }}/{{ host_data.install_image_path }}/{{ host_data.install_image }}";
+{% elif interface_name == 'fabric' %}
+    option default-url "http://{{ ztp_fqdn }}:{{ ztp_port }}/{{ host_data.install_image_path }}/{{ host_data.install_image }}";
+{% endif %}
+{% endif %}
 }
-{% endif %}
-{% endfor %}
-{% endif %}
+{%- endif %}
+{%- endfor %}
 {% endfor %}

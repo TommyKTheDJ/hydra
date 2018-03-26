@@ -1,4 +1,9 @@
- - name: restart ntp
-   service:
-     name: ntp
-     state: restarted
+- name: restart ntp
+  service:
+    name: ntp
+    state: restarted
+
+- name: restart networking
+  service:
+    name: networking
+    state: restarted

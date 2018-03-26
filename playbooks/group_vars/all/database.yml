@@ -58,6 +58,8 @@ hosts:
         user: hydra
     helios:
         ilo_password: Z9RYCDA5
+        install_image: ubuntu-16.04.4-server-amd64.iso
+        install_image_path: pxe/images
         interfaces:
             management:
                 ip: 10.60.3.10/24
@@ -73,6 +75,7 @@ hosts:
             pxe:
                 cable_id: FO138
                 ip: 10.60.6.10/24
+                mac_address: 30:e1:71:6d:c0:ec
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 37
@@ -107,6 +110,8 @@ hosts:
         user: hydra
     hermes:
         ilo_password: VH4CMDTZ
+        install_image: ubuntu-16.04.4-server-amd64.iso
+        install_image_path: pxe/images
         interfaces:
             management:
                 ip: 10.60.3.12/24
@@ -122,6 +127,7 @@ hosts:
             pxe:
                 cable_id: FO423
                 ip: 10.60.6.12/24
+                mac_address: 30:e1:71:6d:70:64
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 39
@@ -141,6 +147,8 @@ hosts:
         type: host
         user: hydra
     hydra-border-1:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -173,7 +181,6 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6941 
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -187,6 +194,8 @@ hosts:
         type: fabric
         user: admin
     hydra-border-2:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -209,7 +218,6 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6941 
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -223,6 +231,8 @@ hosts:
         type: fabric
         user: admin
     hydra-border-3:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -250,7 +260,6 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -264,6 +273,8 @@ hosts:
         type: fabric
         user: admin
     hydra-border-4:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -291,7 +302,6 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -347,18 +357,9 @@ hosts:
         user: sysadmin
     hydra-dns-1:
         interfaces:
-            fabric:
-                ip: 10.60.4.29/24
-                vlan_id: 702
             management:
                 ip: 10.60.3.29/24
                 vlan_id: 701
-            oob:
-                ip: 10.60.2.29/24
-                vlan_id: 700
-            pxe:
-                ip: 10.60.6.29/24
-                vlan_id: 706
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
@@ -370,18 +371,9 @@ hosts:
         user: hydra
     hydra-dns-2:
         interfaces:
-            fabric:
-                ip: 10.60.4.30/24
-                vlan_id: 702
             management:
                 ip: 10.60.3.30/24
                 vlan_id: 701
-            oob:
-                ip: 10.60.2.30/24
-                vlan_id: 700
-            pxe:
-                ip: 10.60.6.30/24
-                vlan_id: 706
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
@@ -536,6 +528,8 @@ hosts:
         type: pdu
         user: admin
     hydra-spine-1:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -553,7 +547,6 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6960 
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -567,6 +560,8 @@ hosts:
         type: fabric
         user: admin
     hydra-spine-2:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -584,7 +579,6 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6960 
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -598,6 +592,8 @@ hosts:
         type: fabric
         user: admin
     hydra-spine-3:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -615,7 +611,6 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: Altoline 6941 
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -629,6 +624,8 @@ hosts:
         type: fabric
         user: admin
     hydra-spine-4:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -646,7 +643,6 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: Altoline 6941 
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -660,6 +656,8 @@ hosts:
         type: fabric
         user: admin
     hydra-superspine-1:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -677,7 +675,6 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: Z9100-ON
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -691,6 +688,8 @@ hosts:
         type: fabric
         user: admin
     hydra-superspine-2:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -708,7 +707,6 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: Z9100-ON
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -722,6 +720,8 @@ hosts:
         type: fabric
         user: admin
     hydra-tor-1-1:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -739,7 +739,6 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921 
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -753,6 +752,8 @@ hosts:
         type: fabric
         user: admin
     hydra-tor-1-2:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -770,7 +771,6 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -784,6 +784,8 @@ hosts:
         type: fabric
         user: admin
     hydra-tor-2-1:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -801,7 +803,6 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921 
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -815,6 +816,8 @@ hosts:
         type: fabric
         user: admin
     hydra-tor-2-2:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -832,7 +835,6 @@ hosts:
                 vlan_id: 702
         manufacturer: HPE
         model: Altoline 6921
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -846,6 +848,8 @@ hosts:
         type: fabric
         user: admin
     hydra-tor-3-1:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -863,7 +867,6 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S4148T-ON
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -877,6 +880,8 @@ hosts:
         type: fabric
         user: admin
     hydra-tor-3-2:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -894,7 +899,6 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S4148T-ON
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -908,6 +912,8 @@ hosts:
         type: fabric
         user: admin
     hydra-tor-4-1:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -925,7 +931,6 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -939,6 +944,8 @@ hosts:
         type: fabric
         user: admin
     hydra-tor-4-2:
+        install_image: cumulus-linux-3.4.3-bcm-amd64.bin
+        install_image_path: onie/images
         interfaces:
             console:
                 baud: 115200
@@ -956,7 +963,6 @@ hosts:
                 vlan_id: 702
         manufacturer: Dell
         model: S5048F
-        onie_image: cumulus-linux-3.4.3-bcm-amd64.bin
         os: Cumulus Linux 3.5
         psus:
         -   pdu:
@@ -971,6 +977,8 @@ hosts:
         user: admin
     hypnos:
         ilo_password: VAW2BJ9N
+        install_image: ubuntu-16.04.4-server-amd64.iso
+        install_image_path: pxe/images
         interfaces:
             management:
                 ip: 10.60.3.13/24
@@ -986,6 +994,7 @@ hosts:
             pxe:
                 cable_id: FO429
                 ip: 10.60.6.13/24
+                mac_address: 30:e1:71:6d:70:ac
                 neighbor:
                     hostname: hydra-mgmt-1
                     port: 40
@@ -1034,6 +1043,8 @@ hosts:
         user: hydra
     kratus:
         ilo_password: BPGRQ9M0
+        install_image: ubuntu-16.04.4-server-amd64.iso
+        install_image_path: pxe/images
         interfaces:
             management:
                 ip: 10.60.3.22/24
@@ -1069,6 +1080,8 @@ hosts:
         user: hydra
     morpheus:
         ilo_password: U6S8BMEN
+        install_image: ubuntu-16.04.4-server-amd64.iso
+        install_image_path: pxe/images
         interfaces:
             management:
                 ip: 10.60.3.11/24
@@ -1105,6 +1118,8 @@ hosts:
         user: hydra
     pollux:
         ilo_password: 7KP3EFQB
+        install_image: ubuntu-16.04.4-server-amd64.iso
+        install_image_path: pxe/images
         interfaces:
             management:
                 ip: 10.60.3.23/24
@@ -1154,6 +1169,8 @@ hosts:
         user: hydra
     triton:
         ilo_password: NUYNX7CK
+        install_image: ubuntu-16.04.4-server-amd64.iso
+        install_image_path: pxe/images
         interfaces:
             management:
                 ip: 10.60.3.20/24
@@ -1191,6 +1208,8 @@ hosts:
         user: hydra
     zephyrus:
         ilo_password: WXDTKN6D
+        install_image: ubuntu-16.04.4-server-amd64.iso
+        install_image_path: pxe/images
         interfaces:
             management:
                 ip: 10.60.3.21/24
@@ -1206,6 +1225,7 @@ hosts:
             pxe:
                 cable_id: FP007
                 ip: 10.60.6.21/24
+                mac_address: 30:e1:71:6c:ae:74
                 neighbor:
                     hostname: hydra-mgmt-2
                     port: 38

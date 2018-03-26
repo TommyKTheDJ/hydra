@@ -152,8 +152,6 @@ subnets:
             mac_address: 1c:98:ec:4e:65:7b
         -   hostname: hydra-spine-3
             mac_address: d8:9e:f3:b6:f4:20
-        -   hostname: hydra-dns-2
-        -   hostname: hydra-dns-1
         -   hostname: hydra-tor-2-2
             mac_address: e0:7:1b:c9:60:5c
         -   hostname: hydra-tor-2-1
@@ -202,6 +200,8 @@ subnets:
         -   hostname: hydra-mgmt-2
             mac_address: b4:de:31:94:32:f0
         -   hostname: castor
+        -   hostname: hydra-dns-2
+        -   hostname: hydra-dns-1
         -   hostname: ares
         -   hostname: zephyrus
         -   hostname: helios
@@ -255,7 +255,7 @@ subnets:
         notes: routed on the N9K
         prefix_length: 24
     pxe:
-        dhcp: false
+        dhcp: true
         domain: pxe.hydra.lab
         hosts:
         -   hostname: hydra-bmp-2

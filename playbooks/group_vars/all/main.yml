@@ -4,8 +4,7 @@ aos_server_hostname: aos.hydra.lab
 rancher_port: 8080
 rancher_project_id: 1a5
 
-onie_fqdn: proteus.hydra.lab
-onie_port: 80
-onie_path: onie/images
+ztp_fqdn: cluster.hydra.lab
+ztp_port: 80
 
 gluster_hdd_device: /dev/sdb

@@ -9,8 +9,9 @@ auto lo
 iface lo inet loopback
 
 {% for subnet_name, interface in hosts[inventory_hostname.split('.')|first].interfaces.iteritems() %}
-{% if 'nic' in subnets[subnet_name].keys() %}
+
 # Interface {{ subnet_name }}
+{% if 'nic' in subnets[subnet_name].keys() %}
 auto {{ subnets[subnet_name].nic }}
 iface {{ subnets[subnet_name].nic }} inet static
     address {{ interface.ip | ipaddr('address') }}
@@ -18,7 +19,6 @@ iface {{ subnets[subnet_name].nic }} inet static
     {% if subnet_name == 'management' -%}
     gateway {{ interface.ip | ipaddr('1') | ipaddr('address') }}
     {% endif%}
-
 {% endif %}
 {% endfor %}
 

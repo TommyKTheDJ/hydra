@@ -31,7 +31,8 @@ def generate_hosts_database(inventory_filename = None):
         record['resources']['ram'] = data['ram']
         record['resources']['disk'] = data['disk']
         record['user'] = data['user']
-        if not is_empty_datum(data['onie_image']): record['onie_image'] = data['onie_image']
+        if not is_empty_datum(data['install_image']): record['install_image'] = data['install_image']
+        if not is_empty_datum(data['install_image_path']): record['install_image_path'] = data['install_image_path']
         if hostname in ilo.keys(): record['ilo_password'] = ilo[hostname]['password']
         record['interfaces'] = {}
         record['interfaces'].update(add_host_interfaces(hostname))
