@@ -7,24 +7,33 @@
     - ntp
     - ntpdate
 
+- name: Ensure NTP is stopped and non-vrf version is disabled
+  systemd:
+    name: ntp
+    enabled: no
+    state: stopped
+
+- name: Kill hung processes
+  command: pkill ntpd
+  ignore_errors: true
+
 - name: Set timezone
   timezone:
     name: "{{ ntp_timezone }}"
 
-- name: Ensure NTP is running and enabled as configured.
-  service:
-    name: ntp
-    enabled: yes
-
 - name: Generate ntp.conf file
   template:
-    src: ntp.conf.j2
+    src: "{{ playbook_dir }}/templates/common/ntp.conf.j2"
     dest: /etc/ntp.conf
     owner: root
     group: root
     mode: 0644
 
-- name: restart ntp
-  service:
-    name: ntp
-    state: restarted
+- name: Force first sync
+  command: ntpd -gq
+
+- name: Ensure NTP is started and vrf version is disabled
+  systemd:
+    name: ntp@mgmt
+    enabled: yes
+    state: started

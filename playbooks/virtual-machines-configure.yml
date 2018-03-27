@@ -1,5 +1,5 @@
 - hosts: virtual-machines
-  gather_facts: yes
+  gather_facts: no
   pre_tasks:
     - name: Import initial user/pwd for first configuration
       include_vars: includes/initial-virtual-machines.yml
@@ -20,11 +20,6 @@
       include_tasks: "{{ playbook_dir }}/tasks/worker/keys.yml"
       tags:
         - keys
-
-    - name: Configure NTP
-      include_tasks: "{{ playbook_dir }}/tasks/worker/ntp.yml"
-      tags:
-        - ntp
 
     - name: Configure Interfaces
       include_tasks: "{{ playbook_dir }}/tasks/worker/interfaces.yml"
@@ -47,3 +42,13 @@
       when: inventory_hostname in groups['kubernetes']
       tags:
         - docker
+        - swap
+
+- hosts: virtual-machines:!ntpd
+  gather_facts: yes
+  become: true
+  tasks:
+    - name: Configure NTP
+      import_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
+      tags:
+        - ntp

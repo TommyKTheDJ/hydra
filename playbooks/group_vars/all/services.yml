@@ -4,7 +4,15 @@ dns_server_1: 10.60.3.29
 dns_server_2: 10.60.3.30
 dns_root_domain: hydra.lab
 
-ntp_server: 10.50.30.92
+ntp_server_1: 10.60.3.29
+ntp_server_2: 10.60.3.30
+
+ntp_servers:
+  - 216.239.35.4
+  - 85.254.216.1
+  - 193.228.143.24
+  - 37.120.191.245
+
 ntp_timezone: Europe/London
 
 dhcp_failover_master: hydra-dns-1

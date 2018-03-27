@@ -1,5 +1,4 @@
 - hosts: cumulus
-  strategy: free
   gather_facts: yes
   become: true
   pre_tasks:
@@ -8,6 +7,7 @@
       when: initial is defined
 
   tasks:
+
     - include_tasks: "{{ playbook_dir }}/tasks/cumulus/users.yml"
       tags:
         - users
@@ -19,6 +19,10 @@
     - include_tasks: "{{ playbook_dir }}/tasks/cumulus/set-locale.yml"
       tags:
         - locale
+
+    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/pre-apt.yml"
+      tags:
+        - pre-apt
 
     - include_tasks: "{{ playbook_dir }}/tasks/cumulus/install-license.yml"
       tags:
@@ -36,7 +40,7 @@
       tags:
         - ssh
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/ntp.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
       tags:
         - ntp
 

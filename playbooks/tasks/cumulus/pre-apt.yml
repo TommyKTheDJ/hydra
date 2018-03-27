@@ -1,0 +1,4 @@
+- name: Install dependencies to drive apt via ansible
+  shell: |
+    apt-get update
+    apt-get install -f python-apt -y

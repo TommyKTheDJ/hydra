@@ -4,7 +4,7 @@
 
 option domain-name-servers {{ dns_server_1 }}, {{ dns_server_2 }};
 default-lease-time 600;
-option ntp-servers {{ ntp_server }};
+option ntp-servers {{ ntp_server_1 }}, {{ ntp_server_2 }};
 max-lease-time 7200;
 authoritative;
 ddns-update-style none;

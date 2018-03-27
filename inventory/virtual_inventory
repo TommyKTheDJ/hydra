@@ -11,6 +11,10 @@ castor.hydra.lab
 proteus.hydra.lab
 charon.hydra.lab
 
+[ntpd]
+hydra-dns-1.hydra.lab
+hydra-dns-2.hydra.lab
+
 [dns]
 hydra-dns-1.hydra.lab
 hydra-dns-2.hydra.lab
