@@ -7,43 +7,43 @@
   become: true
   tasks:
     - name: Install dependencies
-      include_tasks: apt.yml
+      include_tasks: "{{ playbook_dir }}/tasks/worker/apt.yml"
       tags:
         - apt
 
     - name: Configure users
-      include_tasks: users.yml
+      include_tasks: "{{ playbook_dir }}/tasks/worker/users.yml"
       tags:
         - users
 
     - name: Distribute keys
-      include_tasks: keys.yml
+      include_tasks: "{{ playbook_dir }}/tasks/worker/keys.yml"
       tags:
         - keys
 
     - name: Configure NTP
-      include_tasks: ntp.yml
+      include_tasks: "{{ playbook_dir }}/tasks/worker/ntp.yml"
       tags:
         - ntp
 
     - name: Configure Interfaces
-      include_tasks: interfaces.yml
+      include_tasks: "{{ playbook_dir }}/tasks/worker/interfaces.yml"
       tags:
         - interfaces
         - dns
 
     - name: Configure hostname
-      include_tasks: hostname.yml
+      include_tasks: "{{ playbook_dir }}/tasks/worker/hostname.yml"
       tags:
         - hostname
 
     - name: Install using rancher script
-      include_tasks: docker.yml
+      include_tasks: "{{ playbook_dir }}/tasks/worker/docker.yml"
       tags:
         - docker
 
     - name: Turn off swap
-      include_tasks: swapoff.yml
+      include_tasks: "{{ playbook_dir }}/tasks/worker/swapoff.yml"
       when: inventory_hostname in groups['kubernetes']
       tags:
         - docker

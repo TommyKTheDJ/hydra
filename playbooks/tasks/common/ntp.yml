@@ -23,4 +23,8 @@
     owner: root
     group: root
     mode: 0644
-  notify: restart ntp
+
+- name: restart ntp
+  service:
+    name: ntp
+    state: restarted

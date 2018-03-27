@@ -2,4 +2,4 @@
   strategy: free
   become: true
   tasks:
-    - include_tasks: tasks/dhcpd/main.yml
+    - include_tasks: "{{ playbook_dir }}/tasks/dhcpd/main.yml"

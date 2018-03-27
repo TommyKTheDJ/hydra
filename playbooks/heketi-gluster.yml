@@ -1,24 +1,24 @@
 - hosts: gluster-nodes
   become: true
   tasks:
-    - include_tasks: tasks/heketi/main.yml
+    - include_tasks: "{{ playbook_dir }}/tasks/heketi/main.yml"
 
 - hosts: gluster-nodes
   connection: local
   gather_facts: no
   tasks:
-    - include_tasks: tasks/heketi/label-nodes.yml
+    - include_tasks: "{{ playbook_dir }}/tasks/heketi/label-nodes.yml"
 
 - hosts: gluster-nodes
   connection: local
   gather_facts: no
   tasks:
-    - include_tasks: tasks/heketi/label-nodes.yml
+    - include_tasks: "{{ playbook_dir }}/tasks/heketi/label-nodes.yml"
 
 - hosts: localhost
   connection: local
   tasks:
-    - include_tasks: tasks/heketi/kubernetes-artefacts.yml
+    - include_tasks: "{{ playbook_dir }}/tasks/heketi/kubernetes-artefacts.yml"
 
 - hosts: localhost
   connection: local
@@ -41,6 +41,6 @@
     - name: removing deploy-heketi artefacts
       shell: kubectl delete all,service,jobs,deployment,secret --selector="deploy-heketi"
     - name: Create permanent heketi deployment class
-      shell: kubectl create -f {{ playbook_dir }}/roles/heketi/files/heketi-deployment.json
+      shell: kubectl create -f "{{ playbook_dir }}/files/heketi/heketi-deployment.json"
     - name: Create storage class
-      shell: kubectl create -f {{ playbook_dir }}/roles/heketi/files/storageclass.yml
+      shell: kubectl create -f "{{ playbook_dir }}/files/heketistorageclass.yml"

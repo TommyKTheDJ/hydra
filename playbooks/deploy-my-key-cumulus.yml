@@ -1,0 +1,15 @@
+---
+- hosts: cumulus
+  become: true
+  gather_facts: no
+  pre_tasks:
+    - name: Import initial user/pwd for first configuration
+      include_vars: "{{ playbook_dir }}/files/cumulus/initial.yml"
+      when: initial is defined
+  tasks:
+    - name: Deploy local ssh public key to hosts
+      authorized_key:
+        user: nicola.arnoldi
+        state: present
+        manage_dir: yes
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub')}}"

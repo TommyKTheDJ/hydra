@@ -13,7 +13,6 @@
     owner: root
     group: root
     mode: 0644
-  notify: restart rsyslogd
   tags:
     - dhcpd
     - syslog
@@ -36,7 +35,6 @@
     group: root
     mode: 0644
     force: yes
-  notify: restart dhcpd
   tags:
     - dhcpd_static
     - dhcpd
@@ -48,7 +46,16 @@
     owner: root
     group: root
     mode: 0644
-  notify: restart dhcpd
   tags:
     - dhcpd
     - dhcpd_general
+
+- name: Restart rsyslogd
+  service:
+    name: rsyslog
+    state: restarted
+
+- name: Restart dhcpd
+  service:
+    name: isc-dhcp-server
+    state: restarted

@@ -78,23 +78,23 @@
   ## Multiple urls can be specified as part of the same cluster,
   ## this means that only ONE of the urls will be written to each interval.
   # urls = ["udp://localhost:8089"] # UDP endpoint example
-  urls = ["http://{{telegraf.influxdb.host}}:{{telegraf.influxdb.port}}"] # required
+  urls = ["http://{{influxdb.host}}:{{influxdb.http_port}}"] # required
   ## The target database for metrics (telegraf will create it if not exists).
-  database = "{{telegraf.influxdb.database}}" # required
+  database = "{{influxdb.database}}" # required
   ## Precision of writes, valid values are "ns", "us" (or "µs"), "ms", "s", "m", "h".
   ## note: using "s" precision greatly improves InfluxDB compression.
   precision = "s"
 
   ## Retention policy to write to. Empty string writes to the default rp.
-  retention_policy = "{{ telegraf.influxdb.retention }}"
+  retention_policy = "{{ influxdb.retention }}"
   ## Write consistency (clusters only), can be: "any", "one", "quorum", "all"
   write_consistency = "any"
 
   ## Write timeout (for the InfluxDB client), formatted as a string.
   ## If not provided, will default to 5s. 0s means no timeout (not recommended).
   timeout = "5s"
-  username = "{{telegraf.influxdb.username}}"
-  password = "{{telegraf.influxdb.password}}"
+  username = "{{influxdb.username}}"
+  password = "{{influxdb.password}}"
   ## Set the user agent for HTTP POSTs (can be useful for log differentiation)
   # user_agent = "telegraf"
   ## Set UDP payload size, defaults to InfluxDB UDP Client default (512 bytes)

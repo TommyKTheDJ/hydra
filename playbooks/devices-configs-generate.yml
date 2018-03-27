@@ -2,14 +2,14 @@
 - hosts: consoles
   connection: local
   tasks:
-    - include_tasks: tasks/console/main.yml
+    - include_tasks: "{{ playbook_dir }}/tasks/console/main.yml"
 
 - hosts: pdus
   connection: local
   tasks:
-    - include_tasks: tasks/pdu/main.yml
+    - include_tasks: "{{ playbook_dir }}/tasks/pdu/main.yml"
 
 - hosts: mgmt_switches
   connection: local
   tasks:
-    - include_tasks: tasks/mgmt_switch/main.yml
+    - include_tasks: "{{ playbook_dir }}/tasks/mgmt_switch/main.yml"

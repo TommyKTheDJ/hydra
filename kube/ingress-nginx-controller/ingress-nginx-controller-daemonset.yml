@@ -42,6 +42,10 @@ spec:
           hostPort: 6379
           containerPort: 6379
           protocol: TCP
+        - name: influxdb
+          hostPort: 8086
+          containerPort: 8086
+          protocol: TCP
         env:
         - name: POD_NAME
           valueFrom:

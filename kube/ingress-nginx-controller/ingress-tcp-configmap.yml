@@ -6,4 +6,5 @@ metadata:
   labels:
     k8s-app: ingress-nginx
 data:
-  "6379": "redis/hydra-redis-ha-master-svc:6379"
+  "6379": "telemetry/saucy-dachshund-redis-ha-master-svc:6379"
+  "8086": "telemetry/washing-garfish-influxdb:8086"

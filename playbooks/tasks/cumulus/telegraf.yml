@@ -86,35 +86,13 @@
     src: files/cumulus/ujson.so
     dest: /usr/local/lib/python2.7/dist-packages/
 
-# If copying the files for ujson library doesn't work
-# here's how to build it manually.
-# - name: Install GCC, requirement for ujson
-#   apt:
-#     name: gcc
-#     state: present
-
-# - name: Install python-dev, requirement for ujson
-#   apt:
-#     name: python-dev
-#     state: present
-
-# - name: Install python pip
-#   apt:
-#     name: python-pip
-#     state: present
-
-# - name: Install ujson
-#   pip:
-#     name: ujson
-
-# - name: Copy fping script
-#   template:
-#     src: templates/cumulus/fping_influxdb.py.j2
-#     dest: /usr/local/bin/fping-influxdb.py
-#     mode: 0755
-
 - name: Copy telegraf configuration
   template:
     src: templates/cumulus/telegraf.conf.j2
     dest: /etc/telegraf/telegraf.conf
-  notify: restart telegraf
+
+- name: Restart Telegraf
+  service:
+    name: telegraf
+    state: restarted
+    enabled: yes
