@@ -2,6 +2,7 @@
   service:
     name: aos
     state: stopped
+  ignore_errors: true
 
 - name: Remove AoS folder
   file:

@@ -8,9 +8,9 @@
     name: networking
     state: reloaded
 
-- name: reload ssh
+- name: restart sshd
   service:
-    name: ssh
+    name: sshd
     state: reloaded
 
 - name: restart ntp

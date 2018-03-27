@@ -1,20 +1,18 @@
-- name: Configure users
-  include_tasks: users.yml
+- include_tasks: users.yml
 
-- name: Configure management interface
-  include_tasks: configure-mgmt-interface.yml
+- include_tasks: configure-mgmt-interface.yml
 
-- name: Install Cumulus License
-  include_tasks: install-license.yml
+- include_tasks: install-license.yml
 
-- name: Install AoS agent
-  include_tasks: install-aos-agent.yml
+- include_tasks: install-aos-agent.yml
 
-- name: Enable resilient hashing
-  include_tasks: resilient-hashing.yml
+- include_tasks: resilient-hashing.yml
+#
+- include_tasks: ssh-config.yml
+#
+- include_tasks: ntp.yml
 
-- name: Tune ssh for faster connections
-  include_tasks: ssh-config.yml
+- include_tasks: keys.yml
 
-- name: Configure ntp
-  include_tasks: ntp.yml
+- name: Install and configure telegraf
+  include_tasks: telegraf.yml

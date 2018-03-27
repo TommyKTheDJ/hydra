@@ -2,7 +2,7 @@
   lineinfile:
     path:   /etc/ssh/sshd_config
     regexp: 'UsePAM *'
-    line: 'UsePAM no'
+    line: 'UsePAM yes'
   notify: restart sshd
 
 - name: Tune SSH for faster connections
