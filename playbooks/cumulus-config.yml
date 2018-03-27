@@ -6,5 +6,5 @@
     - name: Import initial user/pwd for first configuration
       include_vars: includes/initial-cumulus.yml
       when: initial is defined
-  roles:
-    - cumulus
+  tasks:
+    - include_tasks: tasks/cumulus/main.yml

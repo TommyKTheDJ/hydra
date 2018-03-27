@@ -5,5 +5,5 @@
       include_vars: includes/initial-virtual-machines.yml
       when: initial is defined
   become: true
-  roles:
-    - virtual-machines
+  tasks:
+    - include_tasks: tasks/worker/main.yml

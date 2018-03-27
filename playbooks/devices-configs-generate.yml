@@ -1,18 +1,15 @@
 ---
 - hosts: consoles
   connection: local
-  roles:
-    - console
-  tags: console
+  tasks:
+    - include_tasks: tasks/console/main.yml
 
 - hosts: pdus
   connection: local
-  roles:
-    - pdu
-  tags: pdu
+  tasks:
+    - include_tasks: tasks/pdu/main.yml
 
 - hosts: mgmt_switches
   connection: local
-  roles:
-    - mgmt_switch
-  tags: mgmt_switch
+  tasks:
+    - include_tasks: tasks/mgmt_switch/main.yml

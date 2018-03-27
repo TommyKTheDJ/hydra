@@ -1,24 +1,34 @@
 - hosts: gluster-nodes
-  become: true
-  tasks:
-    - include_tasks: tasks/heketi/main.yml
-
-- hosts: gluster-nodes
   connection: local
   gather_facts: no
   tasks:
-    - include_tasks: tasks/heketi/label-nodes.yml
-
-- hosts: gluster-nodes
-  connection: local
-  gather_facts: no
-  tasks:
-    - include_tasks: tasks/heketi/label-nodes.yml
+    - name: Label nodes for gluster
+      shell: kubectl label node "{{ inventory_hostname }}" storagenode=glusterfs
 
 - hosts: localhost
   connection: local
   tasks:
-    - include_tasks: tasks/heketi/kubernetes-artefacts.yml
+    - name: Create glusterfs daemonset
+      shell: kubectl create -f {{ playbook_dir }}/roles/heketi/files/glusterfs-daemonset.yml
+    - name: Create serviceaccount
+      shell: kubectl create -f {{ playbook_dir }}/roles/heketi/files/heketi-service-account.yml
+    - name: Create clusterrolebinding
+      shell: kubectl create clusterrolebinding heketi-gluster-admin --clusterrole=edit \
+            --serviceaccount=kube-system:heketi-service-account
+    - name: Create secret
+      shell: kubectl create secret generic heketi-config-secret --from-file={{ playbook_dir }}/roles/heketi/files/heketi.json
+    - name: Create bootstrap
+      shell: kubectl create -f {{ playbook_dir }}/roles/heketi/files/heketi-bootstrap.json
+    - name: Create topology file
+      template:
+        src: "{{ playbook_dir }}/roles/heketi/templates/topology.json.j2"
+        dest: "{{ playbook_dir }}/roles/heketi/files/gluster_topology.json"
+    - name: Get pods
+      shell: kubectl get pods
+      register: pods
+
+    - debug:
+        msg: "{{ pods.stdout_lines }}"
 
 - hosts: localhost
   connection: local
@@ -32,6 +42,7 @@
             Type 'yes' to continue or 'no' to abort.
     default: "no"
     private: no
+
   pre_tasks:
     - name: check confirmation
       fail:

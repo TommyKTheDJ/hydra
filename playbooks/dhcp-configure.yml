@@ -1,5 +1,5 @@
 - hosts: dhcp
   strategy: free
   become: true
-  roles:
-    - dhcpd
+  tasks:
+    - include_tasks: tasks/dhcpd/main.yml

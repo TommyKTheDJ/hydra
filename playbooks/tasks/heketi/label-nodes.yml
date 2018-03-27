@@ -1,0 +1,2 @@
+  - name: Label nodes for gluster
+    shell: kubectl label node "{{ inventory_hostname }}" storagenode=glusterfs
