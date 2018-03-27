@@ -1,4 +1,4 @@
-# Deploying cofniguration to management switches
+# Deploying configuration to management switches
 
 - Working process
 ```

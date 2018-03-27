@@ -1,18 +1,17 @@
-- include_tasks: users.yml
+- include_tasks: tasks/cumulus/users.yml
 
-- include_tasks: configure-mgmt-interface.yml
+- include_tasks: tasks/cumulus/configure-mgmt-interface.yml
 
-- include_tasks: install-license.yml
+- include_tasks: tasks/cumulus/install-license.yml
 
-- include_tasks: install-aos-agent.yml
+- include_tasks: tasks/cumulus/install-aos-agent.yml
 
-- include_tasks: resilient-hashing.yml
+- include_tasks: tasks/cumulus/resilient-hashing.yml
 #
-- include_tasks: ssh-config.yml
+- include_tasks: tasks/cumulus/ssh-config.yml
 #
-- include_tasks: ntp.yml
+- include_tasks: tasks/cumulus/ntp.yml
 
-- include_tasks: keys.yml
+- include_tasks: tasks/cumulus/keys.yml
 
-- name: Install and configure telegraf
-  include_tasks: telegraf.yml
+- include_tasks: tasks/cumulus/telegraf.yml

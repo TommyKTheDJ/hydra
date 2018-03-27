@@ -17,3 +17,18 @@
   service:
     name: ntp
     state: restarted
+
+- name: restart dhcpd
+  service:
+    name: isc-dhcp-server
+    state: restarted
+
+- name: restart rsyslogd
+  service:
+    name: rsyslog
+    state: restarted
+
+- name: restart ntp
+  service:
+    name: ntp
+    state: restarted

@@ -7,7 +7,7 @@
       AUTHTOKEN: "{{ aos_token }}"
     url: https://{{ aos_server_hostname }}/api/aaa/users/
     method: POST
-    body: "{{ lookup('template','aaa_admins.j2') }}"
+    body: "{{ lookup('template','templates/aos/aaa_admins.j2') }}"
     # force_basic_auth: yes
     status_code: 201, 409
     body_format: json
@@ -23,7 +23,7 @@
       AUTHTOKEN: "{{ aos_token }}"
     url: https://{{ aos_server_hostname }}/api/aaa/users/
     method: POST
-    body: "{{ lookup('template','aaa_users.j2') }}"
+    body: "{{ lookup('template','templates/aos/aaa_users.j2') }}"
     # force_basic_auth: yes
     status_code: 201, 409
     body_format: json

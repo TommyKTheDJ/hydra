@@ -1,6 +1,6 @@
 - name: Create temporary device configuration file
   template:
-    src: nexus.j2
+    src: templates/mgmt_switch/nexus.j2
     dest: "{{ output_folder }}/{{ inventory_hostname }}.conf"
 
 - name: Configure mgmt_switches
