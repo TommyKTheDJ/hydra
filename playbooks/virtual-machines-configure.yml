@@ -6,4 +6,44 @@
       when: initial is defined
   become: true
   tasks:
-    - include_tasks: tasks/worker/main.yml
+    - name: Install dependencies
+      include_tasks: apt.yml
+      tags:
+        - apt
+
+    - name: Configure users
+      include_tasks: users.yml
+      tags:
+        - users
+
+    - name: Distribute keys
+      include_tasks: keys.yml
+      tags:
+        - keys
+
+    - name: Configure NTP
+      include_tasks: ntp.yml
+      tags:
+        - ntp
+
+    - name: Configure Interfaces
+      include_tasks: interfaces.yml
+      tags:
+        - interfaces
+        - dns
+
+    - name: Configure hostname
+      include_tasks: hostname.yml
+      tags:
+        - hostname
+
+    - name: Install using rancher script
+      include_tasks: docker.yml
+      tags:
+        - docker
+
+    - name: Turn off swap
+      include_tasks: swapoff.yml
+      when: inventory_hostname in groups['kubernetes']
+      tags:
+        - docker

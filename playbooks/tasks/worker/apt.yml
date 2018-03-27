@@ -6,5 +6,7 @@
 - name: Install xfs glusterfs and dependencies
   apt:  name={{item}}
   with_items:
-   - glusterfs*
-   - xfsprogs
+    - glusterfs*
+    - xfsprogs
+    - ntp
+    - ntpdate

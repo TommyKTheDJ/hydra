@@ -7,4 +7,22 @@
       include_vars: includes/initial-cumulus.yml
       when: initial is defined
   tasks:
-    - include_tasks: tasks/cumulus/main.yml
+    - include_tasks: tasks/cumulus/users.yml
+
+    - include_tasks: tasks/cumulus/configure-mgmt-interface.yml
+
+    - include_tasks: tasks/cumulus/install-license.yml
+
+    - include_tasks: tasks/cumulus/install-aos-agent.yml
+
+    - include_tasks: tasks/cumulus/resilient-hashing.yml
+    #
+    - include_tasks: tasks/cumulus/ssh-config.yml
+    #
+    - include_tasks: tasks/cumulus/ntp.yml
+
+    - include_tasks: tasks/cumulus/keys.yml
+
+    - include_tasks: tasks/cumulus/telegraf.yml
+      tags:
+        - telegraf

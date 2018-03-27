@@ -9,3 +9,12 @@ ntp_timezone: Europe/London
 
 dhcp_failover_master: hydra-dns-1
 dhcp_failover_backup: hydra-dns-2
+
+telegraf:
+  influxdb:
+    host: cluster.hydra.lab
+    port: 8086
+    retention: autogen
+    username: admin
+    password: admin
+    database: network
