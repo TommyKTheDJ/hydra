@@ -1,0 +1,31 @@
+---
+- name: Install dependencies
+  apt:
+    name: apt-transport-https
+    update_cache: yes
+    state: present
+    allow_unauthenticated: true
+    force_apt_get: true
+
+- name: Add the Elastic Repo Key to the list
+  apt_key:
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    state: present
+
+- name: Add Elastic repo to list
+  apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/6.x/apt stable main
+    state: present
+    update_cache: yes
+
+- name: Install filebeat
+  apt:
+    name: filebeat
+    update_cache: yes
+    state: present
+    allow_unauthenticated: true
+    force_apt_get: true
+
+
+#TODO: configure service
+#TODO: enable and start service

@@ -24,4 +24,4 @@ iface {{ subnets[subnet_name].nic }} inet static
 
 dns-search hydra.lab
 
-dns-nameservers {{ dns_server_1 }} {{ dns_server_2 }}
+dns-nameservers {{ dns_servers.internal|join(' ')}}

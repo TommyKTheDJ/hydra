@@ -40,7 +40,7 @@
       tags:
         - ssh
 
-    - include_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/ntp.yml"
       tags:
         - ntp
 
@@ -51,3 +51,7 @@
     - include_tasks: "{{ playbook_dir }}/tasks/cumulus/telegraf.yml"
       tags:
         - telegraf
+
+    - include_tasks: "{{ playbook_dir }}/tasks/common/filebeat.yml"
+      tags:
+        - filebeat

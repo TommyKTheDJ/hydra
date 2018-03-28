@@ -68,9 +68,13 @@ interface Eth1/48
   no shutdown
 !
 ip dns source-interface mgmt 0 vrf management
-ip name-server {{ dns_server_1 }} use-vrf management
+{% for server in dns_servers.internal %}
+ip name-server {{ server }} use-vrf management
+{% endfor %}
 !
-ntp server {{ ntp_server }} use-vrf management
+{% for server in ntp_servers.internal %}
+ntp server {{ server }} use-vrf management
+{% endfor %}
 ntp source {{ hosts[inventory_hostname].interfaces.management.ip }}
 !
 ip dhcp snooping

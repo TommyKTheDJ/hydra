@@ -1,17 +1,24 @@
 snmp_trap_collector: 10.60.50.4
 syslog_server: 10.60.50.5
-dns_server_1: 10.60.3.29
-dns_server_2: 10.60.3.30
+    
 dns_root_domain: hydra.lab
 
-ntp_server_1: 10.60.3.29
-ntp_server_2: 10.60.3.30
+dns_servers:
+  internal:
+    - 10.60.3.29
+    - 10.60.3.30
+
 
 ntp_servers:
-  - 216.239.35.4
-  - 85.254.216.1
-  - 193.228.143.24
-  - 37.120.191.245
+  internal:
+    - 10.60.3.29
+    - 10.60.3.30
+  external:
+    - 216.239.35.4
+    - 216.239.35.8
+    - 85.254.216.1
+    - 212.59.0.1
+    - 37.120.191.245
 
 ntp_timezone: Europe/London
 

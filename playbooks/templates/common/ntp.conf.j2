@@ -21,8 +21,8 @@ filegen clockstats file clockstats type day enable
 
 # Specify one or more NTP servers.
 {% if inventory_hostname in groups['ntpd']%}
-{% for server in ntp_servers %}
-server {{ server }}
+{% for server in ntp_servers.external %}
+server {{ server }} iburst
 {% endfor %}
 server 127.127.1.0 prefer
 fudge 127.127.1.0 stratum 10
@@ -30,7 +30,7 @@ fudge 127.127.1.0 stratum 10
 restrict -4 default kod notrap nomodify limited
 restrict -6 default kod notrap nomodify limited
 {% else %}
-{% for server in groups['ntpd'] %}
+{% for server in ntp_servers.internal %}
 server {{ server }} iburst
 {% endfor %}
 restrict -4 default notrap nomodify nopeer noquery

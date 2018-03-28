@@ -44,11 +44,17 @@
         - docker
         - swap
 
+    - name: Install and configure filebeat
+      include_tasks: "{{ playbook_dir }}/tasks/common/filebeat.yml"
+      tags:
+        - filebeat
+
+
 - hosts: virtual-machines:!ntpd
   gather_facts: yes
   become: true
   tasks:
     - name: Configure NTP
-      import_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
+      import_tasks: "{{ playbook_dir }}/tasks/worker/ntp.yml"
       tags:
         - ntp
