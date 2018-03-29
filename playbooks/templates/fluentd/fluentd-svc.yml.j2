@@ -1,0 +1,17 @@
+{% for port in services.fluentd.ports.itervalues() %}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ port.endpoint_alias }}
+  namespace: {{ services.kibana.namespace }}
+spec:
+  selector:
+    app: fluentd-es
+  ports:
+  - name: {{ port.alias }}
+    port: {{ port.number }}
+    protocol: {{ port.protocol }}
+    targetPort: {{ port.number }}
+
+{% endfor %}

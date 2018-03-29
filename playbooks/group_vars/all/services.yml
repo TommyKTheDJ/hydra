@@ -1,14 +1,12 @@
-snmp_trap_collector: 10.60.50.4
-syslog_server: 10.60.50.5
-    
 dns_root_domain: hydra.lab
 
 dns_servers:
   internal:
     - 10.60.3.29
     - 10.60.3.30
-
-
+#===================================================
+# NTP
+#===================================================
 ntp_servers:
   internal:
     - 10.60.3.29
@@ -21,20 +19,86 @@ ntp_servers:
     - 37.120.191.245
 
 ntp_timezone: Europe/London
-
+#===================================================
+# DHCP
+#===================================================
 dhcp_failover_master: hydra-dns-1
 dhcp_failover_backup: hydra-dns-2
-
-
-influxdb:
-  host: cluster.hydra.lab
-  http_port: 8086
-  bind_port: 8088
-  retention: autogen
-  username: cumulus
-  password: cumulus
-  database: network
-  namespace: telemetry
-
-redis:
-  namespace: telemetry
+#===================================================
+# KUBERNETES SERVICES
+#===================================================
+services:
+  ingress:
+    host: cluster.hydra.lab
+    namespace: ingress-nginx
+    exposed: False
+  influxdb:
+    host: cluster.hydra.lab
+    namespace: telemetry
+    exposed: True
+    ports:
+      http:
+        endpoint_alias: influxdb-http
+        alias: influxdb-http
+        protocol: TCP
+        number: 8086
+        exposed: True
+      bind:
+        endpoint_alias: influxdb-bind
+        alias: influxdb-bind
+        protocol: TCP
+        number: 8088
+        exposed: True
+    retention: autogen
+    username: cumulus
+    password: cumulus
+    database: network
+  fluentd:
+    host: cluster.hydra.lab
+    namespace: telemetry
+    exposed: True
+    ports:
+      syslog:
+        endpoint_alias: fluentd-syslog
+        alias: fluentd-syslog
+        protocol: UDP
+        number: 5140
+        exposed: True
+      http:
+        endpoint_alias: fluentd-http
+        alias: fluentd-http
+        protocol: TCP
+        number: 5141
+        exposed: True
+  elasticsearch:
+    namespace: telemetry
+    exposed: True
+    ports:
+      http:
+        endpoint_alias: elasticsearch
+        alias: elastic-http
+        protocol: TCP
+        number: 9200
+        exposed: True
+  kibana:
+    namespace: telemetry
+    exposed: True
+    ports:
+      http:
+        endpoint_alias: kibana-http
+        alias: kibana-http
+        protocol: TCP
+        number: 5601
+        exposed: True
+#===================================================
+# FLUENTD PARAMETERS
+#===================================================
+fluentd_cpu_limit: 2
+fluentd_mem_limit: 1600Mi
+fluentd_cpu_requests: 1
+fluentd_mem_requests: 800Mi
+fluentd_image: "dustnic82/fluentd-elasticsearch-beats:latest"
+fluentd_config: fluent.conf
+# Path used to store Docker data
+fluentd_docker_daemon_graph: "/var/lib/docker"
+fluentd_rbac_enabled: true

@@ -1,0 +1,37 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: "Fluentd | service account and clusterrolebinding"
+      template:
+        src: "{{ playbook_dir }}/templates/fluentd/fluentd-sa.yml.j2"
+        dest: "/tmp/fluentd-sa.yaml"
+
+    - command: "kubectl apply -f /tmp/fluentd-sa.yaml"
+      run_once: true
+
+    #======================================================
+    - name: "Fluentd | config file"
+      template:
+        src: "{{ playbook_dir }}/templates/fluentd/fluentd-config.yml.j2"
+        dest: "/tmp/fluentd-config.yaml"
+
+    - command: "kubectl apply -f /tmp/fluentd-config.yaml"
+      run_once: true
+
+    #======================================================
+    - name: "Fluentd | daemonset"
+      template:
+        src: "{{ playbook_dir }}/templates/fluentd/fluentd-ds.yml.j2"
+        dest: "/tmp/fluentd-ds.yaml"
+
+    - command: "kubectl apply -f /tmp/fluentd-ds.yaml -n {{ services.elasticsearch.namespace }}"
+      run_once: true
+    #======================================================
+    - name: "Fluentd | services"
+      template:
+        src: "{{ playbook_dir }}/templates/fluentd/fluentd-svc.yml.j2"
+        dest: "/tmp/fluentd-svc.yaml"
+
+    - command: "kubectl apply -f /tmp/fluentd-svc.yaml -n {{ services.elasticsearch.namespace }}"
+      run_once: true

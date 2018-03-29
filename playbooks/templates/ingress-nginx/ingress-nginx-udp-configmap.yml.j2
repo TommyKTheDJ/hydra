@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingress-nginx-udp-services
+  namespace: ingress-nginx
+  labels:
+    k8s-app: ingress-nginx
+data:
+{% for service_name, data in services.iteritems() %}
+{% if data.exposed and 'ports' in data.keys() %}
+{% for port in data.ports.itervalues() %}
+{% if port.protocol == 'UDP' and port.exposed %}
+  "{{ port.number}}": "{{data.namespace}}/{{ port.endpoint_alias }}:{{port.number}}"
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}

@@ -1,0 +1,19 @@
+{% for port in services.kibana.ports.itervalues() %}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ port.endpoint_alias }}
+  namespace: {{ services.kibana.namespace }}
+  labels:
+    component: kibana
+spec:
+  selector:
+    component: kibana
+  ports:
+  - name: {{ port.alias }}
+    port: {{ port.number }}
+    protocol: {{ port.protocol }}
+    targetPort: {{ port.number }}
+
+{% endfor %}

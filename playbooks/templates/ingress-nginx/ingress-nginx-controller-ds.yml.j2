@@ -4,7 +4,6 @@ apiVersion: extensions/v1beta1
 metadata:
   name: ingress-nginx-controller
   namespace: ingress-nginx
-
   labels:
     k8s-app: ingress-nginx
     version: v0.11.0
@@ -38,14 +37,18 @@ spec:
           hostPort: 443
           containerPort: 443
           protocol: TCP
-        - name: redis
-          hostPort: 6379
-          containerPort: 6379
-          protocol: TCP
-        - name: influxdb
-          hostPort: 8086
-          containerPort: 8086
-          protocol: TCP
+{% for service in services.itervalues() %}
+{% if service.exposed and 'ports' in service.keys() %}
+{% for port in service.ports.itervalues() %}
+{% if port.exposed %}
+        - name: {{ port.alias }}
+          hostPort: {{ port.number }}
+          containerPort: {{ port.number }}
+          protocol: {{ port.protocol }}
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}
         env:
         - name: POD_NAME
           valueFrom:

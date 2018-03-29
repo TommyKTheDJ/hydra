@@ -1,0 +1,20 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: "Kibana | deployment"
+      template:
+        src: "{{ playbook_dir }}/templates/kibana/kibana.yml.j2"
+        dest: "/tmp/kibana.yaml"
+
+    - command: "kubectl apply -f /tmp/kibana.yaml"
+      run_once: true
+
+    #======================================================
+    - name: "Kibana | service"
+      template:
+        src: "{{ playbook_dir }}/templates/kibana/kibana-svc.yml.j2"
+        dest: "/tmp/kibana-svc.yaml"
+
+    - command: "kubectl apply -f /tmp/kibana-svc.yaml"
+      run_once: true

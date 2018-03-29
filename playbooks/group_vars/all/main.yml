@@ -1,9 +1,6 @@
 output_folder: /tmp
 aos_server_hostname: aos.hydra.lab
 
-rancher_port: 8080
-rancher_project_id: 1a5
-
 ztp_fqdn: cluster.hydra.lab
 ztp_port: 80
 

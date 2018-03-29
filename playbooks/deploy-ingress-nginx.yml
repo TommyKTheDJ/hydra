@@ -1,0 +1,36 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: "Ingress NGINX | tcp configmap"
+      template:
+        src: "{{ playbook_dir }}/templates/ingress-nginx/ingress-nginx-tcp-configmap.yml.j2"
+        dest: "/tmp/ingress-nginx-tcp-configmap.yaml"
+      tags:
+        - configmap
+
+    - command: "kubectl apply -f /tmp/ingress-nginx-tcp-configmap.yaml -n {{ services.ingress.namespace }}"
+      run_once: true
+      tags:
+        - configmap
+    #======================================================
+    - name: "Ingress NGINX | udp configmap"
+      template:
+        src: "{{ playbook_dir }}/templates/ingress-nginx/ingress-nginx-udp-configmap.yml.j2"
+        dest: "/tmp/ingress-nginx-udp-configmap.yaml"
+      tags:
+        - configmap
+
+    - command: "kubectl apply -f /tmp/ingress-nginx-udp-configmap.yaml -n {{ services.ingress.namespace }}"
+      run_once: true
+      tags:
+        - configmap
+
+    #======================================================
+    - name: "Ingress NGINX | daemonset"
+      template:
+        src: "{{ playbook_dir }}/templates/ingress-nginx/ingress-nginx-controller-ds.yml.j2"
+        dest: "/tmp/ingress-nginx-controller-ds.yml"
+
+    - command: "kubectl apply -f /tmp/ingress-nginx-controller-ds.yml -n {{ services.ingress.namespace }}"
+      run_once: true
