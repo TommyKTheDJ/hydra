@@ -1,6 +1,6 @@
-# ===================================================
+# ============================================================
 # Configured by Ansible on {{ lookup('pipe','date') }}
-# ===================================================
+# ============================================================
 {% for hostname, host_data in hosts.iteritems() -%}
 {% for interface_name, interface_data in host_data.interfaces.iteritems() -%}
 {% if interface_name in subnets.keys() and 'dhcp' in subnets[interface_name].keys() and subnets[interface_name].dhcp and 'mac_address' in interface_data.keys() and interface_data.mac_address %}

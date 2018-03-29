@@ -1,0 +1,14 @@
+---
+- name: Generate 11-remote-syslog.conf file
+  template:
+    src: "{{ playbook_dir }}/templates/cumulus/11-remote-syslog.conf.j2"
+    dest: /etc/rsyslog.d/11-remotesyslog.conf
+    owner: root
+    group: root
+    mode: 0666
+
+- name: Restart Rsyslogd
+  systemd:
+    name: rsyslog
+    enabled: yes
+    state: restarted

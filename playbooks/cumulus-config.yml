@@ -55,3 +55,7 @@
     - include_tasks: "{{ playbook_dir }}/tasks/common/filebeat.yml"
       tags:
         - filebeat
+
+    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/syslog.yml"
+      tags:
+        - syslog

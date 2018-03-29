@@ -94,6 +94,17 @@ services:
         protocol: TCP
         number: 5601
         exposed: True
+  grafana:
+    host: cluster.hydra.lab
+    namespace: telemetry
+    exposed: True
+    ports:
+      http:
+        endpoint_alias: dashboard-grafana
+        alias: grafana-http
+        protocol: TCP
+        number: 9999
+        exposed: True
 #===================================================
 # FLUENTD PARAMETERS
 #===================================================

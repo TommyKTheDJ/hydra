@@ -7,3 +7,5 @@ scanner
 passwords.yml
 publicdnstunnelendpoint.pem
 /kube/examples
+/playbooks/group_vars/all/secrets.yml
+secrets.yml

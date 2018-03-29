@@ -40,8 +40,6 @@ data:
        include_tag_key true
        host {{ services.elasticsearch.ports.http.endpoint_alias }}
        port {{ services.elasticsearch.ports.http.number }}
-       logstash_format true
-       logstash_prefix ${tag_parts[0]}
        # Set the chunk limit the same as for fluentd-gcp.
        buffer_chunk_limit 2M
        # Cap buffer memory usage to 2MiB/chunk * 32 chunks = 64 MiB

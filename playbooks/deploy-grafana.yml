@@ -1,0 +1,15 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Generate valuesfile from template
+      template:
+        src: "{{ playbook_dir }}/templates/grafana/values.j2.yml"
+        dest: /tmp/grafana-hydra.yml
+
+    - name: Install helm chart for Grafana
+      command: "helm install --name dashboard --namespace {{ services.grafana.namespace }} -f /tmp/grafana-hydra.yml stable/grafana"
+      register: helm_output
+
+    - debug:
+        var: helm_output.stdout_lines
