@@ -1,5 +1,5 @@
 dns_root_domain: hydra.lab
-
+cluster_fqdn: cluster.hydra.lab
 dns_servers:
   internal:
     - 10.60.3.29
@@ -35,10 +35,14 @@ services:
   influxdb:
     host: cluster.hydra.lab
     namespace: telemetry
+    db:
+      name: hydra
+      user: hydra
+      password: jj12y0ddnl
     exposed: True
     ports:
       http:
-        endpoint_alias: influxdb-http
+        endpoint_alias: hydra-influxdb
         alias: influxdb-http
         protocol: TCP
         number: 8086
