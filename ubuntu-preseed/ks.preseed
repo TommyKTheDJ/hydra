@@ -1,0 +1,56 @@
+ubiquity partman-auto/disk string /dev/sda
+ubiquity partman/confirm boolean true
+ubiquity partman-auto/method string regular
+ubiquity partman-lvm/device_remove_lvm boolean true
+ubiquity partman-md/device_remove_md boolean true
+ubiquity partman-auto/choose_recipe select atomic
+ubiquity partman-partitioning/confirm_write_new_label boolean true
+ubiquity partman/choose_partition select finish
+ubiquity partman/confirm boolean true
+ubiquity partman/confirm_nooverwrite boolean true
+
+d-i debian-installer/locale string en_US
+d-i console-setup/ask_detect boolean false
+d-i console-setup/layoutcode string us
+
+d-i netcfg/choose_interface select eno1
+
+d-i clock-setup/utc-auto boolean true
+d-i clock-setup/utc boolean true
+d-i time/zone string UTC
+d-i clock-setup/ntp boolean true
+
+d-i apt-setup/use_mirror boolean true
+
+d-i mirror/http/proxy string
+d-i mirror/protocol string http
+d-i mirror/country string manual
+d-i mirror/http/hostname string uk.archive.ubuntu.com
+d-i mirror/http/directory string /ubuntu
+d-i mirror/suite string xenial
+d-i mirror/udeb/suite string xenial
+
+d-i passwd/root-login boolean false
+d-i passwd/user-fullname string Ubuntu User
+d-i passwd/username string ubuntu
+d-i passwd/user-default-groups string admin sudo adm tty backup plugdev users
+d-i passwd/user-password-crypted password $6$SBMaSmcrGTQ6$UTEUt/2TjSGWvaeFhvt4gr.FSaj0tuVlpYesw6T/8wRq5h5cwNP3oaoE7p/sxQBLPSlDwQbsZYiO3Oi0gidZJ1
+d-i user-setup/encrypt-home boolean false
+
+
+tasksel tasksel/first multiselect openssh-server
+d-i pkgsel/include string rsync screen vim curl htop
+d-i pkgsel/upgrade string full-upgrade
+d-i pkgsel/update-policy select none
+d-i pkgsel/install-language-support boolean true
+d-i pkgsel/updatedb boolean true
+popularity-contest popularity-contest/participate boolean false
+ssh             ssh/new_config  boolean true
+ssh             ssh/protocol2_only      boolean true
+ssh             ssh/run_sshd    boolean true
+ssh             ssh/SUID_client boolean true
+
+d-i grub-installer/grub2_instead_of_grub_legacy boolean true
+d-i grub-installer/only_debian boolean true
+d-i finish-install/reboot_in_progress note
+
