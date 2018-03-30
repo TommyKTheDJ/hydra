@@ -45,16 +45,22 @@
         - swap
 
     - name: Install and configure filebeat
-      include_tasks: "{{ playbook_dir }}/tasks/common/filebeat.yml"
+      include_tasks: "{{ playbook_dir }}/tasks/worker/filebeat.yml"
       tags:
         - filebeat
+        - monitoring
 
+    - name: Install and configure telegraf
+      include_tasks: "{{ playbook_dir }}/tasks/worker/telegraf.yml"
+      tags:
+        - telegraf
+        - monitoring
 
 - hosts: virtual-machines:!ntpd
   gather_facts: yes
   become: true
   tasks:
     - name: Configure NTP
-      import_tasks: "{{ playbook_dir }}/tasks/worker/ntp.yml"
+      import_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
       tags:
         - ntp
