@@ -17,7 +17,7 @@
         - users
 
     - name: Distribute keys
-      include_tasks: "{{ playbook_dir }}/tasks/worker/keys.yml"
+      include_tasks: "{{ playbook_dir }}/tasks/common/keys.yml"
       tags:
         - keys
 
@@ -28,7 +28,7 @@
         - dns
 
     - name: Configure hostname
-      include_tasks: "{{ playbook_dir }}/tasks/worker/hostname.yml"
+      include_tasks: "{{ playbook_dir }}/tasks/common/hostname.yml"
       tags:
         - hostname
 

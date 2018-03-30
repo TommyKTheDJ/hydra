@@ -32,6 +32,22 @@ hydra-pdu-2.hydra.lab
 hydra-pdu-3.hydra.lab
 hydra-pdu-4.hydra.lab
 
+[baremetals:children]
+baremetals-rack-1
+baremetals-rack-2
+
+[baremetals-rack-1]
+helios.pxe.hydra.lab
+morpheus.pxe.hydra.lab
+hermes.pxe.hydra.lab
+hypnos.pxe.hydra.lab
+
+[baremetals-rack-2]
+triton.pxe.hydra.lab
+zephyrus.pxe.hydra.lab
+kratus.pxe.hydra.lab
+pollux.pxe.hydra.la
+
 [consoles]
 hydra-console-1.hydra.lab
 hydra-console-2.hydra.lab

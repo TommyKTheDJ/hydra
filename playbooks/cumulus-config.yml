@@ -28,7 +28,7 @@
       tags:
         - license
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/install-aos-agent.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/common/install-aos-agent.yml"
       tags:
         - aos
 
@@ -51,10 +51,6 @@
     - include_tasks: "{{ playbook_dir }}/tasks/cumulus/telegraf.yml"
       tags:
         - telegraf
-
-    - include_tasks: "{{ playbook_dir }}/tasks/common/filebeat.yml"
-      tags:
-        - filebeat
 
     - include_tasks: "{{ playbook_dir }}/tasks/cumulus/syslog.yml"
       tags:

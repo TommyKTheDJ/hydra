@@ -1,0 +1,45 @@
+- hosts: baremetals
+  gather_facts: no
+  become: true
+  pre_tasks:
+    - name: Import initial user/pwd for first configuration
+      include_vars: "{{ playbook_dir }}/files/baremetal/initial.yml"
+      when: initial is defined
+
+  tasks:
+
+    # - include_tasks: "{{ playbook_dir }}/tasks/worker/users.yml"
+    #   tags:
+    #     - users
+
+    # - include_tasks: "{{ playbook_dir }}/tasks/cumulus/configure-mgmt-interface.yml"
+    #   tags:
+    #     - mgmt
+    #
+    # - include_tasks: "{{ playbook_dir }}/tasks/cumulus/set-locale.yml"
+    #   tags:
+    #     - locale
+    #
+    # - include_tasks: "{{ playbook_dir }}/tasks/cumulus/pre-apt.yml"
+    #   tags:
+    #     - pre-apt
+    #
+    # - include_tasks: "{{ playbook_dir }}/tasks/cumulus/install-license.yml"
+    #   tags:
+    #     - license
+
+    - include_tasks: "{{ playbook_dir }}/tasks/common/install-aos-agent.yml"
+      tags:
+        - aos
+
+    - include_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
+      tags:
+        - ntp
+
+    - include_tasks: "{{ playbook_dir }}/tasks/common/keys.yml"
+      tags:
+        - keys
+
+    - include_tasks: "{{ playbook_dir }}/tasks/common/filebeat.yml"
+      tags:
+        - filebeat
