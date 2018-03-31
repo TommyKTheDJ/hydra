@@ -32,48 +32,40 @@ def redfish_mount_virtual_media_iso(redfishobj, iso_url, boot_on_next_server_res
             elif response.status != 200:
                 redfishobj.error_handler(response)
 
-def redfish_stop_server(redfishobj, bios_password=None):
-    sys.stdout.write("\nStopping the server ...\n")
+
+def redfish_reset_server(redfishobj, bios_password=None):
+    sys.stdout.write("\nResetting the server ...\n")
     instances = redfishobj.search_for_type("ComputerSystem.")
 
     if redfishobj.typepath.defs.isgen9:
         for instance in instances:
             body = dict()
-            body["Action"] = "PowerButton"
-            body["ResetType"] = "PressAndHold"
+            body["Action"] = "Reset"
+            body["ResetType"] = "ForceRestart"
 
             response = redfishobj.redfish_post(instance["@odata.id"], body)
             redfishobj.error_handler(response)
-
-def redfish_start_server(redfishobj, bios_password=None):
-    sys.stdout.write("\nStarting the server ...\n")
-    instances = redfishobj.search_for_type("ComputerSystem.")
-
-    if redfishobj.typepath.defs.isgen9:
+    else:
         for instance in instances:
-            body = dict()
-            body["Action"] = "PowerButton"
-            body["ResetType"] = "Press"
+            resp = redfishobj.redfish_get(instance['@odata.id'])
+            if resp.status==200:
+                body = dict()
+                body["Action"] = "ComputerSystem.Reset"
+                body["ResetType"] = "ForceRestart"
+                path = resp.dict["Actions"]["#ComputerSystem.Reset"]["target"]
+            else:
+                sys.stderr.write("ERROR: Unable to find the path for reboot.")
+                raise
 
-            response = redfishobj.redfish_post(instance["@odata.id"], body)
+            response = redfishobj.redfish_post(path, body)
             redfishobj.error_handler(response)
+
 
 if __name__ == "__main__":
-    iLO_https_url = "https://servername.oob.hydra.lab"
+    iLO_https_url = "https://serverName.oob.hydra.lab"
     iLO_account = "Administrator"
     iLO_password = "password"
 
-    try:
-        REDFISH_OBJ = RedfishObject(iLO_https_url, iLO_account, iLO_password)
-    except ServerDownOrUnreachableError as excp:
-        sys.stderr.write("ERROR: server not reachable or doesn't support " \
-                                                                "RedFish.\n")
-        sys.exit()
-    except Exception as excp:
-        raise excp
-
-    redfish_stop_server(REDFISH_OBJ)
-    REDFISH_OBJ.redfish_client.logout()
 
     try:
         REDFISH_OBJ = RedfishObject(iLO_https_url, iLO_account, iLO_password)
@@ -86,7 +78,7 @@ if __name__ == "__main__":
 
     redfish_mount_virtual_media_iso(REDFISH_OBJ, "http://cluster.hydra.lab/pxe/images/ubuntu16-preseed.iso", True)
     REDFISH_OBJ.redfish_client.logout()
- 
+
 
     try:
         REDFISH_OBJ = RedfishObject(iLO_https_url, iLO_account, iLO_password)
@@ -97,6 +89,6 @@ if __name__ == "__main__":
     except Exception as excp:
         raise excp
 
-    redfish_start_server(REDFISH_OBJ)
+    redfish_reset_server(REDFISH_OBJ)
     REDFISH_OBJ.redfish_client.logout()
   
