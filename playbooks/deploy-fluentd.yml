@@ -15,9 +15,13 @@
       template:
         src: "{{ playbook_dir }}/templates/fluentd/fluentd-config.yml.j2"
         dest: "/tmp/fluentd-config.yaml"
+      tag:
+        - configmaps
 
     - command: "kubectl apply -f /tmp/fluentd-config.yaml"
       run_once: true
+      tag:
+        - configmaps
 
     #======================================================
     - name: "Fluentd | daemonset"

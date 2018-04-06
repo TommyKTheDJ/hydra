@@ -2,9 +2,9 @@
 # Configured by Ansible on {{ lookup('pipe','date') }}
 # ============================================================
 
-option domain-name-servers {{ dns_servers.internal|join(', ')}}
+option domain-name-servers {{ dns_servers.internal|join(', ')}};
 default-lease-time 600;
-option ntp-servers {{ ntp_servers.internal|join(', ')}}
+option ntp-servers {{ ntp_servers.internal|join(', ')}};
 max-lease-time 7200;
 authoritative;
 ddns-update-style none;

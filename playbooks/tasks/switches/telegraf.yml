@@ -30,7 +30,7 @@
 
 - name: Copy telegraf configuration
   template:
-    src: templates/cumulus/telegraf.conf.j2
+    src: "{{ playbook_dir }}/templates/switches/telegraf.conf.j2"
     dest: /etc/telegraf/telegraf.conf
 
 - name: Remove Telegraf in default vrf

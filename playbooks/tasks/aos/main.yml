@@ -5,7 +5,7 @@
       aos_user_id: "{{ aos_token_id }}"
       accept: application/json
       AUTHTOKEN: "{{ aos_token }}"
-    url: https://{{ aos_server_hostname }}/api/aaa/users/
+    url: https://{{ aos.server_fqdn }}/api/aaa/users/
     method: POST
     body: "{{ lookup('template','templates/aos/aaa_admins.j2') }}"
     # force_basic_auth: yes
@@ -21,7 +21,7 @@
       aos_user_id: "{{ aos_token_id }}"
       accept: application/json
       AUTHTOKEN: "{{ aos_token }}"
-    url: https://{{ aos_server_hostname }}/api/aaa/users/
+    url: https://{{ aos.server_fqdn }}/api/aaa/users/
     method: POST
     body: "{{ lookup('template','templates/aos/aaa_users.j2') }}"
     # force_basic_auth: yes

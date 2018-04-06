@@ -7,12 +7,12 @@
   become: true
   tasks:
     - name: Install dependencies
-      include_tasks: "{{ playbook_dir }}/tasks/worker/apt.yml"
+      include_tasks: "{{ playbook_dir }}/tasks/workers/apt.yml"
       tags:
         - apt
 
     - name: Configure users
-      include_tasks: "{{ playbook_dir }}/tasks/worker/users.yml"
+      include_tasks: "{{ playbook_dir }}/tasks/workers/users.yml"
       tags:
         - users
 
@@ -22,7 +22,7 @@
         - keys
 
     - name: Configure Interfaces
-      include_tasks: "{{ playbook_dir }}/tasks/worker/interfaces.yml"
+      include_tasks: "{{ playbook_dir }}/tasks/workers/interfaces.yml"
       tags:
         - interfaces
         - dns
@@ -32,35 +32,31 @@
       tags:
         - hostname
 
-    - name: Install using rancher script
-      include_tasks: "{{ playbook_dir }}/tasks/worker/docker.yml"
+    - name: Install docker
+      include_tasks: "{{ playbook_dir }}/tasks/workers/docker.yml"
       tags:
         - docker
 
     - name: Turn off swap
-      include_tasks: "{{ playbook_dir }}/tasks/worker/swapoff.yml"
+      include_tasks: "{{ playbook_dir }}/tasks/workers/swapoff.yml"
       when: inventory_hostname in groups['kubernetes']
       tags:
         - docker
         - swap
 
     - name: Install and configure filebeat
-      include_tasks: "{{ playbook_dir }}/tasks/worker/filebeat.yml"
+      include_tasks: "{{ playbook_dir }}/tasks/common/filebeat.yml"
       tags:
         - filebeat
         - monitoring
 
     - name: Install and configure telegraf
-      include_tasks: "{{ playbook_dir }}/tasks/worker/telegraf.yml"
+      include_tasks: "{{ playbook_dir }}/tasks/workers/telegraf.yml"
       tags:
         - telegraf
         - monitoring
 
-- hosts: virtual-machines:!ntpd
-  gather_facts: yes
-  become: true
-  tasks:
-    - name: Configure NTP
-      import_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
+    - name: Install and configure NTP
+      include_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
       tags:
         - ntp

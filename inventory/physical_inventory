@@ -56,7 +56,7 @@ hydra-console-2.hydra.lab
 hydra-mgmt-1.hydra.lab
 hydra-mgmt-2.hydra.lab
 
-[cumulus:children]
+[switches:children]
 border_leafs
 spines
 leafs

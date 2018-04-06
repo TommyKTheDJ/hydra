@@ -26,6 +26,13 @@
     allow_unauthenticated: true
     force_apt_get: true
 
+- name: Configure filebeat service
+  template:
+    src: templates/common/filebeat.yml.j2
+    dest: /etc/filebeat/filebeat.yml
 
-#TODO: configure service
-#TODO: enable and start service
+- name: Start filebeat and enable service at startup
+  systemd:
+    name: filebeat
+    enabled: yes
+    state: restarted

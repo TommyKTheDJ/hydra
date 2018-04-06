@@ -54,9 +54,9 @@ services:
         number: 8088
         exposed: True
     retention:
-      worker: workers
-      cumlus: fabric
-      baremetal: baremetals
+      workers: workers
+      switches: fabric
+      baremetals: baremetals
     username: cumulus
     password: cumulus
     database: network
@@ -79,6 +79,7 @@ services:
         exposed: True
   elasticsearch:
     namespace: telemetry
+    host: cluster.hydra.lab
     exposed: True
     ports:
       http:
@@ -89,6 +90,7 @@ services:
         exposed: True
   kibana:
     namespace: telemetry
+    host: cluster.hydra.lab
     exposed: True
     ports:
       http:

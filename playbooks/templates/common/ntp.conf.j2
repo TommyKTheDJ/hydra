@@ -41,7 +41,7 @@ restrict -6 default notrap nomodify nopeer noquery
 restrict 127.0.0.1
 restrict ::1
 
-{% if inventory_hostname in groups['cumulus'] %}
+{% if inventory_hostname in groups['switches'] %}
 # Specify interfaces, don't listen on switch ports
 interface listen eth0
 {% endif %}

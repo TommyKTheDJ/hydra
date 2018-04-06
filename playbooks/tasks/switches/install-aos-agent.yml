@@ -11,9 +11,14 @@
   tags:
     - aos_agent
 
+- name: Copy inventory to AOS server
+  template:
+    src: "{{ playbook_dir }}/templates/baremetals/aos_inventory.j2"
+    dest: /tmp/inveo
+
 - name: Get installation script
   get_url:
-    url: https://{{ aos_server_hostname }}/device_agent_images/aos_device_agent.run
+    url: https://{{ aos.server_fqdn }}/device_agent_images/aos_device_agent.run
     dest: /tmp/aos_device_agent.run
     validate_certs: no
     force: yes
@@ -27,17 +32,9 @@
     - aos_agent
 
 - name: Correct host in aos.conf
-  lineinfile:
-    path:   /etc/aos/aos.conf
-    regexp: '^(metadb = tbt:\/\/)(aos-server)(:29731)$'
-    line: '\1{{ aos_server_hostname}}\3'
-    backrefs: yes
-
-- name: Enable enable_configuration_service = 1 in aos.conf
-  lineinfile:
-    path:   /etc/aos/aos.conf
-    regexp: '^enable_configuration_service .*$'
-    line: 'enable_configuration_service = 1'
+  template:
+    dest: /etc/aos/aos.conf
+    src: templates/common/aos.conf.j2
 
 - name: Restart AoS service
   service:

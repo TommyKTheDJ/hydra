@@ -1,10 +1,10 @@
 ---
-- hosts: cumulus
+- hosts: switches
   become: true
   gather_facts: no
   pre_tasks:
     - name: Import initial user/pwd for first configuration
-      include_vars: "{{ playbook_dir }}/files/cumulus/initial.yml"
+      include_vars: "{{ playbook_dir }}/files/switches/initial.yml"
       when: initial is defined
   tasks:
     - name: Deploy local ssh public key to hosts

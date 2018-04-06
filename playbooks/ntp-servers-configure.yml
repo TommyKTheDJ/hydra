@@ -1,6 +1,0 @@
-- hosts: ntpd
-  gather_facts: yes
-  become: true
-  tasks:
-    - name: Configure NTP
-      include_tasks: "{{ playbook_dir }}/tasks/worker/ntp.yml"

@@ -1,0 +1,12 @@
+- name: Execute installation script
+  docker_container:
+    name: "agent-install-{{ inventory_hostname }}"
+    image: aos-device-installer
+    command: "install --username {{ ansible_user }} --password {{ ansible_ssh_pass }} --aos_server {{ aos.server_fqdn }} --targets 10.60.6.11"
+    tty: yes
+    interactive: yes
+    detach: false
+    cleanup: yes
+  become: false
+  delegate_to: "{{ aos.server_fqdn }}"
+  remote_user: admin

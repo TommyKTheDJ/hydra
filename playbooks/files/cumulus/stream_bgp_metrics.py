@@ -1,13 +1,4 @@
 #!/usr/bin/env python
-"""
-For SE Monitoring Demo. Converts Non Established Peer Count into a metric
-This is then consumed by telegraf input exec plugin
-This file for demo purposes only
-This file is placed in /usr/local/bin/bgp_stats_influxdb.py
-LICENSE: MIT
-Author: Stanley Karunditu
-Copyright: Cumulus Networks
-"""
 import json
 import subprocess
 

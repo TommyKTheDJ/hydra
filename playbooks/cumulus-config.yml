@@ -1,30 +1,30 @@
-- hosts: cumulus
+- hosts: switches
   gather_facts: yes
   become: true
   pre_tasks:
     - name: Import initial user/pwd for first configuration
-      include_vars: "{{ playbook_dir }}/files/cumulus/initial.yml"
+      include_vars: "{{ playbook_dir }}/files/switches/initial.yml"
       when: initial is defined
 
   tasks:
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/users.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/users.yml"
       tags:
         - users
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/configure-mgmt-interface.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/configure-mgmt-interface.yml"
       tags:
         - mgmt
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/set-locale.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/set-locale.yml"
       tags:
         - locale
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/pre-apt.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/pre-apt.yml"
       tags:
         - pre-apt
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/install-license.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/install-license.yml"
       tags:
         - license
 
@@ -32,26 +32,26 @@
       tags:
         - aos
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/resilient-hashing.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/resilient-hashing.yml"
       tags:
         - hashing
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/ssh-config.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/ssh-config.yml"
       tags:
         - ssh
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/ntp.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/ntp.yml"
       tags:
         - ntp
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/keys.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/keys.yml"
       tags:
         - keys
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/telegraf.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/telegraf.yml"
       tags:
         - telegraf
 
-    - include_tasks: "{{ playbook_dir }}/tasks/cumulus/syslog.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/syslog.yml"
       tags:
         - syslog

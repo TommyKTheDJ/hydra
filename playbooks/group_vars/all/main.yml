@@ -1,7 +1,14 @@
 output_folder: /tmp
-aos_server_hostname: aos.hydra.lab
+
 
 ztp_fqdn: cluster.hydra.lab
 ztp_port: 80
 
 gluster_hdd_device: /dev/sdb
+
+aos:
+  server_fqdn: aos.hydra.lab
+  agent:
+    port:
+      baremetal: eno1
+      switches: eth0

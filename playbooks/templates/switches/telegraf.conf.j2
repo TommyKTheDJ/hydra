@@ -86,7 +86,7 @@
   precision = "s"
 
   ## Retention policy to write to. Empty string writes to the default rp.
-  retention_policy = "{{ services.influxdb.retention.cumulus }}"
+  retention_policy = "{{ services.influxdb.retention.network }}"
   ## Write consistency (clusters only), can be: "any", "one", "quorum", "all"
   write_consistency = "any"
 
