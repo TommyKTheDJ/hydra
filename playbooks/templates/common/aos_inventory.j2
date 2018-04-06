@@ -1,0 +1,16 @@
+[hosts]
+{% for device in ansible_play_hosts %}
+{{ device }}
+{% endfor %}
+
+[hosts:vars]
+ansible_ssh_user={{ ansible_user }}
+{% if ansible_ssh_pass is defined %}
+ansible_ssh_pass={{ ansible_ssh_pass }}
+{% endif %}
+{% if ansible_become_pass is defined %}
+ansible_become_pass={{ ansible_become_pass }}
+{% endif %}
+
+[all:vars]
+aos_server=aos.hydra.lab

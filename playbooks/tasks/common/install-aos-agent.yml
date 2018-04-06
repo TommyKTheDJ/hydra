@@ -1,0 +1,26 @@
+- name: Render inventory template onto AoS for all the hosts in the play
+  become: false
+  connection: local
+  template:
+    src: "{{ playbook_dir }}/templates/common/aos_inventory.j2"
+    dest: "/tmp/inventory"
+  run_once: True
+  delegate_to: "{{ aos.server_fqdn }}"
+  tags:
+    - aos
+
+- name: Execute installation script
+  docker_container:
+    name: agent-install
+    image: aos-device-installer
+    command: "install -i /tmp/inventory.aos"
+    tty: yes
+    interactive: yes
+    detach: false
+    cleanup: yes
+    volumes: /tmp/inventory:/tmp/inventory.aos
+  become: false
+  delegate_to: "{{ aos.server_fqdn }}"
+  run_once: True
+  tags:
+    - aos

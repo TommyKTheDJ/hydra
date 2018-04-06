@@ -4,8 +4,8 @@
   pre_tasks:
     - name: Import initial user/pwd for first configuration
       include_vars: "{{ playbook_dir }}/files/switches/initial.yml"
-      when: initial is defined
-
+      tags:
+        - initial
   tasks:
 
     - include_tasks: "{{ playbook_dir }}/tasks/switches/users.yml"

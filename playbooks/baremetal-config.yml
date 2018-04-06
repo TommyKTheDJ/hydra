@@ -1,49 +1,32 @@
 - hosts: baremetals
   gather_facts: no
   become: true
-  vars:
-    ansible_user: user
-    ansible_ssh_pass: parola
-    ansible_become_pass: parola
-    when: initial is defined
-
+  pre_tasks:
+    - name: Import initial user/pwd for first configuration
+      include_vars: "{{ playbook_dir }}/files/baremetals/initial.yml"
+      tags:
+        - initial
   tasks:
-
-    - include_tasks: "{{ playbook_dir }}/tasks/worker/users.yml"
+    - include_tasks: "{{ playbook_dir }}/tasks/workers/users.yml"
       tags:
         - users
+
     - include_tasks: "{{ playbook_dir }}/tasks/common/keys.yml"
       tags:
         - keys
-    # - include_tasks: "{{ playbook_dir }}/tasks/switches/configure-mgmt-interface.yml"
-    #   tags:
-    #     - mgmt
-    #
-    # - include_tasks: "{{ playbook_dir }}/tasks/switches/set-locale.yml"
-    #   tags:
-    #     - locale
-    #
-    # - include_tasks: "{{ playbook_dir }}/tasks/switches/pre-apt.yml"
-    #   tags:
-    #     - pre-apt
-    #
-    # - include_tasks: "{{ playbook_dir }}/tasks/switches/install-license.yml"
-    #   tags:
-    #     - license
 
-    # - include_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
-    #   tags:
-    #     - ntp
-    #
-    # - include_tasks: "{{ playbook_dir }}/tasks/common/keys.yml"
-    #   tags:
-    #     - keys
-    #
-    # - include_tasks: "{{ playbook_dir }}/tasks/common/filebeat.yml"
-    #   tags:
-    #     - filebeat
+    - include_tasks: "{{ playbook_dir }}/tasks/switches/set-locale.yml"
+      tags:
+        - locale
 
-    # - name: Install AoS agent
-    #   import_tasks: "{{ playbook_dir }}/tasks/baremetals/install-aos-agent.yml"
-    #   tags:
-    #     - aos
+    - include_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
+      tags:
+        - ntp
+
+    - include_tasks: "{{ playbook_dir }}/tasks/common/filebeat.yml"
+      tags:
+        - filebeat
+
+    - include_tasks: "{{ playbook_dir }}/tasks/baremetals/install-aos-agent.yml"
+      tags:
+        - aos
