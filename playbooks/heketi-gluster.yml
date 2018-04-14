@@ -3,44 +3,44 @@
   tasks:
     - include_tasks: "{{ playbook_dir }}/tasks/heketi/main.yml"
 
-- hosts: gluster-nodes
-  connection: local
-  gather_facts: no
-  tasks:
-    - include_tasks: "{{ playbook_dir }}/tasks/heketi/label-nodes.yml"
-
-- hosts: gluster-nodes
-  connection: local
-  gather_facts: no
-  tasks:
-    - include_tasks: "{{ playbook_dir }}/tasks/heketi/label-nodes.yml"
-
-- hosts: localhost
-  connection: local
-  tasks:
-    - include_tasks: "{{ playbook_dir }}/tasks/heketi/kubernetes-artefacts.yml"
-
-- hosts: localhost
-  connection: local
-  vars_prompt:
-    name: "confirmation"
-    prompt: |
-            Now it's time to use the heketi-cli to load the topology and create the heketi DB.
-            Please follow the instructions at: https://github.com/heketi/heketi/blob/master/docs/admin/install-kubernetes.md.
-            You don't need to follow all the steps, but just the ones starting with the port forwarding on the heketi-deploy pod.
-            Once you created the volume used by the heketi database, get back to this shell.
-            Type 'yes' to continue or 'no' to abort.
-    default: "no"
-    private: no
-  pre_tasks:
-    - name: check confirmation
-      fail:
-        msg: "Aborting"
-      when: confirmation != "yes"
-  tasks:
-    - name: removing deploy-heketi artefacts
-      shell: kubectl delete all,service,jobs,deployment,secret --selector="deploy-heketi"
-    - name: Create permanent heketi deployment class
-      shell: kubectl create -f "{{ playbook_dir }}/files/heketi/heketi-deployment.json"
-    - name: Create storage class
-      shell: kubectl create -f "{{ playbook_dir }}/files/heketistorageclass.yml"
+      #- hosts: gluster-nodes
+      #  connection: local
+      #  gather_facts: no
+      #  tasks:
+      #    - include_tasks: "{{ playbook_dir }}/tasks/heketi/label-nodes.yml"
+      #
+      #- hosts: gluster-nodes
+      #  connection: local
+      #  gather_facts: no
+      #  tasks:
+      #    - include_tasks: "{{ playbook_dir }}/tasks/heketi/label-nodes.yml"
+      #
+      #- hosts: localhost
+      #  connection: local
+      #  tasks:
+      #    - include_tasks: "{{ playbook_dir }}/tasks/heketi/kubernetes-artefacts.yml"
+      #
+      #- hosts: localhost
+      #  connection: local
+      #  vars_prompt:
+      #    name: "confirmation"
+      #    prompt: |
+      #            Now it's time to use the heketi-cli to load the topology and create the heketi DB.
+      #            Please follow the instructions at: https://github.com/heketi/heketi/blob/master/docs/admin/install-kubernetes.md.
+      #            You don't need to follow all the steps, but just the ones starting with the port forwarding on the heketi-deploy pod.
+      #            Once you created the volume used by the heketi database, get back to this shell.
+      #            Type 'yes' to continue or 'no' to abort.
+      #    default: "no"
+      #    private: no
+      #  pre_tasks:
+      #    - name: check confirmation
+      #      fail:
+      #        msg: "Aborting"
+      #      when: confirmation != "yes"
+      #  tasks:
+      #    - name: removing deploy-heketi artefacts
+      #      shell: kubectl delete all,service,jobs,deployment,secret --selector="deploy-heketi"
+      #    - name: Create permanent heketi deployment class
+      #      shell: kubectl create -f "{{ playbook_dir }}/files/heketi/heketi-deployment.json"
+      #    - name: Create storage class
+      #      shell: kubectl create -f "{{ playbook_dir }}/files/heketistorageclass.yml"

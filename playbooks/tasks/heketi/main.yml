@@ -15,10 +15,14 @@
       iptables -A HEKETI -p tcp -m state --state NEW -m tcp --dport 24008 -j ACCEPT
       iptables -A HEKETI -p tcp -m state --state NEW -m tcp --dport 2222 -j ACCEPT
       iptables -A HEKETI -p tcp -m state --state NEW -m multiport --dports 49152:49251 -j ACCEPT
-  when: iptablesrules.stdout.find("HEKETI") == -1
-  notify: save iptables
+      #  when: iptablesrules.stdout.find("HEKETI") == -1
+      #  notify: save iptables
 
 - name: Load thin pool kernel module
   modprobe:
-    name: dm_thin_pool
+    name: "{{ item }}"
     state: present
+  loop:
+    - dm_thin_pool
+    - dm_snapshot
+    - dm_mirror
