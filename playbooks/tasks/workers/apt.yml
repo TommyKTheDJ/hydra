@@ -1,12 +1,10 @@
 - name: Add Gluster APT repository
   apt_repository:
     update_cache: yes
-    repo: 'ppa:gluster/glusterfs-4.0'
+    repo: 'ppa:gluster/glusterfs-3.12'
 
 - name: Install xfs glusterfs and dependencies
   apt:  name={{item}}
   with_items:
-    - glusterfs*
-    - xfsprogs
+    - glusterfs-client
     - ntp
-    - ntpdate
