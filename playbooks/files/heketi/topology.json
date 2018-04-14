@@ -1,0 +1,84 @@
+{
+  "clusters": [
+    {
+      "nodes": [
+        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "ares.hydra.lab"
+              ],
+              "storage": [
+                "10.60.3.25"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        },        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "jason.hydra.lab"
+              ],
+              "storage": [
+                "10.60.3.27"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        },        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "castor.hydra.lab"
+              ],
+              "storage": [
+                "10.60.3.26"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        },        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "proteus.hydra.lab"
+              ],
+              "storage": [
+                "10.60.3.28"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        },        {
+          "node": {
+            "hostnames": {
+              "manage": [
+                "charon.hydra.lab"
+              ],
+              "storage": [
+                "10.60.3.24"
+              ]
+            },
+            "zone": 1
+          },
+          "devices": [
+            "/dev/sdb"
+          ]
+        }
+      ]
+    }
+  ]
+}
