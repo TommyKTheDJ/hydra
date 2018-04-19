@@ -1,0 +1,10 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Install helm chart for Prometheus
+      command: "helm install --name prometheus stable/prometheus"
+      register: helm_output
+
+    - debug:
+        var: helm_output.stdout_lines
