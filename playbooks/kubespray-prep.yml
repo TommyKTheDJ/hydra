@@ -1,0 +1,20 @@
+- hosts: gluster-nodes
+  become: true
+  tasks:
+    - name: Add the glusterfs-client repo
+      apt_repository:
+        repo: ppa:gluster/glusterfs-3.12
+
+    - name: Install the glusterfs-client
+      apt:
+        name: glusterfs-client
+        update_cache: yes
+
+    - name: Add the kernel modules
+      modprobe:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - dm_snapshot
+        - dm_mirror
+        - dm_thin_pool
