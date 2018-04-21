@@ -57,7 +57,7 @@ server:
   name: grafana
 
   adminUser: "admin"
-  adminPassword: "{{ admin_pwd }}"
+  adminPassword: "admin"
 
   ## Global imagePullPolicy
   ## Default: 'Always' if image tag is 'latest', else 'IfNotPresent'
@@ -225,7 +225,7 @@ server:
     datasource:
       ## The datasource name.
       ## Default: default
-      name: default
+      name: influxdb
 
       ## Type of datasource
       ## Default: prometheus
@@ -238,12 +238,12 @@ server:
       ## Syntax like `http://<release name>-<server name>:<port number>
       ## Default: <empty>
       ##
-      url:
+      url: "http://{{ services.influxdb.ports.http.endpoint_alias }}:{{ services.influxdb.ports.http.number }}"
 
       ## The name of the database at the datasource.
       ## Required parameter when used with elasticsearch, which refers to the index_name
       ## Default: <empty>
-      database:
+      database: {{ services.influxdb.db.name }}
 
       ## Additional JSON data to be passed to the configuration of the datasource.
       ## The JSON data is passed to curl, therefore it needs proper quoting and
@@ -260,6 +260,16 @@ server:
       ## Default: true
       ##
       isDefault: true
+      
+    # Elasticsearch datasource
+    datasource:
+      name: elasticsearch
+      type: elasticsearch
+      url: "http://{{ services.elasticsearch.ports.http.endpoint_alias }}:{{ services.elasticsearch.ports.http.number }}"
+      database: fabric # should be a variable
+      jsonData: null
+      access: proxy
+      isDeafult: false
 
     ## Specify the job policy
     ## Default: OnFailure
