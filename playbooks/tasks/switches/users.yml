@@ -2,11 +2,15 @@
   group:
     name: hydra-admins
     state: present
+  tags:
+    - users
 
 - name: Make sure we have a 'hydra-users' group
   group:
     name: hydra-users
     state: present
+  tags:
+    - users
 
 - name: Allow 'hydra-admins' group to have passwordless sudo
   lineinfile:
@@ -15,11 +19,13 @@
     regexp: '^%hydra'
     line: '%hydra-admins ALL=(ALL) NOPASSWD: ALL'
     validate: 'visudo -cf %s'
+  tags:
+    - users
 
 - name: Add admin users | create users, shell, home dirs
   user:
       name: "{{ item.id }}"
-      password: "{{ item.pwd|password_hash('sha512') }}"
+      password: "{{ item.pwd_hash }}"
       createhome: yes
       comment: created with ansible
       shell: /bin/bash
@@ -28,11 +34,13 @@
         - netshow
         - netedit
   with_items: "{{ users.admins }}"
+  tags:
+    - users
 
 - name: Add users | create users, shell, home dirs
   user:
       name: "{{ item.id }}"
-      password: "{{ item.pwd|password_hash('sha512') }}"
+      password: "{{ item.pwd_hash }}"
       createhome: yes
       comment: created with ansible
       shell: /bin/bash
@@ -40,3 +48,5 @@
         - hydra-users
         - netshow
   with_items: "{{ users.users }}"
+  tags:
+    - users

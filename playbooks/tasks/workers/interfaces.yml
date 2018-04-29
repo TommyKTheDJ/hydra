@@ -1,5 +1,10 @@
 - name: Configure interfaces
   template:
-    src: templates/worker/interfaces.j2
+    src: "{{ playbook_dir }}/templates/workers/interfaces.j2"
     dest: /etc/network/interfaces
     backup: yes
+
+- name: Restart networking
+  service:
+    name: network
+    state: restarted

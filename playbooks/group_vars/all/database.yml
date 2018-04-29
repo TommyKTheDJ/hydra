@@ -24,36 +24,8 @@ hosts:
         os: Ubuntu 16.04 LTS
         resources:
             cpu: 4
-            disk: 30
-            ram: 16
-        type: vm
-        user: hydra
-    castor:
-        interfaces:
-            management:
-                ip: 10.60.3.26/24
-                vlan_id: 701
-        manufacturer: Ubuntu
-        model: VM
-        os: Ubuntu 16.04 LTS
-        resources:
-            cpu: 4
-            disk: 30
-            ram: 16
-        type: vm
-        user: hydra
-    charon:
-        interfaces:
-            management:
-                ip: 10.60.3.24/24
-                vlan_id: 701
-        manufacturer: Ubuntu
-        model: VM
-        os: Ubuntu 16.04 LTS
-        resources:
-            cpu: 4
-            disk: 30
-            ram: 16
+            disk: 80+80
+            ram: 64
         type: vm
         user: hydra
     helios:
@@ -91,20 +63,6 @@ hosts:
         rack: 1
         resources: {}
         type: host
-        user: hydra
-    hera:
-        interfaces:
-            management:
-                ip: 10.60.3.36/24
-                vlan_id: 701
-        manufacturer: Ubuntu
-        model: VM
-        os: Ubuntu 16.04 LTS
-        resources:
-            cpu: 4
-            disk: 30
-            ram: 16
-        type: vm
         user: hydra
     hermes:
         ilo_password: VH4CMDTZ
@@ -1007,32 +965,18 @@ hosts:
         resources: {}
         type: host
         user: hydra
-    iris:
-        interfaces:
-            management:
-                ip: 10.60.3.35/24
-                vlan_id: 701
-        manufacturer: Ubuntu
-        model: VM
-        os: Ubuntu 16.04 LTS
-        resources:
-            cpu: 4
-            disk: 30
-            ram: 16
-        type: vm
-        user: hydra
     jason:
         interfaces:
             management:
-                ip: 10.60.3.27/24
+                ip: 10.60.3.26/24
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
         resources:
             cpu: 4
-            disk: 30
-            ram: 16
+            disk: 80+80
+            ram: 64
         type: vm
         user: hydra
     kratus:
@@ -1144,15 +1088,15 @@ hosts:
     proteus:
         interfaces:
             management:
-                ip: 10.60.3.28/24
+                ip: 10.60.3.27/24
                 vlan_id: 701
         manufacturer: Ubuntu
         model: VM
         os: Ubuntu 16.04 LTS
         resources:
             cpu: 4
-            disk: 30
-            ram: 16
+            disk: 80+80
+            ram: 64
         type: vm
         user: hydra
     triton:
