@@ -2,6 +2,8 @@
   apt_repository:
     update_cache: yes
     repo: 'ppa:gluster/glusterfs-3.12'
+  tags:
+    - apt
 
 - name: Install xfs glusterfs and dependencies
   apt:  name={{item}}
@@ -9,3 +11,5 @@
     - glusterfs-client
     - ntp
     - python
+  tags:
+    - apt

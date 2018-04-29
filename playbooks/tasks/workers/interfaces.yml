@@ -3,8 +3,12 @@
     src: "{{ playbook_dir }}/templates/workers/interfaces.j2"
     dest: /etc/network/interfaces
     backup: yes
+  tags:
+    - interfaces
 
 - name: Restart networking
   service:
-    name: network
+    name: networking
     state: restarted
+  tags:
+    - interfaces
