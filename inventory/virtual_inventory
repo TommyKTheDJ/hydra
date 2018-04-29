@@ -4,20 +4,16 @@ dns
 
 [kubernetes]
 ares.hydra.lab
-hera.hydra.lab
-iris.hydra.lab
-jason.hydra.lab
-castor.hydra.lab
 proteus.hydra.lab
-charon.hydra.lab
+jason.hydra.lab
 
 [ntpd]
 hydra-dns-1.hydra.lab
 hydra-dns-2.hydra.lab
 
 [dns]
-hydra-dns-1.hydra.lab
-hydra-dns-2.hydra.lab
+hydra-dns-1.hydra.lab   ansible_host=10.60.3.29
+hydra-dns-2.hydra.lab   ansible_host=10.60.3.30
 
 [dhcp]
 hydra-dns-1.hydra.lab
@@ -31,37 +27,23 @@ aos.hydra.lab
 
 [gluster-nodes]
 ares.hydra.lab
-jason.hydra.lab
-castor.hydra.lab
 proteus.hydra.lab
-charon.hydra.lab
+jason.hydra.lab
 
 [kube-master]
 ares.hydra.lab
-jason.hydra.lab
-castor.hydra.lab
 
 [kube-node]
 ares.hydra.lab
-jason.hydra.lab
-castor.hydra.lab
 proteus.hydra.lab
-charon.hydra.lab
-hera.hydra.lab
-iris.hydra.lab
+jason.hydra.lab
 
 [etcd]
 ares.hydra.lab
+proteus.hydra.lab
 jason.hydra.lab
-castor.hydra.lab
 
 
 [k8s-cluster:children]
 kube-node
 kube-master
-
-
-[vault]
-ares.hydra.lab
-jason.hydra.lab
-castor.hydra.lab

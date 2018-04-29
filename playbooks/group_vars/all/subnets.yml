@@ -1,7 +1,8 @@
 subnets:
     external_dell_1:
         dhcp: false
-        hosts: []
+        hosts:
+        -   hostname: hydra-border-3
         name: external_dell_1
         network: 10.68.1.16
         notes: trunked to N9K from Lab L3, last on N9K
@@ -34,7 +35,8 @@ subnets:
         vlan_id: 616
     external_dell_3:
         dhcp: false
-        hosts: []
+        hosts:
+        -   hostname: hydra-border-4
         name: external_dell_3
         network: 10.68.1.24
         notes: trunked to N9K from Lab L3, last on N9K
@@ -67,7 +69,8 @@ subnets:
         vlan_id: 678
     external_hpe_1:
         dhcp: false
-        hosts: []
+        hosts:
+        -   hostname: hydra-border-1
         name: external_hpe_1
         network: 10.68.1.0
         notes: trunked to N9K from Lab L3, last on N9K
@@ -83,7 +86,8 @@ subnets:
         vlan_id: 611
     external_hpe_2:
         dhcp: false
-        hosts: []
+        hosts:
+        -   hostname: hydra-border-1
         name: external_hpe_2
         network: 10.68.1.4
         notes: trunked to N9K from Lab L3, last on N9K
@@ -144,34 +148,42 @@ subnets:
         dhcp: true
         domain: fabric.hydra.lab
         hosts:
-        -   hostname: hydra-tor-4-1
-            mac_address: d8:9e:f3:a7:1d:20
-        -   hostname: hydra-spine-1
-            mac_address: 1c:98:ec:4e:35:69
-        -   hostname: hydra-spine-2
-            mac_address: 1c:98:ec:4e:65:7b
         -   hostname: hydra-spine-3
             mac_address: d8:9e:f3:b6:f4:20
-        -   hostname: hydra-tor-2-2
-            mac_address: e0:7:1b:c9:60:5c
-        -   hostname: hydra-tor-2-1
-            mac_address: e0:7:1b:c9:40:ea
-        -   hostname: hydra-tor-3-2
-            mac_address: e4:f0:4:32:8d:1a
-        -   hostname: hydra-tor-3-1
-            mac_address: e4:f0:4:32:82:1a
-        -   hostname: hydra-tor-1-2
-            mac_address: e0:7:1b:c9:60:12
-        -   hostname: hydra-tor-1-1
-            mac_address: e0:7:1b:c9:40:56
         -   hostname: hydra-spine-4
             mac_address: d8:9e:f3:b5:37:a0
-        -   hostname: hydra-superspine-1
-            mac_address: d8:9e:f3:b6:e8:20
-        -   hostname: hydra-tor-4-2
-            mac_address: 34:17:eb:4c:42:80
+        -   hostname: hydra-tor-3-1
+            mac_address: e4:f0:4:32:82:1a
+        -   hostname: hydra-spine-2
+            mac_address: 1c:98:ec:4e:65:7b
+        -   hostname: hydra-tor-4-1
+            mac_address: d8:9e:f3:a7:1d:20
+        -   hostname: hydra-tor-1-1
+            mac_address: e0:7:1b:c9:40:56
         -   hostname: hydra-superspine-2
             mac_address: d8:9e:f3:b6:ec:a0
+        -   hostname: hydra-tor-2-1
+            mac_address: e0:7:1b:c9:40:ea
+        -   hostname: hydra-superspine-1
+            mac_address: d8:9e:f3:b6:e8:20
+        -   hostname: hydra-tor-1-2
+            mac_address: e0:7:1b:c9:60:12
+        -   hostname: hydra-border-1
+            mac_address: e0:7:1b:c7:40:92
+        -   hostname: hydra-tor-2-2
+            mac_address: e0:7:1b:c9:60:5c
+        -   hostname: hydra-border-2
+            mac_address: e0:7:1b:c7:80:20
+        -   hostname: hydra-tor-4-2
+            mac_address: 34:17:eb:4c:42:80
+        -   hostname: hydra-border-4
+            mac_address: d8:9e:f3:a7:20:20
+        -   hostname: hydra-spine-1
+            mac_address: 1c:98:ec:4e:35:69
+        -   hostname: hydra-border-3
+            mac_address: 34:17:eb:4c:3f:80
+        -   hostname: hydra-tor-3-2
+            mac_address: e4:f0:4:32:8d:1a
         name: fabric
         network: 10.60.4.0
         nic: ens224
@@ -190,40 +202,36 @@ subnets:
         dhcp: true
         domain: hydra.lab
         hosts:
-        -   hostname: triton
-        -   hostname: hypnos
-        -   hostname: jason
-        -   hostname: morpheus
-        -   hostname: proteus
-        -   hostname: hydra-mgmt-1
-            mac_address: 0:5d:73:ec:1c:bc
-        -   hostname: hydra-mgmt-2
-            mac_address: b4:de:31:94:32:f0
-        -   hostname: castor
-        -   hostname: hydra-dns-2
-        -   hostname: hydra-dns-1
-        -   hostname: ares
-        -   hostname: zephyrus
-        -   hostname: helios
-        -   hostname: pollux
-        -   hostname: hera
-        -   hostname: hydra-console-1
-            mac_address: 0:80:a3:96:83:d1
         -   hostname: hydra-console-2
-        -   hostname: aos
-            mac_address: 0:c:29:cd:95:8a
-        -   hostname: kratus
-        -   hostname: hermes
-        -   hostname: iris
-        -   hostname: charon
-        -   hostname: hydra-pdu-2
-            mac_address: 0:d:5d:12:eb:e2
         -   hostname: hydra-pdu-3
             mac_address: 0:d:5d:12:eb:8e
+        -   hostname: hypnos
+        -   hostname: kratus
+        -   hostname: hydra-pdu-2
+            mac_address: 0:d:5d:12:eb:e2
+        -   hostname: hydra-mgmt-1
+            mac_address: 0:5d:73:ec:1c:bc
+        -   hostname: morpheus
         -   hostname: hydra-pdu-1
             mac_address: 0:d:5d:12:eb:96
+        -   hostname: hydra-mgmt-2
+            mac_address: b4:de:31:94:32:f0
+        -   hostname: hydra-console-1
+            mac_address: 0:80:a3:96:83:d1
+        -   hostname: helios
+        -   hostname: pollux
+        -   hostname: proteus
+        -   hostname: jason
+        -   hostname: hydra-dns-2
+        -   hostname: aos
+            mac_address: 0:c:29:cd:95:8a
+        -   hostname: zephyrus
+        -   hostname: hydra-dns-1
+        -   hostname: hermes
+        -   hostname: ares
         -   hostname: hydra-pdu-4
             mac_address: 0:d:5d:12:eb:fa
+        -   hostname: triton
         name: management
         network: 10.60.3.0
         nic: ens160
@@ -233,7 +241,23 @@ subnets:
     oob:
         dhcp: true
         domain: oob.hydra.lab
-        hosts: []
+        hosts:
+        -   hostname: helios
+            mac_address: 30:e1:71:69:74:f8
+        -   hostname: morpheus
+            mac_address: 30:e1:71:69:84:2c
+        -   hostname: zephyrus
+            mac_address: 30:e1:71:69:63:8e
+        -   hostname: pollux
+            mac_address: 9c:b6:54:7a:58:e4
+        -   hostname: kratus
+            mac_address: 9c:b6:54:7a:45:9c
+        -   hostname: hypnos
+            mac_address: 30:e1:71:69:54:58
+        -   hostname: triton
+            mac_address: 30:e1:71:69:74:e4
+        -   hostname: hermes
+            mac_address: 30:e1:71:69:54:32
         name: oob
         network: 10.60.2.0
         nic: ens192
@@ -258,8 +282,19 @@ subnets:
         dhcp: true
         domain: pxe.hydra.lab
         hosts:
-        -   hostname: hydra-bmp-2
-        -   hostname: hydra-bmp-1
+        -   hostname: helios
+            mac_address: 30:e1:71:6d:c0:ec
+        -   hostname: morpheus
+            mac_address: 30:e1:71:6d:d0:54
+        -   hostname: kratus
+        -   hostname: triton
+        -   hostname: pollux
+        -   hostname: hermes
+            mac_address: 30:e1:71:6d:70:64
+        -   hostname: hypnos
+            mac_address: 30:e1:71:6d:70:ac
+        -   hostname: zephyrus
+            mac_address: 30:e1:71:6c:ae:74
         name: pxe
         network: 10.60.6.0
         nic: ens256

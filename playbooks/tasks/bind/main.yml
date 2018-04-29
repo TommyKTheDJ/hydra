@@ -1,0 +1,50 @@
+- name: Install bind
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - bind9
+    - bind9utils
+    - bind9-doc
+
+- name: Open iptables port
+  iptables:
+    chain: INPUT
+    jump: ACCEPT
+    protocol: udp
+    destination_port: 53
+    comment: Allow incoming DNS requests
+    state: present
+
+- name: Save iptables
+  command: iptables-save
+
+- name: Copy named conf file
+  template:
+    src: "{{ playbook_dir }}/templates/bind/named.conf.j2"
+    dest: /etc/bind/named.conf
+    owner: bind
+    group: bind
+    mode: 0660
+
+- name: Copy forward file
+  template:
+    src: "{{ playbook_dir }}/templates/bind/db.forward.j2"
+    dest: /etc/bind/hydra.lab.zone
+    owner: bind
+    group: bind
+    mode: 0640
+
+
+- name: Copy reverse file
+  template:
+    src: "{{ playbook_dir }}/templates/bind/db.reverse.j2"
+    dest: /etc/bind/60.10.in-addr.arpa.zone
+    owner: bind
+    group: bind
+    mode: 0640
+
+- name: Restart bind9
+  service:
+    name: bind9
+    state: restarted

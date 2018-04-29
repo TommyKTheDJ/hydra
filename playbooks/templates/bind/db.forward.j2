@@ -1,0 +1,22 @@
+$TTL 300	; 5 minutes
+@  900	IN SOA	{{ inventory_hostname }}. (
+  {{ inventory_hostname }}.
+  {{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}{{ ansible_date_time.hour }} ; serial
+  604800     ; refresh (1 week)
+  86400      ; retry (1 day)
+  2419200    ; expire (4 weeks)
+  300        ; minimum (1 week)
+  )
+{% for dns_host in groups['dns'] %}
+  IN NS   {{ dns_host }}.
+{% endfor %}
+  IN   A  {{ ansible_host }}
+{% for subnet_name, subnet in subnets.iteritems() -%}
+{% if 'domain' in subnet.keys() and subnet.domain and subnet.hosts | length >0 %}
+$ORIGIN {{ subnet.domain }}.
+{% for host in subnet.hosts %}
+{{ host.hostname }}   A   {{ hosts[host.hostname].interfaces[subnet_name].ip | ipaddr('address') }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}

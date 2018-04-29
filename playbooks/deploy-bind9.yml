@@ -1,0 +1,8 @@
+- hosts: dns
+  gather_facts: yes
+  become: true
+  tasks:
+    - include_tasks: "{{ playbook_dir }}/tasks/bind/main.yml"
+      tags:
+        - dns
+        - bind
