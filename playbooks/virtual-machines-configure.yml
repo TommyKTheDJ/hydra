@@ -2,10 +2,16 @@
   gather_facts: no
   pre_tasks:
     - name: Import initial user/pwd for first configuration
-      include_vars: includes/initial-virtual-machines.yml
+      include_vars: "{{ playbook_dir }}/files/workers/initial.yml"
       when: initial is defined
   become: true
   tasks:
+    - name: Configure Interfaces
+      include_tasks: "{{ playbook_dir }}/tasks/workers/interfaces.yml"
+      tags:
+        - interfaces
+        - dns
+
     - name: Install dependencies
       include_tasks: "{{ playbook_dir }}/tasks/workers/apt.yml"
       tags:
@@ -21,11 +27,7 @@
       tags:
         - keys
 
-    - name: Configure Interfaces
-      include_tasks: "{{ playbook_dir }}/tasks/workers/interfaces.yml"
-      tags:
-        - interfaces
-        - dns
+
 
     - name: Configure hostname
       include_tasks: "{{ playbook_dir }}/tasks/common/hostname.yml"
@@ -50,11 +52,12 @@
         - filebeat
         - monitoring
 
-    - name: Install and configure telegraf
-      include_tasks: "{{ playbook_dir }}/tasks/workers/telegraf.yml"
-      tags:
-        - telegraf
-        - monitoring
+    # TODO: replace with prometheus nodeexporter
+    # - name: Install and configure telegraf
+    #   include_tasks: "{{ playbook_dir }}/tasks/workers/telegraf.yml"
+    #   tags:
+    #     - telegraf
+    #     - monitoring
 
     - name: Install and configure NTP
       include_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
