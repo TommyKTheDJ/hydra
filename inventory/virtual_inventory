@@ -1,11 +1,6 @@
 [virtual-machines:children]
-kube-node
+kube-nodes
 dns
-
-[kubernetes]
-ares.hydra.lab
-proteus.hydra.lab
-jason.hydra.lab
 
 [ntpd]
 hydra-dns-1.hydra.lab
@@ -33,7 +28,7 @@ jason.hydra.lab
 [kube-master]
 ares.hydra.lab
 
-[kube-node]
+[kube-nodes]
 ares.hydra.lab
 proteus.hydra.lab
 jason.hydra.lab
@@ -45,5 +40,5 @@ jason.hydra.lab
 
 
 [k8s-cluster:children]
-kube-node
+kube-nodes
 kube-master

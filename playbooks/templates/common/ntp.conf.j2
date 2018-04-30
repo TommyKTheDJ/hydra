@@ -24,8 +24,6 @@ filegen clockstats file clockstats type day enable
 {% for server in ntp_servers.external %}
 server {{ server }} iburst
 {% endfor %}
-server 127.127.1.0 prefer
-fudge 127.127.1.0 stratum 10
 # By default, exchange time with everybody, but don't allow configuration.
 restrict -4 default kod notrap nomodify limited
 restrict -6 default kod notrap nomodify limited
@@ -46,4 +44,6 @@ restrict ::1
 interface listen eth0
 {% endif %}
 
+tos maxdist 300
+tos maxdisp 300
 driftfile /var/lib/ntp/ntp.drift

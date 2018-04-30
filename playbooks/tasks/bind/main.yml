@@ -17,7 +17,7 @@
     state: present
 
 - name: Save iptables
-  command: iptables-save
+  shell: iptables-save > /etc/iptables/rules.v4
 
 - name: Copy named conf file
   template:

@@ -2,18 +2,30 @@
 - name: NTP | Stop timedatectl
   command: timedatectl set-ntp no
   ignore_errors: True
+  tags:
+    - ntp
 
-- name: NTP | Ensure NTP-related packages are installed.
+- name: NTP | Ensure NTP-related packages are installed
   apt:
     name: "{{ item }}"
     state: present
   with_items:
     - ntp
     - ntpdate
+    - iptables-persistent
+    - netfilter-persistent
+  tags:
+    - ntp
 
 - name: NTP | Set timezone
   timezone:
     name: "{{ ntp_timezone }}"
+  tags:
+    - ntp
+
+- name: NTP | Disable clock sync with vsphere
+  shell: vmware-toolbox-cmd timesync disable
+  ignore_errors: True
 
 - name: NTP | Generate ntp.conf file
   template:
@@ -22,23 +34,44 @@
     owner: root
     group: root
     mode: 0644
+  tags:
+    - ntp
 
-- name: NTP | SNAT on port UDP 123
+- name: NTP | Change source port for NTP requests on NTPD servers
   iptables:
-    table: nat
-    chain: PREROUTING
-    protocol: udp
-    match: udp
-    source_port: 123
+    chain: POSTROUTING
     jump: SNAT
-    to_source: 12512
-    state: present
-    comment: Alter source port for NTP traffic (blocked by firewall)
-  when: inventory_hostname in groups['ntpd']
+    table: nat
+    match: udp
+    protocol: udp
+    source_port: 123
+    to_source: :12512
+  when: inventory_hostname == groups['ntpd'][0]
+  tags:
+    - ntp
 
+- name: NTP | Change source port for NTP requests on NTPD servers
+  iptables:
+    chain: POSTROUTING
+    jump: SNAT
+    table: nat
+    match: udp
+    protocol: udp
+    source_port: 123
+    to_source: :12513
+  when: inventory_hostname == groups['ntpd'][1]
+  tags:
+    - ntp
 
-- name: NTP | tart daemon
+- name: NTP | Save iptables rules
+  shell: iptables-save > /etc/iptables/rules.v4
+  tags:
+    - ntp
+
+- name: NTP | restart daemon
   systemd:
     name: ntp
     enabled: yes
     state: restarted
+  tags:
+    - ntp

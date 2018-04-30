@@ -9,27 +9,27 @@
         - always
 
   tasks:
-    - name: Configure Interfaces
-      include_tasks: "{{ playbook_dir }}/tasks/workers/interfaces.yml"
-      tags:
-        - interfaces
-        - dns
-
-    - name: Install dependencies
-      include_tasks: "{{ playbook_dir }}/tasks/workers/apt.yml"
-      tags:
-        - apt
-
-    - name: Configure users
-      include_tasks: "{{ playbook_dir }}/tasks/workers/users.yml"
-      tags:
-        - users
-
-    - name: Distribute keys
-      include_tasks: "{{ playbook_dir }}/tasks/common/keys.yml"
-      tags:
-        - keys
-
+    # - name: Configure Interfaces
+    #   include_tasks: "{{ playbook_dir }}/tasks/workers/interfaces.yml"
+    #   tags:
+    #     - interfaces
+    #     - dns
+    #
+    # - name: Install dependencies
+    #   include_tasks: "{{ playbook_dir }}/tasks/workers/apt.yml"
+    #   tags:
+    #     - apt
+    #
+    # - name: Configure users
+    #   include_tasks: "{{ playbook_dir }}/tasks/workers/users.yml"
+    #   tags:
+    #     - users
+    #
+    # - name: Distribute keys
+    #   include_tasks: "{{ playbook_dir }}/tasks/common/keys.yml"
+    #   tags:
+    #     - keys
+    #
     - name: Configure hostname
       include_tasks: "{{ playbook_dir }}/tasks/common/hostname.yml"
       tags:
@@ -42,23 +42,20 @@
 
     - name: Turn off swap
       include_tasks: "{{ playbook_dir }}/tasks/workers/swapoff.yml"
-      when: inventory_hostname in groups['kubernetes']
+      when: inventory_hostname in groups['kube-nodes']
       tags:
         - docker
         - swap
+
+    - name: Remove floppy mod
+      command: rmmod floppy
+      ignore_errors: True
 
     - name: Install and configure filebeat
       include_tasks: "{{ playbook_dir }}/tasks/common/filebeat.yml"
       tags:
         - filebeat
         - monitoring
-
-    # TODO: replace with prometheus nodeexporter
-    # - name: Install and configure telegraf
-    #   include_tasks: "{{ playbook_dir }}/tasks/workers/telegraf.yml"
-    #   tags:
-    #     - telegraf
-    #     - monitoring
 
     - name: Install and configure NTP
       include_tasks: "{{ playbook_dir }}/tasks/common/ntp.yml"
