@@ -17,4 +17,5 @@
         src: "{{ playbook_dir }}/shared/hydra_lab_inventory.xlsx"
         hosts_database_dest: "{{ playbook_dir }}/group_vars/all/database.yml"
         subnets_database_dest: "{{ playbook_dir }}/group_vars/all/subnets.yml"
+        dns_service_entries_database_dest: "{{ playbook_dir }}/group_vars/all/dns_service_entries.yml"
         force: True

@@ -174,19 +174,18 @@ subnets:
             mac_address: e0:7:1b:c9:60:5c
         -   hostname: hydra-border-2
             mac_address: e0:7:1b:c7:80:20
+        -   hostname: hydra-spine-1
+            mac_address: 1c:98:ec:4e:35:69
         -   hostname: hydra-tor-4-2
             mac_address: 34:17:eb:4c:42:80
         -   hostname: hydra-border-4
             mac_address: d8:9e:f3:a7:20:20
-        -   hostname: hydra-spine-1
-            mac_address: 1c:98:ec:4e:35:69
         -   hostname: hydra-border-3
             mac_address: 34:17:eb:4c:3f:80
         -   hostname: hydra-tor-3-2
             mac_address: e4:f0:4:32:8d:1a
         name: fabric
         network: 10.60.4.0
-        nic: ens224
         notes: trunked to N9K from Lab L3, 1st address on L3
         prefix_length: 24
         vlan_id: 702
@@ -260,7 +259,6 @@ subnets:
             mac_address: 30:e1:71:69:54:32
         name: oob
         network: 10.60.2.0
-        nic: ens192
         notes: trunked to N9K from Lab L3, 1st address on L3
         prefix_length: 24
         vlan_id: 700
@@ -284,6 +282,8 @@ subnets:
         hosts:
         -   hostname: helios
             mac_address: 30:e1:71:6d:c0:ec
+        -   hostname: hypnos
+            mac_address: 30:e1:71:6d:70:ac
         -   hostname: morpheus
             mac_address: 30:e1:71:6d:d0:54
         -   hostname: kratus
@@ -291,22 +291,23 @@ subnets:
         -   hostname: pollux
         -   hostname: hermes
             mac_address: 30:e1:71:6d:70:64
-        -   hostname: hypnos
-            mac_address: 30:e1:71:6d:70:ac
         -   hostname: zephyrus
             mac_address: 30:e1:71:6c:ae:74
         name: pxe
         network: 10.60.6.0
-        nic: ens256
         notes: trunked to N9K from Lab L3, last on N9K
         prefix_length: 24
         vlan_id: 706
     services:
         dhcp: false
         domain: services.hydra.lab
-        hosts: []
+        hosts:
+        -   hostname: proteus
+        -   hostname: ares
+        -   hostname: jason
         name: services
         network: 10.60.5.0
+        nic: ens192
         notes: trunked to N9K from Lab L3, 1st address on L3
         prefix_length: 24
         vlan_id: 705

@@ -60,6 +60,7 @@ import os
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.generate_hosts_database import *
 from ansible.module_utils.generate_subnet_database import *
+from ansible.module_utils.generate_dns_services_entries import *
 import sys
 import yaml
 
@@ -70,6 +71,7 @@ def run_module():
         src=dict(type='str', required=True),
         hosts_database_dest=dict(type='str', required=False, default=None),
         subnets_database_dest=dict(type='str', required=False, default=None),
+        dns_service_entries_database_dest=dict(type='str', required=False, default=None),
         force=dict(type='bool', required=False, default=False),
     )
 
@@ -94,7 +96,7 @@ def run_module():
     )
     hosts_database_filename = module.params['hosts_database_dest'] or "/tmp/database.yml"
     subnets_database_filename = module.params['subnets_database_dest'] or "/tmp/subnets.yml"
-
+    dns_service_entries_database_filename = module.params['dns_service_entries_database_dest'] or "/tmp/dns_service_entries.yml"
     # CHECK IF DATABASE DATA CHANGED
     try:
         with open(hosts_database_filename,'r') as destination_file:
@@ -114,6 +116,11 @@ def run_module():
         result['error'] = e
         module.fail_json(msg='subnet database generation failed', **result)
 
+    try:
+        dns_service_entries_database_data = generate_dns_services_entries(inventory_filename = module.params['src'])
+    except Exception as e:
+        result['error'] = e
+        module.fail_json(msg='DNS service entries database generation failed', **result)
     # new_file_hash = hashlib.md5().update(database_data)
     # yaml.safe_dump(database,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
 
@@ -141,14 +148,23 @@ def run_module():
             try:
                 yaml.safe_dump(hosts_database_data,hosts_database_file,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
                 result['message'] = 'Database file correctly generated'
-            except:
+            except Exception as e:
+                result['error'] = e
                 module.fail_json(msg='Writing database data file failed', **result)
         with open(subnets_database_filename,'w') as subnets_database_file:
             try:
                 yaml.safe_dump(subnets_database_data,subnets_database_file,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
                 result['message'] = 'Subnet database file correctly generated'
-            except:
+            except Exception as e:
+                result['error'] = e
                 module.fail_json(msg='Writing subnet data file failed', **result)
+        with open(dns_service_entries_database_filename,'w') as dns_service_entries_database_file:
+            try:
+                yaml.safe_dump(dns_service_entries_database_data,dns_service_entries_database_file,allow_unicode = True,indent = 4,default_flow_style = False,encoding = 'utf-8')
+                result['message'] = 'DNS service database file correctly generated'
+            except Exception as e:
+                result['error'] = e
+                module.fail_json(msg='Writing DNS service database file failed', **result)
     else:
             result['message'] = 'No changes required'
 

@@ -1,0 +1,21 @@
+dns_service_entries:
+-   domain: hydra.lab
+    host: grafana
+    type: CNAME
+    value: vip
+-   domain: hydra.lab
+    host: kibana
+    type: CNAME
+    value: vip
+-   domain: hydra.lab
+    host: vip
+    type: A
+    value: 10.60.3.102
+-   domain: hydra.lab
+    host: vip
+    type: A
+    value: 10.60.3.101
+-   domain: hydra.lab
+    host: vip
+    type: A
+    value: 10.60.3.100

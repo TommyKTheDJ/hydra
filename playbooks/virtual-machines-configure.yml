@@ -9,27 +9,27 @@
         - always
 
   tasks:
-    # - name: Configure Interfaces
-    #   include_tasks: "{{ playbook_dir }}/tasks/workers/interfaces.yml"
-    #   tags:
-    #     - interfaces
-    #     - dns
-    #
-    # - name: Install dependencies
-    #   include_tasks: "{{ playbook_dir }}/tasks/workers/apt.yml"
-    #   tags:
-    #     - apt
-    #
-    # - name: Configure users
-    #   include_tasks: "{{ playbook_dir }}/tasks/workers/users.yml"
-    #   tags:
-    #     - users
-    #
-    # - name: Distribute keys
-    #   include_tasks: "{{ playbook_dir }}/tasks/common/keys.yml"
-    #   tags:
-    #     - keys
-    #
+    - name: Configure Interfaces
+      include_tasks: "{{ playbook_dir }}/tasks/workers/interfaces.yml"
+      tags:
+        - interfaces
+        - dns
+
+    - name: Install dependencies
+      include_tasks: "{{ playbook_dir }}/tasks/workers/apt.yml"
+      tags:
+        - apt
+
+    - name: Configure users
+      include_tasks: "{{ playbook_dir }}/tasks/workers/users.yml"
+      tags:
+        - users
+
+    - name: Distribute keys
+      include_tasks: "{{ playbook_dir }}/tasks/common/keys.yml"
+      tags:
+        - keys
+    
     - name: Configure hostname
       include_tasks: "{{ playbook_dir }}/tasks/common/hostname.yml"
       tags:

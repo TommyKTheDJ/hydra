@@ -1,21 +1,26 @@
 $ORIGIN 60.10.in-addr.arpa.
 @  900  IN  SOA {{ inventory_hostname }}.  (
-    {{ inventory_hostname }}. ;
-    {{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}{{ ansible_date_time.hour }} ; serial
-    10800 ; refresh
-    15 ; retry
-    10800 ; expire
-    900 ; nxdomain ttl
-   )
+	{{ inventory_hostname }}. ;
+	{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}{{ ansible_date_time.hour }} ; serial
+	10800 ; refresh
+	15 ; retry
+	10800 ; expire
+	900 ; nxdomain ttl
+	)
 {% for dns_host in groups['dns'] %}
-		IN	NS	{{ dns_host }}.
+	IN	NS	{{ dns_host }}.
 {% endfor %}
 
 {% for subnet_name, subnet in subnets.iteritems() -%}
 {% if 'domain' in subnet.keys() and subnet.domain %}
 {% for host in subnet.hosts %}
 {% set ip = hosts[host.hostname].interfaces[subnet_name].ip | ipaddr('address') %}
-{{ ip.split('.')[3] }}.{{ ip.split('.')[2] }} IN  PTR {{ host.hostname }}.{{ subnet.domain }}.
+{{ ip.split('.')[3] }}.{{ ip.split('.')[2] }}	IN	PTR {{ host.hostname }}.{{ subnet.domain }}.
+{% endfor %}
+{% for entry in dns_service_entries %}
+{% if entry.domain == subnet.domain and entry.type == 'A' %}
+{{ entry.value.split('.')[3] }}.{{ entry.value.split('.')[2] }}	IN	PTR {{ entry.host }}.{{ entry.domain }}.
+{% endif %}
 {% endfor %}
 {% endif %}
 {% endfor %}
