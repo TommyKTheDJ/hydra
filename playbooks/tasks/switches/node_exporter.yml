@@ -1,0 +1,71 @@
+---
+
+- name: Prometheus NE | Remove and purge Telegraf
+  apt:
+    name: telegraf
+    state: absent
+    purge: yes
+  tags:
+    - node_exporter
+
+- name:  Prometheus NE | Download Prometheus Node Exporter
+  get_url:
+    url: https://github.com/prometheus/node_exporter/releases/download/v0.15.1/node_exporter-0.15.1.linux-amd64.tar.gz
+    dest: /tmp/node_exporter-0.15.1.linux-amd64.tar.gz
+    checksum: sha256:7ffb3773abb71dd2b2119c5f6a7a0dbca0cff34b24b2ced9e01d9897df61a127
+    state: present
+
+- name: Prometheus NE | Extract archive
+  unarchive:
+    src:  /tmp/node_exporter-0.15.1.linux-amd64.tar.gz
+    dest: /tmp
+    remote_src: yes
+
+- name: Prometheus NE | Move executable in /usr/local/bin
+  copy: remote_src=True src=/tmp/node_exporter dest=/usr/local/bin
+  group: node_exporter
+  owner: node_exporter
+
+- name: Prometheus NE | Add to list of vrf services
+  lineinfile:
+    path: /etc/vrf/systemd.conf
+    line: node_exporter
+    state: present
+
+- name: Copy service file
+  template:
+    src: "{{ playbook_dir }}/templates/common/node_exporter.j2"
+    dst: /etc/systemd/system/node_exporter.service
+
+sudo nano /etc/systemd/system/node_exporter.service
+
+================+
+
+- name: Copy telegraf configuration
+  template:
+    src: "{{ playbook_dir }}/templates/switches/telegraf.conf.j2"
+    dest: /etc/telegraf/telegraf.conf
+
+- name: Remove Telegraf in default vrf
+  systemd:
+    name: telegraf
+    state: stopped
+    enabled: no
+
+- name: Enable Telegraf in mgmt vrf
+  systemd:
+    name: telegraf@mgmt
+    state: stopped
+    enabled: yes
+
+- name: Remove User=telegraf in service config to enable running as root
+  lineinfile:
+    path: /lib/systemd/system/telegraf.service
+    line: User=telegraf
+    state: absent
+
+- name: Restart and enable Telegraf in mgmt vrf
+  systemd:
+    name: telegraf@mgmt
+    state: started
+    daemon_reload: yes

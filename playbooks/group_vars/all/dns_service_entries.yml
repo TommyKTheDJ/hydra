@@ -1,5 +1,21 @@
 dns_service_entries:
 -   domain: hydra.lab
+    host: elasticsearch
+    type: CNAME
+    value: vip
+-   domain: hydra.lab
+    host: vip
+    type: A
+    value: 10.60.3.102
+-   domain: hydra.lab
+    host: prometheus
+    type: CNAME
+    value: vip
+-   domain: hydra.lab
+    host: fluentd
+    type: CNAME
+    value: vip
+-   domain: hydra.lab
     host: grafana
     type: CNAME
     value: vip
@@ -8,13 +24,17 @@ dns_service_entries:
     type: CNAME
     value: vip
 -   domain: hydra.lab
-    host: vip
-    type: A
-    value: 10.60.3.102
+    host: onie
+    type: CNAME
+    value: vip
 -   domain: hydra.lab
     host: vip
     type: A
     value: 10.60.3.101
+-   domain: hydra.lab
+    host: kubernetes
+    type: CNAME
+    value: vip
 -   domain: hydra.lab
     host: vip
     type: A

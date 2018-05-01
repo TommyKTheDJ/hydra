@@ -1,3 +1,0 @@
-ansible_user: user
-ansible_ssh_pass: parola
-ansible_become_pass: parola

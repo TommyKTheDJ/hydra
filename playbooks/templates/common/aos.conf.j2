@@ -1,0 +1,55 @@
+# AOS configuration file
+
+
+[controller]
+
+# <metadb> provides directory service for AOS. It must be configured properly
+# for a device to connect to AOS controller.
+metadb = tbt://{{ aos.server_fqdn }}:29731
+# Use <web> to specify AOS web server IP address or name. This is used by
+# device to make REST API calls to AOS controller. It is assumed that AOS web
+# server is running on the same host as metadb if this option is not specified
+web =
+# <interface> is used to specify the management interface.This is currently
+# being used only on server devices and the AOS agent on the server device will
+# not come up unless this is specified.
+interface =
+
+
+[service]
+
+# AOS device agent by default starts in "telemetry-only" mode.Set following
+# variable to 1 if you want AOS agent to manage the configuration of your
+# device.
+enable_configuration_service = 1
+# When managing device configuration AOS agent will restore backup config if it
+# fails to connect to AOS controller in <backup_config_restoration_timeout>,
+# specified as <hh:mm:ss>. Set it to 00:00:00 to disable backup restoration
+backup_config_restoration_timeout = 00:00:00
+
+
+[logrotate]
+
+# AOS has builtin log rotate functionality. You can disable it by setting
+# <enable_log_rotate> to 0 if you want to use linux logrotate utility to manage
+# your log files. AOS agent reopens log file on SIGHUP
+enable_log_rotate = 1
+# Log file will be rotated when its size exceeds <max_file_size>
+max_file_size = 1M
+# The most recent <max_kept_backups> rotated log files will be saved. Older
+# ones will be removed. Specify 0 to not save rotated log files, i.e. the log
+# file will be removed as soon as its size exceeds limit.
+max_kept_backups = 5
+# Interval, specified as <hh:mm:ss>, at which log files are checked for
+# rotation.
+check_interval = 1:00:00
+
+
+[device_info]
+
+# <model> is used to specify the device's hardware model to be reported to AOS
+# device manager. This is only used by servers, so can be ignored for non-
+# server devices such as switches. By default a server reports "Generic Model"
+# which matches a particular HCL entry's selector::model value in AOS. Specify
+# another model for the server to be classified as a different HCL entry.
+model = Generic Model

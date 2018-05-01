@@ -13,8 +13,8 @@
 
 - name: Copy inventory to AOS server
   template:
-    src: "{{ playbook_dir }}/templates/baremetals/aos_inventory.j2"
-    dest: /tmp/inveo
+    src: "{{ playbook_dir }}/templates/common/aos_inventory.j2"
+    dest: /tmp/inventory
 
 - name: Get installation script
   get_url:
@@ -34,7 +34,7 @@
 - name: Correct host in aos.conf
   template:
     dest: /etc/aos/aos.conf
-    src: templates/common/aos.conf.j2
+    src: "{{ playbook_dir }}/templates/common/aos.conf.j2"
 
 - name: Restart AoS service
   service:

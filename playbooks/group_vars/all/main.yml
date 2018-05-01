@@ -1,9 +1,5 @@
 output_folder: /tmp
 
-
-ztp_fqdn: cluster.hydra.lab
-ztp_port: 80
-
 gluster_hdd_device: /dev/sdb
 
 aos:

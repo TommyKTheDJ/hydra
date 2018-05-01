@@ -28,16 +28,12 @@ dhcp_failover_backup: hydra-dns-2
 #===================================================
 services:
   ingress:
-    host: cluster.hydra.lab
+    host: vip.hydra.lab
     namespace: ingress-nginx
     exposed: False
-  influxdb:
-    host: cluster.hydra.lab
-    namespace: telemetry
-    db:
-      name: hydra
-      user: hydra
-      password: jj12y0ddnl
+  prometheus:
+    host: prometheus.hydra.lab
+    namespace: monitoring
     exposed: True
     ports:
       http:
@@ -46,39 +42,13 @@ services:
         protocol: TCP
         number: 8086
         exposed: True
-      bind:
-        endpoint_alias: influxdb-bind
-        alias: influxdb-bind
-        protocol: TCP
-        number: 8088
-        exposed: True
-    retention:
-      workers: workers
-      switches: fabric
-      baremetals: baremetals
-    username: cumulus
-    password: cumulus
-    database: network
   fluentd:
-    host: cluster.hydra.lab
-    namespace: telemetry
+    host: fluentd.hydra.lab
+    namespace: monitoring
     exposed: True
-    ports:
-      syslog:
-        endpoint_alias: fluentd-syslog
-        alias: fluentd-syslog
-        protocol: UDP
-        number: 5140
-        exposed: True
-      http:
-        endpoint_alias: fluentd-http
-        alias: fluentd-http
-        protocol: TCP
-        number: 5141
-        exposed: True
   elasticsearch:
-    namespace: telemetry
-    host: cluster.hydra.lab
+    namespace: monitoring
+    host: elasticsearch.hydra.lab
     exposed: True
     ports:
       http:
@@ -88,8 +58,8 @@ services:
         number: 9200
         exposed: True
   kibana:
-    namespace: telemetry
-    host: cluster.hydra.lab
+    namespace: monitoring
+    host: kibana.hydra.lab
     exposed: True
     ports:
       http:
@@ -99,8 +69,8 @@ services:
         number: 5601
         exposed: True
   grafana:
-    host: cluster.hydra.lab
-    namespace: telemetry
+    host: grafana.hydra.lab
+    namespace: monitoring
     exposed: True
     ports:
       http:

@@ -48,10 +48,6 @@
       tags:
         - keys
 
-    - include_tasks: "{{ playbook_dir }}/tasks/switches/telegraf.yml"
-      tags:
-        - telegraf
-
     - include_tasks: "{{ playbook_dir }}/tasks/switches/syslog.yml"
       tags:
         - syslog
