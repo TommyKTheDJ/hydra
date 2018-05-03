@@ -22,7 +22,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: "*.hydra.lab"
+  - host: "onie.hydra.lab"
     http:
       paths:
       - path: /onie
